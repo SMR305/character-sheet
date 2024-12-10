@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import Autocomplete from "./Autocomplete";
 import handleDownload from "./DownloadFile";
 import FileUploader from "./UploadFile";
 import { core_2014, core_2024 } from "./autoCompletes/classes";
-import { bg_PHB, bg_XPHB, bg_backgroundSources } from "./autoCompletes/backgrounds";
-import { race_PHB, race_XPHB, race_DMG } from "./autoCompletes/races";
+import { bg_PHB, bg_XPHB, backgroundSources } from "./autoCompletes/backgrounds";
+import { race_PHB, race_XPHB, race_DMG, raceSources } from "./autoCompletes/races";
 
 const App = () => {
+  // Character Stuff
   const [character, setCharacter] = useState({
     name: "",
     race: "",
@@ -32,6 +33,23 @@ const App = () => {
   const [listClasses, updateClasses] = useState([...core_2014, ...core_2024]);
   const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
   const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
+
+  // settings information
+  const [settingsText, changeSettingsText] = useState("Source Options +");
+  const [showSettings, changeShow] = useState(false);
+  const allSources = [...new Set([...backgroundSources, ...raceSources])];
+  const [checkedItems, setCheckedItems] = useState(
+    allSources.reduce((acc, item) => ({ ...acc, "PHB": true, "XPHB": true, "DMG":true, [item]: false }), {})
+  );
+  
+    // Handle checkbox toggle
+    const handleCheckboxChange = (item) => {
+      setCheckedItems((prev) => ({
+        ...prev,
+        [item]: !prev[item], // Toggle the checkbox state
+      }));
+    };
+  
 
   useEffect(() => {
     const defaultSkills = [
@@ -74,7 +92,7 @@ const App = () => {
   const calculateProfBonus = () => Math.ceil(totalLevel / 4) + 1;
 
   const calculateModifier = (score, prof) => {
-    return (Math.floor((score - 10) / 2) + ((Number(prof) === 1) ? calculateProfBonus() : 0));
+    return (Math.floor((score - 10) / 2) + ((Number(prof) >= 1) ? (Number(prof) * calculateProfBonus()) : 0));
   };
 
   const handleCharacterChange = (e) => {
@@ -165,9 +183,41 @@ const App = () => {
     handleDownload({ character, levels, abilityScores, skills, notes });
   };
 
+  const handleSettings = () => {
+    if (showSettings) {
+      changeSettingsText("Source Options +");
+      changeShow(0);
+    }
+    else {
+      changeSettingsText("Source Options -");
+      changeShow(1);  
+    }
+  };
+
   return (
     <div className="container">
       <h1>D&D 5e Character Sheet</h1>
+      <div style={{textAlign:"right"}}>
+        <text onClick={handleSettings}>{`${settingsText}`}</text>
+        {showSettings ?
+          (
+          <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>
+            {allSources.map((item) => (
+              <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
+                <div key={item}>
+                    <input
+                      type="checkbox"
+                      checked={checkedItems[item]}
+                      onChange={() => handleCheckboxChange(item)}
+                    />
+                    {item}
+                </div>
+              </label>
+            ))}
+          </div>)
+          : (<span></span>)
+        }
+      </div>
       <div className="form-group">
         <label>Character Name</label>
         <input
@@ -304,6 +354,7 @@ const App = () => {
           >
             <option value={0}></option>
             <option value={1}>*</option>
+            <option value={2}>#</option>
           </select>
           <span style={{whiteSpace: "pre-wrap"}}>
             {`   ${skill.name}: `.padEnd(20)}
@@ -321,7 +372,7 @@ const App = () => {
       <button onClick={loadJson}>Test Loading</button>
       <br />
       {charData[0] === undefined
-        ? (<text> Waiting </text>)
+        ? (<span> Waiting </span>)
         : (<span>{charData[0].name} {charData[0].spellSlots}</span>)
       }
       <hr />
