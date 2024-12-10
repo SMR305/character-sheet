@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Autocomplete from "./Autocomplete";
 import handleDownload from "./DownloadFile";
 import FileUploader from "./UploadFile";
+import { core_2014, core_2024 } from "./autoCompletes/classes";
+import { bg_PHB, bg_XPHB, bg_backgroundSources } from "./autoCompletes/backgrounds";
+import { race_PHB, race_XPHB, race_DMG } from "./autoCompletes/races";
 
 const App = () => {
   const [character, setCharacter] = useState({
@@ -24,6 +27,11 @@ const App = () => {
   const [charClass, setClass] = useState('');
   const [charData, setData] = useState([]);
   const [notes, setNotes] = useState('');
+
+  // suggestions
+  const [listClasses, updateClasses] = useState([...core_2014, ...core_2024]);
+  const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
+  const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
 
   useEffect(() => {
     const defaultSkills = [
@@ -175,7 +183,7 @@ const App = () => {
           filler="Select Race..."
           onChange={handleRaceChange}
           display={character.race}
-          newSuggestions={["Human", "Elf", "Gnome"]}
+          newSuggestions={listRaces}
         />
       </div>
       <div className="form-group">
@@ -184,7 +192,7 @@ const App = () => {
           filler="Select Background..."
           onChange={handleBackgroundChange}
           display={character.background}
-          newSuggestions={["Hermit", "Guild Artisan", "Soldier"]}
+          newSuggestions={listBackgrounds}
         />
       </div>
       <div className="form-group">
@@ -212,7 +220,7 @@ const App = () => {
       <Autocomplete
         filler="Class..."
         onChange={handleClass}
-        newSuggestions={["Bard", "Wizard", "Cleric"]}
+        newSuggestions={listClasses}
       />
       {levels.map((level, index) => (
         <div key={index} className="modifier-display">
