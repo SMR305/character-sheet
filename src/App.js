@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import Autocomplete from "./Autocomplete";
 import handleDownload from "./DownloadFile";
 import FileUploader from "./UploadFile";
-import { core_2014, core_2024 } from "./autoCompletes/classes";
+import { core_2014, core_2024, crit_roll } from "./autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "./autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "./autoCompletes/races";
 
@@ -26,11 +26,11 @@ const App = () => {
   const [skills, setSkills] = useState([]);
   const [totalLevel, setTLevel] = useState(0);
   const [charClass, setClass] = useState('');
-  const [charData, setData] = useState([]);
+  const [Data, setData] = useState([]);
   const [notes, setNotes] = useState('');
 
   // suggestions
-  const [listClasses, updateClasses] = useState([...core_2014, ...core_2024]);
+  const listClasses = [...core_2014, ...core_2024, ...crit_roll];
   const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
   const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
 
@@ -42,13 +42,13 @@ const App = () => {
     allSources.reduce((acc, item) => ({ ...acc, "PHB": true, "XPHB": true, "DMG":true, [item]: false }), {})
   );
   
-    // Handle checkbox toggle
-    const handleCheckboxChange = (item) => {
-      setCheckedItems((prev) => ({
-        ...prev,
-        [item]: !prev[item], // Toggle the checkbox state
-      }));
-    };
+  // Handle checkbox toggle
+  const handleCheckboxChange = (item) => {
+    setCheckedItems((prev) => ({
+      ...prev,
+      [item]: !prev[item], // Toggle the checkbox state
+    }));
+  };
   
 
   useEffect(() => {
@@ -76,10 +76,10 @@ const App = () => {
   }, []);
   
   const loadJson = async () => {
-    let input = "Wizard";
+    let input = "spells-phb";
     try {
-      const module = await import(`./Class-Files/${input}.json`); // Adjust the path as needed
-      setData([...charData, module.default]);
+      const module = await import(`./spells/${input}.json`); // Adjust the path as needed
+      setData([...module["spell"]]);
     } catch (error) {
       console.error("Error loading JSON:", error);
     }
@@ -194,6 +194,41 @@ const App = () => {
     }
   };
 
+  const loadSources = async () => {
+    let list = [];
+    for (let i = 0; i < allSources.length; i++) {
+      if (checkedItems[allSources[i]] === true) {
+        list.push(allSources[i]);
+      }
+    }
+
+    let final_races = [];
+    let final_bg = [];
+
+    for (let i = 0; i < list.length; i++) {
+      try {
+        const module = await import("./autoCompletes/races.js"); // Adjust path if necessary
+        if (module["race_" + list[i]]) {
+          final_races.push(...module["race_" + list[i]]);
+        }
+      } catch (error) {
+        console.error("Error importing a source:", error);
+      }
+
+      try {
+        const module = await import("./autoCompletes/backgrounds.js"); // Adjust path if necessary
+        if (module["bg_" + list[i]]) {
+          final_bg.push(...module["bg_" + list[i]]);
+        }
+      } catch (error) {
+        console.error("Error importing a source:", error);
+      }
+    }
+
+    updateRaces([...final_races]);
+    updateBackgrounds([...final_bg]);
+  }
+
   return (
     <div className="container">
       <h1>D&D 5e Character Sheet</h1>
@@ -214,6 +249,7 @@ const App = () => {
                 </div>
               </label>
             ))}
+            <button className="blue-button" onClick={loadSources}> Load New Sources </button>
           </div>)
           : (<span></span>)
         }
@@ -371,9 +407,9 @@ const App = () => {
       <hr />
       <button onClick={loadJson}>Test Loading</button>
       <br />
-      {charData[0] === undefined
+      {Data[0] === undefined
         ? (<span> Waiting </span>)
-        : (<span>{charData[0].name} {charData[0].spellSlots}</span>)
+        : (<span>{Data[0].name} {Data[0].entries}</span>)
       }
       <hr />
       <h2>Notes</h2>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
-  const [suggestions, setSuggestions] = useState(["cat", "dog", "bird"]);
+  const [suggestions, setSuggestions] = useState([]);
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);

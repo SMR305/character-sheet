@@ -12,5 +12,5 @@ export const core_2024 = [
 ];
 
 export const crit_roll = [
-    "Blood Hunter"
+    "Blood Hunter (Critical Roll)"
 ];
