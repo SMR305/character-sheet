@@ -24,6 +24,14 @@ const App = () => {
     charisma: 10,
   });
   const [health_info, setHealth] = useState({ cur: 0, max: 0, temp: 0});
+  const [savingThrows, setSavingThrows] = useState([
+    {name: "strength", mod: 0, prof: 0},
+    {name: "dexterity", mod: 0, prof: 0},
+    {name: "constitution", mod: 0, prof: 0},
+    {name: "intelligence", mod: 0, prof: 0},
+    {name: "wisdom", mod: 0, prof: 0},
+    {name: "charisma", mod: 0, prof: 0}
+  ]);
   const [skills, setSkills] = useState([]);
   const [totalLevel, setTLevel] = useState(0);
   const [charClass, setClass] = useState('');
@@ -54,24 +62,24 @@ const App = () => {
 
   useEffect(() => {
     const defaultSkills = [
-      { name: "Acrobatics", ability: "dexterity", prof: 0 },
-      { name: "Animal Handling", ability: "wisdom", prof: 0 },
-      { name: "Arcana", ability: "intelligence", prof: 0 },
-      { name: "Athletics", ability: "strength", prof: 0 },
-      { name: "Deception", ability: "charisma", prof: 0 },
-      { name: "History", ability: "intelligence", prof: 0 },
-      { name: "Insight", ability: "wisdom", prof: 0 },
-      { name: "Intimidation", ability: "charisma", prof: 0 },
-      { name: "Investigation", ability: "intelligence", prof: 0 },
-      { name: "Medicine", ability: "wisdom", prof: 0 },
-      { name: "Nature", ability: "intelligence", prof: 0 },
-      { name: "Perception", ability: "wisdom", prof: 0 },
-      { name: "Performance", ability: "charisma", prof: 0 },
-      { name: "Persuasion", ability: "charisma", prof: 0 },
-      { name: "Religion", ability: "intelligence", prof: 0 },
-      { name: "Sleight of Hand", ability: "dexterity", prof: 0 },
-      { name: "Stealth", ability: "dexterity", prof: 0 },
-      { name: "Survival", ability: "wisdom", prof: 0 },
+      { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
+      { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
+      { name: "History", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
     ];
     setSkills(defaultSkills);
   }, []);
@@ -161,6 +169,16 @@ const App = () => {
     setSkills(updatedSkills);
   };
 
+  const handleSkillMod = (e) => {
+    let updatedSkills = [...skills];
+    for (let i = 0; i < skills.length; i++) {
+      if (skills[i].name === e.target.name) {
+        updatedSkills[i].mod = parseInt(e.target.value);
+      }
+    }
+    setSkills(updatedSkills);
+  };
+
   const removeSkill = (index) => {
     setSkills(skills.filter((_, i) => i !== index));
   };
@@ -232,6 +250,16 @@ const App = () => {
 
   const handleHealthChange = (e) => {
     setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) });
+  };
+  
+  const handleSaveingThrowChange = (e) => {
+    let updatedSaves = [...savingThrows];
+    for (let i = 0; i < savingThrows.length; i++) {
+      if (savingThrows[i].name === e.target.name) {
+        updatedSaves[i].mod = parseInt(e.target.value);
+      }
+    }
+    setSavingThrows(updatedSaves);
   };
 
   return (
@@ -403,11 +431,50 @@ const App = () => {
         />
         <br />
         <span>Proficiency Bonus: {calculateProfBonus()}</span> <br />
-        <span>Saving Throws: </span> <br/>
-
+        <span>Saving Throws: </span> <br />
+        <span>* - profieient, # - expert, ~ - custom</span> <br />
+        <div>
+          {savingThrows.map((save, index) => (
+            <div key={index} className="modifier-display">
+              <select
+                value={save.prof}
+                onChange={(e) => {
+                  let updatedSaves = [...savingThrows];
+                  updatedSaves[index].prof = Number(e.target.value);
+                  setSavingThrows(updatedSaves);
+                }}
+              >
+                <option value={0}></option>
+                <option value={1}>*</option>
+                <option value={2}>#</option>
+                <option value={3}>~</option>
+              </select>
+              <span style={{whiteSpace: "pre-wrap"}}>
+                {` ${save.name.charAt(0).toUpperCase() + save.name.slice(1)}: `.padEnd(15)}
+              </span>
+              <span style={{whiteSpace: "pre-wrap"}}>
+                {save.prof < 3
+                  ? (calculateModifier(abilityScores[save.name] || 10, save.prof) >= 0
+                    ? `+${calculateModifier(abilityScores[save.name] || 10, save.prof)}`
+                    : `${calculateModifier(abilityScores[save.name] || 10, save.prof)}`)
+                  : <span>
+                      {save.mod >= 0 ? '+': ' '}
+                      <input
+                        type="number"
+                        value={save.mod}
+                        name={save.name}
+                        onChange={handleSaveingThrowChange}
+                        style={{ maxWidth: '50px' }}
+                      />
+                    </span>
+                }
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
       <h2>Skills</h2>
-      <span>* - profieient, # - expert</span>
+      <span>* - profieient, # - expert, ~ - custom</span>
       {skills.map((skill, index) => (
         <div key={index} className="modifier-display">
           <select
@@ -429,12 +496,26 @@ const App = () => {
             <option value={0}></option>
             <option value={1}>*</option>
             <option value={2}>#</option>
+            <option value={3}>~</option>
           </select>
           <span style={{whiteSpace: "pre-wrap"}}>
             {`   ${skill.name}: `.padEnd(20)}
-            {calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
-              ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
-              : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)}
+            {skill.prof < 3
+              ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
+                ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
+                : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13))
+              : <span style={{whiteSpace: "pre-wrap"}}>
+                  {skill.mod >= 0 ? '+': ' '}
+                  <input
+                    type="number"
+                    value={skill.mod}
+                    name={skill.name}
+                    onChange={handleSkillMod}
+                    style={{ maxWidth: '52px' }}
+                  />
+                  {'    '}
+                </span>
+            }
           </span>
           <button className="red-button" onClick={() => removeSkill(index)}>
             Delete
