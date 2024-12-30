@@ -511,7 +511,7 @@ const App = () => {
                     value={skill.mod}
                     name={skill.name}
                     onChange={handleSkillMod}
-                    style={{ maxWidth: '52px' }}
+                    style={{ maxWidth: '50px' }}
                   />
                   {'    '}
                 </span>
