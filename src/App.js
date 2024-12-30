@@ -23,6 +23,7 @@ const App = () => {
     wisdom: 10,
     charisma: 10,
   });
+  const [health_info, setHealth] = useState({ cur: 0, max: 0, temp: 0});
   const [skills, setSkills] = useState([]);
   const [totalLevel, setTLevel] = useState(0);
   const [charClass, setClass] = useState('');
@@ -87,7 +88,7 @@ const App = () => {
 
   const saveNotes = (e) => {
     setNotes(e.target.value);
-  }
+  };
 
   const calculateProfBonus = () => Math.ceil(totalLevel / 4) + 1;
 
@@ -140,7 +141,7 @@ const App = () => {
     }
     setLevels([...levels]);
     setTLevel(t_level);
-  }
+  };
 
   const addSkill = () => {
     const skillName = prompt("Enter skill name (e.g., Animal Handling):", "");
@@ -162,7 +163,7 @@ const App = () => {
 
   const removeSkill = (index) => {
     setSkills(skills.filter((_, i) => i !== index));
-  }
+  };
 
   const handleUpload = (input) => {
     console.log(input);
@@ -227,7 +228,11 @@ const App = () => {
 
     updateRaces([...final_races]);
     updateBackgrounds([...final_bg]);
-  }
+  };
+
+  const handleHealthChange = (e) => {
+    setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) });
+  };
 
   return (
     <div className="container">
@@ -369,7 +374,40 @@ const App = () => {
           </div>
         ))}
       </div>
+      <div>
+        <h2>Stats</h2>
+        <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
+        <input
+          type="number"
+          name="cur"
+          value={health_info.cur}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+        />
+        <span><b> / </b></span>
+        <input
+          type="number"
+          name="max"
+          value={health_info.max}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+        />
+        <br />
+        <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
+        <input
+          type="number"
+          name="temp"
+          value={health_info.temp}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+        />
+        <br />
+        <span>Proficiency Bonus: {calculateProfBonus()}</span> <br />
+        <span>Saving Throws: </span> <br/>
+
+      </div>
       <h2>Skills</h2>
+      <span>* - profieient, # - expert</span>
       {skills.map((skill, index) => (
         <div key={index} className="modifier-display">
           <select
