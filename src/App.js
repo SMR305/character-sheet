@@ -14,8 +14,8 @@ const App = () => {
   return (
     <div>
       <Router>
-        <nav style={menuOpen ? { border: '1px solid black', padding: '10px', borderRadius: '5px', backgroundColor: '#f0f0f0' } : {}}>
-          <button onClick={toggleMenu} style={{margin: '10px'}}>
+        <nav style={menuOpen ? { border: '1px solid black', padding: '10px', backgroundColor: '#f0f0f0' } : {}}>
+          <button onClick={toggleMenu} style={{borderRadius: '0px'}}>
             {menuOpen ? 'Hide Pages' : 'Show Pages'}
           </button>
           {menuOpen && (
