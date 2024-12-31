@@ -1,12 +1,16 @@
 
+* {
+  font-family: monospace;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: monospace;
 }
 
 html {
   min-width: 1000px;
   position: relative;
+  font-family: monospace;
 }
 
 body {
@@ -21,6 +25,15 @@ body {
   margin: auto;
   padding: 20px;
   background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
+}
+.spell {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: rgb(219, 212, 212);
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -54,6 +67,7 @@ h1, h2 {
   text-align: center;
   margin-top: 10px;
   font-weight: bold;
+  font-size: large;
 }
 button {
   background-color: #007BFF;
