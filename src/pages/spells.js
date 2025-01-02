@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 const Spells = () => {
 
+  const [theme, setTheme] = useState("light");
+
+  // Load the theme from localStorage on initial render
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.body.className = savedTheme; // Set initial theme on body
+  }, []);
+
   const [spells, setSpells] = useState([]);
   const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('subSet')) || 1);
   const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
@@ -115,7 +124,7 @@ const Spells = () => {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
       <div style={{textAlign:"right"}}>
         <span onClick={handleSettings}>{`${settingsText}`}</span>
         {showSettings ?

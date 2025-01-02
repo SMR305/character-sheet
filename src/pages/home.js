@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
         <h1> Welcome to Forge and Fantasy</h1>
         <span>
             Forge and Fantasy is a character creation tool for Dungeons and Dragons

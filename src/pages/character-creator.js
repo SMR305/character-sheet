@@ -7,6 +7,16 @@ import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
 
 const CharacterCreator = () => {
+
+  const [theme, setTheme] = useState("light");
+
+  // Load the theme from localStorage on initial render
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.body.className = savedTheme; // Set initial theme on body
+  }, []);
+
   // Load data from localStorage or set default values
   const loadFromLocalStorage = (key, defaultValue) => {
     const saved = localStorage.getItem(key);
@@ -331,7 +341,7 @@ const CharacterCreator = () => {
   };
 
   return (
-    <div className='container'>
+    <div className={`container ${theme}`}>
         <h1>D&D 5e Character Sheet</h1>
         <div style={{textAlign:"right"}}>
           <span onClick={handleSettings}>{`${settingsText}`}</span>
