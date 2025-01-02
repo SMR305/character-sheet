@@ -1,65 +1,225 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Spells = () => {
 
-  const [spells, setSpells] = React.useState([]);
-  const [showList, setShow] = React.useState(false);
-  const [expanded, setExpanded] = React.useState([]);
+  const [spells, setSpells] = useState([]);
+  const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('subSet')) || 1);
+  const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
+  const [expanded, setExpanded] = useState([]);
 
-  const go = async () => {
-    let input = "spells-phb";
-    try {
-      const module = await import(`../spells/${input}.json`); // Adjust the path as needed
-      setSpells([...module["spell"]]);
-      setShow(!showList);
-    } catch (error) {
-      console.error("Error loading JSON:", error);
+  // Source Options
+  const [settingsText, changeSettingsText] = useState("Source Options +");
+  const [showSettings, changeShow] = useState(false);
+  const allSources = ['aag', 'ai', 'aitfr-avt', 'bmt', 'dodk', 'egw', 'ftd', 'ggr', 'ghloe', 'hwcs', 'idrotf', 'llk', 'phb', 'xphb', 'sato', 'scc', 'tce', 'tdcsr', 'xge'];
+  const [checkedItems, setCheckedItems] = useState(
+    JSON.parse(localStorage.getItem('checkedItems')) || 
+    allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {})
+  );
+
+  const handleCheckboxChange = (item) => {
+    setCheckedItems((prev) => {
+      const newCheckedItems = {
+        ...prev,
+        [item]: !prev[item], // Toggle the checkbox state
+      };
+      localStorage.setItem('checkedItems', JSON.stringify(newCheckedItems));
+      return newCheckedItems;
+    });
+  };
+
+  useEffect(() => {
+    const savedSpells = JSON.parse(localStorage.getItem('spells'));
+    if (savedSpells) {
+      setSpells(savedSpells);
+      setTotalSubSets(Math.ceil(savedSpells.length / 20));
+    } else {
+      async function go() {
+        let input = "spells-phb";
+        try {
+          const module = await import(`../spells/${input}.json`); // Adjust the path as needed
+          setSpells([...module["spell"]]);
+          const total = Math.ceil(module["spell"].length / 20);
+          setTotalSubSets(total);
+          localStorage.setItem('spells', JSON.stringify(module["spell"]));
+        } catch (error) {
+          console.error("Error loading JSON:", error);
+        }
+      }
+      go();
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('subSet', JSON.stringify(subSet));
+  }, [subSet]);
+
+  useEffect(() => {
+    localStorage.setItem('totalSubSets', JSON.stringify(totalSubSets));
+  }, [totalSubSets]);
+
+  const toggleExpand = (index) => {
+    if (expanded.includes(index)) {
+      setExpanded(expanded.filter((item) => item !== index));
+    }
+    else {
+      setExpanded([...expanded, index]);
     }
   };
 
-  // const expand = (e) => {
-  //   console.log(e);
-  //   if (expanded.findIndex((item) => item === e) !== -1) {
-  //     setExpanded(expanded.filter(spell => spell !== e));
-  //   }
-  //   else {
-  //     setExpanded([...expanded, e]);
-  //   }
-  // };
+  const handleSettings = () => {
+    if (showSettings) {
+      changeSettingsText("Source Options +");
+      changeShow(0);
+    }
+    else {
+      changeSettingsText("Source Options -");
+      changeShow(1);  
+    }
+  };
+
+  const loadSources = async (r) => {
+    let list = [];
+    
+    if (r) {
+      for (let i = 0; i < allSources.length; i++) {
+        if (checkedItems[allSources[i]] === true) {
+          list.push(allSources[i]);
+        }
+      }
+    }
+    else {
+      list.push("phb");
+      list.push("xphb");
+      let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});
+      setCheckedItems(temp);
+      localStorage.setItem('checkedItems', JSON.stringify(temp));
+    }
+    
+    let finalList = [];
+    
+    for (let i = 0; i < list.length; i++) {
+      let input = "spells-" + list[i];
+      try {
+        const module = await import(`../spells/${input}.json`); // Adjust the path as needed
+        finalList = [...finalList ,...module["spell"]];
+      } catch (error) {
+        console.error("Error loading JSON:", error);
+      }
+    }
+
+    setSpells([...finalList]);
+    setExpanded([]);
+    setSubSet(1);
+    setTotalSubSets(Math.ceil(finalList.length / 20));
+    localStorage.setItem('spells', JSON.stringify(finalList));
+  };
 
   return (
     <div className="container">
+      <div style={{textAlign:"right"}}>
+        <text onClick={handleSettings}>{`${settingsText}`}</text>
+        {showSettings ?
+          (<>
+          <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>
+            {allSources.map((item) => (
+              <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
+                <div key={item}>
+                    <input
+                      type="checkbox"
+                      checked={checkedItems[item]}
+                      onChange={() => handleCheckboxChange(item)}
+                    />
+                    {item}
+                </div>
+              </label>
+            ))}
+          </div>
+          <button className="blue-button" onClick={() => loadSources(true)}> Load New Sources </button>
+          <button className="blue-button" onClick={() => loadSources(false)}> Reset Sources </button>
+          </>)
+          : null
+        }
+      </div>
+      
       <h1> Spells</h1>
       <span>
           This is where you can find all the spells for Dungeons and Dragons 5th edition and 5.5 edition (2024).
       </span>
 
-      <button onClick={go} style={{margin: '20px'}}>Press Me</button>
-
-      {showList ? <ul>
+      <ul>
         {spells.map((spell, index) => (
-          <div key={index} className="spell">
-            <h2>{spell.name}</h2>
-            {/* { (expanded.findIndex((item) => item === spell.name) !== -1)
-              ?
-                ( */}
-                <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px'}}>
-                  <p>Source: {spell.source}</p>
-                  <p>Page: {spell.page}</p>
-                  <p>Level: {spell.level}</p>
-                  <p>School: {spell.school}</p>
-                  <p>Components: {Object.keys(spell.components).join(", ")}</p>
-                  <p>Duration Type: {spell.duration[0].type}</p>
-                  <p>Duration: {spell.duration[0].duration ? Object.values(spell.duration[0].duration).join(" ") : "None"}
-                      {spell.duration[0].concentration ? " : Concentration" : ''}</p>
-                  <p>Entries: {Object.values(spell.entries).join(" ")}</p>
-                </div>
-                {/* )
-              : null
-            } */}
-        </div>
+          (index / 20 < subSet) && (index / 20 >= subSet - 1) ?
+            <div key={index} className="spell">
+              <button onClick={() => toggleExpand(index)} style={{  background:'transparent', border: 'none', fontSize: 'large', fontWeight: 'bold', color: 'black'}} > {index} {spell.name}</button>
+              { (expanded.includes(index))
+                ?
+                  (
+                  <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px'}}>
+                    <p>Source: {spell.source}</p>
+                    <p>Page: {spell.page}</p>
+                    <p>Level: {spell.level}</p>
+                    <p>School: {spell.school}</p>
+                    <p>Components: {Object.keys(spell.components).join(", ")}</p>
+                    <p>Duration Type: {spell.duration[0].type}</p>
+                    <p>Duration: {spell.duration[0].duration ? Object.values(spell.duration[0].duration).join(" ") : "None"}
+                        {spell.duration[0].concentration ? " : Concentration" : ''}</p>
+                    <p>Entries: {Object.values(spell.entries).join(" ")}</p>
+                  </div>
+                  )
+                : null
+              }
+          </div>
+        : null
         ))}
-      </ul> : null}
+      </ul>
+
+      <div>
+        <button onClick={() => setSubSet(subSet - 1)} disabled={subSet <= 1}>Previous</button>
+
+        {subSet <= 2 && totalSubSets > 4 ?
+          <>
+            <button onClick={() => setSubSet(1)} style={subSet === 1 ? {background: '#0056b3'} : {}}> 1 </button>
+            <button onClick={() => setSubSet(2)} style={subSet === 2 ? {background: '#0056b3'} : {}}> 2 </button>
+            <button onClick={() => setSubSet(3)} style={subSet === 3 ? {background: '#0056b3'} : {}}> 3 </button>
+            <button onClick={() => setSubSet(4)} style={subSet === 4 ? {background: '#0056b3'} : {}}> 4 </button>
+            <button onClick={() => setSubSet(5)} style={subSet === 5 ? {background: '#0056b3'} : {}}> 5 </button>
+          </>
+          : null
+        }
+
+        {subSet > 2 && subSet <= totalSubSets - 2 ?
+          <>
+            <button onClick={() => setSubSet(subSet - 2)}> {subSet - 2} </button>
+            <button onClick={() => setSubSet(subSet - 1)}> {subSet - 1} </button>
+            <button onClick={() => setSubSet(subSet)} style={{background: '#0056b3'}}> {subSet} </button>
+            <button onClick={() => setSubSet(subSet + 1)}> {subSet + 1} </button>
+            <button onClick={() => setSubSet(subSet + 2)}> {subSet + 2} </button>
+          </>
+          : null
+        }
+
+        {subSet > totalSubSets - 2 && totalSubSets > 4 ?
+          <>
+            <button onClick={() => setSubSet(totalSubSets - 4)} style={subSet === totalSubSets - 4 ? {background: '#0056b3'} : {}}> {totalSubSets - 4} </button>
+            <button onClick={() => setSubSet(totalSubSets - 3)} style={subSet === totalSubSets - 3 ? {background: '#0056b3'} : {}}> {totalSubSets - 3} </button>
+            <button onClick={() => setSubSet(totalSubSets - 2)} style={subSet === totalSubSets - 2 ? {background: '#0056b3'} : {}}> {totalSubSets - 2} </button>
+            <button onClick={() => setSubSet(totalSubSets - 1)} style={subSet === totalSubSets - 1 ? {background: '#0056b3'} : {}}> {totalSubSets - 1} </button>
+            <button onClick={() => setSubSet(totalSubSets)} style={subSet === totalSubSets ? {background: '#0056b3'} : {}}> {totalSubSets} </button>
+          </>
+          : null
+        }
+
+        {totalSubSets < 5 ? 
+          <>
+            {Array.from({length: totalSubSets}, (_, i) => i + 1).map((item) => (
+              <button key={item} onClick={() => setSubSet(item)} style={subSet === item ? {background: '#0056b3'} : {}}> {item} </button>
+            ))}
+          </>
+          : null
+        }
+
+        <button onClick={() => setSubSet(subSet + 1)} disabled={subSet >= totalSubSets}>Next</button>
+      </div>
     </div>
   );
 }

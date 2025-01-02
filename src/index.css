@@ -160,3 +160,9 @@ button:hover {
   resize: vertical;
   overflow-y: scroll;
 }
+spell-item {
+  background: transparent;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+}

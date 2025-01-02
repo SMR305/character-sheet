@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Autocomplete from "../Autocomplete";
 import handleDownload from "../DownloadFile";
 import FileUploader from "../UploadFile";
@@ -7,36 +7,43 @@ import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
 
 const CharacterCreator = () => {
-      // Character Stuff
-  const [character, setCharacter] = useState({
-    name: "",
-    race: "",
-    background: "",
-    alignment: "",
-  });
-  const [levels, setLevels] = useState([]);
-  const [abilityScores, setAbilityScores] = useState({
-    strength: 10,
-    dexterity: 10,
-    constitution: 10,
-    intelligence: 10,
-    wisdom: 10,
-    charisma: 10,
-  });
-  const [health_info, setHealth] = useState({ cur: 0, max: 0, temp: 0});
-  const [savingThrows, setSavingThrows] = useState([
-    {name: "strength", mod: 0, prof: 0},
-    {name: "dexterity", mod: 0, prof: 0},
-    {name: "constitution", mod: 0, prof: 0},
-    {name: "intelligence", mod: 0, prof: 0},
-    {name: "wisdom", mod: 0, prof: 0},
-    {name: "charisma", mod: 0, prof: 0}
-  ]);
-  const [skills, setSkills] = useState([]);
-  const [totalLevel, setTLevel] = useState(0);
-  const [charClass, setClass] = useState('');
+  // Load data from localStorage or set default values
+  const loadFromLocalStorage = (key, defaultValue) => {
+    const saved = localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : defaultValue;
+  };
+
+  // Character Stuff
+  const [character, setCharacter] = useState(
+    loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "" })
+  );
+  const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
+  const [abilityScores, setAbilityScores] = useState(
+    loadFromLocalStorage("abilityScores", {
+      strength: 10,
+      dexterity: 10,
+      constitution: 10,
+      intelligence: 10,
+      wisdom: 10,
+      charisma: 10,
+    })
+  );
+  const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
+  const [savingThrows, setSavingThrows] = useState(
+    loadFromLocalStorage("savingThrows", [
+      { name: "strength", mod: 0, prof: 0 },
+      { name: "dexterity", mod: 0, prof: 0 },
+      { name: "constitution", mod: 0, prof: 0 },
+      { name: "intelligence", mod: 0, prof: 0 },
+      { name: "wisdom", mod: 0, prof: 0 },
+      { name: "charisma", mod: 0, prof: 0 },
+    ])
+  );
+  const [skills, setSkills] = useState(loadFromLocalStorage("skills", []));
+  const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
+  const [charClass, setClass] = useState(loadFromLocalStorage("charClass", ""));
   const [Data, setData] = useState([]);
-  const [notes, setNotes] = useState('');
+  const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
 
   // suggestions
   const listClasses = [...core_2014, ...core_2024, ...crit_roll];
@@ -48,17 +55,18 @@ const CharacterCreator = () => {
   const [showSettings, changeShow] = useState(false);
   const allSources = [...new Set([...backgroundSources, ...raceSources])];
   const [checkedItems, setCheckedItems] = useState(
-    allSources.reduce((acc, item) => ({ ...acc, "PHB": true, "XPHB": true, "DMG":true, [item]: false }), {})
+    allSources.reduce(
+      (acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }),
+      {}
+    )
   );
-  
-  // Handle checkbox toggle
+
   const handleCheckboxChange = (item) => {
     setCheckedItems((prev) => ({
       ...prev,
-      [item]: !prev[item], // Toggle the checkbox state
+      [item]: !prev[item],
     }));
   };
-  
 
   useEffect(() => {
     const defaultSkills = [
@@ -81,8 +89,21 @@ const CharacterCreator = () => {
       { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
       { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
     ];
-    setSkills(defaultSkills);
+    setSkills(loadFromLocalStorage("skills", defaultSkills));
   }, []);
+
+  // Save data to localStorage whenever the state changes
+  useEffect(() => {
+    localStorage.setItem("character", JSON.stringify(character));
+    localStorage.setItem("levels", JSON.stringify(levels));
+    localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
+    localStorage.setItem("health_info", JSON.stringify(health_info));
+    localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
+    localStorage.setItem("skills", JSON.stringify(skills));
+    localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
+    localStorage.setItem("charClass", JSON.stringify(charClass));
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, notes]);
   
   const loadJson = async () => {
     let input = "spells-phb";
@@ -184,7 +205,6 @@ const CharacterCreator = () => {
   };
 
   const handleUpload = (input) => {
-    console.log(input);
     setCharacter(input.character);
     setLevels(input.levels);
     let t_level = 0;
@@ -262,6 +282,51 @@ const CharacterCreator = () => {
     setSavingThrows(updatedSaves);
   };
 
+  const resetCharacter = () => {
+    setCharacter({ name: "", race: "", background: "", alignment: "" });
+    setLevels([]);
+    setAbilityScores({
+      strength: 10,
+      dexterity: 10,
+      constitution: 10,
+      intelligence: 10,
+      wisdom: 10,
+      charisma: 10,
+    });
+    setHealth({ cur: 0, max: 0, temp: 0 });
+    setSavingThrows([
+      { name: "strength", mod: 0, prof: 0 },
+      { name: "dexterity", mod: 0, prof: 0 },
+      { name: "constitution", mod: 0, prof: 0 },
+      { name: "intelligence", mod: 0, prof: 0 },
+      { name: "wisdom", mod: 0, prof: 0 },
+      { name: "charisma", mod: 0, prof: 0 },
+    ]);
+    setSkills([
+      { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
+      { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
+      { name: "History", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
+    ]);
+    setTLevel(0);
+    setClass("");
+    setNotes("");
+  };
+
   return (
     <div className="container">
         <h1>D&D 5e Character Sheet</h1>
@@ -284,7 +349,7 @@ const CharacterCreator = () => {
               ))}
               <button className="blue-button" onClick={loadSources}> Load New Sources </button>
             </div>)
-            : (<span></span>)
+            : null
           }
         </div>
         <div className="form-group">
@@ -541,6 +606,8 @@ const CharacterCreator = () => {
         <hr />
         <button onClick={handleSave}>Save Character</button> <br /> <br />
         <FileUploader onSubmit={handleUpload}/>
+        <hr />
+        <button className="red-button" onClick={resetCharacter}>Reset Sheet</button>
       </div>
   );
 }
