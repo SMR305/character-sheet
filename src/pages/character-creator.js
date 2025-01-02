@@ -603,8 +603,7 @@ const CharacterCreator = () => {
           className="notes-box"
           value={notes}
           onInput={saveNotes}
-        >
-        </textarea>
+        />
         <br />
         <hr />
         <button onClick={handleSave}>Save Character</button> <br /> <br />
