@@ -117,7 +117,7 @@ const Spells = () => {
   return (
     <div className="container">
       <div style={{textAlign:"right"}}>
-        <text onClick={handleSettings}>{`${settingsText}`}</text>
+        <span onClick={handleSettings}>{`${settingsText}`}</span>
         {showSettings ?
           (<>
           <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>
@@ -146,14 +146,13 @@ const Spells = () => {
           This is where you can find all the spells for Dungeons and Dragons 5th edition and 5.5 edition (2024).
       </span>
 
-      <ul>
+      <>
         {spells.map((spell, index) => (
           (index / 20 < subSet) && (index / 20 >= subSet - 1) ?
             <div key={index} className="spell">
               <button onClick={() => toggleExpand(index)} style={{  background:'transparent', border: 'none', fontSize: 'large', fontWeight: 'bold', color: 'black'}} > {index} {spell.name}</button>
               { (expanded.includes(index))
                 ?
-                  (
                   <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px'}}>
                     <p>Source: {spell.source}</p>
                     <p>Page: {spell.page}</p>
@@ -165,46 +164,45 @@ const Spells = () => {
                         {spell.duration[0].concentration ? " : Concentration" : ''}</p>
                     <p>Entries: {Object.values(spell.entries).join(" ")}</p>
                   </div>
-                  )
                 : null
               }
           </div>
         : null
         ))}
-      </ul>
+      </>
 
       <div>
-        <button onClick={() => setSubSet(subSet - 1)} disabled={subSet <= 1}>Previous</button>
+        <button className={'button'} onClick={() => setSubSet(subSet - 1)} disabled={subSet <= 1}>Previous</button>
 
         {subSet <= 2 && totalSubSets > 4 ?
           <>
-            <button onClick={() => setSubSet(1)} style={subSet === 1 ? {background: '#0056b3'} : {}}> 1 </button>
-            <button onClick={() => setSubSet(2)} style={subSet === 2 ? {background: '#0056b3'} : {}}> 2 </button>
-            <button onClick={() => setSubSet(3)} style={subSet === 3 ? {background: '#0056b3'} : {}}> 3 </button>
-            <button onClick={() => setSubSet(4)} style={subSet === 4 ? {background: '#0056b3'} : {}}> 4 </button>
-            <button onClick={() => setSubSet(5)} style={subSet === 5 ? {background: '#0056b3'} : {}}> 5 </button>
+            <button className={'button'} onClick={() => setSubSet(1)} style={subSet === 1 ? {background: '#0056b3'} : {}}> 1 </button>
+            <button className={'button'} onClick={() => setSubSet(2)} style={subSet === 2 ? {background: '#0056b3'} : {}}> 2 </button>
+            <button className={'button'} onClick={() => setSubSet(3)} style={subSet === 3 ? {background: '#0056b3'} : {}}> 3 </button>
+            <button className={'button'} onClick={() => setSubSet(4)} style={subSet === 4 ? {background: '#0056b3'} : {}}> 4 </button>
+            <button className={'button'} onClick={() => setSubSet(5)} style={subSet === 5 ? {background: '#0056b3'} : {}}> 5 </button>
           </>
           : null
         }
 
         {subSet > 2 && subSet <= totalSubSets - 2 ?
           <>
-            <button onClick={() => setSubSet(subSet - 2)}> {subSet - 2} </button>
-            <button onClick={() => setSubSet(subSet - 1)}> {subSet - 1} </button>
-            <button onClick={() => setSubSet(subSet)} style={{background: '#0056b3'}}> {subSet} </button>
-            <button onClick={() => setSubSet(subSet + 1)}> {subSet + 1} </button>
-            <button onClick={() => setSubSet(subSet + 2)}> {subSet + 2} </button>
+            <button className={'button'} onClick={() => setSubSet(subSet - 2)}> {subSet - 2} </button>
+            <button className={'button'} onClick={() => setSubSet(subSet - 1)}> {subSet - 1} </button>
+            <button className={'button'} onClick={() => setSubSet(subSet)} style={{background: '#0056b3'}}> {subSet} </button>
+            <button className={'button'} onClick={() => setSubSet(subSet + 1)}> {subSet + 1} </button>
+            <button className={'button'} onClick={() => setSubSet(subSet + 2)}> {subSet + 2} </button>
           </>
           : null
         }
 
         {subSet > totalSubSets - 2 && totalSubSets > 4 ?
           <>
-            <button onClick={() => setSubSet(totalSubSets - 4)} style={subSet === totalSubSets - 4 ? {background: '#0056b3'} : {}}> {totalSubSets - 4} </button>
-            <button onClick={() => setSubSet(totalSubSets - 3)} style={subSet === totalSubSets - 3 ? {background: '#0056b3'} : {}}> {totalSubSets - 3} </button>
-            <button onClick={() => setSubSet(totalSubSets - 2)} style={subSet === totalSubSets - 2 ? {background: '#0056b3'} : {}}> {totalSubSets - 2} </button>
-            <button onClick={() => setSubSet(totalSubSets - 1)} style={subSet === totalSubSets - 1 ? {background: '#0056b3'} : {}}> {totalSubSets - 1} </button>
-            <button onClick={() => setSubSet(totalSubSets)} style={subSet === totalSubSets ? {background: '#0056b3'} : {}}> {totalSubSets} </button>
+            <button className={'button'} onClick={() => setSubSet(totalSubSets - 4)} style={subSet === totalSubSets - 4 ? {background: '#0056b3'} : {}}> {totalSubSets - 4} </button>
+            <button className={'button'} onClick={() => setSubSet(totalSubSets - 3)} style={subSet === totalSubSets - 3 ? {background: '#0056b3'} : {}}> {totalSubSets - 3} </button>
+            <button className={'button'} onClick={() => setSubSet(totalSubSets - 2)} style={subSet === totalSubSets - 2 ? {background: '#0056b3'} : {}}> {totalSubSets - 2} </button>
+            <button className={'button'} onClick={() => setSubSet(totalSubSets - 1)} style={subSet === totalSubSets - 1 ? {background: '#0056b3'} : {}}> {totalSubSets - 1} </button>
+            <button className={'button'} onClick={() => setSubSet(totalSubSets)} style={subSet === totalSubSets ? {background: '#0056b3'} : {}}> {totalSubSets} </button>
           </>
           : null
         }
@@ -212,13 +210,13 @@ const Spells = () => {
         {totalSubSets < 5 ? 
           <>
             {Array.from({length: totalSubSets}, (_, i) => i + 1).map((item) => (
-              <button key={item} onClick={() => setSubSet(item)} style={subSet === item ? {background: '#0056b3'} : {}}> {item} </button>
+              <button className={'button'} key={item} onClick={() => setSubSet(item)} style={subSet === item ? {background: '#0056b3'} : {}}> {item} </button>
             ))}
           </>
           : null
         }
 
-        <button onClick={() => setSubSet(subSet + 1)} disabled={subSet >= totalSubSets}>Next</button>
+        <button className={'button'} onClick={() => setSubSet(subSet + 1)} disabled={subSet >= totalSubSets}>Next</button>
       </div>
     </div>
   );

@@ -13,11 +13,10 @@ html {
   font-family: monospace;
 }
 
-body {
+body.light {
   font-family: monospace;
   line-height: 1.6;
   margin: auto;
-  /* background-color: #f4f4f4; */
   background-color: bisque;
 }
 .container {
@@ -70,7 +69,7 @@ h1, h2 {
   font-weight: bold;
   font-size: large;
 }
-button {
+.button {
   background-color: #007BFF;
   color: white;
   border: none;
@@ -78,7 +77,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-button:hover {
+.button:hover {
   background-color: #0056b3;
 }
 .modifier-display {
@@ -160,9 +159,25 @@ button:hover {
   resize: vertical;
   overflow-y: scroll;
 }
-spell-item {
+.spell-item {
   background: transparent;
   border: none;
   font-size: larger;
   font-weight: bold;
+}
+
+body.dark {
+  font-family: monospace;
+  line-height: 1.6;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
+}
+.container.dark {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: rgb(125, 125, 125);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
 }

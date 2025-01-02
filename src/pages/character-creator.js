@@ -331,7 +331,7 @@ const CharacterCreator = () => {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
         <h1>D&D 5e Character Sheet</h1>
         <div style={{textAlign:"right"}}>
           <span onClick={handleSettings}>{`${settingsText}`}</span>
@@ -589,9 +589,9 @@ const CharacterCreator = () => {
             </button>
           </div>
         ))}
-        <button onClick={addSkill}>Add Skill</button> <br /> <br />
+        <button className={'button'} onClick={addSkill}>Add Skill</button> <br /> <br />
         <hr />
-        <button onClick={loadJson}>Test Loading</button>
+        <button className={'button'} onClick={loadJson}>Test Loading</button>
         <br />
         {Data[0] === undefined
           ? (<span> Waiting </span>)
@@ -606,7 +606,7 @@ const CharacterCreator = () => {
         />
         <br />
         <hr />
-        <button onClick={handleSave}>Save Character</button> <br /> <br />
+        <button className={'button'} onClick={handleSave}>Save Character</button> <br /> <br />
         <FileUploader onSubmit={handleUpload}/>
         <hr />
         <button className="red-button" onClick={resetCharacter}>Reset Sheet</button>

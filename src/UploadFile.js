@@ -64,7 +64,7 @@ const FileUploader = ({ onSubmit }) => {
           </div>
         )}
         <br />
-        <button type="submit">Upload</button>
+        <button className={'button'} type="submit">Upload</button>
       </form>
     </div>
   );
