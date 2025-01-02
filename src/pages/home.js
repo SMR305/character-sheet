@@ -28,7 +28,7 @@ const Home = () => {
         </span>
 
         <h2 className={`app-container ${theme}`}>{`Current Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`}</h2>
-        <button className={'button'} onClick={toggleTheme}> Switch Mode </button>
+        <button className={`button ${theme}`} onClick={toggleTheme}> Switch Mode </button>
     </div>
   );
 };

@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/home';
 import CharacterCreator from './pages/character-creator';
 import Spells from './pages/spells';
 
 const App = () => {
+
+  const [theme, setTheme] = useState("light");
+
+  // Load the theme from localStorage on initial render
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.body.className = savedTheme; // Set initial theme on body
+  }, []);
+
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
@@ -14,8 +24,8 @@ const App = () => {
   return (
     <div>
       <Router>
-        <nav style={menuOpen ? { border: '1px solid black', padding: '10px', backgroundColor: '#f0f0f0' } : {}}>
-          <button onClick={toggleMenu} className={'button'} style={{borderRadius: '0px'}}>
+        <nav className={`menu`}>
+          <button onClick={toggleMenu} className={`button ${theme}`} style={{borderRadius: '5px'}}>
             {menuOpen ? 'Hide Pages' : 'Show Pages'}
           </button>
           {menuOpen && (

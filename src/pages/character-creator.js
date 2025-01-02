@@ -347,7 +347,7 @@ const CharacterCreator = () => {
           <span onClick={handleSettings}>{`${settingsText}`}</span>
           {showSettings ?
             (
-            <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>
+            <div className={`menu`}>
               {allSources.map((item) => (
                 <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
                   <div key={item}>
@@ -360,12 +360,12 @@ const CharacterCreator = () => {
                   </div>
                 </label>
               ))}
-              <button className="blue-button" onClick={loadSources}> Load New Sources </button>
+              <button className={`blue-button ${theme}`} onClick={loadSources}> Load New Sources </button>
             </div>)
             : null
           }
         </div>
-        <div className="form-group">
+        <div className={`form-group  ${theme}`}>
           <label>Character Name</label>
           <input
             type="text"
@@ -374,7 +374,7 @@ const CharacterCreator = () => {
             onChange={handleCharacterChange}
           />
         </div>
-        <div className="form-group">
+        <div className={`form-group  ${theme}`}>
           <label>Race</label>
           <Autocomplete
             filler="Select Race..."
@@ -383,7 +383,7 @@ const CharacterCreator = () => {
             newSuggestions={listRaces}
           />
         </div>
-        <div className="form-group">
+        <div className={`form-group  ${theme}`}>
           <label>Background</label>
           <Autocomplete
             filler="Select Background..."
@@ -392,7 +392,7 @@ const CharacterCreator = () => {
             newSuggestions={listBackgrounds}
           />
         </div>
-        <div className="form-group">
+        <div className={`form-group  ${theme}`}>
           <label>Alignment</label>
           <select
             name="alignment"
@@ -420,7 +420,7 @@ const CharacterCreator = () => {
           newSuggestions={listClasses}
         />
         {levels.map((level, index) => (
-          <div key={index} className="modifier-display">
+          <div key={index} className={`modifier-display ${theme}`}>
             <span style={{whiteSpace: "pre-wrap"}}>
               {`${level.className}`.padEnd(10)}
             </span>
@@ -451,18 +451,18 @@ const CharacterCreator = () => {
               <option value={20}>20</option>
             </select>
             <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
-            <button className="red-button" onClick={() => removeLevel(index)}>
+            <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
               Delete
             </button>
           </div>
         ))}
-        <button className="blue-button" onClick={addLevel}>
+        <button className={`blue-button ${theme}`} onClick={addLevel}>
           Add Levels
         </button>
         <h2>Ability Scores</h2>
-        <div className="ability-scores">
+        <div className={`ability-scores ${theme}`}>
           {Object.keys(abilityScores).map((ability) => (
-            <div key={ability} className="form-group">
+            <div key={ability} className={`form-group ${theme}`}>
               <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
               <input
                 type="number"
@@ -470,7 +470,7 @@ const CharacterCreator = () => {
                 value={abilityScores[ability]}
                 onChange={handleAbilityScoreChange}
               />
-              <div className="modifiers">
+              <div className={`modifiers  ${theme}`}>
                 {isNaN(calculateModifier(abilityScores[ability], 0))
                   ? `+0`
                   : calculateModifier(abilityScores[ability], 0) >= 0
@@ -513,7 +513,7 @@ const CharacterCreator = () => {
           <span>* - profieient, # - expert, ~ - custom</span> <br />
           <div>
             {savingThrows.map((save, index) => (
-              <div key={index} className="modifier-display" style={{paddingBottom: "5px"}}>
+              <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
                 <select
                   value={save.prof}
                   onChange={(e) => {
@@ -554,7 +554,7 @@ const CharacterCreator = () => {
         <h2>Skills</h2>
         <span>* - profieient, # - expert, ~ - custom</span>
         {skills.map((skill, index) => (
-          <div key={index} className="modifier-display" style={{paddingBottom: "5px"}}>
+          <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
             <select
               value={skill.ability}
               onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
@@ -594,14 +594,14 @@ const CharacterCreator = () => {
                   </span>
               }
             </span>
-            <button className="red-button" onClick={() => removeSkill(index)}>
+            <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
               Delete
             </button>
           </div>
         ))}
-        <button className={'button'} onClick={addSkill}>Add Skill</button> <br /> <br />
+        <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button> <br /> <br />
         <hr />
-        <button className={'button'} onClick={loadJson}>Test Loading</button>
+        <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
         <br />
         {Data[0] === undefined
           ? (<span> Waiting </span>)
@@ -610,16 +610,16 @@ const CharacterCreator = () => {
         <hr />
         <h2>Notes</h2>
         <textarea
-          className="notes-box"
+          className={`notes-box ${theme}`}
           value={notes}
           onInput={saveNotes}
         />
         <br />
         <hr />
-        <button className={'button'} onClick={handleSave}>Save Character</button> <br /> <br />
+        <button className={`button ${theme}`} onClick={handleSave}>Save Character</button> <br /> <br />
         <FileUploader onSubmit={handleUpload}/>
         <hr />
-        <button className="red-button" onClick={resetCharacter}>Reset Sheet</button>
+        <button className={`red-button ${theme}`} onClick={resetCharacter}>Reset Sheet</button>
       </div>
   );
 }

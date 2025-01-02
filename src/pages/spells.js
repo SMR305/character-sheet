@@ -129,7 +129,7 @@ const Spells = () => {
         <span onClick={handleSettings}>{`${settingsText}`}</span>
         {showSettings ?
           (<>
-          <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>
+          <div className={`menu`}>
             {allSources.map((item) => (
               <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
                 <div key={item}>
