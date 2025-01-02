@@ -104,7 +104,7 @@ const CharacterCreator = () => {
     localStorage.setItem("charClass", JSON.stringify(charClass));
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, notes]);
-  
+
   const loadJson = async () => {
     let input = "spells-phb";
     try {
@@ -205,6 +205,7 @@ const CharacterCreator = () => {
   };
 
   const handleUpload = (input) => {
+    setCheckedItems(input.checkedItems);
     setCharacter(input.character);
     setLevels(input.levels);
     let t_level = 0;
@@ -213,13 +214,15 @@ const CharacterCreator = () => {
     }
     setTLevel(t_level);
     setAbilityScores(input.abilityScores);
+    setHealth(input.health_info);
     setSkills(input.skills);
     setNotes(input.notes);
-  }
+    setSavingThrows(input.savingThrows);
+  };
 
   const handleSave = () => {
-    console.log("Character Data:", { character, levels, abilityScores, skills, notes } );
-    handleDownload({ character, levels, abilityScores, skills, notes });
+    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, notes } );
+    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, notes });
   };
 
   const handleSettings = () => {
@@ -331,7 +334,7 @@ const CharacterCreator = () => {
     <div className="container">
         <h1>D&D 5e Character Sheet</h1>
         <div style={{textAlign:"right"}}>
-          <text onClick={handleSettings}>{`${settingsText}`}</text>
+          <span onClick={handleSettings}>{`${settingsText}`}</span>
           {showSettings ?
             (
             <div style={{display:"flex", flexWrap:"wrap", alignContent:"space-evenly", backgroundColor:"#ccc"}}>

@@ -11,7 +11,12 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
     if (newSuggestions) {
         setSuggestions(newSuggestions);
     }
-    setQuery(display);
+    if (display) {
+      setQuery(display);
+    }
+    else {
+      setQuery("");
+    }
   }, [newSuggestions, display]);
 
   const handleInputChange = (e) => {
