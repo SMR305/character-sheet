@@ -1,5 +1,5 @@
 export const bg_PHB = ['Acolyte', 'Charlatan', 'Criminal', 'Custom Background', 'Entertainer', 'Folk Hero', 'Guild Artisan', 'Hermit', 'Noble', 'Outlander', 'Sage', 'Sailor', 'Soldier', 'Urchin', 'Variant Criminal (Spy)', 'Variant Entertainer (Gladiator)', 'Variant Guild Artisan (Guild Merchant)', 'Variant Noble (Knight)', 'Variant Noble (Retainers)', 'Variant Sailor (Pirate)'];
-export const bg_XPHB = ['Acolyte (2024)', 'Artisan (2024)', 'Charlatan (2024)', 'Criminal (2024)', 'Entertainer (2024)', 'Farmer (2024)', 'Guard (2024)', 'Guide (2024)', 'Hermit (2024)', 'Merchant (2024)', 'Noble (2024)', 'Sage (2024)', 'Sailor (2024)', 'Scribe (2024)', 'Soldier (2024)', 'Wayfarer'];
+export const bg_XPHB = ['Acolyte', 'Artisan', 'Charlatan', 'Criminal', 'Entertainer', 'Farmer', 'Guard', 'Guide', 'Hermit', 'Merchant', 'Noble', 'Sage', 'Sailor', 'Scribe', 'Soldier', 'Wayfarer'];
 export const bg_ToA = ['Anthropologist', 'Archaeologist'];
 export const bg_TDCSR = ['Ashari', 'Clasp Member', 'Lyceum Scholar', 'Reformed Cultist', 'Variant Clasp Member (Myriad Operative)', 'Variant Whitestone Rifle Corps (Grey Hunter)', 'Whitestone Rifle Corps'];
 export const bg_AAG = ['Astral Drifter', 'Wildspacer'];
