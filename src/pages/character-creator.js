@@ -53,6 +53,7 @@ const CharacterCreator = () => {
   const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
   const [charClass, setClass] = useState(loadFromLocalStorage("charClass", ""));
   const [Data, setData] = useState([]);
+  const [backgrounds, setBackgrounds] = useState([]);
   const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
 
   // suggestions
@@ -114,6 +115,24 @@ const CharacterCreator = () => {
     localStorage.setItem("charClass", JSON.stringify(charClass));
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, notes]);
+
+  useEffect( () => {
+    async function fetchBackgrounds() {
+      try {
+        const module = await import(`../backgrounds/backgrounds.json`); // Adjust the path as needed
+        setBackgrounds([...module["background"]]);
+      } catch (error) {
+        console.error("Error loading JSON:", error);
+      }
+    };
+    fetchBackgrounds();
+  }, []);
+
+  const handleBGFind = () => {
+    const [name, source] = character.background.split(' : ');
+    const bg = backgrounds.find(bg => bg.name === name && bg.source === source);
+    return bg ? <span>{bg.name} ({bg.source})</span> : <span>Custom Background</span>;
+  };
 
   const loadJson = async () => {
     let input = "spells-phb";
@@ -391,6 +410,12 @@ const CharacterCreator = () => {
             display={character.background}
             newSuggestions={listBackgrounds}
           />
+          {character.background.includes(':') ? 
+             handleBGFind() :
+             <>{backgrounds.find(bg => bg.name === character.background) ? 
+                <span>{backgrounds.find(bg => bg.name === character.background).name} ({backgrounds.find(bg => bg.name === character.background).source})</span> : 
+                <span>Custom Background</span>}</>
+          }
         </div>
         <div className={`form-group  ${theme}`}>
           <label>Alignment</label>
