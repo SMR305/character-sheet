@@ -414,7 +414,7 @@ const CharacterCreator = () => {
              handleBGFind() :
              <>{backgrounds.find(bg => bg.name === character.background) ? 
                 <span>{backgrounds.find(bg => bg.name === character.background).name} ({backgrounds.find(bg => bg.name === character.background).source})</span> : 
-                <span>Custom Background</span>}</>
+                null}</>
           }
         </div>
         <div className={`form-group  ${theme}`}>
@@ -533,7 +533,7 @@ const CharacterCreator = () => {
             style={{ maxWidth: '50px' }}
           />
           <br />
-          <span>Proficiency Bonus: {calculateProfBonus()}</span> <br />
+          <span>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br />
           <span>Saving Throws: </span> <br />
           <span>* - profieient, # - expert, ~ - custom</span> <br />
           <div>
