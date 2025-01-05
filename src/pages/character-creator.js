@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Autocomplete from "../Autocomplete";
 import handleDownload from "../DownloadFile";
 import FileUploader from "../UploadFile";
+import Inventory from "../Inventory.js";
 import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
@@ -171,10 +172,6 @@ const CharacterCreator = () => {
       ...abilityScores,
       [e.target.name]: parseInt(e.target.value),
     });
-  };
-
-  const handleClass = (input) => {
-    setClass(input);
   };
 
   const addLevel = () => {
@@ -441,8 +438,9 @@ const CharacterCreator = () => {
         <h2>Level: {totalLevel}</h2>
         <Autocomplete
           filler="Class..."
-          onChange={handleClass}
+          onChange={setClass}
           newSuggestions={listClasses}
+          display={charClass}
         />
         {levels.map((level, index) => (
           <div key={index} className={`modifier-display ${theme}`}>
@@ -533,8 +531,9 @@ const CharacterCreator = () => {
             style={{ maxWidth: '50px' }}
           />
           <br />
-          <span>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br />
-          <span>Saving Throws: </span> <br />
+          <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br />
+          <br />
+          <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
           <span>* - profieient, # - expert, ~ - custom</span> <br />
           <div>
             {savingThrows.map((save, index) => (
@@ -626,6 +625,11 @@ const CharacterCreator = () => {
         ))}
         <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button> <br /> <br />
         <hr />
+
+        <h2>Inventory</h2>
+        <Inventory />
+        <hr />
+
         <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
         <br />
         {Data[0] === undefined
