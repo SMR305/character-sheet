@@ -2,10 +2,8 @@ import React, {useState} from 'react';
 
 const Inventory = () => {
     const [items, setItems] = useState([]);
-    const [item, setItem] = useState({name: "", weight: undefined, description: "", number: undefined, tags: "", id: undefined});
+    const [item, setItem] = useState({name: "", weight: undefined, description: "", number: undefined, tags: ""});
     const [expanded, setExpanded] = useState([]);
-    // Use Id's to delete items instead of names
-    const [id, setId] = useState(0);
     
     const handleItemChange = (e) => {
         setItem({...item, [e.target.name] : `${e.target.value}`})
@@ -26,8 +24,16 @@ const Inventory = () => {
         setItems([...items, item]);
     };
 
-    const removeItem = (name) => {
-        setItems(items.filter((a => a.name !== name)));
+    const removeItem = (index) => {
+        setItems(items.filter((_, i) => i !== index));
+    };
+
+    const handleNumberChange = (index, newValue) => {
+        setItems((prevItems) =>
+            prevItems.map((item, i) =>
+                i === index ? { ...item, number: newValue } : item
+            )
+        );
     };
 
     return (
@@ -69,22 +75,33 @@ const Inventory = () => {
             />
 
             <button onClick={addItem}> Add Item</button>
+            <br />
+            <br />
 
-            {items.map((i, index) => (
-                <div>
-                    <button style={{width: '400px', backgroundColor: '#ddd', borderRadius: '5px', padding: '10px', textAlign: 'left'}} onClick={() => toggleExpand(index)}>
-                        {i.name}, Weight: {i.weight}, Number: {i.number}, Tags: {i.tags}
-                        {expanded.includes(index)
-                            ?
-                                <div style={{backgroundColor: '#ccc', borderRadius: '5px'}}>
-                                    <span> {i.description} </span>
-                                    <button onClick={() => removeItem(i.name)} className='red-button'> Delete </button>
-                                </div>
-                            : null
-                        }
-                    </button>
-                </div>
-            ))}
+            <div style={{backgroundColor: '#ddd', padding: '5px', width: '780px', borderRadius: '10px'}}>
+                <h3>Items</h3>
+
+                {items.map((i, index) => (
+                    <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px', textAlign: 'left', margin: '5px'}}>
+                            <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {i.weight}, Number: {i.number}, Tags: {i.tags} </span>
+                            {expanded.includes(index)
+                                ?
+                                    <div style={{background: 'white', borderRadius: '5px', width: '770px'}}>
+                                        <span style={{whiteSpace: 'pre-wrap'}}> {i.description}</span> <br /> <span style={{whiteSpace: 'pre-wrap'}}> </span>
+                                        <input
+                                            type='number'
+                                            name='number'
+                                            value={i.number}
+                                            onInput={(e) => handleNumberChange(index, e.target.value)}
+                                            placeholder='number...'
+                                        />
+                                        <button onClick={() => removeItem(index)} className='red-button'> Delete </button>
+                                    </div>
+                                : null
+                            }
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
