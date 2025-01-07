@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
-const Inventory = ({ stuff, addStuff, removeStuff, changeNumber }) => {
+const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapacity }) => {
 
     const [item, setItem] = useState({name: "", weight: '', description: "", number: '', tags: ""});
     const [expanded, setExpanded] = useState([]);
+    const [tWeight, setWeight] = useState(0);
     
     const handleItemChange = (e) => {
         setItem({...item, [e.target.name] : `${e.target.value}`})
@@ -26,6 +27,14 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber }) => {
         setTheme(savedTheme);
         document.body.className = savedTheme; // Set initial theme on body
     }, []);
+
+    useEffect(() => {
+        let w = 0;
+        for (let i = 0; i < stuff.length; i++) {
+            w += (parseInt(stuff[i].weight) || 0) * (parseInt(stuff[i].number) || 1);
+        }
+        setWeight(w);
+    }, [stuff]);
 
     return (
         <div>
@@ -74,11 +83,36 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber }) => {
             <br />
 
             <div className={`items ${theme}`}>
-                <h3>Items</h3>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <h3 style={{marginRight: 'auto'}}>Items</h3>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <span>Carry Capacity Option:</span>
+                        <select
+                            value={cap.switch}
+                            onChange={(e) => changeCapacity(cap.capacity, e.target.value)}
+                        >
+                            <option value={0}>STR x 15</option>
+                            <option value={1}>STR x 5</option>
+                            <option value={2}>Custom</option>
+                        </select>
+                        { cap.switch === '2'?
+                            <input
+                                type='number'
+                                name='capacity'
+                                value={cap.capacity}
+                                onInput={(e) => changeCapacity(e.target.value, cap.switch)}
+                                placeholder='Carry Capacity...'
+                                className={`inventory-input ${theme}`}
+                            />
+                            : null
+                        }
+                        <span>Carry Capacity: {tWeight}/{cap.capacity}</span>
+                    </div>
+                </div>
 
                 {stuff.map((i, index) => (
                     <div className={`inventory ${theme}`} key={index}>
-                            <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {i.weight}, Number: {i.number}, Tags: {i.tags} </span>
+                            <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {(i.weight || 0)}, Number: {(i.number || 1)}, Tags: {i.tags} </span>
                             {expanded.includes(index)
                                 ?
                                     <div className={`item ${theme}`}>

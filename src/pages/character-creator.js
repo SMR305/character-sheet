@@ -57,6 +57,7 @@ const CharacterCreator = () => {
   const [backgrounds, setBackgrounds] = useState([]);
   const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
   const [items, setItems] = useState(loadFromLocalStorage("items", []));
+  const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
 
   // suggestions
   const listClasses = [...core_2014, ...core_2024, ...crit_roll];
@@ -115,9 +116,10 @@ const CharacterCreator = () => {
     localStorage.setItem("skills", JSON.stringify(skills));
     localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
     localStorage.setItem("charClass", JSON.stringify(charClass));
-    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("capacity", JSON.stringify(capacity));
     localStorage.setItem("items", JSON.stringify(items));
-  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, items, notes]);
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, capacity, items, notes]);
 
   useEffect( () => {
     async function fetchBackgrounds() {
@@ -247,11 +249,12 @@ const CharacterCreator = () => {
     setNotes(input.notes);
     setSavingThrows(input.savingThrows);
     setItems(input.items)
+    setCapacity(input.items);
   };
 
   const handleSave = () => {
-    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, items, notes } );
-    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, items, notes });
+    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes } );
+    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes });
   };
 
   const handleSettings = () => {
@@ -330,6 +333,23 @@ const CharacterCreator = () => {
       );
   };
 
+  const handleCapacityChange = (c, s) => {
+    switch (s) {
+      case '0':
+        setCapacity({capacity: abilityScores.strength * 15, switch: s});
+        break;
+      case '1':
+        setCapacity({capacity: abilityScores.strength * 5, switch: s});
+        break;
+      case '2':
+        setCapacity({capacity: c, switch: s});
+        break;
+      default:
+        console.log(c, s);
+        break;
+    }
+  };
+
   const resetCharacter = () => {
     setCharacter({ name: "", race: "", background: "", alignment: "" });
     setLevels([]);
@@ -374,6 +394,7 @@ const CharacterCreator = () => {
     setClass("");
     setNotes("");
     setItems([]);
+    setCapacity({capacity: 0, switch: 0});
   };
 
   return (
@@ -659,7 +680,7 @@ const CharacterCreator = () => {
         <hr />
 
         <h2>Inventory</h2>
-        <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} />
+        <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
         <hr />
 
         <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
