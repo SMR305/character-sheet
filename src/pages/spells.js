@@ -129,7 +129,7 @@ const Spells = () => {
         <span onClick={handleSettings}>{`${settingsText}`}</span>
         {showSettings ?
           (<>
-          <div className={`menu`}>
+          <div className={`menu ${theme}`}>
             {allSources.map((item) => (
               <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
                 <div key={item}>
@@ -158,11 +158,11 @@ const Spells = () => {
       <>
         {spells.map((spell, index) => (
           (index / 20 < subSet) && (index / 20 >= subSet - 1) ?
-            <div key={index} className="spell">
-              <button onClick={() => toggleExpand(index)} style={{  background:'transparent', border: 'none', fontSize: 'large', fontWeight: 'bold', color: 'black'}} > {index} {spell.name}</button>
+            <div key={index} className={`spell ${theme}`}>
+              <button onClick={() => toggleExpand(index)} className={'spell-item'} > {index} {spell.name}</button>
               { (expanded.includes(index))
                 ?
-                  <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px'}}>
+                  <div className={`spell-description ${theme}`}>
                     <p>Source: {spell.source}</p>
                     <p>Page: {spell.page}</p>
                     <p>Level: {spell.level}</p>

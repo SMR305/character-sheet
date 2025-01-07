@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
+
+  const [theme, setTheme] = useState("light");
+
+  // Load the theme from localStorage on initial render
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.body.className = savedTheme; // Set initial theme on body
+  }, []);
+
   const [suggestions, setSuggestions] = useState([]);
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
@@ -49,14 +59,14 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
         value={query}
         onChange={handleInputChange}
         placeholder={filler}
-        className="autocomplete-input"
+        className={`autocomplete-input ${theme}`}
       />
       {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className="autocomplete-suggestions">
+        <div className={`autocomplete-suggestions ${theme}`}>
           {filteredSuggestions.map((suggestion, index) => (
             <div
               key={index}
-              className="autocomplete-suggestion"
+              className={`autocomplete-suggestion ${theme}`}
               onClick={() => handleSuggestionClick(suggestion)}
             >
               {suggestion}

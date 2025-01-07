@@ -1,40 +1,53 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Inventory = () => {
-    const [items, setItems] = useState([]);
-    const [item, setItem] = useState({name: "", weight: undefined, description: "", number: undefined, tags: ""});
+    const [items, setItems] = useState(() => {
+        const savedItems = localStorage.getItem('items');
+        return savedItems ? JSON.parse(savedItems) : [];
+    });
+    const [item, setItem] = useState({ name: "", weight: undefined, description: "", number: undefined, tags: "" });
     const [expanded, setExpanded] = useState([]);
-    
+
     const handleItemChange = (e) => {
-        setItem({...item, [e.target.name] : `${e.target.value}`})
+        setItem({ ...item, [e.target.name]: `${e.target.value}` });
     };
 
     const toggleExpand = (index) => {
         if (expanded.includes(index)) {
             setExpanded(expanded.filter((item) => item !== index));
-        }
-        else {
+        } else {
             setExpanded([...expanded, index]);
         }
     };
 
     const addItem = () => {
-        console.log(items.length);
-
-        setItems([...items, item]);
+        const newItems = [...items, item];
+        setItems(newItems);
+        localStorage.setItem('items', JSON.stringify(newItems));
     };
 
     const removeItem = (index) => {
-        setItems(items.filter((_, i) => i !== index));
+        const newItems = items.filter((_, i) => i !== index);
+        setItems(newItems);
+        localStorage.setItem('items', JSON.stringify(newItems));
     };
 
     const handleNumberChange = (index, newValue) => {
-        setItems((prevItems) =>
-            prevItems.map((item, i) =>
-                i === index ? { ...item, number: newValue } : item
-            )
+        const newItems = items.map((item, i) =>
+            i === index ? { ...item, number: newValue } : item
         );
+        setItems(newItems);
+        localStorage.setItem('items', JSON.stringify(newItems));
     };
+
+    const [theme, setTheme] = useState("light");
+
+    // Load the theme from localStorage on initial render
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        setTheme(savedTheme);
+        document.body.className = savedTheme; // Set initial theme on body
+    }, []);
 
     return (
         <div>
@@ -44,6 +57,7 @@ const Inventory = () => {
                 value={item.name}
                 onInput={handleItemChange}
                 placeholder='name...'
+                className={`inventory-input ${theme}`}
             />
             <input
                 type='number'
@@ -51,9 +65,10 @@ const Inventory = () => {
                 value={item.weight}
                 onInput={handleItemChange}
                 placeholder='weight...'
+                className={`inventory-input ${theme}`}
             />
             <textarea
-                className={`notes-box`}
+                className={`notes-box ${theme}`}
                 name='description'
                 value={item.description}
                 onInput={handleItemChange}
@@ -65,6 +80,7 @@ const Inventory = () => {
                 value={item.tags}
                 onInput={handleItemChange}
                 placeholder='tags...'
+                className={`inventory-input ${theme}`}
             />
             <input
                 type='number'
@@ -72,33 +88,35 @@ const Inventory = () => {
                 value={item.number}
                 onInput={handleItemChange}
                 placeholder='number...'
+                className={`inventory-input ${theme}`}
             />
 
-            <button onClick={addItem}> Add Item</button>
+            <button onClick={addItem} className={`inventory-input ${theme}`}> Add Item</button>
             <br />
             <br />
 
-            <div style={{backgroundColor: '#ddd', padding: '5px', width: '780px', borderRadius: '10px'}}>
+            <div className={`items ${theme}`}>
                 <h3>Items</h3>
 
                 {items.map((i, index) => (
-                    <div style={{backgroundColor: '#ccc', borderRadius: '5px', padding: '10px', textAlign: 'left', margin: '5px'}}>
-                            <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {i.weight}, Number: {i.number}, Tags: {i.tags} </span>
-                            {expanded.includes(index)
-                                ?
-                                    <div style={{background: 'white', borderRadius: '5px', width: '770px'}}>
-                                        <span style={{whiteSpace: 'pre-wrap'}}> {i.description}</span> <br /> <span style={{whiteSpace: 'pre-wrap'}}> </span>
-                                        <input
-                                            type='number'
-                                            name='number'
-                                            value={i.number}
-                                            onInput={(e) => handleNumberChange(index, e.target.value)}
-                                            placeholder='number...'
-                                        />
-                                        <button onClick={() => removeItem(index)} className='red-button'> Delete </button>
-                                    </div>
-                                : null
-                            }
+                    <div className={`inventory ${theme}`} key={index}>
+                        <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {i.weight}, Number: {i.number}, Tags: {i.tags} </span>
+                        {expanded.includes(index)
+                            ?
+                            <div className={`item ${theme}`}>
+                                <span style={{ whiteSpace: 'pre-wrap' }}>{i.description}</span> <br /> <span style={{ whiteSpace: 'pre-wrap' }}> </span>
+                                <input
+                                    type='number'
+                                    name='number'
+                                    value={i.number}
+                                    onInput={(e) => handleNumberChange(index, e.target.value)}
+                                    placeholder='number...'
+                                    className={`inventory-input ${theme}`}
+                                />
+                                <button onClick={() => removeItem(index)} className='red-button'> Delete </button>
+                            </div>
+                            : null
+                        }
                     </div>
                 ))}
             </div>

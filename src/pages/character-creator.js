@@ -7,9 +7,9 @@ import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
 
-const CharacterCreator = () => {
+const CharacterCreator = (_theme) => {
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(_theme);
 
   // Load the theme from localStorage on initial render
   useEffect(() => {
@@ -363,7 +363,7 @@ const CharacterCreator = () => {
           <span onClick={handleSettings}>{`${settingsText}`}</span>
           {showSettings ?
             (
-            <div className={`menu`}>
+            <div className={`menu ${theme}`}>
               {allSources.map((item) => (
                 <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
                   <div key={item}>
@@ -388,6 +388,7 @@ const CharacterCreator = () => {
             name="name"
             value={character.name}
             onChange={handleCharacterChange}
+            className={`inventory-input ${theme}`}
           />
         </div>
         <div className={`form-group  ${theme}`}>
@@ -420,6 +421,7 @@ const CharacterCreator = () => {
             name="alignment"
             value={character.alignment}
             onChange={handleCharacterChange}
+            className={`inventory-input ${theme}`}
           >
             <option value="">Select Alignment</option>
             <option value="lawful-good">Lawful Good</option>
@@ -451,6 +453,7 @@ const CharacterCreator = () => {
               name={level.className}
               value={level.level}
               onChange={handleLevelChange}
+              className={`inventory-input ${theme}`}
             >
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -492,6 +495,7 @@ const CharacterCreator = () => {
                 name={ability}
                 value={abilityScores[ability]}
                 onChange={handleAbilityScoreChange}
+                className={`inventory-input ${theme}`}
               />
               <div className={`modifiers  ${theme}`}>
                 {isNaN(calculateModifier(abilityScores[ability], 0))
@@ -512,6 +516,7 @@ const CharacterCreator = () => {
             value={health_info.cur}
             onChange={handleHealthChange}
             style={{ maxWidth: '50px' }}
+            className={`inventory-input ${theme}`}
           />
           <span><b> / </b></span>
           <input
@@ -520,6 +525,7 @@ const CharacterCreator = () => {
             value={health_info.max}
             onChange={handleHealthChange}
             style={{ maxWidth: '50px' }}
+            className={`inventory-input ${theme}`}
           />
           <br />
           <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
@@ -529,6 +535,7 @@ const CharacterCreator = () => {
             value={health_info.temp}
             onChange={handleHealthChange}
             style={{ maxWidth: '50px' }}
+            className={`inventory-input ${theme}`}
           />
           <br />
           <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br />
@@ -545,6 +552,7 @@ const CharacterCreator = () => {
                     updatedSaves[index].prof = Number(e.target.value);
                     setSavingThrows(updatedSaves);
                   }}
+                  className={`inventory-input ${theme}`}
                 >
                   <option value={0}></option>
                   <option value={1}>*</option>
@@ -567,6 +575,7 @@ const CharacterCreator = () => {
                           name={save.name}
                           onChange={handleSaveingThrowChange}
                           style={{ maxWidth: '50px' }}
+                          className={`inventory-input ${theme}`}
                         />
                       </span>
                   }
@@ -582,6 +591,7 @@ const CharacterCreator = () => {
             <select
               value={skill.ability}
               onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
+              className={`inventory-input ${theme}`}
             >
               <option value="">Select Ability</option>
               <option value="strength">STR</option>
@@ -594,6 +604,7 @@ const CharacterCreator = () => {
             <select
               value={skill.prof}
               onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
+              className={`inventory-input ${theme}`}
             >
               <option value={0}></option>
               <option value={1}>*</option>
@@ -614,6 +625,7 @@ const CharacterCreator = () => {
                       name={skill.name}
                       onChange={handleSkillMod}
                       style={{ maxWidth: '13ch', fontFamily: 'monospace' }}
+                      className={`inventory-input ${theme}`}
                     />
                   </span>
               }

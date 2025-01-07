@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <nav className={`menu`}>
+        <nav className={`top-menu`}>
           <button onClick={toggleMenu} className={`button ${theme}`} style={{borderRadius: '5px'}}>
             {menuOpen ? 'Hide Pages' : 'Show Pages'}
           </button>

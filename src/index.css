@@ -29,7 +29,7 @@ body.light {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-family: monospace;
 }
-.spell {
+.spell.light {
   max-width: 800px;
   margin: 10px;
   padding: 20px;
@@ -37,6 +37,11 @@ body.light {
   border-radius: 8px;
   border: 1px solid lightslategray;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.spell-description.light {
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 10px;
 }
 h1, h2 {
   text-align: center;
@@ -70,17 +75,6 @@ h1, h2 {
   font-weight: bold;
   font-size: large;
 }
-.button {
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.button:hover {
-  background-color: #0056b3;
-}
 .modifier-display {
   text-align: left;
 }
@@ -91,6 +85,209 @@ h1, h2 {
 .modifier-display span {
   font-weight: bold;
   font-size: 1.2em;
+}
+.autocomplete-container {
+  position: relative;
+  width: 300px;
+}
+.autocomplete-input.light {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.autocomplete-suggestions.light {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.autocomplete-suggestion {
+  padding: 8px;
+  cursor: pointer;
+}
+.autocomplete-suggestion:hover {
+  background-color: #f0f0f0;
+}
+.notes-box.light {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  resize: vertical;
+  overflow-y: scroll;
+}
+.inventory-input.light {
+  background-color: white;
+}
+.items.light {
+  background-color: #ddd;
+  padding: 5px;
+  width: 800px;
+  border-radius: 10px;
+}
+.item.light {
+  background: #aaa;
+  border-radius: 5px;
+  width: 770px;
+}
+.inventory.light {
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  margin: 5px;
+}
+.spell-item {
+  background: transparent;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+}
+.menu.light {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  background-color: #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.top-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  background-color: #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Dark Mode */
+body.dark {
+  font-family: monospace;
+  line-height: 1.6;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.container.dark {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: rgb(125, 125, 125);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
+}
+.menu.dark {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  background-color: #333;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.spell.dark {
+  max-width: 800px;
+  margin: 10px;
+  padding: 20px;
+  background: rgb(174, 170, 170);
+  border-radius: 8px;
+  border: 1px solid lightslategray;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.spell-description.dark {
+  background-color: #666;
+  border-radius: 5px;
+  padding: 10px;
+}
+.autocomplete-input.dark {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+}
+.autocomplete-suggestions.dark {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.autocomplete-suggestion.dark {
+  padding: 8px;
+  cursor: pointer;
+}
+.autocomplete-suggestion:hover.dark {
+  background-color: #0f0f0f;
+}
+.notes-box.dark {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  resize: vertical;
+  overflow-y: scroll;
+  background-color: #333;
+  color: white
+}
+.inventory-input.dark {
+  color: white;
+  background-color: #333;
+}
+.items.dark {
+  background-color: #222;
+  padding: 5px;
+  width: 800px;
+  border-radius: 10px;
+}
+.item.dark {
+  background: black;
+  border-radius: 5px;
+  width: 770px;
+}
+.inventory.dark {
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  margin: 5px;
+}
+
+/* buttons */
+.button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #0056b3;
 }
 .red-button {
   background-color: red;
@@ -113,77 +310,4 @@ h1, h2 {
 }
 .blue-button:hover {
   background-color: 0056b3;
-}
-.autocomplete-container {
-  position: relative;
-  width: 300px;
-}
-.autocomplete-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.autocomplete-suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  z-index: 1000;
-  max-height: 150px;
-  overflow-y: auto;
-}
-.autocomplete-suggestion {
-  padding: 8px;
-  cursor: pointer;
-}
-.autocomplete-suggestion:hover {
-  background-color: #f0f0f0;
-}
-.notes-box {
-  width: 100%;
-  max-width: 100%;
-  min-height: 100px;
-  overflow: hidden;
-  resize: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  text-align: left;
-  resize: vertical;
-  overflow-y: scroll;
-}
-.spell-item {
-  background: transparent;
-  border: none;
-  font-size: larger;
-  font-weight: bold;
-}
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-evenly;
-  background-color: #ccc;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/* Dark Mode */
-body.dark {
-  font-family: monospace;
-  line-height: 1.6;
-  margin: auto;
-  background-color: rgb(0, 0, 0);
-}
-.container.dark {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgb(125, 125, 125);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: monospace;
 }
