@@ -56,6 +56,7 @@ const CharacterCreator = () => {
   const [Data, setData] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
   const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
+  const [items, setItems] = useState(loadFromLocalStorage("items", []));
 
   // suggestions
   const listClasses = [...core_2014, ...core_2024, ...crit_roll];
@@ -115,7 +116,8 @@ const CharacterCreator = () => {
     localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
     localStorage.setItem("charClass", JSON.stringify(charClass));
     localStorage.setItem("notes", JSON.stringify(notes));
-  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, notes]);
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, items, notes]);
 
   useEffect( () => {
     async function fetchBackgrounds() {
@@ -244,11 +246,12 @@ const CharacterCreator = () => {
     setSkills(input.skills);
     setNotes(input.notes);
     setSavingThrows(input.savingThrows);
+    setItems(input.items)
   };
 
   const handleSave = () => {
-    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, notes } );
-    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, notes });
+    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, items, notes } );
+    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, items, notes });
   };
 
   const handleSettings = () => {
@@ -311,6 +314,22 @@ const CharacterCreator = () => {
     setSavingThrows(updatedSaves);
   };
 
+  const addItem = (item) => {
+    setItems([...items, item]);
+  };
+
+  const removeItem = (index) => {
+      setItems(items.filter((_, i) => i !== index));
+  };
+
+  const handleNumberChange = (index, newValue) => {
+      setItems((prevItems) =>
+          prevItems.map((item, i) =>
+              i === index ? { ...item, number: newValue } : item
+          )
+      );
+  };
+
   const resetCharacter = () => {
     setCharacter({ name: "", race: "", background: "", alignment: "" });
     setLevels([]);
@@ -354,6 +373,7 @@ const CharacterCreator = () => {
     setTLevel(0);
     setClass("");
     setNotes("");
+    setItems([]);
   };
 
   return (
@@ -639,7 +659,7 @@ const CharacterCreator = () => {
         <hr />
 
         <h2>Inventory</h2>
-        <Inventory />
+        <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} />
         <hr />
 
         <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
