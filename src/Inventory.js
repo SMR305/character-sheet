@@ -90,6 +90,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                         <select
                             value={cap.switch}
                             onChange={(e) => changeCapacity(cap.capacity, e.target.value)}
+                            className={`inventory-input ${theme}`}
                         >
                             <option value={0}>STR x 15</option>
                             <option value={1}>STR x 5</option>
