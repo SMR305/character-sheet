@@ -430,6 +430,7 @@ const CharacterCreator = () => {
             value={character.name}
             onChange={handleCharacterChange}
             className={`inventory-input ${theme}`}
+            style={{width: '300px'}}
           />
         </div>
         <div className={`form-group  ${theme}`}>
@@ -463,6 +464,7 @@ const CharacterCreator = () => {
             value={character.alignment}
             onChange={handleCharacterChange}
             className={`inventory-input ${theme}`}
+            style={{width: '318px'}}
           >
             <option value="">Select Alignment</option>
             <option value="lawful-good">Lawful Good</option>
