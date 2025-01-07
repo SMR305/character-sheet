@@ -7,9 +7,9 @@ import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
 
-const CharacterCreator = (_theme) => {
+const CharacterCreator = () => {
 
-  const [theme, setTheme] = useState(_theme);
+  const [theme, setTheme] = useState('light');
 
   // Load the theme from localStorage on initial render
   useEffect(() => {
