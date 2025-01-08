@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Entry from '../components/Entry';
-// import './styles.css';
 
 const Dmg = () => {
 
@@ -12,7 +11,7 @@ const Dmg = () => {
         setTheme(savedTheme);
         document.body.className = savedTheme; // Set initial theme on body
     }, []);
-    
+
     const [data, setData] = useState(null);
 
     useEffect(() => {
