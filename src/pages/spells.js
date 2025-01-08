@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Entry from '../components/Entry';
 
 const Spells = () => {
 
@@ -171,7 +172,7 @@ const Spells = () => {
                     <p>Duration Type: {spell.duration[0].type}</p>
                     <p>Duration: {spell.duration[0].duration ? Object.values(spell.duration[0].duration).join(" ") : "None"}
                         {spell.duration[0].concentration ? " : Concentration" : ''}</p>
-                    <p>Entries: {Object.values(spell.entries).join(" ")}</p>
+                    {spell.entries.map((entry, index) => (<div key={index}><Entry entry={entry}/></div>))}
                   </div>
                 : null
               }

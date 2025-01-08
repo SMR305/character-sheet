@@ -107,7 +107,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                             />
                             : null
                         }
-                        <span>Carry Capacity: {tWeight}/{cap.capacity}</span>
+                        <span>Carry Capacity: {tWeight}/{(cap.capacity || 0)}</span>
                     </div>
                 </div>
 

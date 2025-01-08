@@ -172,6 +172,18 @@ h1, h2 {
   padding: 10px;
   border-radius: 5px;
 }
+table {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+th {
+  border: 1px solid black;
+}
+
+td {
+  text-align: center;
+  border: 1px solid black;
+}
 
 /* Dark Mode */
 body.dark {
@@ -275,6 +287,18 @@ body.dark {
   padding: 10px;
   text-align: left;
   margin: 5px;
+}
+table.dark {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+th.dark {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+td.dark {
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 /* buttons */
