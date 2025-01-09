@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Entry from '../components/Entry';
 
-const Dmg = () => {
+const Book = ({_book}) => {
+    const book = _book;
 
     const [theme, setTheme] = useState("light");
 
@@ -15,17 +16,25 @@ const Dmg = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('/book-dmg.json')
-            .then((response) => response.json())
-            .then((data) => setData(data));
-    }, []);
+        const fetchBook = async () => {
+            try {
+                const book_info = await import(`../books/${book}.json`);
+                setData(book_info);
+            }
+            catch (error) {
+                console.error('Error fetching book:', error);
+            }
+        };
+
+        fetchBook();
+    }, [book]);
 
     if (!data) {
-        return <div>Loading...</div>;
+        return <div className={`container ${theme}`}><h1>Loading...</h1></div>;
     }
 
     return (
-        <div className={`container ${theme}`}>
+        <div className={``}>
             {data.data.map((section) => (
                 <Entry key={section.id} entry={section} />
             ))}
@@ -33,4 +42,4 @@ const Dmg = () => {
     );
 };
 
-export default Dmg;
+export default Book;

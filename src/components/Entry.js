@@ -27,17 +27,35 @@ const Entry = ({ entry }) => {
                 <table className={`table ${theme}`}>
                     <thead>
                         <tr>
-                            {entry.colLabels.map((label, index) => {
-                                return (
-                                    <th className={`th ${theme}`} key={index}><Entry entry={label}/></th>
-                                )
-                            })}
+                            
+                            {typeof entry.colLabels === 'undefined' ? 
+                            (typeof entry.colLabelRows !== 'undefined' ?
+                                entry.colLabelRows.map((label, index) => {
+                                    return (
+                                        <th className={`th ${theme}`} key={index}><Entry entry={label}/></th>
+                                    )
+                                }) : (null))
+                            :
+                                (entry.colLabels.map((label, index) => {
+                                    return (
+                                        <th className={`th ${theme}`} key={index}><Entry entry={label}/></th>
+                                    )
+                                }))}
                         </tr>
                     </thead>
                     <tbody>
                         {entry.rows.map((item, index) => {
                             return (
                                 <tr key={index}>{
+                                    typeof item.row !== 'undefined' ?
+                                        item.row.map((rowStuff, key) => {
+                                            return (
+                                                <td className={`td ${theme}`} key={key}>
+                                                    <Entry entry={rowStuff}/>
+                                                </td>
+                                            )
+                                        })
+                                    :
                                     item.map((rowStuff, key) => {
                                         return (
                                             <td className={`td ${theme}`} key={key}>
@@ -54,9 +72,10 @@ const Entry = ({ entry }) => {
         );
     } else if (entry.type === 'cell') {
         return (
-            entry.roll.exact ?
-                <span>{entry.roll.exact}</span>
-                : <span>{entry.roll.min}-{entry.roll.max}</span>
+            entry.roll ?
+                (entry.roll.exact ? <span>{entry.roll.exact}</span>
+                    : <span>{entry.roll.min}-{entry.roll.max}</span>)
+                : (<Entry entry={entry.entry}/>)
         )
     } else if (entry.type === 'list') {
         return (
@@ -74,7 +93,7 @@ const Entry = ({ entry }) => {
     } else if (entry.type === 'item') {
         return (
             <div>
-                <span style={{fontWeight: 'bold'}}>{entry.name}</span>
+                <span style={{fontWeight: 'bold'}}>{entry.name} </span>
                 <span>{entry.entry}</span>
             </div>
         )
