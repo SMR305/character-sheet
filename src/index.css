@@ -29,6 +29,9 @@ body.light {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-family: monospace;
 }
+.text.light{
+  color: rgb(0, 0, 0);
+}
 .spell.light {
   max-width: 800px;
   margin: 10px;
@@ -190,17 +193,20 @@ body.dark {
   font-family: monospace;
   line-height: 1.6;
   margin: auto;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(51, 51, 51);
   color: white;
 }
 .container.dark {
   max-width: 800px;
   margin: auto;
   padding: 20px;
-  background: rgb(125, 125, 125);
+  background: rgb(80, 80, 80);
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-family: monospace;
+}
+.text.dark {
+  color: white;
 }
 .menu.dark {
   display: flex;

@@ -21,7 +21,6 @@ const Books = () => {
         const fetchBookNames = async () => {
             try {
                 const context = require.context('../books', false, /\.json$/);
-                console.log(bookList);
                 const bookNames = context.keys().map((file) => {
                     const id = file.replace('./', '').replace('.json', '').replace('book-', '');
                     const book = bookList.find(book => book.id === id);
@@ -53,14 +52,14 @@ const Books = () => {
     return(
         <div className={`container ${theme}`}>
             <nav>
-                {hide ? <Link to={`/books`} onClick={() => setHide(false)}>Back</Link>
+                {hide ? <Link className={`text ${theme}`} to={`/books`} onClick={() => setHide(false)}>Back</Link>
                 :
                 <>
                     <h1>Reference Books</h1>
                     <ul>
                         {books.map(book => (
                             <li key={book.id}>
-                                <Link to={`${book.id}`} onClick={() => setHide(true)}>{book.title}</Link>
+                                <Link className={`text ${theme}`} to={`${book.id}`} onClick={() => setHide(true)}>{book.title}</Link>
                             </li>
                         ))}
                     </ul>

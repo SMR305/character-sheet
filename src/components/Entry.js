@@ -11,7 +11,23 @@ const Entry = ({ entry }) => {
     }, []);
 
     if (typeof entry === 'string') {
-        return <span>{entry}</span>;
+        // const regex = /{@(\w+)\s([^}]+)}/g;
+        const regex = /({@\w+\s[^}]+})/g;
+        const regex2 = /{@(\w+\s[^}]+)}/g;
+        const parts = entry.split(regex);
+
+        return (
+            <span>
+            {parts.map((part, index) => {
+            if (regex.test(part)) {
+                return <strong key={index}>{part.split(regex2)}</strong>;
+            }
+            return part;
+            })}
+            </span>
+        )
+    } else if (typeof entry === 'number') {
+        return <span>{entry}</span>
     } else if (entry.type === 'entries') {
         return (
             <div>
@@ -24,6 +40,7 @@ const Entry = ({ entry }) => {
     } else if (entry.type === 'table') {
         return (
             <div>
+                <br />
                 <table className={`table ${theme}`}>
                     <thead>
                         <tr>
@@ -68,6 +85,7 @@ const Entry = ({ entry }) => {
                         })}
                     </tbody>
                 </table>
+                <br />
             </div>
         );
     } else if (entry.type === 'cell') {
@@ -88,6 +106,7 @@ const Entry = ({ entry }) => {
                         )
                     })}
                 </ul>
+                <br />
             </>
         )
     } else if (entry.type === 'item') {
