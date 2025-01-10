@@ -283,7 +283,7 @@ body.dark {
   border-radius: 10px;
 }
 .item.dark {
-  background: black;
+  background: rgb(80, 80, 80);
   border-radius: 5px;
   width: 770px;
 }
