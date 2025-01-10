@@ -16,20 +16,20 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-    const fetchBookNames = async () => {
-        try {
-        const context = require.context('../books', false, /\.json$/);
-        const bookNames = context.keys().map(file => ({
-            id: file.replace('./', '').replace('.json', ''),
-            title: file.replace('./', '').replace('.json', '')
-        }));
-        setBooks(bookNames);
-        } catch (error) {
-            console.error('Error fetching book names:', error);
-        }
-    };
+        const fetchBookNames = async () => {
+            try {
+                const context = require.context('../books', false, /\.json$/);
+                const bookNames = context.keys().map(file => ({
+                    id: file.replace('./', '').replace('.json', ''),
+                    title: file.replace('./', '').replace('.json', '').replace('book-', '')
+                }));
+                setBooks(bookNames);
+            } catch (error) {
+                console.error('Error fetching book names:', error);
+            }
+        };
 
-    fetchBookNames();
+        fetchBookNames();
     }, []);
 
     const loadFromLocalStorage = (key, defaultValue) => {
@@ -48,13 +48,16 @@ const Books = () => {
             <nav>
                 {hide ? <Link to={`/books`} onClick={() => setHide(false)}>Back</Link>
                 :
-                <ul>
-                    {books.map(book => (
-                        <li key={book.id}>
-                            <Link to={`${book.id}`} onClick={() => setHide(true)}>{book.id}</Link>
-                        </li>
-                    ))}
-                </ul>}
+                <>
+                    <h1>Reference Books</h1>
+                    <ul>
+                        {books.map(book => (
+                            <li key={book.id}>
+                                <Link to={`${book.id}`} onClick={() => setHide(true)}>{book.title}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </>}
             </nav>
             <Routes>
                 {books.map(book => (
