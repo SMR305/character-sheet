@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Book from './book';
+import sources from '../sourceRef'
 
 const Books = () => {
 
     const [theme, setTheme] = useState("light");
+    const bookList = sources.data;
 
     // Load the theme from localStorage on initial render
     useEffect(() => {
@@ -19,10 +21,15 @@ const Books = () => {
         const fetchBookNames = async () => {
             try {
                 const context = require.context('../books', false, /\.json$/);
-                const bookNames = context.keys().map(file => ({
-                    id: file.replace('./', '').replace('.json', ''),
-                    title: file.replace('./', '').replace('.json', '').replace('book-', '')
-                }));
+                console.log(bookList);
+                const bookNames = context.keys().map((file) => {
+                    const id = file.replace('./', '').replace('.json', '').replace('book-', '');
+                    const book = bookList.find(book => book.id === id);
+                    return {
+                        id: `book-${id}`,
+                        title: book ? book.title : id
+                    };
+                });
                 setBooks(bookNames);
             } catch (error) {
                 console.error('Error fetching book names:', error);
@@ -30,7 +37,7 @@ const Books = () => {
         };
 
         fetchBookNames();
-    }, []);
+    }, [bookList]);
 
     const loadFromLocalStorage = (key, defaultValue) => {
         const saved = localStorage.getItem(key);
@@ -61,7 +68,7 @@ const Books = () => {
             </nav>
             <Routes>
                 {books.map(book => (
-                    <Route key={book.id} path={`${book.id}`} element={<Book _book={book.id} />} />
+                    <Route key={book.id} path={`${book.id}`} element={<Book _book={book} />} />
                 ))}
             </Routes>
         </div>

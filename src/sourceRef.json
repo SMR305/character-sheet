@@ -1,0 +1,220 @@
+{
+    "data": [
+        {
+            "title": "Astral Adventurer's Guide",
+            "id": "aag"
+        },
+        {
+            "title": "Adventure Atlas: The Mortuary",
+            "id": "aatm"
+        },
+        {
+            "title": "Acquisitions Incorporated",
+            "id": "ai"
+        },
+        {
+            "title": "Adventurers League",
+            "id": "al"
+        },
+        {
+            "title": "Boo's Astral Menagerie",
+            "id": "bam"
+        },
+        {
+            "title": "Bigby Presents: Glory of the Giants",
+            "id": "bgg"
+        },
+        {
+            "title": "The Book of Many Things",
+            "id": "bmt"
+        },
+        {
+            "title": "Dungeon Master's Guide (2014)",
+            "id": "dmg"
+        },
+        {
+            "title": "The Deck of Many Things: Card Reference Guide",
+            "id": "dmtcrg"
+        },
+        {
+            "title": "Domains of Delight",
+            "id": "dod"
+        },
+        {
+            "title": "Explorer's Guide to Wildemount",
+            "id": "egw"
+        },
+        {
+            "title": "Eberron: Rising from the Last War",
+            "id": "erlw"
+        },
+        {
+            "title": "Fizban's Treasury of Dragons",
+            "id": "ftd"
+        },
+        {
+            "title": "Guildmasters' Guide to Ravnica",
+            "id": "ggr"
+        },
+        {
+            "title": "Thieves' Gallery",
+            "id": "hat-tg"
+        },
+        {
+            "title": "Heroes' Feast",
+            "id": "hf"
+        },
+        {
+            "title": "Heroes' Feast Flavors of the Multiverse",
+            "id": "hffotm"
+        },
+        {
+            "title": "Humblewood Campaign Setting",
+            "id": "hwcs"
+        },
+        {
+            "title": "Minsc and Boo's Journal of Villainy",
+            "id": "mabjov"
+        },
+        {
+            "title": "Monstrous Compendium Volume 4: Eldraine Creatures",
+            "id": "mcv4ec"
+        },
+        {
+            "title": "Monster Manual (2014)",
+            "id": "mm"
+        },
+        {
+            "title": "Mythic Odysseys of Theros",
+            "id": "mot"
+        },
+        {
+            "title": "Mordenkainen Presents: Monsters of the Multiverse",
+            "id": "mpmm"
+        },
+        {
+            "title": "Morte's Planar Parade",
+            "id": "mpp"
+        },
+        {
+            "title": "Mordenkainen's Tome of Foes",
+            "id": "mtf"
+        },
+        {
+            "title": "One Grung Above",
+            "id": "oga"
+        },
+        {
+            "title": "Puncheons and Flagons",
+            "id": "paf"
+        },
+        {
+            "title": "Player's Handbook (2014)",
+            "id": "phb"
+        },
+        {
+            "title": "Plane Shift: Amonkhet",
+            "id": "ps-a"
+        },
+        {
+            "title": "Plane Shift: Dominaria",
+            "id": "ps-d"
+        },
+        {
+            "title": "Plane Shift: Innistrad",
+            "id": "ps-i"
+        },
+        {
+            "title": "Plane Shift: Kaladesh",
+            "id": "ps-k"
+        },
+        {
+            "title": "Plane Shift: Ixalan",
+            "id": "ps-x"
+        },
+        {
+            "title": "Plane Shift: Zendikar",
+            "id": "ps-z"
+        },
+        {
+            "title": "Dungeons & Dragons vs. Rick and Morty: Basic Rules",
+            "id": "rmr"
+        },
+        {
+            "title": "Sage Advice Compendium",
+            "id": "sac"
+        },
+        {
+            "title": "Planescape: Adventures in the Multiverse",
+            "id": "sato"
+        },
+        {
+            "title": "Sword Coast Adventurer's Guide",
+            "id": "scag"
+        },
+        {
+            "title": "Strixhaven: A Curriculum of Chaos",
+            "id": "scc"
+        },
+        {
+            "title": "Dungeon Master's Screen",
+            "id": "screen"
+        },
+        {
+            "title": "Dungeon Master's Screen: Dungeon Kit",
+            "id": "screendungeonkit"
+        },
+        {
+            "title": "Dungeon Master's Screen: Spelljammer",
+            "id": "screenspelljammer"
+        },
+        {
+            "title": "Dungeon Master's Screen: Wilderness Kit",
+            "id": "screenwildernesskit"
+        },
+        {
+            "title": "Tasha's Cauldron of Everything",
+            "id": "tce"
+        },
+        {
+            "title": "Tarot Deck",
+            "id": "td"
+        },
+        {
+            "title": "Tal'Dorei Campaign Setting Reborn",
+            "id": "tdcsr"
+        },
+        {
+            "title": "Tome of Beasts 1 (2023 Edition)",
+            "id": "tob1-2023"
+        },
+        {
+            "title": "Volo's Guide to Monsters",
+            "id": "vgm"
+        },
+        {
+            "title": "Van Richten's Guide to Ravenloft",
+            "id": "vrgr"
+        },
+        {
+            "title": "Dungeon Master's Guide (2024)",
+            "id": "xdmg"
+        },
+        {
+            "title": "Xanathar's Guide to Everything",
+            "id": "xge"
+        },
+        {
+            "title": "Monster Manual (2025)",
+            "id": "xmm"
+        },
+        {
+            "title": "Player's Handbook (2024)",
+            "id": "xphb"
+        },
+        {
+            "title": "Dungeon Master's Screen (2024)",
+            "id": "xscreen"
+        }
+    ]
+}

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Entry from '../components/Entry';
 
 const Book = ({_book}) => {
-    const book = _book;
+    const book = _book.id;
+    const title = _book.title
 
     const [theme, setTheme] = useState("light");
 
@@ -35,6 +36,7 @@ const Book = ({_book}) => {
 
     return (
         <div className={``}>
+            <h1>{title}</h1>
             {data.data.map((section) => (
                 <Entry key={section.id} entry={section} />
             ))}
