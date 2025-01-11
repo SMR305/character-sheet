@@ -3,12 +3,14 @@ import Autocomplete from "../Autocomplete";
 import handleDownload from "../DownloadFile";
 import FileUploader from "../UploadFile";
 import Inventory from "../Inventory.js";
+import sourceRef from '../sourceRef.json';
 import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
 
 const CharacterCreator = () => {
 
+  const bookList = sourceRef.data;
   const [theme, setTheme] = useState('light');
 
   // Load the theme from localStorage on initial render
@@ -404,21 +406,23 @@ const CharacterCreator = () => {
           <span onClick={handleSettings}>{`${settingsText}`}</span>
           {showSettings ?
             (
-            <div className={`menu ${theme}`}>
-              {allSources.map((item) => (
-                <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
-                  <div key={item}>
-                      <input
-                        type="checkbox"
-                        checked={checkedItems[item]}
-                        onChange={() => handleCheckboxChange(item)}
-                      />
-                      {item}
-                  </div>
-                </label>
-              ))}
+            <>
+              <div className={`menu ${theme}`}>
+                {allSources.map((item) => (
+                  <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
+                    <div key={item}>
+                        <input
+                          type="checkbox"
+                          checked={checkedItems[item]}
+                          onChange={() => handleCheckboxChange(item)}
+                        />
+                        {bookList.find(book => book.id === item.toLowerCase()) ? bookList.find(book => book.id === item.toLowerCase()).title : item}
+                    </div>
+                  </label>
+                ))}
+              </div>
               <button className={`blue-button ${theme}`} onClick={loadSources}> Load New Sources </button>
-            </div>)
+            </>)
             : null
           }
         </div>
@@ -427,6 +431,7 @@ const CharacterCreator = () => {
           <input
             type="text"
             name="name"
+            placeholder="Character Name..."
             value={character.name}
             onChange={handleCharacterChange}
             className={`inventory-input ${theme}`}

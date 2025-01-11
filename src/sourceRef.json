@@ -137,6 +137,30 @@
             "id": "ps-z"
         },
         {
+            "title": "Plane Shift: Amonkhet",
+            "id": "psa"
+        },
+        {
+            "title": "Plane Shift: Dominaria",
+            "id": "psd"
+        },
+        {
+            "title": "Plane Shift: Innistrad",
+            "id": "psi"
+        },
+        {
+            "title": "Plane Shift: Kaladesh",
+            "id": "psk"
+        },
+        {
+            "title": "Plane Shift: Ixalan",
+            "id": "psx"
+        },
+        {
+            "title": "Plane Shift: Zendikar",
+            "id": "psz"
+        },
+        {
             "title": "Dungeons & Dragons vs. Rick and Morty: Basic Rules",
             "id": "rmr"
         },
@@ -215,6 +239,354 @@
         {
             "title": "Dungeon Master's Screen (2024)",
             "id": "xscreen"
+        },
+        {
+            "title": "Lost Mine of Phandelver",
+            "id": "lmop"
+        },
+        {
+            "title": "Hoard of the Dragon Queen",
+            "id": "hotdq"
+        },
+        {
+            "title": "Rise of Tiamat",
+            "id": "rot"
+        },
+        {
+            "title": "Princes of the Apocalypse",
+            "id": "pota"
+        },
+        {
+            "title": "Out of the Abyss",
+            "id": "oota"
+        },
+        {
+            "title": "Curse of Strahd",
+            "id": "cos"
+        },
+        {
+            "title": "Storm King's Thunder",
+            "id": "skt"
+        },
+        {
+            "title": "Tales from the Yawning Portal: The Sunless Citadel",
+            "id": "tftyp-tsc"
+        },
+        {
+            "title": "Tales from the Yawning Portal: The Forge of Fury",
+            "id": "tftyp-tfof"
+        },
+        {
+            "title": "Tales from the Yawning Portal: The Hidden Shrine of Tamoachan",
+            "id": "tftyp-thsot"
+        },
+        {
+            "title": "Tales from the Yawning Portal: White Plume Mountain",
+            "id": "tftyp-wpm"
+        },
+        {
+            "title": "Tales from the Yawning Portal: Dead in Thay",
+            "id": "tftyp-dit"
+        },
+        {
+            "title": "Tales from the Yawning Portal: Against the Giants",
+            "id": "tftyp-atg"
+        },
+        {
+            "title": "Tales from the Yawning Portal: Tomb of Horrors",
+            "id": "tftyp-toh"
+        },
+        {
+            "title": "Tomb of Annihilation",
+            "id": "toa"
+        },
+        {
+            "title": "The Tortle Package",
+            "id": "ttp"
+        },
+        {
+            "title": "The Lost Kenku",
+            "id": "tlk"
+        },
+        {
+            "title": "X Marks the Spot",
+            "id": "xmts"
+        },
+        {
+            "title": "Waterdeep: Dragon Heist",
+            "id": "wdh"
+        },
+        {
+            "title": "Lost Laboratory of Kwalish",
+            "id": "llk"
+        },
+        {
+            "title": "Waterdeep: Dungeon of the Mad Mage",
+            "id": "wdmm"
+        },
+        {
+            "title": "Krenko's Way",
+            "id": "kkw"
+        },
+        {
+            "title": "A Zib for Your Thoughts",
+            "id": "azfyt"
+        },
+        {
+            "title": "Ghosts of Saltmarsh",
+            "id": "gos"
+        },
+        {
+            "title": "Hunt for the Thessalhydra",
+            "id": "hftt"
+        },
+        {
+            "title": "Humblewood: Adventure in the Wood",
+            "id": "hwaitw"
+        },
+        {
+            "title": "The Orrery of the Wanderer",
+            "id": "oow"
+        },
+        {
+            "title": "Essentials Kit: Dragon of Icespire Peak",
+            "id": "dip"
+        },
+        {
+            "title": "Essentials Kit: Storm Lord's Wrath",
+            "id": "slw"
+        },
+        {
+            "title": "Essentials Kit: Sleeping Dragon's Wake",
+            "id": "sdw"
+        },
+        {
+            "title": "Essentials Kit: Divine Contention",
+            "id": "dc"
+        },
+        {
+            "title": "Baldur's Gate: Descent Into Avernus",
+            "id": "bgdia"
+        },
+        {
+            "title": "Locathah Rising",
+            "id": "lr"
+        },
+        {
+            "title": "Infernal Machine Rebuild",
+            "id": "imr"
+        },
+        {
+            "title": "Eberron: Forgotten Relics",
+            "id": "efr"
+        },
+        {
+            "title": "The Lost Dungeon of Rickedness: Big Rick Energy",
+            "id": "rmbre"
+        },
+        {
+            "title": "Wildemount: Tide of Retribution",
+            "id": "tor"
+        },
+        {
+            "title": "Wildemount: Dangerous Designs",
+            "id": "dd"
+        },
+        {
+            "title": "Wildemount: Frozen Sick",
+            "id": "fs"
+        },
+        {
+            "title": "Wildemount: Unwelcome Spirits",
+            "id": "us"
+        },
+        {
+            "title": "Theros: No Silent Secret",
+            "id": "mot-nss"
+        },
+        {
+            "title": "Icewind Dale: Rime of the Frostmaiden",
+            "id": "idrotf"
+        },
+        {
+            "title": "Candlekeep Mysteries",
+            "id": "cm"
+        },
+        {
+            "title": "Ravenloft: The House of Lament",
+            "id": "hol"
+        },
+        {
+            "title": "Return to the Glory",
+            "id": "rtg"
+        },
+        {
+            "title": "Adventures in the Forgotten Realms: In Scarlet Flames",
+            "id": "aitfr-isf"
+        },
+        {
+            "title": "Adventures in the Forgotten Realms: The Hidden Page",
+            "id": "aitfr-thp"
+        },
+        {
+            "title": "Adventures in the Forgotten Realms: A Verdant Tomb",
+            "id": "aitfr-avt"
+        },
+        {
+            "title": "Adventures in the Forgotten Realms: Deepest Night",
+            "id": "aitfr-dn"
+        },
+        {
+            "title": "Adventures in the Forgotten Realms: From Cyan Depths",
+            "id": "aitfr-fcd"
+        },
+        {
+            "title": "NERDS Restoring Harmony: The Candy Mountain Caper",
+            "id": "nrh-tcmc"
+        },
+        {
+            "title": "NERDS Restoring Harmony: A Voice in the Wilderness",
+            "id": "nrh-avitw"
+        },
+        {
+            "title": "NERDS Restoring Harmony: A Sticky Situation",
+            "id": "nrh-ass"
+        },
+        {
+            "title": "NERDS Restoring Harmony: Circus of Illusion",
+            "id": "nrh-coi"
+        },
+        {
+            "title": "NERDS Restoring Harmony: The Lost Tomb",
+            "id": "nrh-tlt"
+        },
+        {
+            "title": "NERDS Restoring Harmony: A Web of Lies",
+            "id": "nrh-awol"
+        },
+        {
+            "title": "NERDS Restoring Harmony: Adventure Together",
+            "id": "nrh-at"
+        },
+        {
+            "title": "The Wild Beyond the Witchlight",
+            "id": "wbtw"
+        },
+        {
+            "title": "Strixhaven: Campus Kerfuffle",
+            "id": "scc-ck"
+        },
+        {
+            "title": "Strixhaven: Hunt for Mage Tower",
+            "id": "scc-hfmt"
+        },
+        {
+            "title": "Strixhaven: The Magister's Masquerade",
+            "id": "scc-tmm"
+        },
+        {
+            "title": "Strixhaven: A Reckoning in Ruins",
+            "id": "scc-arir"
+        },
+        {
+            "title": "Critical Role: Call of the Netherdeep",
+            "id": "crcotn"
+        },
+        {
+            "title": "Journeys through the Radiant Citadel",
+            "id": "jttrc"
+        },
+        {
+            "title": "Dragons of Stormwreck Isle",
+            "id": "dosi"
+        },
+        {
+            "title": "Spelljammer Academy",
+            "id": "sja"
+        },
+        {
+            "title": "Light of Xaryxis",
+            "id": "lox"
+        },
+        {
+            "title": "Dragonlance: Shadow of the Dragon Queen",
+            "id": "dsotdq"
+        },
+        {
+            "title": "Keys from the Golden Vault",
+            "id": "kftgv"
+        },
+        {
+            "title": "Giants of the Star Forge",
+            "id": "gotsf"
+        },
+        {
+            "title": "Phandelver and Below: The Shattered Obelisk",
+            "id": "pabtso"
+        },
+        {
+            "title": "Lightning Keep",
+            "id": "lk"
+        },
+        {
+            "title": "Turn of Fortune's Wheel",
+            "id": "tofw"
+        },
+        {
+            "title": "Chains of Asmodeus",
+            "id": "coa"
+        },
+        {
+            "title": "Peril in Pinebrook",
+            "id": "pip"
+        },
+        {
+            "title": "Heroes' Feast: Saving the Childrens Menu",
+            "id": "hfstcm"
+        },
+        {
+            "title": "Grim Hollow: Lairs of Etharis",
+            "id": "ghloe"
+        },
+        {
+            "title": "Dungeons of Drakkenheim",
+            "id": "dodk"
+        },
+        {
+            "title": "Descent into the Lost Caverns of Tsojcanth",
+            "id": "ditlcot"
+        },
+        {
+            "title": "Red Dragon's Tale: A LEGO Adventure",
+            "id": "lrdt"
+        },
+        {
+            "title": "Vecna: Nest of the Eldritch Eye",
+            "id": "vnotee"
+        },
+        {
+            "title": "Vecna: Eve of Ruin",
+            "id": "veor"
+        },
+        {
+            "title": "Quests from the Infinite Staircase",
+            "id": "qftis"
+        },
+        {
+            "title": "Uni and the Hunt for the Lost Horn",
+            "id": "uthftlh"
+        },
+        {
+            "title": "Scions of Elemental Evil",
+            "id": "scoee"
+        },
+        {
+            "title": "Elemental Evil's Player Companions",
+            "id": "eepc"
+        },
+        {
+            "title": "Adventure With Muk",
+            "id": "awm"
         }
     ]
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Entry from '../components/Entry';
+import sourceRef from '../sourceRef.json';
 
 const Spells = () => {
 
+  const bookList = sourceRef.data;
   const [theme, setTheme] = useState("light");
 
   // Load the theme from localStorage on initial render
@@ -139,7 +141,7 @@ const Spells = () => {
                       checked={checkedItems[item]}
                       onChange={() => handleCheckboxChange(item)}
                     />
-                    {item}
+                    {bookList.find(book => book.id === item.toLowerCase()) ? bookList.find(book => book.id === item.toLowerCase()).title : item}
                 </div>
               </label>
             ))}
@@ -160,11 +162,11 @@ const Spells = () => {
         {spells.map((spell, index) => (
           (index / 20 < subSet) && (index / 20 >= subSet - 1) ?
             <div key={index} className={`spell ${theme}`}>
-              <button onClick={() => toggleExpand(index)} className={'spell-item'} > {index} {spell.name}</button>
+              <button onClick={() => toggleExpand(index)} className={'spell-item'} >{spell.name}</button>
               { (expanded.includes(index))
                 ?
                   <div className={`spell-description ${theme}`}>
-                    <p>Source: {spell.source}</p>
+                    <p>Source: {bookList.find(book => book.id === spell.source.toLowerCase()) ? bookList.find(book => book.id === spell.source.toLowerCase()).title : spell.source}</p>
                     <p>Page: {spell.page}</p>
                     <p>Level: {spell.level}</p>
                     <p>School: {spell.school}</p>
