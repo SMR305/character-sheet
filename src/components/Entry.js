@@ -113,7 +113,11 @@ const Entry = ({ entry }) => {
         return (
             <div>
                 <span style={{fontWeight: 'bold'}}>{entry.name} </span>
-                <span>{entry.entry}</span>
+                {typeof entry.entry === 'undefined' ? 
+                    entry.entries.map((item) => {
+                        return <Entry entry={item}/>
+                    })
+                    : <Entry entry={entry.entry}/>}
             </div>
         )
     }
