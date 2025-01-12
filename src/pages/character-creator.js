@@ -470,11 +470,11 @@ const CharacterCreator = () => {
           />
           {
             <span>
-              {bg ? <>
+              {(backgrounds.find(item => item === bg)) ? <>
                   <span>{bg.name} ({bg.source})</span>
                   {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))}
                 </>
-              : <span>Custom Background</span>}
+              : null}
             </span>
           }
         </div>
