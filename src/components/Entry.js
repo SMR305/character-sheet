@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import rules from '../rules/variantrules.json';
+import Expression from './expression'
 
 const Entry = ({ entry }) => {
     const [theme, setTheme] = useState("light");
@@ -13,21 +13,13 @@ const Entry = ({ entry }) => {
 
     if (typeof entry === 'string') {
         const regex = /({@\w+\s[^}]+})/g;
-        const regex2 = /{@(\w+\s[^}]+)}/g;
-        const regex3 = /{@(\w+)\s([^}]+)}/g;
         const parts = entry.split(regex);
 
         return (
             <span>
             {parts.map((part, index) => {
                 if (regex.test(part)) {
-                    if (part.includes("variantrule")) {
-                        return (
-                            // Prints out the name from variantrules, so maybe make a component to handle rendering the actual rule (plus then you don't have to have it imported as much)
-                            <strong>{rules.variantrule.find(rule => rule.name === part.split(regex3)[2].split('|')[0]).name}</strong>
-                        )
-                    }
-                    return <strong key={index}>{part.split(regex2)}</strong>;
+                    return <Expression key={index} input={part}/>
                 }
                 return part;
             })}

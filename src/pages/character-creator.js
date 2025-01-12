@@ -7,6 +7,7 @@ import sourceRef from '../sourceRef.json';
 import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
 import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
+import Entry from "../components/Entry.js";
 
 const CharacterCreator = () => {
 
@@ -23,7 +24,7 @@ const CharacterCreator = () => {
   // Load data from localStorage or set default values
   const loadFromLocalStorage = (key, defaultValue) => {
     const saved = localStorage.getItem(key);
-    return saved ? JSON.parse(saved) : defaultValue;
+    return saved && saved !== 'undefined' ? JSON.parse(saved) : defaultValue;
   };
 
   // Character Stuff
@@ -57,6 +58,7 @@ const CharacterCreator = () => {
   const [charClass, setClass] = useState(loadFromLocalStorage("charClass", ""));
   const [Data, setData] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
+  const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
   const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
   const [items, setItems] = useState(loadFromLocalStorage("items", []));
   const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
@@ -117,11 +119,12 @@ const CharacterCreator = () => {
     localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
     localStorage.setItem("skills", JSON.stringify(skills));
     localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
+    localStorage.setItem("bg", JSON.stringify(bg));
     localStorage.setItem("charClass", JSON.stringify(charClass));
     localStorage.setItem("capacity", JSON.stringify(capacity));
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("notes", JSON.stringify(notes));
-  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, charClass, capacity, items, notes]);
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, charClass, capacity, items, notes]);
 
   useEffect( () => {
     async function fetchBackgrounds() {
@@ -134,12 +137,6 @@ const CharacterCreator = () => {
     };
     fetchBackgrounds();
   }, []);
-
-  const handleBGFind = () => {
-    const [name, source] = character.background.split(' : ');
-    const bg = backgrounds.find(bg => bg.name === name && bg.source === source);
-    return bg ? <span>{bg.name} ({bg.source})</span> : <span>Custom Background</span>;
-  };
 
   const loadJson = async () => {
     let input = "spells-phb";
@@ -172,6 +169,20 @@ const CharacterCreator = () => {
   const handleBackgroundChange = (input) => {
     setCharacter({...character, 'background': input });
   };
+
+  useEffect(() => {
+    const handleBGFind = () => {
+      if (character.background.includes(':')) {
+        const [name, source] = character.background.split(' : ');
+        setBG(backgrounds.find(bg => bg.name === name && bg.source === source));
+      }
+      else {
+        setBG(backgrounds.find(bg => bg.name === character.background));
+      }
+    };
+
+    handleBGFind();
+  }, [character, backgrounds]);
 
   const handleAbilityScoreChange = (e) => {
     setAbilityScores({
@@ -251,12 +262,13 @@ const CharacterCreator = () => {
     setNotes(input.notes);
     setSavingThrows(input.savingThrows);
     setItems(input.items)
-    setCapacity(input.items);
+    setCapacity(input.capacity);
+    setBG(input.bg);
   };
 
   const handleSave = () => {
-    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes } );
-    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes });
+    console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg } );
+    handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg });
   };
 
   const handleSettings = () => {
@@ -393,6 +405,7 @@ const CharacterCreator = () => {
       { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
     ]);
     setTLevel(0);
+    setBG({});
     setClass("");
     setNotes("");
     setItems([]);
@@ -455,11 +468,14 @@ const CharacterCreator = () => {
             display={character.background}
             newSuggestions={listBackgrounds}
           />
-          {character.background.includes(':') ? 
-             handleBGFind() :
-             <>{backgrounds.find(bg => bg.name === character.background) ? 
-                <span>{backgrounds.find(bg => bg.name === character.background).name} ({backgrounds.find(bg => bg.name === character.background).source})</span> : 
-                null}</>
+          {
+            <span>
+              {bg ? <>
+                  <span>{bg.name} ({bg.source})</span>
+                  {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))}
+                </>
+              : <span>Custom Background</span>}
+            </span>
           }
         </div>
         <div className={`form-group  ${theme}`}>
