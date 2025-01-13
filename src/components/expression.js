@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import rules from '../rules/variantrules.json';
-import Entry from './Entry'
+import Entry from './Entry';
+import Draggable from 'react-draggable';
 
 const Expression = ({input}) => {
 
@@ -8,9 +9,9 @@ const Expression = ({input}) => {
 
     // Load the theme from localStorage on initial render
     useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme);
-    document.body.className = savedTheme; // Set initial theme on body
+        const savedTheme = localStorage.getItem("theme") || "light";
+        setTheme(savedTheme);
+        document.body.className = savedTheme; // Set initial theme on body
     }, []);
 
     const regex = /{@(\w+)\s([^}]+)}/g;
@@ -18,17 +19,19 @@ const Expression = ({input}) => {
 
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
-    const [show, setShow] = useState('absolute');
 
     const handleClick = () => {
-        setIsClicked(!isClicked)
-        if (show === '') {
-            setShow('absolute');
-        }
-        else {
-            setShow('');
-        }
-    }
+        setIsClicked(!isClicked);
+        setMousePosition({x: 0, y: 0});
+    };
+
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    const handleDrag = (e, data) => {
+        setMousePosition({ x: data.x, y: data.y});
+    };
+
+    const r = rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase());
 
     if (input.includes("variantrule")) {
         return (
@@ -39,15 +42,17 @@ const Expression = ({input}) => {
                 onClick={() => {handleClick()}}
                 style={{ textDecoration: "underline", cursor: "pointer" }}
             >
-                {rules.variantrule.find(rule => rule.name === input.split(regex)[2].split('|')[0]).name}
+                {r.name}
             </strong>
 
             {(isHovered || isClicked) ? (
-                <div style={{position: `${show}`}} className={`discover ${theme}`}>
-                    {rules.variantrule.find(rule => rule.name === input.split(regex)[2].split('|')[0]).entries.map((item, index) => {
-                        return <Entry key={index} entry={item}/>
-                    })}
-                </div>
+                <Draggable onDrag={handleDrag} position={mousePosition}>
+                    <div style={{position: 'absolute'}} className={`discover ${theme}`}>
+                        {r.entries.map((item, index) => {
+                            return <Entry key={index} entry={item}/>
+                        })}
+                    </div>
+                </Draggable>
             ) : null}
             </>
         )
