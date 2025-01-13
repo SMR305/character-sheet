@@ -31,6 +31,8 @@ const Expression = ({input}) => {
         setMousePosition({ x: data.x, y: data.y});
     };
 
+    const r = rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase());
+
     if (input.includes("variantrule")) {
         return (
             <>
@@ -40,13 +42,13 @@ const Expression = ({input}) => {
                 onClick={() => {handleClick()}}
                 style={{ textDecoration: "underline", cursor: "pointer" }}
             >
-                {rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase()).name}
+                {r.name}
             </strong>
 
             {(isHovered || isClicked) ? (
                 <Draggable onDrag={handleDrag} position={mousePosition}>
                     <div style={{position: 'absolute'}} className={`discover ${theme}`}>
-                        {rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase()).entries.map((item, index) => {
+                        {r.entries.map((item, index) => {
                             return <Entry key={index} entry={item}/>
                         })}
                     </div>
