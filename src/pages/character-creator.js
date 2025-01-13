@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Autocomplete from "../Autocomplete";
-import handleDownload from "../DownloadFile";
-import FileUploader from "../UploadFile";
-import Inventory from "../Inventory.js";
+import Autocomplete from "../components/Autocomplete.js";
+import handleDownload from "../components/DownloadFile.js";
+import FileUploader from "../components/UploadFile.js";
+import Inventory from "../components/Inventory.js";
 import sourceRef from '../sourceRef.json';
 import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
 import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
@@ -68,7 +68,7 @@ const CharacterCreator = () => {
   const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
   const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
 
-  // settings information
+  // settings
   const [settingsText, changeSettingsText] = useState("Source Options +");
   const [showSettings, changeShow] = useState(false);
   const allSources = [...new Set([...backgroundSources, ...raceSources])];
@@ -78,6 +78,7 @@ const CharacterCreator = () => {
       {}
     )
   );
+  const [showBackground, setShowBackground] = useState(false);
 
   const handleCheckboxChange = (item) => {
     setCheckedItems((prev) => ({
@@ -187,7 +188,7 @@ const CharacterCreator = () => {
   const handleAbilityScoreChange = (e) => {
     setAbilityScores({
       ...abilityScores,
-      [e.target.name]: parseInt(e.target.value),
+      [e.target.name]: parseInt(e.target.value) || '',
     });
   };
 
@@ -237,7 +238,7 @@ const CharacterCreator = () => {
     let updatedSkills = [...skills];
     for (let i = 0; i < skills.length; i++) {
       if (skills[i].name === e.target.name) {
-        updatedSkills[i].mod = parseInt(e.target.value);
+        updatedSkills[i].mod = parseInt(e.target.value) || '';
       }
     }
     setSkills(updatedSkills);
@@ -318,14 +319,14 @@ const CharacterCreator = () => {
   };
 
   const handleHealthChange = (e) => {
-    setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) });
+    setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
   };
   
   const handleSaveingThrowChange = (e) => {
     let updatedSaves = [...savingThrows];
     for (let i = 0; i < savingThrows.length; i++) {
       if (savingThrows[i].name === e.target.name) {
-        updatedSaves[i].mod = parseInt(e.target.value);
+        updatedSaves[i].mod = parseInt(e.target.value) || '';
       }
     }
     setSavingThrows(updatedSaves);
@@ -416,7 +417,7 @@ const CharacterCreator = () => {
     <div className={`container ${theme}`}>
         <h1>D&D 5e Character Sheet</h1>
         <div style={{textAlign:"right"}}>
-          <span onClick={handleSettings}>{`${settingsText}`}</span>
+          <span onClick={handleSettings} style={{ textDecoration: "underline", cursor: "pointer" }}>{`${settingsText}`}</span>
           {showSettings ?
             (
             <>
@@ -471,8 +472,8 @@ const CharacterCreator = () => {
           {
             <span>
               {(backgrounds.find(item => item === bg)) ? <>
-                  <span>{bg.name} ({bg.source})</span>
-                  {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))}
+                  <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} ({bg.source})</span>
+                  {showBackground ? bg.entries.map((item, index) => (<Entry key={index} entry={item}/>)) : null}
                 </>
               : null}
             </span>

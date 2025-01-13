@@ -56,7 +56,7 @@ const FileUploader = ({ onSubmit }) => {
               <strong>Background:</strong> {jsonData.character.background} <br />
               <strong>Alignment:</strong> {jsonData.character.alignment}
               {jsonData.levels.map((level, index) => (
-                <div>
+                <div key={index}>
                   <strong>{level.className}:</strong> {level.level} <br />
                 </div>
               ))}

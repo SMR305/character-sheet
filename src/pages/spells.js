@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Entry from '../components/Entry';
 import sourceRef from '../sourceRef.json';
+import spellSource from '../spells/sources.json';
 
 const Spells = () => {
 
@@ -129,7 +130,7 @@ const Spells = () => {
   return (
     <div className={`container ${theme}`}>
       <div style={{textAlign:"right"}}>
-        <span onClick={handleSettings}>{`${settingsText}`}</span>
+        <span onClick={handleSettings} style={{ textDecoration: "underline", cursor: "pointer" }}>{`${settingsText}`}</span>
         {showSettings ?
           (<>
           <div className={`menu ${theme}`}>
@@ -224,6 +225,13 @@ const Spells = () => {
                     <p>Duration Type: {spell.duration[0].type}</p>
                     <p>Duration: {spell.duration[0].duration ? Object.values(spell.duration[0].duration).join(" ") : "None"}
                         {spell.duration[0].concentration ? " : Concentration" : ''}</p>
+                    <p>Classes:{spellSource[`${spell.source}`][`${spell.name}`].class.map((item, index) => (
+                      <span key={index}> 
+                        {(index !== spellSource[`${spell.source}`][`${spell.name}`].class.length)
+                          ? <span> {item.source === 'XPHB' ? <>{item.name} (2024),</> : <>{item.name},</>}</span>
+                          : <span> {item.name}{item.source === 'XPHB' ? <> (2024)</> : null}</span>}
+                      </span>))}
+                    </p>
                     {spell.entries.map((entry, index) => (<div key={index}><Entry entry={entry}/></div>))}
                   </div>
                 : null
