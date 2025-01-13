@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import rules from '../rules/variantrules.json';
 import Entry from './Entry';
 import Draggable from 'react-draggable';
@@ -25,6 +25,7 @@ const Expression = ({input}) => {
         setMousePosition({x: 0, y: 0});
     };
 
+    const draggableRef = useRef(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     const handleDrag = (e, data) => {
@@ -46,8 +47,8 @@ const Expression = ({input}) => {
             </strong>
 
             {(isHovered || isClicked) ? (
-                <Draggable onDrag={handleDrag} position={mousePosition}>
-                    <div style={{position: 'absolute'}} className={`discover ${theme}`}>
+                <Draggable onDrag={handleDrag} position={mousePosition} nodeRef={draggableRef}>
+                    <div ref={draggableRef} style={{position: 'absolute'}} className={`discover ${theme}`}>
                         {r.entries.map((item, index) => {
                             return <Entry key={index} entry={item}/>
                         })}
