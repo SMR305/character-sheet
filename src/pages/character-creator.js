@@ -27,41 +27,41 @@ const CharacterCreator = () => {
         return saved && saved !== 'undefined' ? JSON.parse(saved) : defaultValue;
     };
 
-    // Character Stuff
-    const [character, setCharacter] = useState(
-        loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "" })
-    );
-    const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
-    const [abilityScores, setAbilityScores] = useState(
-        loadFromLocalStorage("abilityScores", {
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            wisdom: 10,
-            charisma: 10,
-        })
-    );
-    const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
-    const [savingThrows, setSavingThrows] = useState(
-        loadFromLocalStorage("savingThrows", [
-            { name: "strength", mod: 0, prof: 0 },
-            { name: "dexterity", mod: 0, prof: 0 },
-            { name: "constitution", mod: 0, prof: 0 },
-            { name: "intelligence", mod: 0, prof: 0 },
-            { name: "wisdom", mod: 0, prof: 0 },
-            { name: "charisma", mod: 0, prof: 0 },
-        ])
-    );
-    const [skills, setSkills] = useState(loadFromLocalStorage("skills", []));
-    const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
-    const [charClass, setClass] = useState(loadFromLocalStorage("charClass", ""));
-    const [Data, setData] = useState([]);
-    const [backgrounds, setBackgrounds] = useState([]);
-    const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
-    const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
-    const [items, setItems] = useState(loadFromLocalStorage("items", []));
-    const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
+  // Character Stuff
+  const [character, setCharacter] = useState(
+    loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" })
+  );
+  const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
+  const [abilityScores, setAbilityScores] = useState(
+    loadFromLocalStorage("abilityScores", {
+      strength: 10,
+      dexterity: 10,
+      constitution: 10,
+      intelligence: 10,
+      wisdom: 10,
+      charisma: 10,
+    })
+  );
+  const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
+  const [savingThrows, setSavingThrows] = useState(
+    loadFromLocalStorage("savingThrows", [
+      { name: "strength", mod: 0, prof: 0 },
+      { name: "dexterity", mod: 0, prof: 0 },
+      { name: "constitution", mod: 0, prof: 0 },
+      { name: "intelligence", mod: 0, prof: 0 },
+      { name: "wisdom", mod: 0, prof: 0 },
+      { name: "charisma", mod: 0, prof: 0 },
+    ])
+  );
+  const [skills, setSkills] = useState(loadFromLocalStorage("skills", []));
+  const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
+  const [charClass, setClass] = useState("");
+  const [Data, setData] = useState([]);
+  const [backgrounds, setBackgrounds] = useState([]);
+  const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
+  const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
+  const [items, setItems] = useState(loadFromLocalStorage("items", []));
+  const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
 
     // suggestions
     const listClasses = [...core_2014, ...core_2024, ...crit_roll];
@@ -112,21 +112,20 @@ const CharacterCreator = () => {
         setSkills(loadFromLocalStorage("skills", defaultSkills));
     }, []);
 
-    // Save data to localStorage whenever the state changes
-    useEffect(() => {
-        localStorage.setItem("character", JSON.stringify(character));
-        localStorage.setItem("levels", JSON.stringify(levels));
-        localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
-        localStorage.setItem("health_info", JSON.stringify(health_info));
-        localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
-        localStorage.setItem("skills", JSON.stringify(skills));
-        localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
-        localStorage.setItem("bg", JSON.stringify(bg));
-        localStorage.setItem("charClass", JSON.stringify(charClass));
-        localStorage.setItem("capacity", JSON.stringify(capacity));
-        localStorage.setItem("items", JSON.stringify(items));
-        localStorage.setItem("notes", JSON.stringify(notes));
-    }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, charClass, capacity, items, notes]);
+  // Save data to localStorage whenever the state changes
+  useEffect(() => {
+    localStorage.setItem("character", JSON.stringify(character));
+    localStorage.setItem("levels", JSON.stringify(levels));
+    localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
+    localStorage.setItem("health_info", JSON.stringify(health_info));
+    localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
+    localStorage.setItem("skills", JSON.stringify(skills));
+    localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
+    localStorage.setItem("bg", JSON.stringify(bg));
+    localStorage.setItem("capacity", JSON.stringify(capacity));
+    localStorage.setItem("items", JSON.stringify(items));
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes]);
 
     useEffect( () => {
         async function fetchBackgrounds() {
@@ -168,9 +167,13 @@ const CharacterCreator = () => {
         setCharacter({...character, 'race': input });
     };
 
-    const handleBackgroundChange = (input) => {
-        setCharacter({...character, 'background': input });
-    };
+  const handleBackgroundChange = (input) => {
+    setCharacter({...character, 'background': input });
+  };
+
+  const handleAlignmentChange = (input) => {
+    setCharacter({...character, 'alignment': input });
+  };
 
     useEffect(() => {
         const handleBGFind = () => {
@@ -366,55 +369,55 @@ const CharacterCreator = () => {
         }
     };
 
-    const resetCharacter = () => {
-        setCharacter({ name: "", race: "", background: "", alignment: "" });
-        setLevels([]);
-        setAbilityScores({
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            wisdom: 10,
-            charisma: 10,
-        });
-        setHealth({ cur: 0, max: 0, temp: 0 });
-        setSavingThrows([
-            { name: "strength", mod: 0, prof: 0 },
-            { name: "dexterity", mod: 0, prof: 0 },
-            { name: "constitution", mod: 0, prof: 0 },
-            { name: "intelligence", mod: 0, prof: 0 },
-            { name: "wisdom", mod: 0, prof: 0 },
-            { name: "charisma", mod: 0, prof: 0 },
-        ]);
-        setSkills([
-            { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
-            { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
-            { name: "History", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
-        ]);
-        setTLevel(0);
-        setBG({});
-        setClass("");
-        setNotes("");
-        setItems([]);
-        setCapacity({capacity: 0, switch: 0});
-    };
+  const resetCharacter = () => {
+    setCharacter({ name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" });
+    setLevels([]);
+    setAbilityScores({
+      strength: 10,
+      dexterity: 10,
+      constitution: 10,
+      intelligence: 10,
+      wisdom: 10,
+      charisma: 10,
+    });
+    setHealth({ cur: 0, max: 0, temp: 0 });
+    setSavingThrows([
+      { name: "strength", mod: 0, prof: 0 },
+      { name: "dexterity", mod: 0, prof: 0 },
+      { name: "constitution", mod: 0, prof: 0 },
+      { name: "intelligence", mod: 0, prof: 0 },
+      { name: "wisdom", mod: 0, prof: 0 },
+      { name: "charisma", mod: 0, prof: 0 },
+    ]);
+    setSkills([
+      { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
+      { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
+      { name: "History", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
+      { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
+      { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
+      { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
+      { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
+    ]);
+    setTLevel(0);
+    setBG({});
+    setClass("");
+    setNotes("");
+    setItems([]);
+    setCapacity({capacity: 0, switch: 0});
+  };
 
-    const listPages = ["Description", "Class", "Abilities and Skills", "Inventory"];
+  const listPages = ["Description", "Classes", "Abilities and Skills", "Inventory"];
 
     return (
         <div className={`container ${theme}`}>
@@ -482,71 +485,171 @@ const CharacterCreator = () => {
                 <br />
                 <hr />
 
-                {/* Character Description */}
-                {pageNum === 0
-                    ? <>
-                        <h2>Description</h2>
-                        <div className={`form-group  ${theme}`}>
-                            <label>Character Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Character Name..."
-                                value={character.name}
-                                onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '300px'}}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`}>
-                            <label>Race</label>
-                            <Autocomplete
-                                filler="Select Race..."
-                                onChange={handleRaceChange}
-                                display={character.race}
-                                newSuggestions={listRaces}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`}>
-                            <label>Background</label>
-                            <Autocomplete
-                                filler="Select Background..."
-                                onChange={handleBackgroundChange}
-                                display={character.background}
-                                newSuggestions={listBackgrounds}
-                            />
-                            {
-                                <span>
-                                    {(backgrounds.find(item => item === bg)) ? <>
-                                            <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} ({bg.source})</span>
-                                            {showBackground ? bg.entries.map((item, index) => (<Entry key={index} entry={item}/>)) : null}
-                                        </>
-                                    : null}
-                                </span>
-                            }
-                        </div>
-                        <div className={`form-group  ${theme}`}>
-                            <label>Alignment</label>
-                            <select
-                                name="alignment"
-                                value={character.alignment}
-                                onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '318px'}}
-                            >
-                                <option value="">Select Alignment</option>
-                                <option value="lawful-good">Lawful Good</option>
-                                <option value="neutral-good">Neutral Good</option>
-                                <option value="chaotic-good">Chaotic Good</option>
-                                <option value="lawful-neutral">Lawful Neutral</option>
-                                <option value="true-neutral">True Neutral</option>
-                                <option value="chaotic-neutral">Chaotic Neutral</option>
-                                <option value="lawful-evil">Lawful Evil</option>
-                                <option value="neutral-evil">Neutral Evil</option>
-                                <option value="chaotic-evil">Chaotic Evil</option>
-                            </select>
-                        </div>
-                    </> : null}
+        {/* Character Description */}
+        {pageNum === 0
+          ? <>
+            <h2>Description</h2>
+            <div className={`form-group  ${theme}`}>
+              <label>Character Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Character Name..."
+                value={character.name}
+                onChange={handleCharacterChange}
+                className={`inventory-input ${theme}`}
+                style={{width: '90%'}}
+              />
+            </div>
+            <div className={`form-group  ${theme}`}>
+              <label>Race</label>
+              <Autocomplete
+                filler="Select Race..."
+                onChange={handleRaceChange}
+                display={character.race}
+                newSuggestions={listRaces}
+              />
+            </div>
+            <div className={`form-group  ${theme}`}>
+              <label>Background</label>
+              <Autocomplete
+                filler="Select Background..."
+                onChange={handleBackgroundChange}
+                display={character.background}
+                newSuggestions={listBackgrounds}
+              />
+              {
+                <span>
+                  {(backgrounds.find(item => item === bg)) ? <>
+                      <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} ({bg.source})</span>
+                      {showBackground ? bg.entries.map((item, index) => (<Entry key={index} entry={item}/>)) : null}
+                    </>
+                  : null}
+                </span>
+              }
+            </div>
+            <h3>Characteristics</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', margin: '5px' }}>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Alignment</label>
+                <Autocomplete
+                  _c={true}
+                  filler="Alignment..."
+                  onChange={handleAlignmentChange}
+                  display={character.alignment}
+                  newSuggestions={["None", "Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"]}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Gender</label>
+                <input
+                  type="text"
+                  name="gender"
+                  placeholder="Gender..."
+                  value={character.gender}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Eyes</label>
+                <input
+                  type="text"
+                  name="eyes"
+                  placeholder="Eyes..."
+                  value={character.eyes}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Size</label>
+                <input
+                  type="text"
+                  name="size"
+                  placeholder="Size..."
+                  value={character.size}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Height</label>
+                <input
+                  type="text"
+                  name="height"
+                  placeholder="Height..."
+                  value={character.height}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Faith</label>
+                <input
+                  type="text"
+                  name="faith"
+                  placeholder="Faith..."
+                  value={character.faith}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Hair</label>
+                <input
+                  type="text"
+                  name="hair"
+                  placeholder="Hair..."
+                  value={character.hair}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Skin</label>
+                <input
+                  type="text"
+                  name="skin"
+                  placeholder="Skin..."
+                  value={character.skin}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Age</label>
+                <input
+                  type="text"
+                  name="age"
+                  placeholder="Age..."
+                  value={character.age}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Weight</label>
+                <input
+                  type="text"
+                  name="weight"
+                  placeholder="Weight..."
+                  value={character.weight}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '90%'}}
+                />
+              </div>
+            </div>
+          </> : null}
 
                 {/* Class */}
                 {pageNum === 1
