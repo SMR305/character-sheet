@@ -36,6 +36,11 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
         setWeight(w);
     }, [stuff]);
 
+    const addItem = () => {
+        addStuff(item);
+        setItem({name: "", weight: '', description: "", number: '', tags: ""});
+    };
+
     return (
         <div>
             <input
@@ -78,7 +83,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                 className={`inventory-input ${theme}`}
             />
 
-            <button onClick={() => addStuff(item)} className={`inventory-input ${theme}`}> Add Item</button>
+            <button onClick={() => addItem()} className={`inventory-input ${theme}`}> Add Item</button>
             <br />
             <br />
 

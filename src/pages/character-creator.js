@@ -55,7 +55,7 @@ const CharacterCreator = () => {
   );
   const [skills, setSkills] = useState(loadFromLocalStorage("skills", []));
   const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
-  const [charClass, setClass] = useState(loadFromLocalStorage("charClass", ""));
+  const [charClass, setClass] = useState("");
   const [Data, setData] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
   const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
@@ -122,11 +122,10 @@ const CharacterCreator = () => {
     localStorage.setItem("skills", JSON.stringify(skills));
     localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
     localStorage.setItem("bg", JSON.stringify(bg));
-    localStorage.setItem("charClass", JSON.stringify(charClass));
     localStorage.setItem("capacity", JSON.stringify(capacity));
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("notes", JSON.stringify(notes));
-  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, charClass, capacity, items, notes]);
+  }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes]);
 
   useEffect( () => {
     async function fetchBackgrounds() {
@@ -418,7 +417,7 @@ const CharacterCreator = () => {
     setCapacity({capacity: 0, switch: 0});
   };
 
-  const listPages = ["Description", "Class", "Abilities and Skills", "Inventory"];
+  const listPages = ["Description", "Classes", "Abilities and Skills", "Inventory"];
 
   return (
     <div className={`container ${theme}`}>
@@ -499,7 +498,7 @@ const CharacterCreator = () => {
                 value={character.name}
                 onChange={handleCharacterChange}
                 className={`inventory-input ${theme}`}
-                style={{width: '300px'}}
+                style={{width: '90%'}}
               />
             </div>
             <div className={`form-group  ${theme}`}>
@@ -550,7 +549,7 @@ const CharacterCreator = () => {
                   value={character.gender}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -562,7 +561,7 @@ const CharacterCreator = () => {
                   value={character.eyes}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -574,7 +573,7 @@ const CharacterCreator = () => {
                   value={character.size}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -586,7 +585,7 @@ const CharacterCreator = () => {
                   value={character.height}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -598,7 +597,7 @@ const CharacterCreator = () => {
                   value={character.faith}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -610,7 +609,7 @@ const CharacterCreator = () => {
                   value={character.hair}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -622,7 +621,7 @@ const CharacterCreator = () => {
                   value={character.skin}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -634,7 +633,7 @@ const CharacterCreator = () => {
                   value={character.age}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
               <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
@@ -646,7 +645,7 @@ const CharacterCreator = () => {
                   value={character.weight}
                   onChange={handleCharacterChange}
                   className={`inventory-input ${theme}`}
-                  style={{width: '100%'}}
+                  style={{width: '90%'}}
                 />
               </div>
             </div>

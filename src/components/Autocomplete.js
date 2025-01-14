@@ -60,27 +60,28 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display, _c }) => {
 
   return (
     <div className="autocomplete-container">
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder={filler}
-        className={`autocomplete-input ${theme}`}
-        style={{width: '100%'}}
-      />
-      {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className={`autocomplete-suggestions ${theme}`}>
-          {filteredSuggestions.map((suggestion, index) => (
-            <div
-              key={index}
-              className={`autocomplete-suggestion ${theme}`}
-              onClick={() => handleSuggestionClick(suggestion)}
-            >
-              {suggestion}
-            </div>
-          ))}
-        </div>
-      )}
+        <input
+          type="text"
+          value={query}
+          onChange={handleInputChange}
+          placeholder={filler}
+          className={`autocomplete-input ${theme}`}
+          style={{width: '90%'}}
+        />
+      
+        {showSuggestions && filteredSuggestions.length > 0 && (
+          <div className={`autocomplete-suggestions ${theme}`}>
+            {filteredSuggestions.map((suggestion, index) => (
+              <div
+                key={index}
+                className={`autocomplete-suggestion ${theme}`}
+                onClick={() => handleSuggestionClick(suggestion)}
+              >
+                {suggestion}
+              </div>
+            ))}
+          </div>
+        )}
     </div>
   );
 };

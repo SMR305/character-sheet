@@ -101,7 +101,6 @@ h1, h2 {
 }
 .autocomplete-container {
   position: relative;
-  width: 300px;
 }
 .autocomplete-input.light {
   width: 100%;
