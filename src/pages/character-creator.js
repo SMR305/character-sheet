@@ -78,6 +78,7 @@ const CharacterCreator = () => {
       {}
     )
   );
+  const [pageNum, setPageNum] = useState(0);
   const [showBackground, setShowBackground] = useState(false);
 
   const handleCheckboxChange = (item) => {
@@ -413,6 +414,8 @@ const CharacterCreator = () => {
     setCapacity({capacity: 0, switch: 0});
   };
 
+  const listPages = ["Description", "Class", "Abilities and Skills", "Inventory"];
+
   return (
     <div className={`container ${theme}`}>
         <h1>D&D 5e Character Sheet</h1>
@@ -440,288 +443,321 @@ const CharacterCreator = () => {
             : null
           }
         </div>
-        <div className={`form-group  ${theme}`}>
-          <label>Character Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Character Name..."
-            value={character.name}
-            onChange={handleCharacterChange}
-            className={`inventory-input ${theme}`}
-            style={{width: '300px'}}
-          />
-        </div>
-        <div className={`form-group  ${theme}`}>
-          <label>Race</label>
-          <Autocomplete
-            filler="Select Race..."
-            onChange={handleRaceChange}
-            display={character.race}
-            newSuggestions={listRaces}
-          />
-        </div>
-        <div className={`form-group  ${theme}`}>
-          <label>Background</label>
-          <Autocomplete
-            filler="Select Background..."
-            onChange={handleBackgroundChange}
-            display={character.background}
-            newSuggestions={listBackgrounds}
-          />
-          {
-            <span>
-              {(backgrounds.find(item => item === bg)) ? <>
-                  <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} ({bg.source})</span>
-                  {showBackground ? bg.entries.map((item, index) => (<Entry key={index} entry={item}/>)) : null}
-                </>
-              : null}
-            </span>
-          }
-        </div>
-        <div className={`form-group  ${theme}`}>
-          <label>Alignment</label>
-          <select
-            name="alignment"
-            value={character.alignment}
-            onChange={handleCharacterChange}
-            className={`inventory-input ${theme}`}
-            style={{width: '318px'}}
-          >
-            <option value="">Select Alignment</option>
-            <option value="lawful-good">Lawful Good</option>
-            <option value="neutral-good">Neutral Good</option>
-            <option value="chaotic-good">Chaotic Good</option>
-            <option value="lawful-neutral">Lawful Neutral</option>
-            <option value="true-neutral">True Neutral</option>
-            <option value="chaotic-neutral">Chaotic Neutral</option>
-            <option value="lawful-evil">Lawful Evil</option>
-            <option value="neutral-evil">Neutral Evil</option>
-            <option value="chaotic-evil">Chaotic Evil</option>
-          </select>
-        </div>
+
+        <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
+        <input
+          type="number"
+          name="cur"
+          value={health_info.cur}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+          className={`inventory-input ${theme}`}
+        />
+        <span><b> / </b></span>
+        <input
+          type="number"
+          name="max"
+          value={health_info.max}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+          className={`inventory-input ${theme}`}
+        />
+        <br />
+        <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
+        <input
+          type="number"
+          name="temp"
+          value={health_info.temp}
+          onChange={handleHealthChange}
+          style={{ maxWidth: '50px' }}
+          className={`inventory-input ${theme}`}
+        />
+        <br />
+        <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
+
+        {listPages.map((item, index) => {
+          return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
+        })}
+
         <br />
         <hr />
-        <h2>Level: {totalLevel}</h2>
-        <Autocomplete
-          filler="Class..."
-          onChange={setClass}
-          newSuggestions={listClasses}
-          display={charClass}
-        />
-        {levels.map((level, index) => (
-          <div key={index} className={`modifier-display ${theme}`}>
-            <span style={{whiteSpace: "pre-wrap"}}>
-              {`${level.className}`.padEnd(10)}
-            </span>
-            <select
-              name={level.className}
-              value={level.level}
-              onChange={handleLevelChange}
-              className={`inventory-input ${theme}`}
-            >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-              <option value={6}>6</option>
-              <option value={7}>7</option>
-              <option value={8}>8</option>
-              <option value={9}>9</option>
-              <option value={10}>10</option>
-              <option value={11}>11</option>
-              <option value={12}>12</option>
-              <option value={13}>13</option>
-              <option value={14}>14</option>
-              <option value={15}>15</option>
-              <option value={16}>16</option>
-              <option value={17}>17</option>
-              <option value={18}>18</option>
-              <option value={19}>19</option>
-              <option value={20}>20</option>
-            </select>
-            <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
-            <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
-              Delete
-            </button>
-          </div>
-        ))}
-        <button className={`blue-button ${theme}`} onClick={addLevel}>
-          Add Levels
-        </button>
-        <h2>Ability Scores</h2>
-        <div className={`ability-scores ${theme}`}>
-          {Object.keys(abilityScores).map((ability) => (
-            <div key={ability} className={`form-group ${theme}`}>
-              <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+
+        {/* Character Description */}
+        {pageNum === 0
+          ? <>
+            <h2>Description</h2>
+            <div className={`form-group  ${theme}`}>
+              <label>Character Name</label>
               <input
-                type="number"
-                name={ability}
-                value={abilityScores[ability]}
-                onChange={handleAbilityScoreChange}
+                type="text"
+                name="name"
+                placeholder="Character Name..."
+                value={character.name}
+                onChange={handleCharacterChange}
                 className={`inventory-input ${theme}`}
+                style={{width: '300px'}}
               />
-              <div className={`modifiers  ${theme}`}>
-                {isNaN(calculateModifier(abilityScores[ability], 0))
-                  ? `+0`
-                  : calculateModifier(abilityScores[ability], 0) >= 0
-                    ? `+${calculateModifier(abilityScores[ability], 0)}` 
-                    : calculateModifier(abilityScores[ability], 0)}
-              </div>
             </div>
-          ))}
-        </div>
-        <div>
-          <h2>Stats</h2>
-          <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
-          <input
-            type="number"
-            name="cur"
-            value={health_info.cur}
-            onChange={handleHealthChange}
-            style={{ maxWidth: '50px' }}
-            className={`inventory-input ${theme}`}
-          />
-          <span><b> / </b></span>
-          <input
-            type="number"
-            name="max"
-            value={health_info.max}
-            onChange={handleHealthChange}
-            style={{ maxWidth: '50px' }}
-            className={`inventory-input ${theme}`}
-          />
-          <br />
-          <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
-          <input
-            type="number"
-            name="temp"
-            value={health_info.temp}
-            onChange={handleHealthChange}
-            style={{ maxWidth: '50px' }}
-            className={`inventory-input ${theme}`}
-          />
-          <br />
-          <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br />
-          <br />
-          <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
-          <span>* - profieient, # - expert, ~ - custom</span> <br />
-          <div>
-            {savingThrows.map((save, index) => (
-              <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
+            <div className={`form-group  ${theme}`}>
+              <label>Race</label>
+              <Autocomplete
+                filler="Select Race..."
+                onChange={handleRaceChange}
+                display={character.race}
+                newSuggestions={listRaces}
+              />
+            </div>
+            <div className={`form-group  ${theme}`}>
+              <label>Background</label>
+              <Autocomplete
+                filler="Select Background..."
+                onChange={handleBackgroundChange}
+                display={character.background}
+                newSuggestions={listBackgrounds}
+              />
+              {
+                <span>
+                  {(backgrounds.find(item => item === bg)) ? <>
+                      <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} ({bg.source})</span>
+                      {showBackground ? bg.entries.map((item, index) => (<Entry key={index} entry={item}/>)) : null}
+                    </>
+                  : null}
+                </span>
+              }
+            </div>
+            <div className={`form-group  ${theme}`}>
+              <label>Alignment</label>
+              <select
+                name="alignment"
+                value={character.alignment}
+                onChange={handleCharacterChange}
+                className={`inventory-input ${theme}`}
+                style={{width: '318px'}}
+              >
+                <option value="">Select Alignment</option>
+                <option value="lawful-good">Lawful Good</option>
+                <option value="neutral-good">Neutral Good</option>
+                <option value="chaotic-good">Chaotic Good</option>
+                <option value="lawful-neutral">Lawful Neutral</option>
+                <option value="true-neutral">True Neutral</option>
+                <option value="chaotic-neutral">Chaotic Neutral</option>
+                <option value="lawful-evil">Lawful Evil</option>
+                <option value="neutral-evil">Neutral Evil</option>
+                <option value="chaotic-evil">Chaotic Evil</option>
+              </select>
+            </div>
+          </> : null}
+
+        {/* Class */}
+        {pageNum === 1
+          ? <>
+            <h2>Level: {totalLevel}</h2>
+            <Autocomplete
+              filler="Class..."
+              onChange={setClass}
+              newSuggestions={listClasses}
+              display={charClass}
+            />
+            {levels.map((level, index) => (
+              <div key={index} className={`modifier-display ${theme}`}>
+                <span style={{whiteSpace: "pre-wrap"}}>
+                  {`${level.className}`.padEnd(10)}
+                </span>
                 <select
-                  value={save.prof}
-                  onChange={(e) => {
-                    let updatedSaves = [...savingThrows];
-                    updatedSaves[index].prof = Number(e.target.value);
-                    setSavingThrows(updatedSaves);
-                  }}
+                  name={level.className}
+                  value={level.level}
+                  onChange={handleLevelChange}
                   className={`inventory-input ${theme}`}
                 >
-                  <option value={0}></option>
-                  <option value={1}>*</option>
-                  <option value={2}>#</option>
-                  <option value={3}>~</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                  <option value={6}>6</option>
+                  <option value={7}>7</option>
+                  <option value={8}>8</option>
+                  <option value={9}>9</option>
+                  <option value={10}>10</option>
+                  <option value={11}>11</option>
+                  <option value={12}>12</option>
+                  <option value={13}>13</option>
+                  <option value={14}>14</option>
+                  <option value={15}>15</option>
+                  <option value={16}>16</option>
+                  <option value={17}>17</option>
+                  <option value={18}>18</option>
+                  <option value={19}>19</option>
+                  <option value={20}>20</option>
                 </select>
-                <span style={{whiteSpace: "pre-wrap"}}>
-                  {` ${save.name.charAt(0).toUpperCase() + save.name.slice(1)}: `.padEnd(15)}
-                </span>
-                <span style={{whiteSpace: "pre-wrap"}}>
-                  {save.prof < 3
-                    ? (calculateModifier(abilityScores[save.name] || 10, save.prof) >= 0
-                      ? `+${calculateModifier(abilityScores[save.name] || 10, save.prof)}`
-                      : `${calculateModifier(abilityScores[save.name] || 10, save.prof)}`)
-                    : <span>
-                        {save.mod >= 0 ? '+': ' '}
-                        <input
-                          type="number"
-                          value={save.mod}
-                          name={save.name}
-                          onChange={handleSaveingThrowChange}
-                          style={{ maxWidth: '50px' }}
-                          className={`inventory-input ${theme}`}
-                        />
-                      </span>
-                  }
-                </span>
+                <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
+                <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
+                  Delete
+                </button>
+              </div>
+            ))}
+            <button className={`blue-button ${theme}`} onClick={addLevel}>
+              Add Levels
+            </button>
+          </> : null}
+
+        {/* Abilities and Skills */}
+        {pageNum === 2
+        ? <>
+          <h2>Ability Scores</h2>
+          <div className={`ability-scores ${theme}`}>
+            {Object.keys(abilityScores).map((ability) => (
+              <div key={ability} className={`form-group ${theme}`}>
+                <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                <input
+                  type="number"
+                  name={ability}
+                  value={abilityScores[ability]}
+                  onChange={handleAbilityScoreChange}
+                  className={`inventory-input ${theme}`}
+                />
+                <div className={`modifiers  ${theme}`}>
+                  {isNaN(calculateModifier(abilityScores[ability], 0))
+                    ? `+0`
+                    : calculateModifier(abilityScores[ability], 0) >= 0
+                      ? `+${calculateModifier(abilityScores[ability], 0)}` 
+                      : calculateModifier(abilityScores[ability], 0)}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-        <h2>Skills</h2>
-        <span>* - profieient, # - expert, ~ - custom</span>
-        {skills.map((skill, index) => (
-          <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
-            <select
-              value={skill.ability}
-              onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
-              className={`inventory-input ${theme}`}
-            >
-              <option value="">Select Ability</option>
-              <option value="strength">STR</option>
-              <option value="dexterity">DEX</option>
-              <option value="constitution">CON</option>
-              <option value="intelligence">INT</option>
-              <option value="wisdom">WIS</option>
-              <option value="charisma">CHA</option>
-            </select>
-            <select
-              value={skill.prof}
-              onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
-              className={`inventory-input ${theme}`}
-            >
-              <option value={0}></option>
-              <option value={1}>*</option>
-              <option value={2}>#</option>
-              <option value={3}>~</option>
-            </select>
-            <span style={{whiteSpace: "pre-wrap"}}>
-              {`   ${skill.name}: `.padEnd(20)}
-              {skill.prof < 3
-                ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
-                  ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
-                  : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13))
-                : <span style={{whiteSpace: "pre-wrap"}}>
-                    {skill.mod >= 0 ? '+': ' '}
-                    <input
-                      type="number"
-                      value={skill.mod}
-                      name={skill.name}
-                      onChange={handleSkillMod}
-                      style={{ maxWidth: '13ch', fontFamily: 'monospace' }}
-                      className={`inventory-input ${theme}`}
-                    />
+          <div>
+            <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
+            <span>* - profieient, # - expert, ~ - custom</span> <br />
+            <div>
+              {savingThrows.map((save, index) => (
+                <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
+                  <select
+                    value={save.prof}
+                    onChange={(e) => {
+                      let updatedSaves = [...savingThrows];
+                      updatedSaves[index].prof = Number(e.target.value);
+                      setSavingThrows(updatedSaves);
+                    }}
+                    className={`inventory-input ${theme}`}
+                  >
+                    <option value={0}></option>
+                    <option value={1}>*</option>
+                    <option value={2}>#</option>
+                    <option value={3}>~</option>
+                  </select>
+                  <span style={{whiteSpace: "pre-wrap"}}>
+                    {` ${save.name.charAt(0).toUpperCase() + save.name.slice(1)}: `.padEnd(15)}
                   </span>
-              }
-            </span>
-            <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
-              Delete
-            </button>
+                  <span style={{whiteSpace: "pre-wrap"}}>
+                    {save.prof < 3
+                      ? (calculateModifier(abilityScores[save.name] || 10, save.prof) >= 0
+                        ? `+${calculateModifier(abilityScores[save.name] || 10, save.prof)}`
+                        : `${calculateModifier(abilityScores[save.name] || 10, save.prof)}`)
+                      : <span>
+                          {save.mod >= 0 ? '+': ' '}
+                          <input
+                            type="number"
+                            value={save.mod}
+                            name={save.name}
+                            onChange={handleSaveingThrowChange}
+                            style={{ maxWidth: '50px' }}
+                            className={`inventory-input ${theme}`}
+                          />
+                        </span>
+                    }
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-        <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button> <br /> <br />
-        <hr />
+          <h2>Skills</h2>
+          <span>* - profieient, # - expert, ~ - custom</span>
+          {skills.map((skill, index) => (
+            <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
+              <select
+                value={skill.ability}
+                onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
+                className={`inventory-input ${theme}`}
+              >
+                <option value="">Select Ability</option>
+                <option value="strength">STR</option>
+                <option value="dexterity">DEX</option>
+                <option value="constitution">CON</option>
+                <option value="intelligence">INT</option>
+                <option value="wisdom">WIS</option>
+                <option value="charisma">CHA</option>
+              </select>
+              <select
+                value={skill.prof}
+                onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
+                className={`inventory-input ${theme}`}
+              >
+                <option value={0}></option>
+                <option value={1}>*</option>
+                <option value={2}>#</option>
+                <option value={3}>~</option>
+              </select>
+              <span style={{whiteSpace: "pre-wrap"}}>
+                {`   ${skill.name}: `.padEnd(20)}
+                {skill.prof < 3
+                  ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
+                    ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
+                    : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13))
+                  : <span style={{whiteSpace: "pre-wrap"}}>
+                      {skill.mod >= 0 ? '+': ' '}
+                      <input
+                        type="number"
+                        value={skill.mod}
+                        name={skill.name}
+                        onChange={handleSkillMod}
+                        style={{ maxWidth: '13ch', fontFamily: 'monospace' }}
+                        className={`inventory-input ${theme}`}
+                      />
+                    </span>
+                }
+              </span>
+              <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
+                Delete
+              </button>
+            </div>
+          ))}
+          <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button>
+        </> : null}
+        
+        {/* Inventory */}
+        {pageNum === 3
+        ? <>
+          <h2>Inventory</h2>
+          <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
+          <hr />
 
-        <h2>Inventory</h2>
-        <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
-        <hr />
-
-        <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
+          <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
+          <br />
+          {Data[0] === undefined
+            ? (<span> Waiting </span>)
+            : (<span>{Data[0].name} {Data[0].entries}</span>)
+          }
+        </> : null}
         <br />
-        {Data[0] === undefined
-          ? (<span> Waiting </span>)
-          : (<span>{Data[0].name} {Data[0].entries}</span>)
-        }
         <hr />
+
         <h2>Notes</h2>
         <textarea
           className={`notes-box ${theme}`}
           value={notes}
           onInput={saveNotes}
         />
+
         <br />
         <hr />
+
+        {listPages.map((item, index) => {
+          return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
+        })}
+
+        <hr />
+        <h2>Character Upload</h2>
         <button className={`button ${theme}`} onClick={handleSave}>Save Character</button> <br /> <br />
         <FileUploader onSubmit={handleUpload}/>
         <hr />
