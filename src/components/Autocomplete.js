@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
+const Autocomplete = ({ filler, onChange, newSuggestions, display, _c }) => {
 
   const [theme, setTheme] = useState("light");
 
@@ -15,6 +15,7 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [c, setC] = useState(false);
 
   useEffect(() => {
     if (newSuggestions) {
@@ -26,7 +27,13 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
     else {
       setQuery("");
     }
-  }, [newSuggestions, display]);
+    if (_c) {
+      setC(_c);
+    }
+    else {
+      setC(false);
+    }
+  }, [newSuggestions, display, _c]);
 
   const handleInputChange = (e) => {
     const input = e.target.value;
@@ -35,7 +42,7 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
 
     if (input) {
       const matches = suggestions.filter((item) =>
-        item.toLowerCase().startsWith(input.toLowerCase())
+        c ? item.toLowerCase().includes(input.toLowerCase()) : item.toLowerCase().startsWith(input.toLowerCase())
       );
       setFilteredSuggestions(matches);
       setShowSuggestions(true);
@@ -59,6 +66,7 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display }) => {
         onChange={handleInputChange}
         placeholder={filler}
         className={`autocomplete-input ${theme}`}
+        style={{width: '100%'}}
       />
       {showSuggestions && filteredSuggestions.length > 0 && (
         <div className={`autocomplete-suggestions ${theme}`}>

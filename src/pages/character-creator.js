@@ -29,7 +29,7 @@ const CharacterCreator = () => {
 
   // Character Stuff
   const [character, setCharacter] = useState(
-    loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "" })
+    loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" })
   );
   const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
   const [abilityScores, setAbilityScores] = useState(
@@ -170,6 +170,10 @@ const CharacterCreator = () => {
 
   const handleBackgroundChange = (input) => {
     setCharacter({...character, 'background': input });
+  };
+
+  const handleAlignmentChange = (input) => {
+    setCharacter({...character, 'alignment': input });
   };
 
   useEffect(() => {
@@ -367,7 +371,7 @@ const CharacterCreator = () => {
   };
 
   const resetCharacter = () => {
-    setCharacter({ name: "", race: "", background: "", alignment: "" });
+    setCharacter({ name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" });
     setLevels([]);
     setAbilityScores({
       strength: 10,
@@ -525,26 +529,126 @@ const CharacterCreator = () => {
                 </span>
               }
             </div>
-            <div className={`form-group  ${theme}`}>
-              <label>Alignment</label>
-              <select
-                name="alignment"
-                value={character.alignment}
-                onChange={handleCharacterChange}
-                className={`inventory-input ${theme}`}
-                style={{width: '318px'}}
-              >
-                <option value="">Select Alignment</option>
-                <option value="lawful-good">Lawful Good</option>
-                <option value="neutral-good">Neutral Good</option>
-                <option value="chaotic-good">Chaotic Good</option>
-                <option value="lawful-neutral">Lawful Neutral</option>
-                <option value="true-neutral">True Neutral</option>
-                <option value="chaotic-neutral">Chaotic Neutral</option>
-                <option value="lawful-evil">Lawful Evil</option>
-                <option value="neutral-evil">Neutral Evil</option>
-                <option value="chaotic-evil">Chaotic Evil</option>
-              </select>
+            <h3>Characteristics</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', margin: '5px' }}>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Alignment</label>
+                <Autocomplete
+                  _c={true}
+                  filler="Alignment..."
+                  onChange={handleAlignmentChange}
+                  display={character.alignment}
+                  newSuggestions={["None", "Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"]}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Gender</label>
+                <input
+                  type="text"
+                  name="gender"
+                  placeholder="Gender..."
+                  value={character.gender}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Eyes</label>
+                <input
+                  type="text"
+                  name="eyes"
+                  placeholder="Eyes..."
+                  value={character.eyes}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Size</label>
+                <input
+                  type="text"
+                  name="size"
+                  placeholder="Size..."
+                  value={character.size}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Height</label>
+                <input
+                  type="text"
+                  name="height"
+                  placeholder="Height..."
+                  value={character.height}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Faith</label>
+                <input
+                  type="text"
+                  name="faith"
+                  placeholder="Faith..."
+                  value={character.faith}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Hair</label>
+                <input
+                  type="text"
+                  name="hair"
+                  placeholder="Hair..."
+                  value={character.hair}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Skin</label>
+                <input
+                  type="text"
+                  name="skin"
+                  placeholder="Skin..."
+                  value={character.skin}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Age</label>
+                <input
+                  type="text"
+                  name="age"
+                  placeholder="Age..."
+                  value={character.age}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
+              <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                <label>Weight</label>
+                <input
+                  type="text"
+                  name="weight"
+                  placeholder="Weight..."
+                  value={character.weight}
+                  onChange={handleCharacterChange}
+                  className={`inventory-input ${theme}`}
+                  style={{width: '100%'}}
+                />
+              </div>
             </div>
           </> : null}
 
