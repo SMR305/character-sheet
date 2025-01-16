@@ -99,8 +99,7 @@ const Spells = () => {
                     list.push(allSources[i]);
                 }
             }
-        }
-        else {
+        } else {
             list.push("phb");
             list.push("xphb");
             let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});

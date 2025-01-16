@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Expression from './expression'
+import Expression from './expression';
 
 const Entry = ({ entry }) => {
     const [theme, setTheme] = useState("light");
