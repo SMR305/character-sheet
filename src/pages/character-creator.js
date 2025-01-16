@@ -74,40 +74,40 @@ const CharacterCreator = () => {
     const [showSettings, changeShow] = useState(false);
     const allSources = [...new Set([...backgroundSources, ...raceSources])];
     const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("checkedItems",
-            allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
+        allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
     );
     const [pageNum, setPageNum] = useState(0);
     const [showBackground, setShowBackground] = useState(false);
 
     const handleCheckboxChange = (item) => {
-            setCheckedItems((prev) => ({
-                    ...prev,
-                    [item]: !prev[item],
-            }));
+        setCheckedItems((prev) => ({
+            ...prev,
+            [item]: !prev[item],
+        }));
     };
 
     useEffect(() => {
-            const defaultSkills = [
-                    { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
-                    { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
-                    { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
-                    { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
-                    { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
-                    { name: "History", ability: "intelligence", prof: 0, mod: 0 },
-                    { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
-                    { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
-                    { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
-                    { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
-                    { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
-                    { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
-                    { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
-                    { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
-                    { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
-                    { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
-                    { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
-                    { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
-            ];
-            setSkills(loadFromLocalStorage("skills", defaultSkills));
+        const defaultSkills = [
+            { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
+            { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
+            { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
+            { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
+            { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
+            { name: "History", ability: "intelligence", prof: 0, mod: 0 },
+            { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
+            { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
+            { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
+            { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
+            { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
+            { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
+            { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
+            { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
+            { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
+            { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
+            { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
+            { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
+        ];
+        setSkills(loadFromLocalStorage("skills", defaultSkills));
     }, []);
 
     // Save data to localStorage whenever the state changes
@@ -127,31 +127,31 @@ const CharacterCreator = () => {
     }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
     const loadJson = async () => {
-            let input = "spells-phb";
-            try {
-                    const module = await import(`../spells/${input}.json`); // Adjust the path as needed
-                    setData([...module["spell"]]);
-            } catch (error) {
-                    console.error("Error loading JSON:", error);
-            }
+        let input = "spells-phb";
+        try {
+            const module = await import(`../spells/${input}.json`); // Adjust the path as needed
+            setData([...module["spell"]]);
+        } catch (error) {
+            console.error("Error loading JSON:", error);
+        }
     };
 
     const saveNotes = (e) => {
-            setNotes(e.target.value);
+        setNotes(e.target.value);
     };
 
     const calculateProfBonus = () => Math.ceil(totalLevel / 4) + 1;
 
     const calculateModifier = (score, prof) => {
-            return (Math.floor((score - 10) / 2) + ((Number(prof) >= 1) ? (Number(prof) * calculateProfBonus()) : 0));
+        return (Math.floor((score - 10) / 2) + ((Number(prof) >= 1) ? (Number(prof) * calculateProfBonus()) : 0));
     };
 
     const handleCharacterChange = (e) => {
-            setCharacter({ ...character, [e.target.name]: e.target.value });
+        setCharacter({ ...character, [e.target.name]: e.target.value });
     };
 
     const handleRaceChange = (input) => {
-            setCharacter({...character, 'race': input });
+        setCharacter({...character, 'race': input });
     };
 
     const handleBackgroundChange = (input) => {
@@ -203,192 +203,192 @@ const CharacterCreator = () => {
     }, [bg, backgrounds]);
 
     const handleAbilityScoreChange = (e) => {
-            setAbilityScores({
-                    ...abilityScores,
-                    [e.target.name]: parseInt(e.target.value) || '',
-            });
+        setAbilityScores({
+            ...abilityScores,
+            [e.target.name]: parseInt(e.target.value) || '',
+        });
     };
 
     const addLevel = () => {
-            if (charClass) {
-                    setLevels([...levels, { className: charClass, level: 1 }]);
-                    setTLevel(totalLevel + 1);
-            }
+        if (charClass) {
+            setLevels([...levels, { className: charClass, level: 1 }]);
+            setTLevel(totalLevel + 1);
+        }
     };
 
     const removeLevel = (index) => {
-            setTLevel(totalLevel - levels[index].level);
-            setLevels(levels.filter((_, i) => i !== index));
+        setTLevel(totalLevel - levels[index].level);
+        setLevels(levels.filter((_, i) => i !== index));
     };
 
     const handleLevelChange = (e) => {
-            let t_level = 0;
-            for (let i = 0; i < levels.length; i += 1) {
-                    if (levels[i].className === e.target.name) {
-                            levels[i].level = Number(e.target.value);
-                    }
-                    t_level += levels[i].level;
+        let t_level = 0;
+        for (let i = 0; i < levels.length; i += 1) {
+            if (levels[i].className === e.target.name) {
+                levels[i].level = Number(e.target.value);
             }
-            setLevels([...levels]);
-            setTLevel(t_level);
+            t_level += levels[i].level;
+        }
+        setLevels([...levels]);
+        setTLevel(t_level);
     };
 
     const addSkill = () => {
-            const skillName = prompt("Enter skill name (e.g., Animal Handling):", "");
-            if (skillName) {
-                    setSkills([...skills, { name: skillName, ability: "", prof: 0 }]);
-            }
+        const skillName = prompt("Enter skill name (e.g., Animal Handling):", "");
+        if (skillName) {
+            setSkills([...skills, { name: skillName, ability: "", prof: 0 }]);
+        }
     };
 
     const handleSkillChange = (index, field, value) => {
-            const updatedSkills = [...skills];
-            if (value === "1" || value === "0") {
-                    updatedSkills[index][field] = Number(value);
-            }
-            else {
-                    updatedSkills[index][field] = value;
-            }
-            setSkills(updatedSkills);
+        const updatedSkills = [...skills];
+        if (value === "1" || value === "0") {
+            updatedSkills[index][field] = Number(value);
+        }
+        else {
+            updatedSkills[index][field] = value;
+        }
+        setSkills(updatedSkills);
     };
 
     const handleSkillMod = (e) => {
-            let updatedSkills = [...skills];
-            for (let i = 0; i < skills.length; i++) {
-                    if (skills[i].name === e.target.name) {
-                            updatedSkills[i].mod = parseInt(e.target.value) || '';
-                    }
+        let updatedSkills = [...skills];
+        for (let i = 0; i < skills.length; i++) {
+            if (skills[i].name === e.target.name) {
+                updatedSkills[i].mod = parseInt(e.target.value) || '';
             }
-            setSkills(updatedSkills);
+        }
+        setSkills(updatedSkills);
     };
 
     const removeSkill = (index) => {
-            setSkills(skills.filter((_, i) => i !== index));
+        setSkills(skills.filter((_, i) => i !== index));
     };
 
     const handleUpload = (input) => {
-            setCheckedItems(input.checkedItems);
-            setCharacter(input.character);
-            setLevels(input.levels);
-            let t_level = 0;
-            for (let i = 0; i < input.levels.length; i++) {
-                    t_level = input.levels[i].level;
-            }
-            setTLevel(t_level);
-            setAbilityScores(input.abilityScores);
-            setHealth(input.health_info);
-            setSkills(input.skills);
-            setNotes(input.notes);
-            setSavingThrows(input.savingThrows);
-            setItems(input.items)
-            setCapacity(input.capacity);
-            setBG(input.bg);
+        setCheckedItems(input.checkedItems);
+        setCharacter(input.character);
+        setLevels(input.levels);
+        let t_level = 0;
+        for (let i = 0; i < input.levels.length; i++) {
+            t_level = input.levels[i].level;
+        }
+        setTLevel(t_level);
+        setAbilityScores(input.abilityScores);
+        setHealth(input.health_info);
+        setSkills(input.skills);
+        setNotes(input.notes);
+        setSavingThrows(input.savingThrows);
+        setItems(input.items)
+        setCapacity(input.capacity);
+        setBG(input.bg);
     };
 
     const handleSave = () => {
-            console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg } );
-            handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg });
+        console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg } );
+        handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg });
     };
 
     const handleSettings = () => {
-            if (showSettings) {
-                    changeSettingsText("Source Options +");
-                    changeShow(0);
-            }
-            else {
-                    changeSettingsText("Source Options -");
-                    changeShow(1);  
-            }
+        if (showSettings) {
+            changeSettingsText("Source Options +");
+            changeShow(0);
+        }
+        else {
+            changeSettingsText("Source Options -");
+            changeShow(1);  
+        }
     };
 
     const loadSources = async (r) => {
-            let list = [];
+        let list = [];
 
-            if (r) {
-                for (let i = 0; i < allSources.length; i++) {
-                        if (checkedItems[allSources[i]] === true) {
-                                list.push(allSources[i]);
-                        }
+        if (r) {
+            for (let i = 0; i < allSources.length; i++) {
+                if (checkedItems[allSources[i]] === true) {
+                    list.push(allSources[i]);
                 }
-            } else {
-                list.push("PHB");
-                list.push("XPGB");
-                list.push("DMG");
-                let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
-                setCheckedItems(temp);
+            }
+        } else {
+            list.push("PHB");
+            list.push("XPGB");
+            list.push("DMG");
+            let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
+            setCheckedItems(temp);
+        }
+
+        let final_races = [];
+        let final_bg = [];
+
+        for (let i = 0; i < list.length; i++) {
+            try {
+                const module = await import("../autoCompletes/races.js"); // Adjust path if necessary
+                if (module["race_" + list[i]]) {
+                    final_races.push(...module["race_" + list[i]]);
+                }
+            } catch (error) {
+                console.error("Error importing a source:", error);
             }
 
-            let final_races = [];
-            let final_bg = [];
-
-            for (let i = 0; i < list.length; i++) {
-                    try {
-                            const module = await import("../autoCompletes/races.js"); // Adjust path if necessary
-                            if (module["race_" + list[i]]) {
-                                    final_races.push(...module["race_" + list[i]]);
-                            }
-                    } catch (error) {
-                            console.error("Error importing a source:", error);
-                    }
-
-                    try {
-                            const module = await import("../autoCompletes/backgrounds.js"); // Adjust path if necessary
-                            if (module["bg_" + list[i]]) {
-                                    final_bg.push(...module["bg_" + list[i]]);
-                            }
-                    } catch (error) {
-                            console.error("Error importing a source:", error);
-                    }
+            try {
+                const module = await import("../autoCompletes/backgrounds.js"); // Adjust path if necessary
+                if (module["bg_" + list[i]]) {
+                    final_bg.push(...module["bg_" + list[i]]);
+                }
+            } catch (error) {
+                console.error("Error importing a source:", error);
             }
+        }
 
-            updateRaces([...final_races]);
-            updateBackgrounds([...final_bg]);
+        updateRaces([...final_races]);
+        updateBackgrounds([...final_bg]);
     };
 
     const handleHealthChange = (e) => {
-            setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
+        setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
     };
     
     const handleSaveingThrowChange = (e) => {
-            let updatedSaves = [...savingThrows];
-            for (let i = 0; i < savingThrows.length; i++) {
-                    if (savingThrows[i].name === e.target.name) {
-                            updatedSaves[i].mod = parseInt(e.target.value) || '';
-                    }
+        let updatedSaves = [...savingThrows];
+        for (let i = 0; i < savingThrows.length; i++) {
+            if (savingThrows[i].name === e.target.name) {
+                updatedSaves[i].mod = parseInt(e.target.value) || '';
             }
-            setSavingThrows(updatedSaves);
+        }
+        setSavingThrows(updatedSaves);
     };
 
     const addItem = (item) => {
-            setItems([...items, item]);
+        setItems([...items, item]);
     };
 
     const removeItem = (index) => {
-                    setItems(items.filter((_, i) => i !== index));
+        setItems(items.filter((_, i) => i !== index));
     };
 
     const handleNumberChange = (index, newValue) => {
-                    setItems((prevItems) =>
-                                    prevItems.map((item, i) =>
-                                                    i === index ? { ...item, number: newValue } : item
-                                    )
-                    );
+        setItems((prevItems) =>
+            prevItems.map((item, i) =>
+                i === index ? { ...item, number: newValue } : item
+            )
+        );
     };
 
     const handleCapacityChange = (c, s) => {
-            switch (s) {
-                    case '0':
-                            setCapacity({capacity: abilityScores.strength * 15, switch: s});
-                            break;
-                    case '1':
-                            setCapacity({capacity: abilityScores.strength * 5, switch: s});
-                            break;
-                    case '2':
-                            setCapacity({capacity: c, switch: s});
-                            break;
-                    default:
-                            console.log(c, s);
-                            break;
-            }
+        switch (s) {
+            case '0':
+                setCapacity({capacity: abilityScores.strength * 15, switch: s});
+                break;
+            case '1':
+                setCapacity({capacity: abilityScores.strength * 5, switch: s});
+                break;
+            case '2':
+                setCapacity({capacity: c, switch: s});
+                break;
+            default:
+                console.log(c, s);
+                break;
+        }
     };
 
     const resetCharacter = () => {
@@ -453,9 +453,9 @@ const CharacterCreator = () => {
                                     <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
                                         <div key={item}>
                                             <input
-                                                    type="checkbox"
-                                                    checked={checkedItems[item]}
-                                                    onChange={() => handleCheckboxChange(item)}
+                                                type="checkbox"
+                                                checked={checkedItems[item]}
+                                                onChange={() => handleCheckboxChange(item)}
                                             />
                                             {bookList.find(book => book.id === item.toLowerCase()) ? bookList.find(book => book.id === item.toLowerCase()).title : item}
                                         </div>
@@ -686,45 +686,45 @@ const CharacterCreator = () => {
                             display={charClass}
                         />
                         {levels.map((level, index) => (
-                                <div key={index} className={`modifier-display ${theme}`}>
-                                        <span style={{whiteSpace: "pre-wrap"}}>
-                                                {`${level.className}`.padEnd(10)}
-                                        </span>
-                                        <select
-                                                name={level.className}
-                                                value={level.level}
-                                                onChange={handleLevelChange}
-                                                className={`inventory-input ${theme}`}
-                                        >
-                                                <option value={1}>1</option>
-                                                <option value={2}>2</option>
-                                                <option value={3}>3</option>
-                                                <option value={4}>4</option>
-                                                <option value={5}>5</option>
-                                                <option value={6}>6</option>
-                                                <option value={7}>7</option>
-                                                <option value={8}>8</option>
-                                                <option value={9}>9</option>
-                                                <option value={10}>10</option>
-                                                <option value={11}>11</option>
-                                                <option value={12}>12</option>
-                                                <option value={13}>13</option>
-                                                <option value={14}>14</option>
-                                                <option value={15}>15</option>
-                                                <option value={16}>16</option>
-                                                <option value={17}>17</option>
-                                                <option value={18}>18</option>
-                                                <option value={19}>19</option>
-                                                <option value={20}>20</option>
-                                        </select>
-                                        <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
-                                        <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
-                                                Delete
-                                        </button>
-                                </div>
+                            <div key={index} className={`modifier-display ${theme}`}>
+                                <span style={{whiteSpace: "pre-wrap"}}>
+                                    {`${level.className}`.padEnd(10)}
+                                </span>
+                                <select
+                                    name={level.className}
+                                    value={level.level}
+                                    onChange={handleLevelChange}
+                                    className={`inventory-input ${theme}`}
+                                >
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                    <option value={6}>6</option>
+                                    <option value={7}>7</option>
+                                    <option value={8}>8</option>
+                                    <option value={9}>9</option>
+                                    <option value={10}>10</option>
+                                    <option value={11}>11</option>
+                                    <option value={12}>12</option>
+                                    <option value={13}>13</option>
+                                    <option value={14}>14</option>
+                                    <option value={15}>15</option>
+                                    <option value={16}>16</option>
+                                    <option value={17}>17</option>
+                                    <option value={18}>18</option>
+                                    <option value={19}>19</option>
+                                    <option value={20}>20</option>
+                                </select>
+                                <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
+                                <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
+                                    Delete
+                                </button>
+                            </div>
                         ))}
                         <button className={`blue-button ${theme}`} onClick={addLevel}>
-                                Add Levels
+                            Add Levels
                         </button>
                     </> : null}
 
@@ -733,25 +733,25 @@ const CharacterCreator = () => {
                 ? <>
                     <h2>Ability Scores</h2>
                     <div className={`ability-scores ${theme}`}>
-                            {Object.keys(abilityScores).map((ability) => (
-                                    <div key={ability} className={`form-group ${theme}`}>
-                                            <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
-                                            <input
-                                                    type="number"
-                                                    name={ability}
-                                                    value={abilityScores[ability]}
-                                                    onChange={handleAbilityScoreChange}
-                                                    className={`inventory-input ${theme}`}
-                                            />
-                                            <div className={`modifiers  ${theme}`}>
-                                                    {isNaN(calculateModifier(abilityScores[ability], 0))
-                                                            ? `+0`
-                                                            : calculateModifier(abilityScores[ability], 0) >= 0
-                                                                    ? `+${calculateModifier(abilityScores[ability], 0)}` 
-                                                                    : calculateModifier(abilityScores[ability], 0)}
-                                            </div>
-                                    </div>
-                            ))}
+                        {Object.keys(abilityScores).map((ability) => (
+                            <div key={ability} className={`form-group ${theme}`}>
+                                <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                                <input
+                                    type="number"
+                                    name={ability}
+                                    value={abilityScores[ability]}
+                                    onChange={handleAbilityScoreChange}
+                                    className={`inventory-input ${theme}`}
+                                />
+                                <div className={`modifiers  ${theme}`}>
+                                    {isNaN(calculateModifier(abilityScores[ability], 0))
+                                        ? `+0`
+                                        : calculateModifier(abilityScores[ability], 0) >= 0
+                                            ? `+${calculateModifier(abilityScores[ability], 0)}` 
+                                            : calculateModifier(abilityScores[ability], 0)}
+                                </div>
+                            </div>
+                        ))}
                     </div>
                     <div>
                         <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
