@@ -36,8 +36,8 @@ const App = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/char-creator">Character Creator</Link></li>
                 <li><Link to="/spells">Spells</Link></li>
-                <li><Link to="/books">Books</Link></li>
                 <li><Link to="/races">Races</Link></li>
+                <li><Link to="/books">Books</Link></li>
               </ul>
             </div>
           )}
@@ -46,8 +46,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/char-creator" element={<CharacterCreator />} />
           <Route path="/spells" element={<Spells />} />
-          <Route path="/books/*" element={<Books />} />
           <Route path="/races" element={<Races />} />
+          <Route path="/books/*" element={<Books />} />
         </Routes>
       </Router>
     </div>

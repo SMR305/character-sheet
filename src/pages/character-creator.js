@@ -73,7 +73,7 @@ const CharacterCreator = () => {
     const [settingsText, changeSettingsText] = useState("Source Options +");
     const [showSettings, changeShow] = useState(false);
     const allSources = useMemo(() => [...new Set([...backgroundSources, ...raceSources])], []);
-    const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("checkedItems",
+    const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("character-checkedItems",
         allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
     );
     const [pageNum, setPageNum] = useState(0);
@@ -123,7 +123,7 @@ const CharacterCreator = () => {
         localStorage.setItem("capacity", JSON.stringify(capacity));
         localStorage.setItem("items", JSON.stringify(items));
         localStorage.setItem("notes", JSON.stringify(notes));
-        localStorage.setItem("checkedItems", JSON.stringify(checkedItems));
+        localStorage.setItem("character-checkedItems", JSON.stringify(checkedItems));
     }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
     // const loadJson = async () => {
@@ -300,14 +300,23 @@ const CharacterCreator = () => {
         }
     };
 
-    const resetSources = async () => {
+    const setSources = async (r) => {
         let list = [];
-
-        list.push("PHB");
-        list.push("XPGB");
-        list.push("DMG");
-        let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
-        setCheckedItems(temp);
+        if (r) {
+            allSources.forEach(item => {
+                list.push(item);
+            });
+            let temp = allSources.reduce((acc, item) => ({ ...acc, [item]: true }), {});
+            setCheckedItems(temp);
+            localStorage.setItem('character-checkedItems', JSON.stringify(temp));
+        }
+        else {
+            list.push("PHB");
+            list.push("XPGB");
+            list.push("DMG");
+            let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
+            setCheckedItems(temp);
+        }
 
         let final_races = [];
         let final_bg = [];
@@ -494,7 +503,8 @@ const CharacterCreator = () => {
                                     </label>
                                 ))}
                             </div>
-                            <button className="blue-button" onClick={() => resetSources()}> Reset Sources </button>
+                            <button className="blue-button" onClick={() => setSources(true)}> Set All Sources </button>
+                            <button className="blue-button" onClick={() => setSources(false)}> Reset Sources </button>
                         </>)
                         : null
                     }
@@ -573,7 +583,7 @@ const CharacterCreator = () => {
                         />
                         {
                             <span>
-                                {bg ?
+                                {bg && listBackgrounds.find(item => item === character.background) ?
                                     <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
                                         {(showBackground) ?
                                             (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :

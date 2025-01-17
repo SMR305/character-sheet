@@ -25,7 +25,7 @@ const Spells = () => {
     const [showSettings, changeShow] = useState(false);
     const allSources = useMemo(() => ['aag', 'ai', 'aitfr-avt', 'bmt', 'dodk', 'egw', 'ftd', 'ggr', 'ghloe', 'hwcs', 'idrotf', 'llk', 'phb', 'xphb', 'sato', 'scc', 'tce', 'tdcsr', 'xge'], []);
     const [checkedItems, setCheckedItems] = useState(
-        JSON.parse(localStorage.getItem('checkedItems')) || 
+        JSON.parse(localStorage.getItem('spell-checkedItems')) || 
         allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {})
     );
 
@@ -35,7 +35,7 @@ const Spells = () => {
                 ...prev,
                 [item]: !prev[item], // Toggle the checkbox state
             };
-            localStorage.setItem('checkedItems', JSON.stringify(newCheckedItems));
+            localStorage.setItem('spell-checkedItems', JSON.stringify(newCheckedItems));
             return newCheckedItems;
         });
     };
@@ -90,14 +90,23 @@ const Spells = () => {
         }
     };
 
-    const resetSources = async () => {
+    const setSources = async (r) => {
         let list = [];
-        
-        list.push("phb");
-        list.push("xphb");
-        let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});
-        setCheckedItems(temp);
-        localStorage.setItem('checkedItems', JSON.stringify(temp));
+        if (r) {
+            allSources.forEach(item => {
+                list.push(item);
+            });
+            let temp = allSources.reduce((acc, item) => ({ ...acc, [item]: true }), {});
+            setCheckedItems(temp);
+            localStorage.setItem('spell-checkedItems', JSON.stringify(temp));
+        }
+        else {
+            list.push("phb");
+            list.push("xphb");
+            let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});
+            setCheckedItems(temp);
+            localStorage.setItem('spell-checkedItems', JSON.stringify(temp));
+        }
         
         let finalList = [];
         
@@ -170,7 +179,8 @@ const Spells = () => {
                             </label>
                         ))}
                     </div>
-                    <button className="blue-button" onClick={() => resetSources()}> Reset Sources </button>
+                    <button className="blue-button" onClick={() => setSources(true)}> Set All Sources </button>
+                    <button className="blue-button" onClick={() => setSources(false)}> Reset Sources </button>
                     </>)
                     : null
                 }
@@ -178,7 +188,7 @@ const Spells = () => {
             
             <h1> Spells</h1>
             <span>
-                This is where you can find all the spells for Dungeons and Dragons 5th edition and 5.5 edition (2024).
+                This is where you can find all the spells for Dungeons and Dragons 5th edition and 5.5 (2024) edition.
             </span>
 
             <div>
