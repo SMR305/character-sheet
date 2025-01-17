@@ -17,8 +17,8 @@ const Spells = () => {
 
     const [allSpells, setAllSpells] = useState([]);
     const [spells, setSpells] = useState([]);
-    const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('subSet')) || 1);
-    const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
+    const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('spell-subSet')) || 1);
+    const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('spell-totalSubSets')) || 1);
     const [expanded, setExpanded] = useState([]);
     const [keyPhrase, setKey] = useState('');
 
@@ -79,11 +79,11 @@ const Spells = () => {
     };
 
     useEffect(() => {
-        localStorage.setItem('subSet', JSON.stringify(subSet));
+        localStorage.setItem('spells-subSet', JSON.stringify(subSet));
     }, [subSet]);
 
     useEffect(() => {
-        localStorage.setItem('totalSubSets', JSON.stringify(totalSubSets));
+        localStorage.setItem('spells-totalSubSets', JSON.stringify(totalSubSets));
     }, [totalSubSets]);
 
     const toggleExpand = (index) => {

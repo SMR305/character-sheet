@@ -70,8 +70,8 @@ const Races = () => {
         }
     };
 
-    const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('subSet')) || 1);
-    const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
+    const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('race-subSet')) || 1);
+    const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('race-totalSubSets')) || 1);
 
     useEffect(() => {
         setTotalSubSets(Math.ceil(displayList.length / 20));
@@ -79,11 +79,11 @@ const Races = () => {
     }, [displayList]);
 
     useEffect(() => {
-        localStorage.setItem('subSet', JSON.stringify(subSet));
+        localStorage.setItem('race-subSet', JSON.stringify(subSet));
     }, [subSet]);
 
     useEffect(() => {
-        localStorage.setItem('totalSubSets', JSON.stringify(totalSubSets));
+        localStorage.setItem('race-totalSubSets', JSON.stringify(totalSubSets));
     }, [totalSubSets]);
 
     useEffect(() => {
