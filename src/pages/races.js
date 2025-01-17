@@ -97,7 +97,7 @@ const Races = () => {
 
     const handleKeyChange = (e) => {
         setKey(e.target.value);
-        setDisplay(racesList.filter(item => item.name.includes(e.target.value)));
+        setDisplay(racesList.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase())));
     };
 
     return (
@@ -180,6 +180,20 @@ const Races = () => {
                                 { (expanded.includes(index)) ?
                                     <div className={`spell-description ${theme}`}>
                                         <p>Source: {sources.find(element => element.id.toLowerCase() === item.source.toLowerCase()) ? sources.find(element => element.id.toLowerCase() === item.source.toLowerCase()).title : item.source}</p>
+                                        <p>Size: {item.size ? <>{item.size.map((element, index) => { return <><Entry key={index} entry={element}/>{index < (item.size.length - 1) ? <>, </> : null}</>})}</> : null}</p>
+                                        <p>{item.speed ?
+                                            <> Speed: 
+                                            <ul>
+                                                <>{item.speed.walk || item.speed ? <li>Walk: {item.speed.walk || item.speed}</li> : null}</>
+                                                <>{item.speed.swim ? <li>Swim: {item.speed.swim}</li> : null}</>
+                                                <>{item.speed.climb ? <li>Climb: {item.speed.climb}</li> : null}</>
+                                                <>{item.speed.burrow ? <li>Burrow: {item.speed.burrow}</li> : null}</>
+                                                <>{item.speed.fly ? <li>Fly: {item.speed.fly}</li> : null}</>
+                                            </ul>
+                                            </>
+                                            : null}
+                                        </p>
+                                        <p>{item.creatureTypes ? <>Creature Types: {item.creatureTypes.map((element, index) => { return <Entry key={index} entry={element}/>})}</> : null}</p>
                                         {item.entries ? <>{item.entries.map((element, index) => { return <Entry key={index} entry={element}/>})}</> : null}
                                     </div>
                                     : null

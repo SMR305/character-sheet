@@ -105,7 +105,6 @@ const Entry = ({ entry }) => {
                         )
                     })}
                 </ul>
-                <br />
             </>
         )
     } else if (entry.type === 'item') {

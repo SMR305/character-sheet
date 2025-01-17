@@ -75,7 +75,7 @@ const Spells = () => {
 
     const handleKeyChange = (e) => {
         setKey(e.target.value);
-        setSpells(allSpells.filter(item => item.name.includes(e.target.value)));
+        setSpells(allSpells.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase())));
     };
 
     useEffect(() => {
@@ -288,12 +288,12 @@ const Spells = () => {
                                         <p>Duration Type: {spell.duration[0].type}</p>
                                         <p>Duration: {spell.duration[0].duration ? Object.values(spell.duration[0].duration).join(" ") : "None"}
                                             {spell.duration[0].concentration ? " : Concentration" : ''}</p>
-                                        <p>Classes:{spellSource[`${spell.source}`][`${spell.name}`].class.map((item, index) => (
+                                        <p>{spellSource[`${spell.source}`][`${spell.name}`].class ? <>Classes:{spellSource[`${spell.source}`][`${spell.name}`].class.map((item, index) => (
                                             <span key={index}> 
                                                 {(index !== spellSource[`${spell.source}`][`${spell.name}`].class.length)
                                                     ? <span> {item.source === 'XPHB' ? <>{item.name} (2024),</> : <>{item.name},</>}</span>
                                                     : <span> {item.name}{item.source === 'XPHB' ? <> (2024)</> : null}</span>}
-                                            </span>))}
+                                            </span>))}</> : null}
                                         </p>
                                         {spell.entries.map((entry, index) => (<div key={index}><Entry entry={entry}/></div>))}
                                     </div>
