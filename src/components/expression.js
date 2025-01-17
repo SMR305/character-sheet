@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useEffect, useRef, useMemo} from "react";
 import rules from '../rules/variantrules.json';
 import conditions from '../rules/conditionsdiseases.json';
 import Entry from './Entry';
@@ -15,7 +15,7 @@ const Expression = ({input}) => {
         document.body.className = savedTheme; // Set initial theme on body
     }, []);
 
-    const regex = /{@(\w+)\s([^}]+)}/g;
+    const regex = useMemo(() => /{@(\w+)\s([^}]+)}/g, []);
     const regex2 = /{@(\w+\s[^}]+)}/g;
 
     const [isHovered, setIsHovered] = useState(false);
@@ -32,6 +32,28 @@ const Expression = ({input}) => {
     const handleDrag = (e, data) => {
         setMousePosition({ x: data.x, y: data.y});
     };
+
+    const [module, setModule] = useState([]);
+    const holdInput = useMemo(() => input, [input]);
+
+    useEffect(() => {
+        const makeModule = async () => {
+            let i = 'phb';
+            if (holdInput.split(regex)[2].split('|')[2]) {
+                i = holdInput.split(regex)[2].split('|')[2].toLowerCase();
+            }
+
+            try {
+                let m = await import(`../spells/spells-${i}.json`);
+                setModule([...m.spell]);
+            }
+            catch (error) {
+                console.log(error)
+            }
+        };
+
+        makeModule();
+    }, [holdInput, regex]);
 
     if (input.includes("variantrule")) {
         const r = rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase());
@@ -94,6 +116,31 @@ const Expression = ({input}) => {
                 style={{ textDecoration: "underline", cursor: "pointer" }}
             >
                 {r.name}
+            </strong>
+
+            {(isHovered || isClicked) ? (
+                <Draggable onDrag={handleDrag} position={mousePosition} nodeRef={draggableRef}>
+                    <div ref={draggableRef} style={{position: 'absolute'}} className={`discover ${theme}`}>
+                        {r.entries.map((item, index) => {
+                            return <Entry key={index} entry={item}/>
+                        })}
+                    </div>
+                </Draggable>
+            ) : null}
+            </>
+        )
+    }
+    else if (input.includes("spell")) {
+        const r = module.find(spell => (spell.name.toLowerCase() === holdInput.split(regex)[2].split('|')[0].toLowerCase()));
+        return (
+            <>
+            <strong
+                onMouseEnter={() => setIsHovered(true)} // Show on hover
+                onMouseLeave={() => setIsHovered(false)} // Hide when not hovering
+                onClick={() => {handleClick()}}
+                style={{ textDecoration: "underline", cursor: "pointer" }}
+            >
+                {r ? r.name : null}
             </strong>
 
             {(isHovered || isClicked) ? (

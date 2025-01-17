@@ -180,19 +180,19 @@ const Races = () => {
                                 { (expanded.includes(index)) ?
                                     <div className={`spell-description ${theme}`}>
                                         <p>Source: {sources.find(element => element.id.toLowerCase() === item.source.toLowerCase()) ? sources.find(element => element.id.toLowerCase() === item.source.toLowerCase()).title : item.source}</p>
-                                        <p>Size: {item.size ? <>{item.size.map((element, index) => { return <><Entry key={index} entry={element}/>{index < (item.size.length - 1) ? <>, </> : null}</>})}</> : null}</p>
-                                        <p>{item.speed ?
+                                        <p>Size: {item.size ? <>{item.size.map((element, index) => { return <span key={index}><Entry entry={element}/>{index < (item.size.length - 1) ? <>, </> : null}</span>})}</> : null}</p>
+                                        <span>{item.speed ?
                                             <> Speed: 
-                                            <ul>
-                                                <>{item.speed.walk || item.speed ? <li>Walk: {item.speed.walk || item.speed}</li> : null}</>
-                                                <>{item.speed.swim ? <li>Swim: {item.speed.swim}</li> : null}</>
-                                                <>{item.speed.climb ? <li>Climb: {item.speed.climb}</li> : null}</>
-                                                <>{item.speed.burrow ? <li>Burrow: {item.speed.burrow}</li> : null}</>
-                                                <>{item.speed.fly ? <li>Fly: {item.speed.fly}</li> : null}</>
-                                            </ul>
+                                            <div>
+                                                {item.speed.walk || item.speed ? <p key={0}> - Walk: {item.speed.walk || item.speed}</p> : null}
+                                                {item.speed.swim ? <p key={1}> - Swim: {item.speed.swim}</p> : null}
+                                                {item.speed.climb ? <p key={2}> - Climb: {item.speed.climb}</p> : null}
+                                                {item.speed.burrow ? <p key={3}> - Burrow: {item.speed.burrow}</p> : null}
+                                                {item.speed.fly ? <p key={4}> - Fly: {item.speed.fly}</p> : null}
+                                            </div>
                                             </>
                                             : null}
-                                        </p>
+                                        </span>
                                         <p>{item.creatureTypes ? <>Creature Types: {item.creatureTypes.map((element, index) => { return <Entry key={index} entry={element}/>})}</> : null}</p>
                                         {item.entries ? <>{item.entries.map((element, index) => { return <Entry key={index} entry={element}/>})}</> : null}
                                     </div>
