@@ -30,7 +30,10 @@ const Races = () => {
                     e.forEach(element => {
                         if (element.mode === 'replaceArr') {
                             if (typeof element.replace === 'string') {
-                                c_race.entries[c_race.entries.indexOf(item => item.name === element.replace)] = element.items;
+                                const index = c_race.entries.findIndex(item => item.name === element.replace);
+                                if (index !== -1) {
+                                    c_race.entries[index] = element.items;
+                                }
                             }
                             else {
                                 c_race[element.replace.index] = element.items;
