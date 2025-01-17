@@ -184,7 +184,10 @@ const CharacterCreator = () => {
                 e.forEach(element => {
                     if (element.mode === 'replaceArr') {
                         if (typeof element.replace === 'string') {
-                            c_bg.entries[c_bg.entries.indexOf(item => item.name === element.replace)] = element.items;
+                            const index = c_bg.entries.findIndex(item => item.name === element.replace);
+                            if (index !== -1) {
+                                c_bg.entries[index] = element.items;
+                            }
                         }
                         else {
                             c_bg[element.replace.index] = element.items;
@@ -585,7 +588,7 @@ const CharacterCreator = () => {
                             <span>
                                 {bg && listBackgrounds.find(item => item === character.background) ?
                                     <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
-                                        {(showBackground) ?
+                                        {(showBackground && bg.entries) ?
                                             (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
                                             (null)}
                                     </>
