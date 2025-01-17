@@ -18,6 +18,7 @@ const Races = () => {
     const racesList = racesFile.race;
     const [totalList, setTList] = useState([...racesList]);
     const [displayList, setDisplay] = useState([...totalList]);
+    const [keyPhrase, setKey] = useState('');
 
     useEffect(() => {
         let newList = [];
@@ -70,6 +71,11 @@ const Races = () => {
     const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
 
     useEffect(() => {
+        setTotalSubSets(Math.ceil(displayList.length / 20));
+        setSubSet(1);
+    }, [displayList]);
+
+    useEffect(() => {
         localStorage.setItem('subSet', JSON.stringify(subSet));
     }, [subSet]);
 
@@ -86,12 +92,32 @@ const Races = () => {
         setTotalSubSets(Math.ceil(displayList.length / 20));
     }, [displayList]);
 
+    const handleKeyChange = (e) => {
+        setKey(e.target.value);
+        setDisplay(racesList.filter(item => item.name.includes(e.target.value)));
+    };
+
     return (
         <div className={`container ${theme}`}>
             <h1>Races</h1>
             <span>
                 The place where you can find all the information on the races/species of 5th edition and 5.5 (2024) edition.
             </span>
+            <br />
+
+            <br />
+            <div className={`form-group  ${theme}`}>
+                <input
+                    placeholder='Search...'
+                    type='text'
+                    value={keyPhrase}
+                    onChange={handleKeyChange}
+                    className={`inventory-input ${theme}`}
+                    width='100%'
+                />
+            </div>
+            <br />
+            <hr />
 
             <div>
                 <button className={'button'} onClick={() => setSubSet(1)} disabled={subSet <= 1}>{"<<"}</button>

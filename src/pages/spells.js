@@ -15,10 +15,12 @@ const Spells = () => {
         document.body.className = savedTheme; // Set initial theme on body
     }, []);
 
+    const [allSpells, setAllSpells] = useState([]);
     const [spells, setSpells] = useState([]);
     const [subSet, setSubSet] = useState(() => JSON.parse(localStorage.getItem('subSet')) || 1);
     const [totalSubSets, setTotalSubSets] = useState(() => JSON.parse(localStorage.getItem('totalSubSets')) || 1);
     const [expanded, setExpanded] = useState([]);
+    const [keyPhrase, setKey] = useState('');
 
     // Source Options
     const [settingsText, changeSettingsText] = useState("Source Options +");
@@ -43,14 +45,14 @@ const Spells = () => {
     useEffect(() => {
         const savedSpells = JSON.parse(localStorage.getItem('spells'));
         if (savedSpells) {
-            setSpells(savedSpells);
+            setAllSpells(savedSpells);
             setTotalSubSets(Math.ceil(savedSpells.length / 20));
         } else {
             async function go() {
                 let input = "spells-phb";
                 try {
                     const module = await import(`../spells/${input}.json`); // Adjust the path as needed
-                    setSpells([...module["spell"]]);
+                    setAllSpells([...module["spell"]]);
                     const total = Math.ceil(module["spell"].length / 20);
                     setTotalSubSets(total);
                     localStorage.setItem('spells', JSON.stringify(module["spell"]));
@@ -61,6 +63,20 @@ const Spells = () => {
             go();
         }
     }, []);
+
+    useEffect(() => {
+        setSpells([...allSpells]);
+    }, [allSpells]);
+
+    useEffect(() => {
+        setTotalSubSets(Math.ceil(spells.length / 20));
+        setSubSet(1);
+    }, [spells]);
+
+    const handleKeyChange = (e) => {
+        setKey(e.target.value);
+        setSpells(allSpells.filter(item => item.name.includes(e.target.value)));
+    };
 
     useEffect(() => {
         localStorage.setItem('subSet', JSON.stringify(subSet));
@@ -120,7 +136,7 @@ const Spells = () => {
             }
         }
 
-        setSpells([...finalList]);
+        setAllSpells([...finalList]);
         setExpanded([]);
         setSubSet(1);
         setTotalSubSets(Math.ceil(finalList.length / 20));
@@ -190,6 +206,21 @@ const Spells = () => {
             <span>
                 This is where you can find all the spells for Dungeons and Dragons 5th edition and 5.5 (2024) edition.
             </span>
+            <br />
+
+            <br />
+            <div className={`form-group  ${theme}`}>
+                <input
+                    placeholder='Search...'
+                    type='text'
+                    value={keyPhrase}
+                    onChange={handleKeyChange}
+                    className={`inventory-input ${theme}`}
+                    width='100%'
+                />
+            </div>
+            <br />
+            <hr />
 
             <div>
                 <button className={'button'} onClick={() => setSubSet(1)} disabled={subSet <= 1}>{"<<"}</button>
