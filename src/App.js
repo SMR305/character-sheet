@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/home';
 import CharacterCreator from './pages/character-creator';
 import Spells from './pages/spells';
-import Books from './pages/books'
+import Books from './pages/books';
+import Races from './pages/races'
 
 const App = () => {
 
@@ -36,6 +37,7 @@ const App = () => {
                 <li><Link to="/char-creator">Character Creator</Link></li>
                 <li><Link to="/spells">Spells</Link></li>
                 <li><Link to="/books">Books</Link></li>
+                <li><Link to="/races">Races</Link></li>
               </ul>
             </div>
           )}
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="/char-creator" element={<CharacterCreator />} />
           <Route path="/spells" element={<Spells />} />
           <Route path="/books/*" element={<Books />} />
+          <Route path="/races" element={<Races />} />
         </Routes>
       </Router>
     </div>

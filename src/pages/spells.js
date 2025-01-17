@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Entry from '../components/Entry';
 import sourceRef from '../sourceRef.json';
 import spellSource from '../spells/sources.json';
@@ -23,7 +23,7 @@ const Spells = () => {
     // Source Options
     const [settingsText, changeSettingsText] = useState("Source Options +");
     const [showSettings, changeShow] = useState(false);
-    const allSources = ['aag', 'ai', 'aitfr-avt', 'bmt', 'dodk', 'egw', 'ftd', 'ggr', 'ghloe', 'hwcs', 'idrotf', 'llk', 'phb', 'xphb', 'sato', 'scc', 'tce', 'tdcsr', 'xge'];
+    const allSources = useMemo(() => ['aag', 'ai', 'aitfr-avt', 'bmt', 'dodk', 'egw', 'ftd', 'ggr', 'ghloe', 'hwcs', 'idrotf', 'llk', 'phb', 'xphb', 'sato', 'scc', 'tce', 'tdcsr', 'xge'], []);
     const [checkedItems, setCheckedItems] = useState(
         JSON.parse(localStorage.getItem('checkedItems')) || 
         allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {})
@@ -90,22 +90,14 @@ const Spells = () => {
         }
     };
 
-    const loadSources = async (r) => {
+    const resetSources = async () => {
         let list = [];
         
-        if (r) {
-            for (let i = 0; i < allSources.length; i++) {
-                if (checkedItems[allSources[i]] === true) {
-                    list.push(allSources[i]);
-                }
-            }
-        } else {
-            list.push("phb");
-            list.push("xphb");
-            let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});
-            setCheckedItems(temp);
-            localStorage.setItem('checkedItems', JSON.stringify(temp));
-        }
+        list.push("phb");
+        list.push("xphb");
+        let temp = allSources.reduce((acc, item) => ({ ...acc, "phb": true, "xphb": true, [item]: false }), {});
+        setCheckedItems(temp);
+        localStorage.setItem('checkedItems', JSON.stringify(temp));
         
         let finalList = [];
         
@@ -125,6 +117,38 @@ const Spells = () => {
         setTotalSubSets(Math.ceil(finalList.length / 20));
         localStorage.setItem('spells', JSON.stringify(finalList));
     };
+
+    useEffect(() => {
+        async function loadSources() {
+            let list = [];
+
+            for (let i = 0; i < allSources.length; i++) {
+                if (checkedItems[allSources[i]] === true) {
+                    list.push(allSources[i]);
+                }
+            }
+
+            let finalList = [];
+        
+            for (let i = 0; i < list.length; i++) {
+                let input = "spells-" + list[i];
+                try {
+                    const module = await import(`../spells/${input}.json`); // Adjust the path as needed
+                    finalList = [...finalList ,...module["spell"]];
+                } catch (error) {
+                    console.error("Error loading JSON:", error);
+                }
+            }
+    
+            setSpells([...finalList]);
+            setExpanded([]);
+            setSubSet(1);
+            setTotalSubSets(Math.ceil(finalList.length / 20));
+            localStorage.setItem('spells', JSON.stringify(finalList));
+        };
+
+        loadSources();
+    }, [allSources, checkedItems]);
 
     return (
         <div className={`container ${theme}`}>
@@ -146,8 +170,7 @@ const Spells = () => {
                             </label>
                         ))}
                     </div>
-                    <button className="blue-button" onClick={() => loadSources(true)}> Load New Sources </button>
-                    <button className="blue-button" onClick={() => loadSources(false)}> Reset Sources </button>
+                    <button className="blue-button" onClick={() => resetSources()}> Reset Sources </button>
                     </>)
                     : null
                 }

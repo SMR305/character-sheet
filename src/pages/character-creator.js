@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Autocomplete from "../components/Autocomplete.js";
 import handleDownload from "../components/DownloadFile.js";
 import FileUploader from "../components/UploadFile.js";
@@ -72,7 +72,7 @@ const CharacterCreator = () => {
     // settings
     const [settingsText, changeSettingsText] = useState("Source Options +");
     const [showSettings, changeShow] = useState(false);
-    const allSources = [...new Set([...backgroundSources, ...raceSources])];
+    const allSources = useMemo(() => [...new Set([...backgroundSources, ...raceSources])], []);
     const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("checkedItems",
         allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
     );
@@ -126,15 +126,15 @@ const CharacterCreator = () => {
         localStorage.setItem("checkedItems", JSON.stringify(checkedItems));
     }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
-    const loadJson = async () => {
-        let input = "spells-phb";
-        try {
-            const module = await import(`../spells/${input}.json`); // Adjust the path as needed
-            setData([...module["spell"]]);
-        } catch (error) {
-            console.error("Error loading JSON:", error);
-        }
-    };
+    // const loadJson = async () => {
+    //     let input = "spells-phb";
+    //     try {
+    //         const module = await import(`../spells/${input}.json`); // Adjust the path as needed
+    //         setData([...module["spell"]]);
+    //     } catch (error) {
+    //         console.error("Error loading JSON:", error);
+    //     }
+    // };
 
     const saveNotes = (e) => {
         setNotes(e.target.value);
@@ -300,22 +300,14 @@ const CharacterCreator = () => {
         }
     };
 
-    const loadSources = async (r) => {
+    const resetSources = async () => {
         let list = [];
 
-        if (r) {
-            for (let i = 0; i < allSources.length; i++) {
-                if (checkedItems[allSources[i]] === true) {
-                    list.push(allSources[i]);
-                }
-            }
-        } else {
-            list.push("PHB");
-            list.push("XPGB");
-            list.push("DMG");
-            let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
-            setCheckedItems(temp);
-        }
+        list.push("PHB");
+        list.push("XPGB");
+        list.push("DMG");
+        let temp = allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {})
+        setCheckedItems(temp);
 
         let final_races = [];
         let final_bg = [];
@@ -343,6 +335,46 @@ const CharacterCreator = () => {
         updateRaces([...final_races]);
         updateBackgrounds([...final_bg]);
     };
+
+    useEffect(() => {
+        async function loadSources() {
+            let list = [];
+
+            for (let i = 0; i < allSources.length; i++) {
+                if (checkedItems[allSources[i]] === true) {
+                    list.push(allSources[i]);
+                }
+            }
+
+            let final_races = [];
+            let final_bg = [];
+    
+            for (let i = 0; i < list.length; i++) {
+                try {
+                    const module = await import("../autoCompletes/races.js"); // Adjust path if necessary
+                    if (module["race_" + list[i]]) {
+                        final_races.push(...module["race_" + list[i]]);
+                    }
+                } catch (error) {
+                    console.error("Error importing a source:", error);
+                }
+    
+                try {
+                    const module = await import("../autoCompletes/backgrounds.js"); // Adjust path if necessary
+                    if (module["bg_" + list[i]]) {
+                        final_bg.push(...module["bg_" + list[i]]);
+                    }
+                } catch (error) {
+                    console.error("Error importing a source:", error);
+                }
+            }
+    
+            updateRaces([...final_races]);
+            updateBackgrounds([...final_bg]);
+        };
+
+        loadSources();
+    }, [allSources, checkedItems]);
 
     const handleHealthChange = (e) => {
         setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
@@ -462,8 +494,7 @@ const CharacterCreator = () => {
                                     </label>
                                 ))}
                             </div>
-                            <button className={`blue-button ${theme}`} onClick={() => loadSources(true)}> Load New Sources </button>
-                            <button className="blue-button" onClick={() => loadSources(false)}> Reset Sources </button>
+                            <button className="blue-button" onClick={() => resetSources()}> Reset Sources </button>
                         </>)
                         : null
                     }
@@ -857,14 +888,14 @@ const CharacterCreator = () => {
                 ? <>
                     <h2>Inventory</h2>
                     <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
-                    <hr />
+                    {/* <hr />
 
                     <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
                     <br />
                     {Data[0] === undefined
                         ? (<span> Waiting </span>)
                         : (<span>{Data[0].name} {Data[0].entries}</span>)
-                    }
+                    } */}
                 </> : null}
                 <br />
                 <hr />
