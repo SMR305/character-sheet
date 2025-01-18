@@ -185,10 +185,10 @@ const Races = () => {
                                             <> Speed: 
                                             <div>
                                                 {item.speed.walk || item.speed ? <p key={0}> - Walk: {item.speed.walk || item.speed}</p> : null}
-                                                {item.speed.swim ? <p key={1}> - Swim: {item.speed.swim}</p> : null}
-                                                {item.speed.climb ? <p key={2}> - Climb: {item.speed.climb}</p> : null}
-                                                {item.speed.burrow ? <p key={3}> - Burrow: {item.speed.burrow}</p> : null}
-                                                {item.speed.fly ? <p key={4}> - Fly: {item.speed.fly}</p> : null}
+                                                {item.speed.swim ? <p key={1}> - Swim: {typeof item.speed.swim === "boolean" ? (item.speed.walk || item.speed) : item.speed.swim}</p> : null}
+                                                {item.speed.climb ? <p key={2}> - Climb: {typeof item.speed.climb === "boolean" ? (item.speed.walk || item.speed) : item.speed.climb}</p> : null}
+                                                {item.speed.burrow ? <p key={3}> - Burrow: {typeof item.speed.burrow === "boolean" ? (item.speed.walk || item.speed) : item.speed.burrow}</p> : null}
+                                                {item.speed.fly ? <p key={4}> - Fly: {typeof item.speed.fly === "boolean" ? (item.speed.walk || item.speed) : item.speed.fly}</p> : null}
                                             </div>
                                             </>
                                             : null}

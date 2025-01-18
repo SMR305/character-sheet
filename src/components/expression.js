@@ -51,11 +51,12 @@ const Expression = ({input}) => {
                 console.log(error)
             }
         };
-
-        makeModule();
+        if (holdInput.startsWith("{@spell ")) {
+            makeModule();
+        }
     }, [holdInput, regex]);
 
-    if (input.includes("variantrule")) {
+    if (input.startsWith("{@variantrule ")) {
         const r = rules.variantrule.find(rule => rule.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase());
         return (
             <>
@@ -80,7 +81,7 @@ const Expression = ({input}) => {
             </>
         )
     }
-    else if (input.includes("condition")) {
+    else if (input.startsWith("{@condition ")) {
         const r = conditions.condition.find(cond => (cond.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase()) && (cond.source.toLowerCase() === (input.split(regex)[2].split('|')[1] ? input.split(regex)[2].split('|')[1].toLowerCase() : 'phb')));
         return (
             <>
@@ -105,7 +106,7 @@ const Expression = ({input}) => {
             </>
         )
     }
-    else if (input.includes("disease") || input.includes("status")) {
+    else if (input.startsWith("{@disease ") || input.startsWith("{@status ")) {
         const r = conditions.disease.find(cond => (cond.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase()) && (cond.source.toLowerCase() === (input.split(regex)[2].split('|')[1] ? input.split(regex)[2].split('|')[1].toLowerCase() : 'phb'))) || conditions.status.find(cond => (cond.name.toLowerCase() === input.split(regex)[2].split('|')[0].toLowerCase()) && (cond.source.toLowerCase() === (input.split(regex)[2].split('|')[1] ? input.split(regex)[2].split('|')[1].toLowerCase() : 'phb')));
         return (
             <>
@@ -130,7 +131,7 @@ const Expression = ({input}) => {
             </>
         )
     }
-    else if (input.includes("spell")) {
+    else if (input.startsWith("{@spell ")) {
         const r = module.find(spell => (spell.name.toLowerCase() === holdInput.split(regex)[2].split('|')[0].toLowerCase()));
         return (
             <>
@@ -149,6 +150,34 @@ const Expression = ({input}) => {
                         {r.entries.map((item, index) => {
                             return <Entry key={index} entry={item}/>
                         })}
+                    </div>
+                </Draggable>
+            ) : null}
+            </>
+        )
+    }
+    else if (input.startsWith("{@b ")) {
+        return <strong style={{ textDecoration: "underline", cursor: "pointer" }}>{input.split(regex)[2]}</strong>;
+    }
+    else if (input.startsWith("{@i ")) {
+        return <strong><em style={{ textDecoration: "underline", cursor: "pointer" }}>{input.split(regex)[2]}</em></strong>;
+    }
+    else if (input.startsWith("{@book ") || input.startsWith("{@adventure ")) {
+        return (
+            <>
+            <strong
+                onMouseEnter={() => setIsHovered(true)} // Show on hover
+                onMouseLeave={() => setIsHovered(false)} // Hide when not hovering
+                onClick={() => {handleClick()}}
+                style={{ textDecoration: "underline", cursor: "pointer" }}
+            >
+                {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]})
+            </strong>
+
+            {((isHovered || isClicked) && input.split(regex)[2].split("|")[3]) ? (
+                <Draggable onDrag={handleDrag} position={mousePosition} nodeRef={draggableRef}>
+                    <div ref={draggableRef} style={{position: 'absolute'}} className={`discover ${theme}`}>
+                        <span>{input.split(regex)[2].split("|")[3]}</span>
                     </div>
                 </Draggable>
             ) : null}
