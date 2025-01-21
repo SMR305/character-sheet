@@ -166,10 +166,10 @@ const CharacterCreator = () => {
         const handleBGFind = () => {
             if (character.background.includes(':')) {
                 const [name, source] = character.background.split(' : ');
-                setBG(backgrounds.find(bg => bg.name === name && bg.source === source));
+                setBG({ ...backgrounds.find(bg => bg.name === name && bg.source === source) });
             }
             else {
-                setBG(backgrounds.find(bg => bg.name === character.background));
+                setBG({ ...backgrounds.find(bg => bg.name === character.background) });
             }
         };
 
@@ -178,7 +178,7 @@ const CharacterCreator = () => {
 
     useEffect(() => {
         if (bg && bg._copy) {
-            let c_bg = backgrounds.find(item => item.name === bg._copy.name && item.source === bg._copy.source);
+            let c_bg = JSON.parse(JSON.stringify(backgrounds.find(item => item.name === bg._copy.name && item.source === bg._copy.source)));
             if (bg._copy._mod) {
                 let e = Array.isArray(bg._copy._mod.entries) ? bg._copy._mod.entries : [bg._copy._mod.entries];
                 e.forEach(element => {
@@ -201,7 +201,7 @@ const CharacterCreator = () => {
                     }
                 });
             }
-            setBG({...c_bg, 'name': bg.name, 'source': bg.source, 'page': bg.page, 'additionalSources': bg.additionalSources, 'hasFluff': bg.hasFluff, 'hasFluffImages': bg.hasFluffImages});
+            setBG({ ...c_bg, 'name': bg.name, 'source': bg.source, 'page': bg.page, 'additionalSources': bg.additionalSources, 'hasFluff': bg.hasFluff, 'hasFluffImages': bg.hasFluffImages });
         }
     }, [bg, backgrounds]);
 
