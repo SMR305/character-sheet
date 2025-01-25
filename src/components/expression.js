@@ -185,7 +185,7 @@ const Expression = ({input}) => {
         )
     }
     else {
-        return <strong style={{ textDecoration: "underline", cursor: "pointer" }}>{input.split(regex2)}</strong>;
+        return <strong style={{ textDecoration: "underline", cursor: "pointer" }}> {input.split(regex2)}</strong>;
     }
 };
 
