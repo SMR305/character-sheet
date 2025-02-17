@@ -24,7 +24,7 @@ const Races = () => {
         let newList = [];
         racesList.forEach((race) => {
             if (race && race._copy) {
-                let c_race = racesList.find(item => item.name === race._copy.name && item.source === race._copy.source);
+                let c_race = JSON.parse(JSON.stringify(racesList.find(item => item.name === race._copy.name && item.source === race._copy.source)));
                 if (race._copy._mod) {
                     let e = Array.isArray(race._copy._mod.entries) ? race._copy._mod.entries : [race._copy._mod.entries];
                     e.forEach(element => {
