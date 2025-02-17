@@ -164,42 +164,11 @@ const Expression = ({input}) => {
     }
     else if (input.startsWith("{@book ") || input.startsWith("{@adventure ")) {
         return (
-            // <>
-            // <strong
-            //     onMouseEnter={() => setIsHovered(true)} // Show on hover
-            //     onMouseLeave={() => setIsHovered(false)} // Hide when not hovering
-            //     onClick={() => {handleClick()}}
-            //     style={{ textDecoration: "underline", cursor: "pointer" }}
-            // >
-            //     {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]})
-            // </strong>
-
-            // {((isHovered || isClicked) && input.split(regex)[2].split("|")[3]) ? (
-            //     <Draggable onDrag={handleDrag} position={mousePosition} nodeRef={draggableRef}>
-            //         <div ref={draggableRef} style={{position: 'absolute'}} className={`discover ${theme}`}>
-            //             <a href={`#${input.split(regex)[2].split("|")[3]}`}>Go to {input.split(regex)[2].split("|")[0]}</a>
-            //         </div>
-            //     </Draggable>
-            // ) : null}
-            // </>
-            <>
             <strong
-                onMouseEnter={() => setIsHovered(true)} // Show on hover
-                onMouseLeave={() => setIsHovered(false)} // Hide when not hovering
-                onClick={() => {handleClick()}}
-                style={{ textDecoration: "underline", cursor: "pointer" }}
+                style={{ textDecoration: "underline"}}
             >
-                {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]})
+                {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]}) {input.split(regex)[2].split("|")[3]}
             </strong>
-
-            {((isHovered || isClicked) && input.split(regex)[2].split("|")[3]) ? (
-                <Draggable onDrag={handleDrag} position={mousePosition} nodeRef={draggableRef}>
-                    <div ref={draggableRef} style={{position: 'absolute'}} className={`discover ${theme}`}>
-                        <span>{input.split(regex)[2].split("|")[3]}</span>
-                    </div>
-                </Draggable>
-            ) : null}
-            </>
         )
     }
     else {
