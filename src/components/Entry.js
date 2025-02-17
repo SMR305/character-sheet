@@ -30,7 +30,7 @@ const Entry = ({ entry }) => {
     } else if (entry.type === 'entries') {
         return (
             <div>
-                <h4>{entry.name}</h4>
+                <h4 id={entry.name}>{entry.name}</h4>
                 {entry.entries.map((subEntry, index) => (
                     <Entry key={index} entry={subEntry} />
                 ))}
@@ -40,7 +40,7 @@ const Entry = ({ entry }) => {
         return (
             <div>
                 <br />
-                <table className={`table ${theme}`}>
+                <table className={`table ${theme}`} id={entry.name}>
                     <thead>
                         <tr>
                             
@@ -97,7 +97,7 @@ const Entry = ({ entry }) => {
     } else if (entry.type === 'list') {
         return (
             <>
-                <h3>{entry.name}</h3>
+                <h3 id={entry.name}>{entry.name}</h3>
                 <ul>
                     {entry.items.map((item, index) => {
                         return (
@@ -110,7 +110,7 @@ const Entry = ({ entry }) => {
     } else if (entry.type === 'item') {
         return (
             <div>
-                <span style={{fontWeight: 'bold'}}>{entry.name} </span>
+                <span style={{fontWeight: 'bold'}} id={entry.name}>{entry.name} </span>
                 {typeof entry.entry === 'undefined' ? 
                     entry.entries.map((item, index) => {
                         return <Entry key={index} entry={item}/>
@@ -122,7 +122,7 @@ const Entry = ({ entry }) => {
     else if (entry.type === 'section') {
         return (
             <>
-                <h2>{entry.name}</h2>
+                <h2 id={entry.name}>{entry.name}</h2>
                 {entry.entries.map((entry, index) => (
                     <Entry key={index} entry={entry} />
                 ))}
