@@ -163,12 +163,14 @@ const Expression = ({input}) => {
         return <strong><em style={{ textDecoration: "underline", cursor: "pointer" }}>{input.split(regex)[2]}</em></strong>;
     }
     else if (input.startsWith("{@book ") || input.startsWith("{@adventure ")) {
+        const hrefValue = input.split(regex)[2].split("|")[0].startsWith("see") ? input.split(regex)[2].split("|")[0].slice(4).toLowerCase() : input.split(regex)[2].split("|")[0].toLowerCase();
         return (
-            <strong
-                style={{ textDecoration: "underline"}}
+            <a
+            style={{ textDecoration: "underline"}}
+            href={hrefValue !== undefined ? "#" + hrefValue : undefined}
             >
-                {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]}) {input.split(regex)[2].split("|")[3]}
-            </strong>
+            {input.split(regex)[2].split("|")[0]} ({input.split(regex)[2].split("|")[1]}) {input.split(regex)[2].split("|")[3]}
+            </a>
         )
     }
     else {

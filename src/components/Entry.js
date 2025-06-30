@@ -122,7 +122,7 @@ const Entry = ({ entry }) => {
     else if (entry.type === 'section') {
         return (
             <>
-                <h2 id={entry.name}>{entry.name}</h2>
+                <h2 id={(entry.name).split(":")[0].toLowerCase()}>{entry.name}</h2>
                 {entry.entries.map((entry, index) => (
                     <Entry key={index} entry={entry} />
                 ))}
