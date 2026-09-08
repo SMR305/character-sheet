@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
-import Autocomplete from "../components/Autocomplete.js";
-import handleDownload from "../components/DownloadFile.js";
-import FileUploader from "../components/UploadFile.js";
-import Inventory from "../components/Inventory.js";
+import Autocomplete from "../components/Autocomplete";
+import handleDownload from "../components/DownloadFile";
+import FileUploader from "../components/UploadFile";
+import Inventory from "../components/Inventory";
 import sourceRef from "../sourceRef.json";
-import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes";
-import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds";
-import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races";
-import Entry from "../components/Entry.js";
+import Entry from "../components/Entry";
+import { core_2014, core_2024, crit_roll } from "../autoCompletes/classes.js";
+import { bg_PHB, bg_XPHB, backgroundSources } from "../autoCompletes/backgrounds.js";
+import { race_PHB, race_XPHB, race_DMG, raceSources } from "../autoCompletes/races.js";
 import allBackgrounds from "../backgrounds/backgrounds.json";
 
 const CharacterCreator = () => {

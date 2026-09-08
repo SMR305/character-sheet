@@ -18,24 +18,15 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        const fetchBookNames = async () => {
-            try {
-                const context = require.context('../books', false, /\.json$/);
-                const bookNames = context.keys().map((file) => {
-                    const id = file.replace('./', '').replace('.json', '').replace('book-', '');
-                    const book = bookList.find(book => book.id === id);
-                    return {
-                        id: `book-${id}`,
-                        title: book ? book.title : id
-                    };
-                });
-                setBooks(bookNames);
-            } catch (error) {
-                console.error('Error fetching book names:', error);
-            }
-        };
+        const bookNames = bookList.map((book) => {
+            const id = String(book.id).replace(/^book-/, '');
+            return {
+                id: `book-${id}`,
+                title: book.title || id
+            };
+        });
 
-        fetchBookNames();
+        setBooks(bookNames);
     }, [bookList]);
 
     const loadFromLocalStorage = (key, defaultValue) => {
