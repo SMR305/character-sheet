@@ -12,82 +12,26 @@ import allBackgrounds from "../backgrounds/backgrounds.json";
 
 const CharacterCreator = () => {
 
-    const bookList = sourceRef.data;
-    const backgrounds = allBackgrounds.background;
-    const [theme, setTheme] = useState('light');
+    // 
+    // Default states of character features
+    // 
+    const defaultChar = {
+            name: "",
+            race: "",
+            background: "",
+            alignment: "",
+            gender: "",
+            eyes: "",
+            size: "",
+            height: "",
+            faith: "",
+            hair: "",
+            skin: "",
+            age: "",
+            weight: ""
+        };
 
-    // Load the theme from localStorage on initial render
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") || "light";
-        setTheme(savedTheme);
-        document.body.className = savedTheme; // Set initial theme on body
-    }, []);
-
-    // Load data from localStorage or set default values
-    const loadFromLocalStorage = (key, defaultValue) => {
-        const saved = localStorage.getItem(key);
-        return saved && saved !== 'undefined' ? JSON.parse(saved) : defaultValue;
-    };
-
-    // Character Stuff
-    const [character, setCharacter] = useState(
-        loadFromLocalStorage("character", { name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" })
-    );
-    const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
-    const [abilityScores, setAbilityScores] = useState(
-        loadFromLocalStorage("abilityScores", {
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            wisdom: 10,
-            charisma: 10,
-        })
-    );
-    const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
-    const [savingThrows, setSavingThrows] = useState(
-        loadFromLocalStorage("savingThrows", [
-            { name: "strength", mod: 0, prof: 0 },
-            { name: "dexterity", mod: 0, prof: 0 },
-            { name: "constitution", mod: 0, prof: 0 },
-            { name: "intelligence", mod: 0, prof: 0 },
-            { name: "wisdom", mod: 0, prof: 0 },
-            { name: "charisma", mod: 0, prof: 0 },
-        ])
-    );
-    const [skills, setSkills] = useState(loadFromLocalStorage("skills", []));
-    const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
-    const [charClass, setClass] = useState("");
-    const [Data, setData] = useState([]);
-    const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
-    const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
-    const [items, setItems] = useState(loadFromLocalStorage("items", []));
-    const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
-
-    // suggestions
-    const listClasses = [...core_2014, ...core_2024, ...crit_roll];
-    const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
-    const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
-
-    // settings
-    const [settingsText, changeSettingsText] = useState("Source Options +");
-    const [showSettings, changeShow] = useState(false);
-    const allSources = useMemo(() => [...new Set([...backgroundSources, ...raceSources])], []);
-    const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("character-checkedItems",
-        allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
-    );
-    const [pageNum, setPageNum] = useState(0);
-    const [showBackground, setShowBackground] = useState(false);
-
-    const handleCheckboxChange = (item) => {
-        setCheckedItems((prev) => ({
-            ...prev,
-            [item]: !prev[item],
-        }));
-    };
-
-    useEffect(() => {
-        const defaultSkills = [
+    const defaultSkills = [
             { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
             { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
             { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
@@ -107,6 +51,92 @@ const CharacterCreator = () => {
             { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
             { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
         ];
+    
+    const defaultAbilityScores = {
+            strength: 10,
+            dexterity: 10,
+            constitution: 10,
+            intelligence: 10,
+            wisdom: 10,
+            charisma: 10,
+        };
+    
+    const defaultSavingThrows = [
+            { name: "strength", mod: 0, prof: 0 },
+            { name: "dexterity", mod: 0, prof: 0 },
+            { name: "constitution", mod: 0, prof: 0 },
+            { name: "intelligence", mod: 0, prof: 0 },
+            { name: "wisdom", mod: 0, prof: 0 },
+            { name: "charisma", mod: 0, prof: 0 },
+        ];
+
+    const bookList = sourceRef.data;
+    const backgrounds = allBackgrounds.background;
+    const [theme, setTheme] = useState('light');
+
+    // Load the theme from localStorage on initial render
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        setTheme(savedTheme);
+        document.body.className = savedTheme; // Set initial theme on body
+    }, []);
+
+    // Load data from localStorage or set default values
+    const loadFromLocalStorage = (key, defaultValue) => {
+        const saved = localStorage.getItem(key);
+        return saved && saved !== 'undefined' ? JSON.parse(saved) : defaultValue;
+    };
+
+    // 
+    // Character Information
+    // 
+    const [character, setCharacter] = useState(
+        loadFromLocalStorage("character", defaultChar)
+    );
+    const [levels, setLevels] = useState(loadFromLocalStorage("levels", []));
+    const [abilityScores, setAbilityScores] = useState(
+        loadFromLocalStorage("abilityScores", defaultAbilityScores)
+    );
+    const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
+    const [savingThrows, setSavingThrows] = useState(
+        loadFromLocalStorage("savingThrows", defaultSavingThrows)
+    );
+    const [skills, setSkills] = useState(loadFromLocalStorage("skills", defaultSkills));
+    const [totalLevel, setTLevel] = useState(loadFromLocalStorage("totalLevel", 0));
+    const [charClass, setClass] = useState("");
+    const [Data, setData] = useState([]);
+    const [bg, setBG] = useState(loadFromLocalStorage("bg", {}));
+    const [notes, setNotes] = useState(loadFromLocalStorage("notes", ""));
+    const [items, setItems] = useState(loadFromLocalStorage("items", []));
+    const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
+
+    // 
+    // suggestions
+    // 
+    const listClasses = [...core_2014, ...core_2024, ...crit_roll];
+    const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
+    const [listRaces, updateRaces] = useState([...race_PHB, ...race_DMG, ...race_XPHB]);
+
+    // 
+    // settings
+    // 
+    const [settingsText, changeSettingsText] = useState("Source Options +");
+    const [showSettings, changeShow] = useState(false);
+    const allSources = useMemo(() => [...new Set([...backgroundSources, ...raceSources])], []);
+    const [checkedItems, setCheckedItems] = useState(loadFromLocalStorage("character-checkedItems",
+        allSources.reduce((acc, item) => ({ ...acc, PHB: true, XPHB: true, DMG: true, [item]: false }), {}))
+    );
+    const [pageNum, setPageNum] = useState(0);
+    const [showBackground, setShowBackground] = useState(false);
+
+    const handleCheckboxChange = (item) => {
+        setCheckedItems((prev) => ({
+            ...prev,
+            [item]: !prev[item],
+        }));
+    };
+
+    useEffect(() => {
         setSkills(loadFromLocalStorage("skills", defaultSkills));
     }, []);
 
@@ -136,16 +166,23 @@ const CharacterCreator = () => {
     //     }
     // };
 
+    // Saves the player notes
     const saveNotes = (e) => {
         setNotes(e.target.value);
     };
 
+    // 
+    // Does the automatic calculations
+    // 
     const calculateProfBonus = () => Math.ceil(totalLevel / 4) + 1;
 
     const calculateModifier = (score, prof) => {
         return (Math.floor((score - 10) / 2) + ((Number(prof) >= 1) ? (Number(prof) * calculateProfBonus()) : 0));
     };
 
+    // 
+    // Manages properly updating aspects of the character when something is changed
+    // 
     const handleCharacterChange = (e) => {
         setCharacter({ ...character, [e.target.name]: e.target.value });
     };
@@ -160,6 +197,27 @@ const CharacterCreator = () => {
 
     const handleAlignmentChange = (input) => {
         setCharacter({...character, 'alignment': input });
+    };
+    
+    const handleAbilityScoreChange = (e) => {
+        setAbilityScores({
+            ...abilityScores,
+            [e.target.name]: parseInt(e.target.value) || '',
+        });
+    };
+
+        const handleHealthChange = (e) => {
+        setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
+    };
+    
+    const handleSaveingThrowChange = (e) => {
+        let updatedSaves = [...savingThrows];
+        for (let i = 0; i < savingThrows.length; i++) {
+            if (savingThrows[i].name === e.target.name) {
+                updatedSaves[i].mod = parseInt(e.target.value) || '';
+            }
+        }
+        setSavingThrows(updatedSaves);
     };
 
     useEffect(() => {
@@ -205,13 +263,9 @@ const CharacterCreator = () => {
         }
     }, [bg, backgrounds]);
 
-    const handleAbilityScoreChange = (e) => {
-        setAbilityScores({
-            ...abilityScores,
-            [e.target.name]: parseInt(e.target.value) || '',
-        });
-    };
-
+    // 
+    // Level modification functions
+    // 
     const addLevel = () => {
         if (charClass) {
             setLevels([...levels, { className: charClass, level: 1 }]);
@@ -236,6 +290,9 @@ const CharacterCreator = () => {
         setTLevel(t_level);
     };
 
+    // 
+    // Skill modification functions
+    // 
     const addSkill = () => {
         const skillName = prompt("Enter skill name (e.g., Animal Handling):", "");
         if (skillName) {
@@ -268,6 +325,9 @@ const CharacterCreator = () => {
         setSkills(skills.filter((_, i) => i !== index));
     };
 
+    // 
+    // Functions for saving and loading character sheets
+    // 
     const handleUpload = (input) => {
         setCheckedItems(input.checkedItems);
         setCharacter(input.character);
@@ -388,20 +448,9 @@ const CharacterCreator = () => {
         loadSources();
     }, [allSources, checkedItems]);
 
-    const handleHealthChange = (e) => {
-        setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
-    };
-    
-    const handleSaveingThrowChange = (e) => {
-        let updatedSaves = [...savingThrows];
-        for (let i = 0; i < savingThrows.length; i++) {
-            if (savingThrows[i].name === e.target.name) {
-                updatedSaves[i].mod = parseInt(e.target.value) || '';
-            }
-        }
-        setSavingThrows(updatedSaves);
-    };
-
+    // 
+    // Functions for inventory management
+    // 
     const addItem = (item) => {
         setItems([...items, item]);
     };
@@ -435,46 +484,16 @@ const CharacterCreator = () => {
         }
     };
 
+    // 
+    // Resets the character to be a blank slate
+    // 
     const resetCharacter = () => {
-        setCharacter({ name: "", race: "", background: "", alignment: "", gender: "", eyes: "", size: "", height: "", faith: "", hair: "", skin: "", age: "", weight: "" });
+        setCharacter(defaultChar);
         setLevels([]);
-        setAbilityScores({
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            wisdom: 10,
-            charisma: 10,
-        });
+        setAbilityScores(defaultAbilityScores);
         setHealth({ cur: 0, max: 0, temp: 0 });
-        setSavingThrows([
-            { name: "strength", mod: 0, prof: 0 },
-            { name: "dexterity", mod: 0, prof: 0 },
-            { name: "constitution", mod: 0, prof: 0 },
-            { name: "intelligence", mod: 0, prof: 0 },
-            { name: "wisdom", mod: 0, prof: 0 },
-            { name: "charisma", mod: 0, prof: 0 },
-        ]);
-        setSkills([
-            { name: "Acrobatics", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Animal Handling", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Arcana", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Athletics", ability: "strength", prof: 0, mod: 0 },
-            { name: "Deception", ability: "charisma", prof: 0, mod: 0 },
-            { name: "History", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Insight", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Intimidation", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Investigation", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Medicine", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Nature", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Perception", ability: "wisdom", prof: 0, mod: 0 },
-            { name: "Performance", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Persuasion", ability: "charisma", prof: 0, mod: 0 },
-            { name: "Religion", ability: "intelligence", prof: 0, mod: 0 },
-            { name: "Sleight of Hand", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Stealth", ability: "dexterity", prof: 0, mod: 0 },
-            { name: "Survival", ability: "wisdom", prof: 0, mod: 0 },
-        ]);
+        setSavingThrows(defaultSavingThrows);
+        setSkills(defaultSkills);
         setTLevel(0);
         setBG({});
         setClass("");
