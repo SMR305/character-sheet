@@ -87,6 +87,11 @@ const CharacterCreator = () => {
         return saved && saved !== 'undefined' ? JSON.parse(saved) : defaultValue;
     };
 
+    // Shows or Hides the longer version of the page
+    const [showAll, setShow] = useState(
+        loadFromLocalStorage("showAll", true)
+    );
+
     // 
     // Character Information
     // 
@@ -111,7 +116,7 @@ const CharacterCreator = () => {
     const [capacity, setCapacity] = useState(loadFromLocalStorage("capacity", {capacity: 0, switch: 0}));
 
     // 
-    // suggestions
+    // suggestions lists
     // 
     const listClasses = [...core_2014, ...core_2024, ...crit_roll];
     const [listBackgrounds, updateBackgrounds] = useState([...bg_PHB, ...bg_XPHB]);
@@ -142,6 +147,7 @@ const CharacterCreator = () => {
 
     // Save data to localStorage whenever the state changes
     useEffect(() => {
+        localStorage.setItem("showAll", JSON.stringify(showAll));
         localStorage.setItem("character", JSON.stringify(character));
         localStorage.setItem("levels", JSON.stringify(levels));
         localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
@@ -154,7 +160,7 @@ const CharacterCreator = () => {
         localStorage.setItem("items", JSON.stringify(items));
         localStorage.setItem("notes", JSON.stringify(notes));
         localStorage.setItem("character-checkedItems", JSON.stringify(checkedItems));
-    }, [character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
+    }, [showAll, character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
     // const loadJson = async () => {
     //     let input = "spells-phb";
@@ -532,6 +538,8 @@ const CharacterCreator = () => {
                     }
             </div>
 
+            <button className={`button`} style={showAll ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setShow(!showAll)}>{showAll ? "Show Shortened Page" : "Show Full Page"}</button>
+            <br />
             <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
             <input
                 type="number"
@@ -539,7 +547,7 @@ const CharacterCreator = () => {
                 value={health_info.cur}
                 onChange={handleHealthChange}
                 style={{ maxWidth: '50px' }}
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <span><b> / </b></span>
             <input
@@ -548,7 +556,7 @@ const CharacterCreator = () => {
                 value={health_info.max}
                 onChange={handleHealthChange}
                 style={{ maxWidth: '50px' }}
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <br />
             <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
@@ -558,66 +566,68 @@ const CharacterCreator = () => {
                 value={health_info.temp}
                 onChange={handleHealthChange}
                 style={{ maxWidth: '50px' }}
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <br />
             <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
 
-            {listPages.map((item, index) => {
-                return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
-            })}
+            {!showAll ? 
+                listPages.map((item, index) => {
+                    return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
+                })
+                 : <></>
+            }
 
             <br />
             <hr />
 
             {/* Character Description */}
-            {pageNum === 0
+            {pageNum === 0 || showAll
                 ? <>
                     <h2>Description</h2>
-                    <div className={`form-group  ${theme}`}>
-                        <label>Character Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Character Name..."
-                            value={character.name}
-                            onChange={handleCharacterChange}
-                            className={`inventory-input ${theme}`}
-                            style={{width: '90%'}}
-                        />
-                    </div>
-                    <div className={`form-group  ${theme}`}>
-                        <label>Race</label>
-                        <Autocomplete
-                            filler="Select Race..."
-                            onChange={handleRaceChange}
-                            display={character.race}
-                            newSuggestions={listRaces}
-                        />
-                    </div>
-                    <div className={`form-group  ${theme}`}>
-                        <label>Background</label>
-                        <Autocomplete
-                            filler="Select Background..."
-                            onChange={handleBackgroundChange}
-                            display={character.background}
-                            newSuggestions={listBackgrounds}
-                        />
-                        {
-                            <span>
-                                {bg && listBackgrounds.find(item => item === character.background) ?
-                                    <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
-                                        {(showBackground && bg.entries) ?
-                                            (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
-                                            (null)}
-                                    </>
-                                : null}
-                            </span>
-                        }
-                    </div>
-                    <h3>Characteristics</h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', margin: '5px' }}>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 100%', margin: '5px'}}>
+                            <label>Character Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Character Name..."
+                                value={character.name}
+                                onChange={handleCharacterChange}
+                                className={`input ${theme}`}
+                                style={{ width: '97%' }}
+                            />
+                        </div>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                            <label>Race</label>
+                            <Autocomplete
+                                filler="Select Race..."
+                                onChange={handleRaceChange}
+                                display={character.race}
+                                newSuggestions={listRaces}
+                            />
+                        </div>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                            <label>Background</label>
+                            <Autocomplete
+                                filler="Select Background..."
+                                onChange={handleBackgroundChange}
+                                display={character.background}
+                                newSuggestions={listBackgrounds}
+                            />
+                            {
+                                <span>
+                                    {bg && listBackgrounds.find(item => item === character.background) ?
+                                        <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
+                                            {(showBackground && bg.entries) ?
+                                                (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
+                                                (null)}
+                                        </>
+                                    : null}
+                                </span>
+                            }
+                        </div>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Alignment</label>
                             <Autocomplete
                                 _c={true}
@@ -627,7 +637,7 @@ const CharacterCreator = () => {
                                 newSuggestions={["None", "Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"]}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Gender</label>
                             <input
                                 type="text"
@@ -635,11 +645,10 @@ const CharacterCreator = () => {
                                 placeholder="Gender..."
                                 value={character.gender}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Eyes</label>
                             <input
                                 type="text"
@@ -647,11 +656,10 @@ const CharacterCreator = () => {
                                 placeholder="Eyes..."
                                 value={character.eyes}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Size</label>
                             <input
                                 type="text"
@@ -659,11 +667,10 @@ const CharacterCreator = () => {
                                 placeholder="Size..."
                                 value={character.size}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Height</label>
                             <input
                                 type="text"
@@ -671,11 +678,10 @@ const CharacterCreator = () => {
                                 placeholder="Height..."
                                 value={character.height}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Faith</label>
                             <input
                                 type="text"
@@ -683,11 +689,10 @@ const CharacterCreator = () => {
                                 placeholder="Faith..."
                                 value={character.faith}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Hair</label>
                             <input
                                 type="text"
@@ -695,11 +700,10 @@ const CharacterCreator = () => {
                                 placeholder="Hair..."
                                 value={character.hair}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Skin</label>
                             <input
                                 type="text"
@@ -707,11 +711,10 @@ const CharacterCreator = () => {
                                 placeholder="Skin..."
                                 value={character.skin}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Age</label>
                             <input
                                 type="text"
@@ -719,11 +722,10 @@ const CharacterCreator = () => {
                                 placeholder="Age..."
                                 value={character.age}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 300px', margin: '5px' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <label>Weight</label>
                             <input
                                 type="text"
@@ -731,33 +733,35 @@ const CharacterCreator = () => {
                                 placeholder="Weight..."
                                 value={character.weight}
                                 onChange={handleCharacterChange}
-                                className={`inventory-input ${theme}`}
-                                style={{width: '90%'}}
+                                className={`input ${theme}`}
                             />
                         </div>
                     </div>
                 </> : null}
 
                 {/* Class */}
-                {pageNum === 1
+                {pageNum === 1 || showAll
                     ? <>
                         <h2>Level: {totalLevel}</h2>
-                        <Autocomplete
-                            filler="Class..."
-                            onChange={setClass}
-                            newSuggestions={listClasses}
-                            display={charClass}
-                        />
+                        {/* Fix this thing's sizing */}
+                        <div style={{ width: '96%' }}>
+                            <Autocomplete
+                                filler="Class..."
+                                onChange={setClass}
+                                newSuggestions={listClasses}
+                                display={charClass}
+                            />
+                        </div>
                         {levels.map((level, index) => (
                             <div key={index} className={`modifier-display ${theme}`}>
-                                <span style={{whiteSpace: "pre-wrap"}}>
-                                    {`${level.className}`.padEnd(10)}
+                                <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginRight: '10%' }}>
+                                    {`${level.className}`}
                                 </span>
                                 <select
                                     name={level.className}
                                     value={level.level}
                                     onChange={handleLevelChange}
-                                    className={`inventory-input ${theme}`}
+                                    className={`input ${theme}`}
                                 >
                                     <option value={1}>1</option>
                                     <option value={2}>2</option>
@@ -780,8 +784,7 @@ const CharacterCreator = () => {
                                     <option value={19}>19</option>
                                     <option value={20}>20</option>
                                 </select>
-                                <span style={{whiteSpace: "pre-wrap"}}>{''.padEnd(5)}</span>
-                                <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)}>
+                                <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)} style={{ marginLeft: '2%' }}>
                                     Delete
                                 </button>
                             </div>
@@ -792,7 +795,7 @@ const CharacterCreator = () => {
                     </> : null}
 
                 {/* Abilities and Skills */}
-                {pageNum === 2
+                {pageNum === 2 || showAll
                 ? <>
                     <h2>Ability Scores</h2>
                     <div className={`ability-scores ${theme}`}>
@@ -804,7 +807,7 @@ const CharacterCreator = () => {
                                     name={ability}
                                     value={abilityScores[ability]}
                                     onChange={handleAbilityScoreChange}
-                                    className={`inventory-input ${theme}`}
+                                    className={`input ${theme}`}
                                 />
                                 <div className={`modifiers  ${theme}`}>
                                     {isNaN(calculateModifier(abilityScores[ability], 0))
@@ -821,7 +824,7 @@ const CharacterCreator = () => {
                         <span>* - profieient, # - expert, ~ - custom</span> <br />
                         <div>
                             {savingThrows.map((save, index) => (
-                                <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
+                                <div key={index} className={`modifier-display ${theme}`} style={{ paddingBottom: '5px'}}>
                                     <select
                                         value={save.prof}
                                         onChange={(e) => {
@@ -829,15 +832,16 @@ const CharacterCreator = () => {
                                             updatedSaves[index].prof = Number(e.target.value);
                                             setSavingThrows(updatedSaves);
                                         }}
-                                        className={`inventory-input ${theme}`}
+                                        className={`input ${theme}`}
                                     >
                                         <option value={0}></option>
                                         <option value={1}>*</option>
                                         <option value={2}>#</option>
                                         <option value={3}>~</option>
                                     </select>
-                                    <span style={{whiteSpace: "pre-wrap"}}>
-                                        {` ${save.name.charAt(0).toUpperCase() + save.name.slice(1)}: `.padEnd(15)}
+                                    {/* I don't like the way these align on the page so I need to work on it */}
+                                    <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                                        {`${save.name.charAt(0).toUpperCase() + save.name.slice(1)}:`}
                                     </span>
                                     <span style={{whiteSpace: "pre-wrap"}}>
                                         {save.prof < 3
@@ -852,7 +856,7 @@ const CharacterCreator = () => {
                                                     name={save.name}
                                                     onChange={handleSaveingThrowChange}
                                                     style={{ maxWidth: '50px' }}
-                                                    className={`inventory-input ${theme}`}
+                                                    className={`input ${theme}`}
                                                 />
                                             </span>
                                         }
@@ -868,7 +872,7 @@ const CharacterCreator = () => {
                             <select
                                 value={skill.ability}
                                 onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
-                                className={`inventory-input ${theme}`}
+                                className={`input ${theme}`}
                             >
                                 <option value="">Select Ability</option>
                                 <option value="strength">STR</option>
@@ -881,15 +885,16 @@ const CharacterCreator = () => {
                             <select
                                 value={skill.prof}
                                 onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
-                                className={`inventory-input ${theme}`}
+                                className={`input ${theme}`}
                             >
                                 <option value={0}></option>
                                 <option value={1}>*</option>
                                 <option value={2}>#</option>
                                 <option value={3}>~</option>
                             </select>
-                            <span style={{whiteSpace: "pre-wrap"}}>
-                                {`   ${skill.name}: `.padEnd(20)}
+                            <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginRight: '10%' }}>
+                                {`${skill.name}:`}
+                            </span>
                                 {skill.prof < 3
                                     ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
                                         ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
@@ -902,11 +907,10 @@ const CharacterCreator = () => {
                                             name={skill.name}
                                             onChange={handleSkillMod}
                                             style={{ maxWidth: '13ch', fontFamily: 'monospace' }}
-                                            className={`inventory-input ${theme}`}
+                                            className={`input ${theme}`}
                                         />
                                     </span>
                                 }
-                            </span>
                             <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
                                 Delete
                             </button>
@@ -916,7 +920,7 @@ const CharacterCreator = () => {
                 </> : null}
                             
                 {/* Inventory */}
-                {pageNum === 3
+                {pageNum === 3 || showAll
                 ? <>
                     <h2>Inventory</h2>
                     <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
@@ -942,11 +946,13 @@ const CharacterCreator = () => {
                 <br />
                 <hr />
 
-                {listPages.map((item, index) => {
-                    return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
-                })}
+                {!showAll ? 
+                    <>{listPages.map((item, index) => {
+                        return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
+                    })} <hr /></>
+                    : <></>
+                }
 
-                <hr />
                 <h2>Character Upload</h2>
                 <button className={`button ${theme}`} onClick={handleSave}>Save Character</button> <br /> <br />
                 <FileUploader onSubmit={handleUpload}/>

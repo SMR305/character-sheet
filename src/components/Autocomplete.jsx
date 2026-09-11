@@ -66,7 +66,6 @@ const Autocomplete = ({ filler, onChange, newSuggestions, display, _c }) => {
           onChange={handleInputChange}
           placeholder={filler}
           className={`autocomplete-input ${theme}`}
-          style={{width: '90%'}}
         />
       
         {showSuggestions && filteredSuggestions.length > 0 && (
