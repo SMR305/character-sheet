@@ -797,7 +797,7 @@ const CharacterCreator = () => {
                 {/* Abilities and Skills */}
                 {pageNum === 2 || showAll
                 ? <>
-                    <h2>Ability Scores</h2>
+                    <h2 style={{ textAlign: 'center' }}>Ability Scores</h2>
                     <div className={`ability-scores ${theme}`}>
                         {Object.keys(abilityScores).map((ability) => (
                             <div key={ability} className={`form-group ${theme}`}>
@@ -839,7 +839,6 @@ const CharacterCreator = () => {
                                         <option value={2}>#</option>
                                         <option value={3}>~</option>
                                     </select>
-                                    {/* I don't like the way these align on the page so I need to work on it */}
                                     <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
                                         {`${save.name.charAt(0).toUpperCase() + save.name.slice(1)}:`}
                                     </span>

@@ -118,7 +118,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
 
                 {stuff.map((i, index) => (
                     <div className={`inventory ${theme}`} key={index}>
-                            <span onClick={() => toggleExpand(index)}> {i.name}, Weight: {(i.weight || 0)}, Number: {(i.number || 1)}, Tags: {i.tags} </span>
+                            <span onClick={() => toggleExpand(index)} style={{ overflowWrap: 'break-word' }}> {i.name}, Weight: {(i.weight || 0)}, Number: {(i.number || 1)}, Tags: {i.tags} </span>
                             {expanded.includes(index)
                                 ?
                                     <div className={`item ${theme}`}>
