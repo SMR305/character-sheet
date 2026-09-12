@@ -103,6 +103,7 @@ const CharacterCreator = () => {
         loadFromLocalStorage("abilityScores", defaultAbilityScores)
     );
     const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
+    const [ac, setAC] = useState(loadFromLocalStorage("ac", 10))
     const [savingThrows, setSavingThrows] = useState(
         loadFromLocalStorage("savingThrows", defaultSavingThrows)
     );
@@ -152,6 +153,7 @@ const CharacterCreator = () => {
         localStorage.setItem("levels", JSON.stringify(levels));
         localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
         localStorage.setItem("health_info", JSON.stringify(health_info));
+        localStorage.setItem("ac", JSON.stringify(ac));
         localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
         localStorage.setItem("skills", JSON.stringify(skills));
         localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
@@ -160,7 +162,7 @@ const CharacterCreator = () => {
         localStorage.setItem("items", JSON.stringify(items));
         localStorage.setItem("notes", JSON.stringify(notes));
         localStorage.setItem("character-checkedItems", JSON.stringify(checkedItems));
-    }, [showAll, character, levels, abilityScores, health_info, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
+    }, [showAll, character, levels, abilityScores, health_info, ac, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
     // const loadJson = async () => {
     //     let input = "spells-phb";
@@ -212,7 +214,7 @@ const CharacterCreator = () => {
         });
     };
 
-        const handleHealthChange = (e) => {
+    const handleHealthChange = (e) => {
         setHealth({ ...health_info, [e.target.name]: parseInt(e.target.value) || '' });
     };
     
@@ -345,6 +347,7 @@ const CharacterCreator = () => {
         setTLevel(t_level);
         setAbilityScores(input.abilityScores);
         setHealth(input.health_info);
+        setAC(input.ac);
         setSkills(input.skills);
         setNotes(input.notes);
         setSavingThrows(input.savingThrows);
@@ -354,8 +357,8 @@ const CharacterCreator = () => {
     };
 
     const handleSave = () => {
-        console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg } );
-        handleDownload({ checkedItems, character, levels, abilityScores, health_info, savingThrows, skills, capacity, items, notes, bg });
+        console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, ac, savingThrows, skills, capacity, items, notes, bg } );
+        handleDownload({ checkedItems, character, levels, abilityScores, health_info, ac, savingThrows, skills, capacity, items, notes, bg });
     };
 
     const handleSettings = () => {
@@ -498,6 +501,7 @@ const CharacterCreator = () => {
         setLevels([]);
         setAbilityScores(defaultAbilityScores);
         setHealth({ cur: 0, max: 0, temp: 0 });
+        setAC(10);
         setSavingThrows(defaultSavingThrows);
         setSkills(defaultSkills);
         setTLevel(0);
@@ -509,6 +513,10 @@ const CharacterCreator = () => {
     };
 
     const listPages = ["Description", "Classes", "Abilities and Skills", "Inventory"];
+
+    // ###
+    // Begining of actually returned page
+    // ###
 
     return (
         <div className={`container ${theme}`}>
@@ -540,36 +548,51 @@ const CharacterCreator = () => {
 
             <button className={`button`} style={showAll ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setShow(!showAll)}>{showAll ? "Show Shortened Page" : "Show Full Page"}</button>
             <br />
-            <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
-            <input
-                type="number"
-                name="cur"
-                value={health_info.cur}
-                onChange={handleHealthChange}
-                style={{ maxWidth: '50px' }}
-                className={`input ${theme}`}
-            />
-            <span><b> / </b></span>
-            <input
-                type="number"
-                name="max"
-                value={health_info.max}
-                onChange={handleHealthChange}
-                style={{ maxWidth: '50px' }}
-                className={`input ${theme}`}
-            />
-            <br />
-            <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
-            <input
-                type="number"
-                name="temp"
-                value={health_info.temp}
-                onChange={handleHealthChange}
-                style={{ maxWidth: '50px' }}
-                className={`input ${theme}`}
-            />
-            <br />
-            <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
+            <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                <div>
+                    <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
+                    <input
+                        type="number"
+                        name="cur"
+                        value={health_info.cur}
+                        onChange={handleHealthChange}
+                        style={{ maxWidth: '50px' }}
+                        className={`input ${theme}`}
+                    />
+                    <span><b> / </b></span>
+                    <input
+                        type="number"
+                        name="max"
+                        value={health_info.max}
+                        onChange={handleHealthChange}
+                        style={{ maxWidth: '50px' }}
+                        className={`input ${theme}`}
+                    />
+                    <br />
+                    <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
+                    <input
+                        type="number"
+                        name="temp"
+                        value={health_info.temp}
+                        onChange={handleHealthChange}
+                        style={{ maxWidth: '50px' }}
+                        className={`input ${theme}`}
+                    />
+                    <br />
+                    <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
+                </div>
+                <div>
+                    <b>AC:</b>
+                    <input
+                        type="number"
+                        name="AC"
+                        value={ac}
+                        onChange={(e) => setAC(e.target.value)}
+                        style={{ maxWidth: '50px' }}
+                        className={`input ${theme}`}
+                    />
+                </div>
+            </div>
 
             {!showAll ? 
                 listPages.map((item, index) => {
@@ -743,8 +766,7 @@ const CharacterCreator = () => {
                 {pageNum === 1 || showAll
                     ? <>
                         <h2>Level: {totalLevel}</h2>
-                        {/* Fix this thing's sizing */}
-                        <div style={{ width: '96%' }}>
+                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
                             <Autocomplete
                                 filler="Class..."
                                 onChange={setClass}
@@ -798,7 +820,7 @@ const CharacterCreator = () => {
                 {pageNum === 2 || showAll
                 ? <>
                     <h2 style={{ textAlign: 'center' }}>Ability Scores</h2>
-                    <div className={`ability-scores ${theme}`}>
+                    <div className={`ability-scores ${theme}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
                         {Object.keys(abilityScores).map((ability) => (
                             <div key={ability} className={`form-group ${theme}`}>
                                 <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
@@ -935,12 +957,14 @@ const CharacterCreator = () => {
                 <br />
                 <hr />
 
-                <h2>Notes</h2>
-                <textarea
-                    className={`notes-box ${theme}`}
-                    value={notes}
-                    onInput={saveNotes}
-                />
+                <div style={{ padding: '2%' }}>
+                    <h2>Notes</h2>
+                    <textarea
+                        className={`notes-box ${theme}`}
+                        value={notes}
+                        onInput={saveNotes}
+                    />
+                </div>
 
                 <br />
                 <hr />

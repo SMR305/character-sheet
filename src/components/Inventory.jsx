@@ -42,14 +42,14 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
     };
 
     return (
-        <div>
+        <div style={{ padding: '2%' }}>
             <input
                 type='text'
                 name='name'
                 value={item.name}
                 onInput={handleItemChange}
                 placeholder='name...'
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <input
                 type='number'
@@ -57,7 +57,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                 value={item.weight}
                 onInput={handleItemChange}
                 placeholder='weight...'
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <textarea
                 className={`notes-box ${theme}`}
@@ -72,7 +72,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                 value={item.tags}
                 onInput={handleItemChange}
                 placeholder='tags...'
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
             <input
                 type='number'
@@ -80,22 +80,22 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                 value={item.number}
                 onInput={handleItemChange}
                 placeholder='number...'
-                className={`inventory-input ${theme}`}
+                className={`input ${theme}`}
             />
 
-            <button onClick={() => addItem()} className={`inventory-input ${theme}`}> Add Item</button>
+            <button onClick={() => addItem()} className={`input ${theme}`}> Add Item</button>
             <br />
             <br />
 
             <div className={`items ${theme}`}>
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                     <h3 style={{marginRight: 'auto'}}>Items</h3>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
                         <span>Carry Capacity Option:</span>
                         <select
                             value={cap.switch}
                             onChange={(e) => changeCapacity(cap.capacity, e.target.value)}
-                            className={`inventory-input ${theme}`}
+                            className={`input ${theme}`}
                         >
                             <option value={0}>STR x 15</option>
                             <option value={1}>STR x 5</option>
@@ -108,7 +108,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                                 value={cap.capacity}
                                 onInput={(e) => changeCapacity(e.target.value, cap.switch)}
                                 placeholder='Carry Capacity...'
-                                className={`inventory-input ${theme}`}
+                                className={`input ${theme}`}
                             />
                             : null
                         }
@@ -122,14 +122,14 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                             {expanded.includes(index)
                                 ?
                                     <div className={`item ${theme}`}>
-                                        <span style={{whiteSpace: 'pre-wrap'}}>{i.description}</span> <br /> <span style={{whiteSpace: 'pre-wrap'}}> </span>
+                                        <span style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word', padding: '5px'}}>{i.description}</span> <br />
                                         <input
                                             type='number'
                                             name='number'
                                             value={i.number}
                                             onInput={(e) => changeNumber(index, e.target.value)}
                                             placeholder='number...'
-                                            className={`inventory-input ${theme}`}
+                                            className={`input ${theme}`}
                                         />
                                         <button onClick={() => removeStuff(index)} className='red-button'> Delete </button>
                                     </div>

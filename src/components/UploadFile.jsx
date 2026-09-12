@@ -50,7 +50,7 @@ const FileUploader = ({ onSubmit }) => {
         {jsonData && (
           <div>
             <h4>Extracted Character Details:</h4>
-            <div>
+            <div style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>
               <strong>Name:</strong> {jsonData.character.name} <br />
               <strong>Race:</strong> {jsonData.character.race} <br />
               <strong>Background:</strong> {jsonData.character.background} <br />

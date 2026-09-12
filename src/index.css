@@ -71,8 +71,10 @@ h1, h2 {
   text-align: center;
 }
 .ability-scores .form-group {
-  flex: 1 1 40%;
   padding: 2%;
+}
+.ability-scores .form-group .input {
+  width: 80%;
 }
 .modifiers {
   margin-top: 10px;
@@ -117,7 +119,6 @@ h1, h2 {
 }
 .notes-box {
   width: 100%;
-  max-width: 100%;
   min-height: 100px;
   overflow: hidden;
   resize: none;
@@ -133,12 +134,16 @@ h1, h2 {
 }
 .item {
   border-radius: 5px;
+  padding: 10px;
 }
 .inventory {
   border-radius: 5px;
   padding: 10px;
   text-align: left;
   margin: 5px;
+}
+.inventory .input {
+  max-width: 80%;
 }
 .spell-item {
   background: transparent;
