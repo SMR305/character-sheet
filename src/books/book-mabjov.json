@@ -168,7 +168,7 @@
 							"type": "quote",
 							"entries": [
 								"Me and Boo have talked about the word henchmen. What about henchwomen or henchhalflings?",
-								"Perhaps using the word henchpeople would be less offensive. Boo doesnt believe there are any henchhamsters, for what hamster would ever serve evil?"
+								"Perhaps using the word henchpeople would be less offensive. Boo doesn't believe there are any henchhamsters, for what hamster would ever serve evil?"
 							],
 							"by": "MINSC & BOO!"
 						},
@@ -211,7 +211,7 @@
 								],
 								[
 									"3",
-									"Suldanesellar",
+									"Suldanessellar",
 									"Horror",
 									"Order of Icarus, Raven Circle"
 								],
@@ -345,25 +345,25 @@
 									"3",
 									"{@creature Cryonax|MaBJoV}",
 									"A prince of elemental evil. Ruler of the Plane of ice. He wants to bring a winter to the world that never ends.",
-									"{@creature Darien|MaBJoV}, {@creature Viconia DeVir|mabjov|Viconia}"
+									"{@creature Darien|MaBJoV}, {@creature Viconia DeVir|MaBJoV|Viconia}"
 								],
 								[
 									"4",
 									"{@creature Mephistopheles|MaBJoV}",
 									"The archdevil of Hellfire. Second only to Asmodeus in power and deviousness. Why corrupt a single soul when you can corrupt the soul of an entire world.",
-									"{@creature Aribeth de Tylmarande|mabjov}, A Group Patron"
+									"{@creature Aribeth de Tylmarande|MaBJoV}, A Group Patron"
 								],
 								[
 									"5",
 									"{@creature Pazuzu|MaBJoV}",
 									"The first and most ancient demon lord. He has been trapped in an {@item iron flask} and must be kept imprisoned until a way is found to destroy him.",
-									"{@creature Eo Ashmajiir|MaBJoV}, {@creature Edwin Odesseiron|mabjov}"
+									"{@creature Eo Ashmajiir|MaBJoV}, {@creature Edwin Odesseiron|MaBJoV}"
 								],
 								[
 									"6",
 									"Ssendam",
 									"The first slaad. Lord of chaos and insanity. She wants to spread her anarchy and filth across the entire world.",
-									"{@creature Xzar the Chaos Clone|mabjov|Xzar, Death Slaad}"
+									"{@creature Xzar the Chaos Clone|MaBJoV|Xzar, Death Slaad}"
 								]
 							]
 						}
@@ -857,7 +857,7 @@
 									"rows": [
 										[
 											"1",
-											"{@creature Farastu Stalker|mabjov} in pursuit of an escaped Carceri prisoner"
+											"{@creature Farastu Stalker|MaBJoV} in pursuit of an escaped Carceri prisoner"
 										],
 										[
 											"2",
@@ -1053,7 +1053,7 @@
 									"type": "entries",
 									"name": "Shop of the Bizarre (Area A17)",
 									"entries": [
-										"The most powerful items in Athkatla are found in a shop run by the enigmatic and ruthless neogi. These spider-like monsters are planar travelers that trade in magic items and slaves. Each visit to the shop brings the chance of danger, for sometimes the neogi aren't looking to sell items, but are more interested in acquiring new slaves. When this happens, all of the magic items in the store are illusionary and the neogi have prepared an ambush. For each shopper, there is a {@creature neogi|mpmm} and an {@creature umber hulk}, with a single {@creature neogi master|mpmm} leading the ambush. More powerful customers might mean the neogi bring an additional {@dice 1d6} {@creature gray render|mpmm|gray renders}. Use the Shop of the Bizarre Finds table to generate the items the shop sells. If there's been more than 24 hours since the characters have last visited, roll again. Use the Salable Magic Items table from the Dungeon Master's Guide to generate the costs associated with each generated item. If a legendary item is generated, its base price is 150,000 gp.",
+										"The most powerful items in Athkatla are found in a shop run by the enigmatic and ruthless neogi. These spider-like monsters are planar travelers that trade in magic items and slaves. Each visit to the shop brings the chance of danger, for sometimes the neogi aren't looking to sell items, but are more interested in acquiring new slaves. When this happens, all of the magic items in the store are illusionary and the neogi have prepared an ambush. For each shopper, there is a {@creature neogi|MPMM} and an {@creature umber hulk}, with a single {@creature neogi master|MPMM} leading the ambush. More powerful customers might mean the neogi bring an additional {@dice 1d6} {@creature gray render|MPMM|gray renders}. Use the Shop of the Bizarre Finds table to generate the items the shop sells. If there's been more than 24 hours since the characters have last visited, roll again. Use the Salable Magic Items table from the Dungeon Master's Guide to generate the costs associated with each generated item. If a legendary item is generated, its base price is 150,000 gp.",
 										{
 											"type": "table",
 											"caption": "Shop of the Bizarre Finds",
@@ -1216,7 +1216,7 @@
 						{
 							"type": "quote",
 							"entries": [
-								"Baldurs Gate teems with evil and the stinky smell of decay. Perhaps not as stinky as a hamster fart, but a close second for sure."
+								"Baldur's Gate teems with evil and the stinky smell of decay. Perhaps not as stinky as a hamster fart, but a close second for sure."
 							],
 							"by": "MINSC"
 						},
@@ -1474,16 +1474,26 @@
 										{
 											"type": "entries",
 											"name": "B25: Harbormaster.",
-											"entries": [],
+											"entries": [
+												" "
+											],
 											"id": "059"
 										},
 										{
 											"type": "entries",
 											"name": "B26: Low Lantern",
 											"entries": [
-												"A tavern built into a sailing ship. B27: Many Coins. Money exchange."
+												"A tavern built into a sailing ship."
 											],
 											"id": "05a"
+										},
+										{
+											"type": "entries",
+											"name": "B27: Many Coins",
+											"entries": [
+												"Money exchange."
+											],
+											"id": "11f"
 										},
 										{
 											"type": "entries",
@@ -1541,7 +1551,7 @@
 									"rows": [
 										[
 											"1",
-											"{@creature Dread doppelganger|mabjov} posing as a Flaming Fist captain"
+											"{@creature Dread doppelganger|MaBJoV} posing as a Flaming Fist captain"
 										],
 										[
 											"2",
@@ -1661,7 +1671,7 @@
 									"type": "entries",
 									"name": "Sorcerous Sundries",
 									"entries": [
-										"This famed magical shop has had multiple owners over the decades. Currently it is a front for a Red Wizard operation led by {@creature Edwin Odesseiron|mabjov}. The Red Wizards are adept at discerning a customer's importance (reflected in the required level for the item) and reserve rarer items to those customers who they consider influential. However, a successful DC 20 Charisma ({@skill Deception}) can bypass this restriction. The Red Wizards can have a purchased item teleported from Thay within an hour.",
+										"This famed magical shop has had multiple owners over the decades. Currently it is a front for a Red Wizard operation led by {@creature Edwin Odesseiron|MaBJoV}. The Red Wizards are adept at discerning a customer's importance (reflected in the required level for the item) and reserve rarer items to those customers who they consider influential. However, a successful {@dc 20} Charisma ({@skill Deception}) can bypass this restriction. The Red Wizards can have a purchased item teleported from Thay within an hour.",
 										{
 											"type": "table",
 											"caption": "Magic Items at Sorcerous Sundries",
@@ -1898,7 +1908,7 @@
 								}
 							]
 						},
-						" The Suldanessellar of the real world is an elven city in the Forest of Tethir ruled by Queen Ellesime. It houses the Tree of Life and serves as a meeting place for all of the elvish tribes within the Forest of Tethir, including the Elmanesse elven tribe to the north and the Suldusk elven tribe to the south.",
+						"The Suldanessellar of the real world is an elven city in the Forest of Tethir ruled by Queen Ellesime. It houses the Tree of Life and serves as a meeting place for all of the elvish tribes within the Forest of Tethir, including the Elmanesse elven tribe to the north and the Suldusk elven tribe to the south.",
 						"Suldanessellar is all that remains of the ancient elven kingdom of Keltormir. The elves of that ancient kingdom were saved from complete annihilation by the great elven hero Tethir\u2014the inspiration for the name of the forest. A seed given to the elves by their god, Rillifane Rallathil, was planted in the spot of Tethir's death to honor him. This seed quickly grew into the Tree of Life; becoming so massive its branches were able to support the treetop city that would eventually become Suldanessellar.",
 						"In current times, Suldanessellar is still recovering from a tragedy that nearly destroyed it a century ago. {@creature Jon Irenicus|MaBJoV}, a great elven wizard exiled from the city, tried to use the Tree of Life to complete a ritual that would transform him into a god. With the help of his sister, Bodhi, he captured Queen Ellesime and {@condition poisoned} the Tree of Life. Jon's plan was thwarted when he was killed by the Bhaalspawn, Abdel Adrian.",
 						"But Jon's death didn't bring peace to the elves of Suldanessellar. Due to a pact with the Dark Powers of the Shadowfell, his spirit was drawn into a dark reflection of the treetop city. Trapped in this Domain of Dread, Irenicus\u2014with the help of his sister\u2014is still able to inflict misery on the elves of Suldanessellar from his prison.",
@@ -1907,7 +1917,7 @@
 							"name": "The Shadowfell",
 							"entries": [
 								"This dismal echo of Suldanessellar exists in the Shadowfell. This realm is lorded over by the siblings Jon and {@creature Bodhi Irenicus|MaBJoV}. In their version of the elven city it is always night. The city is as beautiful as its counterpart, except for a few places that have been twisted to reflect the inhabitants, such as the palace where Jon rules and the tower where Bodhi roosts. The former House of the Horn has become a lair for the Shadar-Kai, a twisted race of elves associated with the Raven Queen\u2014the dark ruler of the entire Shadowfell. Finally, the branches on the borders of the city are black and malformed, becoming the domain of bloodthirsty {@creature wolfwere|MaBJoV|wolfweres}. The branches grow thicker the further one travels, and only with the permission of either Jon or Bodhi will a path open up for someone to escape back into the real world.",
-								"Jon and Bodhi lure travelers from across the Forest of Tethir into their cursed domain. They do this by opening pathways in the forest when the moon of Selune is at its fullest. These pathways seem to lead into supernaturally beautiful groves or echo with beautiful fey song. While most of those tricked into the shadow realm are younger elves from the city of Suldanessellar, there are members of almost every race trapped in the elven city's dark reflection.",
+								"Jon and Bodhi lure travelers from across the Forest of Tethir into their cursed domain. They do this by opening pathways in the forest when the moon of Selûne is at its fullest. These pathways seem to lead into supernaturally beautiful groves or echo with beautiful fey song. While most of those tricked into the shadow realm are younger elves from the city of Suldanessellar, there are members of almost every race trapped in the elven city's dark reflection.",
 								"Those who first arrive find themselves in a place reminiscent to its real-world counterpart. Most of those trapped in the shadow city try to recreate a semblance of a normal life. The majority of the elven population distract themselves with music, dancing under the stars and praying to the Seldarine. For some elves, the despair of the place becomes too much and they either join the Shadar-Kai or wander out into the Black Branches ({@area S15|081}) to be torn apart by the {@creature wolfwere|MaBJoV|wolfweres}.",
 								"Jon and Bodhi are always looking for those who can help free them from their prison. They have founded an organization called the Order of Icarus. Members of the Order are the only ones that the siblings allow to leave their realm. Members of the Order seek out magical secrets or capture learned sages or spell casters to bring back to their masters. Bodhi is the one who identifies those who might have the talents required to join the Order, selecting candidates from newly trapped travelers or children who have grown up in the Shadowfell and have just come of age.",
 								"The inhabitants of the real world Suldanessellar have been tormented by its dark reflection for the entire century of its existence. When an elf in Suldanessellar goes into their daily trance, they can communicate with the elves trapped in Jon and Bodhi's realm. Those who have loved ones trapped in the shadow realm can become obsessed, spending all of their time conversing with them."
@@ -1992,7 +2002,7 @@
 									"grid": {
 										"type": "none"
 									},
-									"title": "Map 1.3: Suldanesselar",
+									"title": "Map 1.3: Suldanessellar",
 									"imageType": "map",
 									"id": "067"
 								},
@@ -2152,7 +2162,7 @@
 									"type": "entries",
 									"name": "House of the Horn (Area S4)",
 									"entries": [
-										"The Shadar-Kai sell magical items obtained from across the Shadowfell in the House of the Horn. The Shadar Kai will reveal a random magic item for each 50 gp donated. There is always a 25% chance that the Shadar Kai will sell an item that has a curse associated with it. A successful Charisma ({@skill Intimidation}) check ensures that they do not.",
+										"The Shadar-kai sell magical items obtained from across the Shadowfell in the House of the Horn. The Shadar-kai will reveal a random magic item for each 50 gp donated. There is always a 25% chance that the Shadar-kai will sell an item that has a curse associated with it. A successful Charisma ({@skill Intimidation}) check ensures that they do not.",
 										{
 											"type": "table",
 											"caption": "Random Magic Items at the House of the Horn",
@@ -2462,7 +2472,7 @@
 								}
 							]
 						},
-						"Ust Natha is a drow city located in the Middledark of the Underdark. Its location corresponds with the southwestern border of Amn and Tethyr on the surface world. The city is small, existing entirely within a single large cavern with most of its living areas built inside of hollowed out stalagmites. Despite its size, it has become a major trading hub between the drow and other races. The city also has historical significance for the drow, as legends claim that Ust Natha is located close to the surface caves where the Ilythiiri dark elves were forced to retreat after losing the fourth Crown war. After many generations, these Ilythiri refugees evolved into the modern day drow.",
+						"Ust Natha is a drow city located in the Middledark of the Underdark. Its location corresponds with the southwestern border of Amn and Tethyr on the surface world. The city is small, existing entirely within a single large cavern with most of its living areas built inside of hollowed out stalagmites. Despite its size, it has become a major trading hub between the drow and other races. The city also has historical significance for the drow, as legends claim that Ust Natha is located close to the surface caves where the Ilythiiri dark elves were forced to retreat after losing the fourth Crown war. After many generations, these Ilythiiri refugees evolved into the modern day drow.",
 						"Ust Natha must contend with several other Underdark settlements in the region, including a kuo-toa city and an illithid enclave. A nearby svirfneblin village is allowed to remain nominally independent as long as they supply a quota of slaves each year. The largest danger to Ust Natha is a recently awakened nest of {@creature phaerimm|MaBJoV}, located several miles beneath the city itself.",
 						"The city is controlled by several competing drow houses, the most powerful of which is the Despana family. While a majority of the city's population are drow, in recent decades the city has allowed a large contingent of foreigners to take residence. This has been at the behest of Phaere Despana, who seeks to raise the fortunes of her house by creating a place within the Underdark where surface traders feel relatively safe. Organizations such as the Shadow Thieves and Zhentarim now have permanent trading establishments within the city. In addition to the drow population and surface traders, there are thousands of quaggoth and svirfneblin slaves that support the drow houses, and even a few illithid and aboleth envoys can be found within the city.",
 						{
@@ -2522,7 +2532,7 @@
 										],
 										[
 											"2",
-											"{@creature Kelubar Consul|mabjov|Kelubar Consuls} pursuing an escaped prisoner"
+											"{@creature Kelubar Consul|MaBJoV|Kelubar Consuls} pursuing an escaped prisoner"
 										],
 										[
 											"3",
@@ -2550,7 +2560,7 @@
 							"type": "inset",
 							"name": "Carcerus",
 							"entries": [
-								"This prison is used not only by Ust Natha, but by other drow cities such as Rilauven and Guallidurth; even non-drow cities such as the nearby dwarven city of Iltkazar use the prison on occasion for their worst criminals. It is considered by most Underdark denizens as unescapable and being consigned to the prison a fate worse than death. The reason for this is that it is run by {@creature Farastu Stalker|mabjov|demodands} from the infernal plane of Carceri. A portal to the plane of Carceri is even located in its lower depths. Some of the prisoners rumored to be held in the prison include powerful drider, rogue illithid such as Alhoon and even a few specimens of {@creature phaerimm|mabjov}. Worst of all, some believe that the demodands keep a small number of {@creature bebilith|MaBJoV} that they have tortured into serving their needs. These spider-like creatures can unerringly pursue escaped prisoners anywhere across Faerûn."
+								"This prison is used not only by Ust Natha, but by other drow cities such as Rilauven and Guallidurth; even non-drow cities such as the nearby dwarven city of Iltkazar use the prison on occasion for their worst criminals. It is considered by most Underdark denizens as unescapable and being consigned to the prison a fate worse than death. The reason for this is that it is run by {@creature Farastu Stalker|MaBJoV|demodands} from the infernal plane of Carceri. A portal to the plane of Carceri is even located in its lower depths. Some of the prisoners rumored to be held in the prison include powerful drider, rogue illithid such as Alhoon and even a few specimens of {@creature phaerimm|MaBJoV}. Worst of all, some believe that the demodands keep a small number of {@creature bebilith|MaBJoV} that they have tortured into serving their needs. These spider-like creatures can unerringly pursue escaped prisoners anywhere across Faerûn."
 							],
 							"page": 25,
 							"id": "07c"
@@ -3070,7 +3080,7 @@
 											"name": "Historian",
 											"page": 28,
 											"entries": [
-												"{@skill History} can help an adventuring band avoid repeating the mistakes of their predecessors... like waltzing into the den of a demi-lich."
+												"{@skill History} can help an adventuring band avoid repeating the mistakes of their predecessors... like waltzing into the den of a demilich."
 											],
 											"id": "096"
 										},
@@ -3207,7 +3217,7 @@
 															"20"
 														],
 														[
-															"Flatuelent {@creature thug}",
+															"Flatulent {@creature thug}",
 															"2 gp",
 															"20",
 															"12"
@@ -3256,11 +3266,47 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Cornelius Watson|MaBJoV}",
 								"{@creature Flimp Shagglecran|MaBJoV}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Cornelius Watson",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cornelius Watson",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flimp Shagglecran",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flimp Shagglecran",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
 						},
 						{
 							"type": "image",
@@ -3403,7 +3449,7 @@
 										],
 										[
 											"4",
-											"Evil Magic User. Defeat a {@creature necromancer wizard|mpmm} or {@creature lich} and take their magical relics or tomes to be sealed up in Candlekeep"
+											"Evil Magic User. Defeat a {@creature necromancer wizard|MPMM} or {@creature lich} and take their magical relics or tomes to be sealed up in Candlekeep"
 										],
 										[
 											"5",
@@ -3594,11 +3640,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Valygar|MaBJoV|Valygar Corthala}",
 								"{@creature Xan Moonblade|MaBJoV}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Valygar",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Valygar",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Valygar",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "120"
+						},
+						{
+							"type": "section",
+							"name": "Xan Moonblade",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Xan Moonblade",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Xan Moonblade",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "121"
 						}
 					],
 					"id": "09f"
@@ -3734,7 +3830,7 @@
 							"name": "Church of Sune Enemies",
 							"page": 41,
 							"entries": [
-								"The ugliness of {@creature Baalzebul|MaBJoV} is especially abhorrent to Sune. She hates that the archdevil was formerly Triel, one of the most beautiful angels to be found on Mount Celestia. The Church of Sune also despises {@creature Ssendam, Lord of Madness|mabjov|Ssendam}, as the slaad lord's insanity and ugliness is a danger to the structure of the civilized world.",
+								"The ugliness of {@creature Baalzebul|MaBJoV} is especially abhorrent to Sune. She hates that the archdevil was formerly Triel, one of the most beautiful angels to be found on Mount Celestia. The Church of Sune also despises {@creature Ssendam, Lord of Madness|MaBJoV|Ssendam}, as the slaad lord's insanity and ugliness is a danger to the structure of the civilized world.",
 								"Sune supports efforts to vanquish powerful armies that threaten the stability of the civilized world. This includes orc hordes, hobgoblin empires, frost giant raiders, the Red Wizards of Thay, the Cult of the Dragon and other similar threats.",
 								"Sune also detests the ugliness of the undead, especially the rotting dead such as zombies, ghouls, mummies and liches."
 							],
@@ -3988,11 +4084,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Naes Inuus|MaBJoV}",
 								"{@creature Tiberius Inuus|MaBJoV}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Naes Inuus",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Naes Inuus",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Naes Inuus",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "122"
+						},
+						{
+							"type": "section",
+							"name": "Tiberius Inuus",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Tiberius Inuus",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Tiberius Inuus",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "123"
 						}
 					],
 					"id": "0af"
@@ -4045,7 +4191,7 @@
 											"name": "Nature's Chosen",
 											"page": 46,
 											"entries": [
-												"These are the members who are the most in tune with nature. To be a member you must be devoted to one of Faerûn's non-evil nature gods such as Eldath, Mielii and Silvanus. However, other nature gods are also acceptable, such as Baervan Wildwanderer, Eilistraee, Gwaeron Windstrom, Marthammor Duin and Rillifane Rallathil.",
+												"These are the members who are the most in tune with nature. To be a member you must be devoted to one of Faerûn's non-evil nature gods such as Eldath, Mielikki and Silvanus. However, other nature gods are also acceptable, such as Baervan Wildwanderer, Eilistraee, Gwaeron Windstrom, Marthammor Duin and Rillifane Rallathil.",
 												{
 													"type": "list",
 													"items": [
@@ -4217,7 +4363,7 @@
 															"Mythal paths",
 															"Myth Rynn in the forest of Tethyr or Myth Drannor in the forest of Cormanthor",
 															"1",
-															"{@creature Quickling|mpmm|Quicklings}"
+															"{@creature Quickling|MPMM|Quicklings}"
 														],
 														[
 															"The unicorn run",
@@ -4233,7 +4379,7 @@
 														],
 														[
 															"Tree roots to Ysgard",
-															"The Gates of the Moon\u2014home to the goddesses Selune and Sune",
+															"The Gates of the Moon\u2014home to the goddesses Selûne and Sune",
 															"7",
 															"Lone {@creature green hag} or a coven"
 														],
@@ -4262,11 +4408,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Kivan|MaBJoV|Kivan the Grim}",
 								"{@creature Faldorn|MaBJoV|Faldorn the Hierophant}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Kivan",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Kivan",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Kivan",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "124"
+						},
+						{
+							"type": "section",
+							"name": "Faldorn",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Faldorn",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Faldorn",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "125"
 						}
 					],
 					"id": "0bd"
@@ -4514,7 +4710,7 @@
 											"name": "Missions",
 											"page": 52,
 											"entries": [
-												"Once per month the Flaming Fist gives your group a mission to perform. This mission takes precedence over all other activities. If completed, the group rolls on the Treasure Hoard: Challenge 0-4 table in the {@book Dungeon Master's Guide|DMG} for their reward."
+												"Once per month the Flaming Fist gives your group a mission to perform. This mission takes precedence over all other activities. If completed, the group rolls on the {@table Treasure Hoard: Challenge 0\u20144|DMG} table in the {@book Dungeon Master's Guide|DMG} for their reward."
 											],
 											"id": "0d8"
 										},
@@ -4634,11 +4830,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Nauk|MaBJoV|Nauk the Bag Man}",
 								"{@creature Borivik Windheim|MaBJoV}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Nauk",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Nauk",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Nauk",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "126"
+						},
+						{
+							"type": "section",
+							"name": "Borivik Windheim",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Borivik Windheim",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Borivik Windheim",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "127"
 						}
 					],
 					"id": "0ca"
@@ -4822,7 +5068,7 @@
 												"Because the Harpers are devoted to tracking down magic items, they have a network with access to a larger variety of magic items than anywhere outside of the Red Wizards of Thay. Each member of your party gains access to certain magic items for a suitable donation. The different costs of acquiring these magic items are described in the table opposite.",
 												{
 													"type": "table",
-													"caption": "Items Aquired via Harper Fences",
+													"caption": "Items Acquired via Harper Fences",
 													"colLabels": [
 														"Magic Item",
 														"Required Trade",
@@ -4879,11 +5125,47 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Jaheira|MaBJoV}",
 								"{@creature Vellin Farstride|MaBJoV}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Jaheira",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Jaheira",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Vellin Farstride",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vellin Farstride",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
 						}
 					],
 					"id": "0db"
@@ -4902,7 +5184,7 @@
 							"width": 733,
 							"height": 452
 						},
-						"The Knights of Bahamut are an ancient order founded with the assistance of the elder draconic entity called Bahamut. They were famed for bonding with some of the most powerful and beautiful creatures in the multiverse\u2014metallic dragons. Legends tell of how a single knight was capable of turning the tide of an entire battle or breaking the siege of a city. But the Knights of Bahamut were short lived, lasting only a few decades before being exterminated by their enemies. That was a thousand years ago.",
+						"The Knights of Bahamut are an ancient order founded with the assistance of the elder draconic entity called Bahamut. They were famed for bonding with some of the most powerful and beautiful creatures in the multiverse\u2014metallic dragons. Legends tell of how a single knight was capable of turning the tide of an entire battle or breaking the siege of a city. But the Knights of Bahamut were short-lived, lasting only a few decades before being exterminated by their enemies. That was a thousand years ago.",
 						"The last surviving knight, a half-elf named Suldil, wishes to bring back the ancient Order. The Oath of Bahamut is the sacred rite that bonds a mortal and a dragon together. In order for the sacred rite to work, it must be blessed by Bahamut. Thus, the first task of the fledgling knight is to gain Bahamut's favor. After that, metallic dragon eggs must be found. They cannot be stolen from their parents. Only eggs that have not been stolen and whose parents are dead are considered viable.",
 						{
 							"type": "inset",
@@ -5104,11 +5386,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Suldil Baldoriel|MaBJoV}",
 								"{@creature Minsc and Boo!|MaBJoV}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Suldil Baldoriel",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Suldil Baldoriel",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Suldil Baldoriel",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "128"
+						},
+						{
+							"type": "section",
+							"name": "Minsc and Boo!",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Minsc and Boo!",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Minsc and Boo!",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "129"
 						}
 					],
 					"id": "0e7"
@@ -5452,11 +5784,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Jon Irenicus|MaBJoV}",
 								"{@creature Bodhi Irenicus|MaBJoV}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Jon Irenicus",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Jon Irenicus",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Jon Irenicus",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12a"
+						},
+						{
+							"type": "section",
+							"name": "Bodhi Irenicus",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Bodhi Irenicus",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Bodhi Irenicus",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12b"
 						}
 					],
 					"id": "0f0"
@@ -5832,11 +6214,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Lothar|MaBJoV|Lothar of the Raven}",
 								"{@creature Viktor|MaBJoV|Viktor Kuhn}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Lothar",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Lothar",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Lothar",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12c"
+						},
+						{
+							"type": "section",
+							"name": "Viktor",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Viktor",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Viktor",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12d"
 						}
 					],
 					"id": "0fd"
@@ -6056,7 +6488,7 @@
 														],
 														[
 															"High House of Wonders in Baldur's Gate",
-															"{@item Apparatus of kwalish}, shield guardian control medallion",
+															"{@item Apparatus of Kwalish}, shield guardian control medallion",
 															"20,000 gp in art objects",
 															"two {@creature clay golem||clay golems}, one {@creature stone golem}, one {@creature iron golem}",
 															"25"
@@ -6072,7 +6504,7 @@
 															"Temple of Lolth in Ust Natha",
 															"{@item Candle of invocation}",
 															"10,000 gp",
-															"six {@creature drow elite warrior||elite drow warriors}, four {@creature drow priestess of lolth||drow priestesses}",
+															"six {@creature drow elite warrior||elite drow warriors}, four {@creature drow priestess of Lolth||drow priestesses}",
 															"20"
 														]
 													]
@@ -6088,11 +6520,61 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Montaron and the Laughing Skull|MaBJoV}",
 								"{@creature Imoen|MaBJoV|Imoen the Godspawn}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Montaron and the Laughing Skull",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Montaron and the Laughing Skull",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Montaron and the Laughing Skull",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12e"
+						},
+						{
+							"type": "section",
+							"name": "Imoen",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Imoen",
+									"prop": "monsterFluff",
+									"source": "MaBJoV",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Imoen",
+									"tag": "creature",
+									"source": "MaBJoV",
+									"style": "narrow"
+								}
+							],
+							"id": "12f"
 						}
 					],
 					"id": "10b"
@@ -6118,6 +6600,181 @@
 						"{@creature Pazuzu|MaBJoV}",
 						"{@creature Ssendam, Lord of Madness|MaBJoV}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Baalzebul",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Baalzebul",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Baalzebul",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "130"
+				},
+				{
+					"type": "section",
+					"name": "Bhaal, Slayer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bhaal, Slayer",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bhaal, Slayer",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "131"
+				},
+				{
+					"type": "section",
+					"name": "Bhaal, Ravager",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bhaal, Ravager",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bhaal, Ravager",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "132"
+				},
+				{
+					"type": "section",
+					"name": "Cryonax",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cryonax",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cryonax",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "133"
+				},
+				{
+					"type": "section",
+					"name": "Mephistopheles",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mephistopheles",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mephistopheles",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "134"
+				},
+				{
+					"type": "section",
+					"name": "Pazuzu",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Pazuzu",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Pazuzu",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "135"
+				},
+				{
+					"type": "section",
+					"name": "Ssendam, Lord of Madness",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ssendam, Lord of Madness",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ssendam, Lord of Madness",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "136"
 				}
 			],
 			"id": "118"
@@ -6144,6 +6801,281 @@
 						"{@creature Viconia DeVir|MaBJoV}",
 						"{@creature Xzar the Chaos Clone|MaBJoV}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Aribeth de Tylmarande",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Aribeth de Tylmarande",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Aribeth de Tylmarande",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "137"
+				},
+				{
+					"type": "section",
+					"name": "Dagryn",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Dagryn",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dagryn",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "138"
+				},
+				{
+					"type": "section",
+					"name": "Darien",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Darien",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Darien",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "139"
+				},
+				{
+					"type": "section",
+					"name": "Edwin Odesseiron",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Edwin Odesseiron",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Edwin Odesseiron",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13a"
+				},
+				{
+					"type": "section",
+					"name": "Eo Ashmajiir",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Eo Ashmajiir",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Eo Ashmajiir",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13b"
+				},
+				{
+					"type": "section",
+					"name": "Kagain",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Kagain",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Kagain",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13c"
+				},
+				{
+					"type": "section",
+					"name": "Pelyious Avhoste",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Pelyious Avhoste",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Pelyious Avhoste",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13d"
+				},
+				{
+					"type": "section",
+					"name": "Saemon Havarian",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Saemon Havarian",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Saemon Havarian",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13e"
+				},
+				{
+					"type": "section",
+					"name": "Sarevok",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sarevok",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sarevok",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "13f"
+				},
+				{
+					"type": "section",
+					"name": "Viconia DeVir",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Viconia DeVir",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Viconia DeVir",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "140"
+				},
+				{
+					"type": "section",
+					"name": "Xzar the Chaos Clone",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Xzar the Chaos Clone",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Xzar the Chaos Clone",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "141"
 				}
 			],
 			"id": "119"
@@ -6177,6 +7109,348 @@
 						"{@creature Wolfwere Alpha|MaBJoV}",
 						"{@creature Wolfwere|MaBJoV}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Achaierai",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Achaierai",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Achaierai",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "142"
+				},
+				{
+					"type": "section",
+					"name": "Bebilith",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bebilith",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bebilith",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "143"
+				},
+				{
+					"type": "section",
+					"name": "Demodand",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Demodand",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Farastu Stalker",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Kelubar Consul",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Shator Warden",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "144"
+				},
+				{
+					"type": "section",
+					"name": "Dread Doppelganger",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Dread Doppelganger",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dread Doppelganger",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "145"
+				},
+				{
+					"type": "section",
+					"name": "Gibberling",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gibberling",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gibberling",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "146"
+				},
+				{
+					"type": "section",
+					"name": "Hamadryad",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hamadryad",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hamadryad",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "147"
+				},
+				{
+					"type": "section",
+					"name": "Phaerimm",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Phaerimm",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Phaerimm",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "148"
+				},
+				{
+					"type": "section",
+					"name": "Sirene",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sirene",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sirene",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "149"
+				},
+				{
+					"type": "section",
+					"name": "Skeleton Warrior",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Skeleton Warrior",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton Lord",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton Warrior",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "14a"
+				},
+				{
+					"type": "section",
+					"name": "Sword Spider",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sword Spider",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Deep Spider",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Sword Spider",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "14b"
+				},
+				{
+					"type": "section",
+					"name": "Tasloi",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Tasloi",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Tasloi",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Tasloi Sniper",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "14c"
+				},
+				{
+					"type": "section",
+					"name": "Wolfwere",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Wolfwere",
+							"prop": "monsterFluff",
+							"source": "MaBJoV",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Wolfwere Alpha",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Wolfwere",
+							"tag": "creature",
+							"source": "MaBJoV",
+							"style": "narrow"
+						}
+					],
+					"id": "14d"
 				}
 			],
 			"id": "11a"
@@ -6263,7 +7537,7 @@
 							"type": "item",
 							"name": "Special Thanks",
 							"entries": [
-								"Everyone who worked on the {@i Baldur's Gate} videogame franchise, to Ed Greenwood for creating the {@i Forgotten Realms} and to the 5th edition {@style Dungeons & Dragons|small-caps} team"
+								"Everyone who worked on the {@i Baldur's Gate} video game franchise, to Ed Greenwood for creating the {@i Forgotten Realms} and to the 5th edition {@style Dungeons & Dragons|small-caps} team"
 							]
 						},
 						{
@@ -6288,6 +7562,13 @@
 							]
 						}
 					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: The editor of this journal takes no responsibility for the veracity Of the author's claims. The editor will point out that the author believes that his hamster can talk (I've only ever heard it squeak), comes from space and has a hamster sister the size ofa horse...}"
+					],
+					"id": "11e"
 				}
 			],
 			"id": "11b"

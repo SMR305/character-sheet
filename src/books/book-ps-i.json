@@ -173,6 +173,36 @@
 					]
 				},
 				{
+					"type": "statblock",
+					"name": "Human (Innistrad)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Gavony)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Kessig)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Nephalia)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Stensia)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
 					"type": "image",
 					"href": {
 						"type": "internal",
@@ -353,7 +383,13 @@
 					]
 				},
 				{
-					"type": "hr"
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PSI/017.webp"
+					},
+					"width": 1227,
+					"height": 821
 				},
 				{
 					"type": "entries",
@@ -369,6 +405,359 @@
 						}
 					],
 					"id": "03a"
+				},
+				{
+					"type": "section",
+					"name": "Creepy Doll",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Creepy Doll",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Creepy Doll",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "044"
+				},
+				{
+					"type": "section",
+					"name": "Demonlord of Ashmouth",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Demonlord of Ashmouth",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "045"
+				},
+				{
+					"type": "section",
+					"name": "Flight Alabaster Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight Alabaster Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight Alabaster Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "046"
+				},
+				{
+					"type": "section",
+					"name": "Flight Goldnight Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight Goldnight Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight Goldnight Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "047"
+				},
+				{
+					"type": "section",
+					"name": "Flight of Moonsilver Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight of Moonsilver Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight of Moonsilver Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "048"
+				},
+				{
+					"type": "section",
+					"name": "Geist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Geist",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Geist",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "049"
+				},
+				{
+					"type": "section",
+					"name": "Host of Herons Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Host of Herons Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Host of Herons Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04a"
+				},
+				{
+					"type": "section",
+					"name": "Keeper of the Feather",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Keeper of the Feather",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04b"
+				},
+				{
+					"type": "section",
+					"name": "Necro-Alchemist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Necro-Alchemist",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Necro-Alchemist",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04c"
+				},
+				{
+					"type": "section",
+					"name": "Skaab",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Skaab",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skaab",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04d"
+				},
+				{
+					"type": "section",
+					"name": "Vampire Neonate",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Vampire Neonate",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vampire Neonate",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04e"
+				},
+				{
+					"type": "section",
+					"name": "Werewolf (Krallenhorde)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Werewolf (Krallenhorde)",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Werewolf (Krallenhorde)",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04f"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Cat",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Cat",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Cat",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "050"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Rat",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Rat",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Rat",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "051"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Snake",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Snake",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Snake",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "052"
 				},
 				{
 					"type": "entries",
@@ -492,7 +881,7 @@
 						"path": "book/PSI/027.webp"
 					},
 					"title": "Stromkirk Occultist",
-					"credit": "Magali Villanueve",
+					"credit": "Magali Villeneuve",
 					"width": 1225,
 					"height": 1584
 				},
@@ -545,7 +934,7 @@
 									"name": "Disfigured (Sanity 4\u20135)",
 									"page": 30,
 									"entries": [
-										"In the third stage, the lips shrink away from the teeth, which can rot and fall out. Fingers and toes sometimes fuse together or start transforming into tentacles. Bleeding sores erupt on the skin, or bulbous growths can appear under the skin. Cultists in Nephalia often grow finlike protrusions or pincerlike hands. At this stage, creatures might manifest improved natural armor or weapons, or simple benefits such as the Amphibious trait of a {@creature bullywug}, the Blind Senses of a {@creature grimlock}, Chameleon Skin like a {@creature troglodyte}, the Slippery trait of a {@creature kuo-toa}, or the Spider Climb trait of an {@creature ettercap}."
+										"In the third stage, the lips shrink away from the teeth, which can rot and fall out. Fingers and toes sometimes fuse together or start transforming into tentacles. Bleeding sores erupt on the skin, or bulbous growths can appear under the skin. Cultists in Nephalia often grow fin-like protrusions or pincer-like hands. At this stage, creatures might manifest improved natural armor or weapons, or simple benefits such as the Amphibious trait of a {@creature bullywug}, the Blind Senses of a {@creature grimlock}, Chameleon Skin like a {@creature troglodyte}, the Slippery trait of a {@creature kuo-toa}, or the Spider Climb trait of an {@creature ettercap}."
 									],
 									"id": "012"
 								},
@@ -564,7 +953,7 @@
 									"name": "Monstrous (Sanity 1)",
 									"page": 30,
 									"entries": [
-										"The most warped creatures are barely even recognizable. Some become little more than a mass of writhing tentacles, or lose their physical coherence entirely. Two or more creatures can fuse together, joined by fleshy lattice. The \"lucky\" ones retain a basically humanoid shape, but otherwise appear completely monstrous, with twisted faces, extra limbs, horny growths, jointed tentacle extrusions, and so on. Such a creature might effectively become an Eldrazilike monster such as an {@creature aboleth}, a {@creature chuul}, a {@creature cloaker}, a {@creature gibbering mouther}, or a {@creature mind flayer}.",
+										"The most warped creatures are barely even recognizable. Some become little more than a mass of writhing tentacles, or lose their physical coherence entirely. Two or more creatures can fuse together, joined by fleshy lattice. The \"lucky\" ones retain a basically humanoid shape, but otherwise appear completely monstrous, with twisted faces, extra limbs, horny growths, jointed tentacle extrusions, and so on. Such a creature might effectively become an Eldrazi-like monster such as an {@creature aboleth}, a {@creature chuul}, a {@creature cloaker}, a {@creature gibbering mouther}, or a {@creature mind flayer}.",
 										{
 											"type": "image",
 											"href": {
@@ -946,8 +1335,8 @@
 					"name": "Rahadin and the Dusk Elves\u2014The Dusken Line",
 					"page": 38,
 					"entries": [
-						"Innistrad has no dusk elves, so their role in the adventure is played by a line of vampires called the Duskens, named after their longlost progenitor Irska Dusken. Strefan killed Irska centuries ago and scattered the Duskens. Some were subjugated, while others went to live among the Bitterhearts.",
-						"Rahadin has been serving the Maurer family for many years, and even helped Strefan subjugate the rest of his line. He appears human rather than elflike, and dresses in red finery rather than wearing black armor.",
+						"Innistrad has no dusk elves, so their role in the adventure is played by a line of vampires called the Duskens, named after their long-lost progenitor Irska Dusken. Strefan killed Irska centuries ago and scattered the Duskens. Some were subjugated, while others went to live among the Bitterhearts.",
+						"Rahadin has been serving the Maurer family for many years, and even helped Strefan subjugate the rest of his line. He appears human rather than elf-like, and dresses in red finery rather than wearing black armor.",
 						{
 							"type": "image",
 							"href": {
@@ -1058,7 +1447,7 @@
 									"name": "Bluto",
 									"page": 40,
 									"entries": [
-										"Found on Maurer Lake, Bluto has gone mad under the influence of the approach of Emrakul. He has devoted himself to an aquatic being he believes lives in the depths of the lake\u2014something akin to the Gitrog monster or the squidlike Kralmar worshiped by coastal cults in Nephalia. Bluto has gill-like flaps on his neck. At your discretion, you could introduce an encounter with the creature he worships, which might be something like a {@creature giant crocodile}.",
+										"Found on Maurer Lake, Bluto has gone mad under the influence of the approach of Emrakul. He has devoted himself to an aquatic being he believes lives in the depths of the lake\u2014something akin to the Gitrog monster or the squid-like Kralmar worshiped by coastal cults in Nephalia. Bluto has gill-like flaps on his neck. At your discretion, you could introduce an encounter with the creature he worships, which might be something like a {@creature giant crocodile}.",
 										{
 											"type": "image",
 											"href": {

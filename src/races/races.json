@@ -1,7 +1,8 @@
 {
 	"_meta": {
 		"internalCopies": [
-			"race"
+			"race",
+			"subrace"
 		]
 	},
 	"race": [
@@ -31,11 +32,15 @@
 					"auran": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/aarakocra.opus"
+			},
 			"entries": [
 				{
 					"name": "Dive Attack",
 					"entries": [
-						"If you are flying and dive at least 30 ft. straight toward a target and then hit it with a melee weapon attack, the attack deals an extra {@dice 1d6} damage to the target."
+						"If you are flying and dive at least 30 ft. straight toward a target and then hit it with a melee weapon attack, the attack deals an extra {@damage 1d6} damage to the target."
 					],
 					"type": "entries"
 				},
@@ -97,7 +102,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/aarakocra.mp3"
+				"path": "races/aarakocra.opus"
 			},
 			"entries": [
 				{
@@ -161,6 +166,10 @@
 			"traitTags": [
 				"Natural Weapon"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/aarakocra.opus"
+			},
 			"additionalSpells": [
 				{
 					"innate": {
@@ -238,7 +247,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/aasimar.mp3"
+				"path": "races/aasimar.opus"
 			},
 			"additionalSpells": [
 				{
@@ -332,6 +341,10 @@
 				"necrotic",
 				"radiant"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/aasimar.opus"
+			},
 			"additionalSpells": [
 				{
 					"ability": {
@@ -395,7 +408,7 @@
 								{
 									"type": "item",
 									"name": "Necrotic Shroud",
-									"entry": "Your eyes briefly become pools of darkness, and ghostly, flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you that can see you must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn. Until the transformation ends, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your proficiency bonus."
+									"entry": "Your eyes briefly become pools of darkness, and ghostly, flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you that can see you must succeed on a Charisma saving throw ({@dc 8} + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn. Until the transformation ends, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your proficiency bonus."
 								},
 								{
 									"type": "item",
@@ -428,7 +441,7 @@
 								"type": "entries",
 								"entries": [
 									"When you reach 3rd level, you can use a bonus action to transform yourself. Your transformation lasts for 1 minute or until you end it as a bonus action. Once you transform using your revelation, you can't use it again until you finish a long rest.",
-									"Your eyes briefly become pools of darkness, and ghostly, flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you that can see you must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn. Until the transformation ends, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your proficiency bonus."
+									"Your eyes briefly become pools of darkness, and ghostly, flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you that can see you must succeed on a Charisma saving throw ({@dc 8} + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn. Until the transformation ends, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your proficiency bonus."
 								]
 							}
 						}
@@ -518,7 +531,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/aasimar.mp3"
+				"path": "races/aasimar.opus"
 			},
 			"additionalSpells": [
 				{
@@ -602,6 +615,10 @@
 				"necrotic",
 				"radiant"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/aasimar.opus"
+			},
 			"additionalSpells": [
 				{
 					"ability": "cha",
@@ -677,7 +694,7 @@
 									"type": "item",
 									"name": "Necrotic Shroud",
 									"entries": [
-										"Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw (DC 8 plus your Charisma modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the end of your next turn."
+										"Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw ({@dc 8} plus your Charisma modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the end of your next turn."
 									]
 								}
 							]
@@ -788,7 +805,7 @@
 						"A gifted aetherborn has the ability to drain the life essence of other beings. Similar to the way heat is transferred from a warm object to a cold one, a gifted aetherborn need only touch another living being with a clawed hand to draw life essence out, fueling their own continued existence while draining strength and vitality from their victim.",
 						"For many aetherborn, living as they do for indulgence and instant gratification, the concepts of \"want\" and \"need\" are virtually synonymous. But Aetherborn with this gift understand what it is to truly need, for they develop a hunger for life essence that far exceeds any desires they might have felt before their transformation. A gifted aetherborn who abstains from this feeding deteriorates even more rapidly than other aetherborn, while enduring unspeakable agony caused by the deprivation of life energy.",
 						"At the DM's option, an aetherborn character can research methods of achieving this dark \"gift.\" The process is similar to inventing and manufacturing a rare magic item (see \"{@book Inventing and Manufacturing Devices|PS-K|1|Inventing and Manufacturing Devices}\" earlier in this document). But rather than aether, the process requires a variety of rare unguents and unusual ingredients that make up the cost of researching and undergoing the transformation.",
-						"An aetherborn with this gift gains the Drain Life ability: a natural attack that deals {@dice 1d6} necrotic damage and restores the same number of hit points to the aetherborn. However, if the aetherborn goes for 7 days without dealing this damage, their hit point maximum is reduced by {@dice 1d6} per week. This reduction can't be removed until the aetherborn has used their Drain Life ability and completed a long rest."
+						"An aetherborn with this gift gains the Drain Life ability: a natural attack that deals {@damage 1d6} necrotic damage and restores the same number of hit points to the aetherborn. However, if the aetherborn goes for 7 days without dealing this damage, their hit point maximum is reduced by {@dice 1d6} per week. This reduction can't be removed until the aetherborn has used their Drain Life ability and completed a long rest."
 					]
 				}
 			],
@@ -805,7 +822,7 @@
 								"name": "Drain Life",
 								"type": "entries",
 								"entries": [
-									"You gain a natural attack that deals {@dice 1d6} necrotic damage and restores the same number of hit points to you. However, if you goes for 7 days without dealing this damage, your hit point maximum is reduced by {@dice 1d6} per week. This reduction can't be removed until you have used your Drain Life ability and completed a long rest."
+									"You gain a natural attack that deals {@damage 1d6} necrotic damage and restores the same number of hit points to you. However, if you goes for 7 days without dealing this damage, your hit point maximum is reduced by {@dice 1d6} per week. This reduction can't be removed until you have used your Drain Life ability and completed a long rest."
 								]
 							}
 						}
@@ -1172,6 +1189,17 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Boggart",
+			"source": "LFL",
+			"_copy": {
+				"name": "Goblin",
+				"source": "MPMM"
+			},
+			"lineage": null,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Bugbear",
 			"source": "ERLW",
 			"page": 25,
@@ -1214,6 +1242,10 @@
 					"goblin": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/bugbear.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -1267,7 +1299,7 @@
 				{
 					"name": "Surprise Attack",
 					"entries": [
-						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@dice 2d6} damage to it. You can use this trait only once per combat."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it. You can use this trait only once per combat."
 					],
 					"type": "entries"
 				},
@@ -1305,6 +1337,10 @@
 					"stealth": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/bugbear.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -1408,6 +1444,10 @@
 					"goblin": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/bugbear.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -1454,7 +1494,7 @@
 				{
 					"name": "Surprise Attack",
 					"entries": [
-						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@dice 2d6} damage to it. You can use this trait only once per combat."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it. You can use this trait only once per combat."
 					],
 					"type": "entries"
 				},
@@ -1495,6 +1535,10 @@
 					"other": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/bullywug.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -1585,6 +1629,10 @@
 					"sylvan": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/centaur.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -1702,6 +1750,10 @@
 					]
 				}
 			},
+			"soundClip": {
+				"type": "internal",
+				"path": "races/centaur.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -1733,6 +1785,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/centaur.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -1775,71 +1831,53 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Cervan",
-			"source": "HWCS",
-			"page": 22,
+			"name": "Changeling",
+			"source": "EFA",
+			"page": 34,
+			"edition": "one",
+			"creatureTypes": [
+				"fey"
+			],
 			"size": [
+				"S",
 				"M"
 			],
 			"speed": 30,
-			"ability": [
+			"skillProficiencies": [
 				{
-					"con": 2
+					"choose": {
+						"from": [
+							"deception",
+							"insight",
+							"intimidation",
+							"persuasion"
+						],
+						"count": 2
+					}
 				}
 			],
-			"languageProficiencies": [
-				{
-					"other": true
-				}
-			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
+					"name": "Changeling Instincts",
 					"entries": [
-						"Cervans reach maturity around 12 years. They live long lives compared to the rest of the Humblefolk, between 100 and 150 years, something they attribute as much to their way of life as the blessing of Cairith. Pronghorns generally live longer than grove cervans, which is considered a sign of Cairith's favor."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Cervans are pragmatic in their thinking, and generally prefer to keep their philosophies flexible in order to prioritize what they believe is important for both themselves and their communities. They lean towards neutral alignments."
+						"Thanks to your connection to the fey realm, you gain proficiency in two of the following skills of your choice: {@skill Deception|XPHB}, {@skill Insight|XPHB}, {@skill Intimidation|XPHB}, {@skill Performance|XPHB}, or {@skill Persuasion|XPHB}."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Size",
+					"name": "Shape-Shifter",
 					"entries": [
-						"Grove cervans stand between 5 and 6 feet tall, and have light builds, weighing between 130 and 180 pounds. Pronghorn cervans are taller and tend toward heavier, more muscular builds, standing around 7 feet tall, and sometimes weighing over 200 pounds. Your size is Medium."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 30 feet."
-					]
-				},
-				{
-					"name": "Practical",
-					"type": "entries",
-					"entries": [
-						"Cervans are eminently practical and like to spend their time learning useful skills for life in their woodland villages. You gain proficiency in one of the following skills: {@skill Athletics}, {@skill Medicine}, {@skill Nature}, or {@skill Survival}."
-					]
-				},
-				{
-					"name": "Surge of Vigor",
-					"type": "entries",
-					"entries": [
-						"All cervans possess a great tenacity and will to survive, which allows them to bounce back from even the most devastating blows. If an attack deals over half of your current remaining hit points in damage, (even if your hit points are reduced to 0 by the attack) you immediately regain hit points equal to {@dice 1d12} + your Constitution Modifier. You can't use this feature again until you have completed a long rest."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk, and speak Cervan (Cervan has no written component)."
+						"As an action, you can shape-shift to change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight and can change your size between Medium and Small. You can make yourself appear as a member of another playable species, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. This trait doesn't change your clothing and equipment.",
+						"While shape-shifted with this trait, you have {@variantrule Advantage|XPHB} on Charisma checks.",
+						"You stay in the new form until you take an action to revert to your true form."
 					]
 				}
 			],
@@ -1851,7 +1889,8 @@
 			"source": "ERLW",
 			"page": 17,
 			"reprintedAs": [
-				"Changeling|MPMM"
+				"Changeling|MPMM",
+				"Changeling|EFA"
 			],
 			"size": [
 				"M"
@@ -1953,6 +1992,9 @@
 			"name": "Changeling",
 			"source": "MPMM",
 			"page": 10,
+			"reprintedAs": [
+				"Changeling|EFA"
+			],
 			"lineage": "VRGR",
 			"creatureTypes": [
 				"fey"
@@ -2004,93 +2046,6 @@
 					"entries": [
 						"As an action, you change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height between Medium and Small. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.",
 						"You stay in the new form until you use an action to revert to your true form or until you die."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Corvum",
-			"source": "HWCS",
-			"page": 12,
-			"size": [
-				"M"
-			],
-			"speed": 30,
-			"ability": [
-				{
-					"int": 2
-				}
-			],
-			"languageProficiencies": [
-				{
-					"other": true,
-					"auran": true
-				}
-			],
-			"entries": [
-				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"Corvums reach adulthood at around 18 years. They live slightly shorter lives than other birdfolk, approximately 70 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Shrewd and capable, corvums prefer moral flexibility and are more likely to be neutral than either good or evil. Nonetheless, corvums see the benefit of rules, even if many attempt to turn them to their own advantage. Because of this they favor lawful alignments."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Corvums cut imposing figures, standing between 4 and a half and 5 and a half feet tall, encompassing a variety of different builds. They weigh around 100 pounds. Your size is Medium."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 30 feet."
-					]
-				},
-				{
-					"name": "Glide",
-					"type": "entries",
-					"entries": [
-						"Using your feathered arms, you can slow your fall, and glide short distances. When falling you can use your reaction to spread your arms, stiffen your wing feathers, and slow your descent. While doing so, you continue to fall gently at a speed of 60 feet per round, taking no fall damage when you land. If you would fall at least 10 feet in this way, you may fly up to your movement speed in one direction you choose, although you cannot choose to move upwards, landing in the space you finish your movement. You cannot glide while carrying heavy weapons or wielding a shield (though you may drop any held items as part of your reaction to spread your arms). You cannot glide while wearing heavy armor, or if you are encumbered."
-					]
-				},
-				{
-					"name": "Talons",
-					"type": "entries",
-					"entries": [
-						"Your sharp claws aid you in unarmed combat and while climbing. Your damage for an unarmed strike is {@damage 1d4} piercing damage. Additionally, you have advantage on Strength ({@skill Athletics}) checks made to climb any surface your talons could reasonably grip."
-					]
-				},
-				{
-					"name": "Learned",
-					"type": "entries",
-					"entries": [
-						"You gain proficiency in one of the following skills: {@skill Arcana}, {@skill History}, {@skill Nature}, or {@skill Religion}."
-					]
-				},
-				{
-					"name": "Appraising Eye",
-					"type": "entries",
-					"entries": [
-						"You have an almost supernatural ability to appraise objects. By spending an action examining any object, you can determine any magical properties the item has, how they might be used or activated, as well as a fair estimation of market price. Using this skill strains the eyes, and you must complete a long or short rest before you can use it again."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk. You can also understand Auran, though you cannot speak it naturally."
 					]
 				}
 			],
@@ -2309,8 +2264,98 @@
 		},
 		{
 			"name": "Dhampir",
+			"source": "RHW",
+			"page": 28,
+			"otherSources": [
+				{
+					"source": "ABH",
+					"page": 7
+				}
+			],
+			"size": [
+				"S",
+				"M"
+			],
+			"speed": {
+				"walk": 35,
+				"climb": true
+			},
+			"darkvision": 60,
+			"traitTags": [
+				"Natural Weapon"
+			],
+			"resist": [
+				"necrotic"
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Darkvision",
+					"entries": [
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spider Climb",
+					"entries": [
+						"You have a {@variantrule Climb Speed|XPHB} equal to your {@variantrule Speed|XPHB}. When you reach character level 3, you can move up, down, and across vertical surfaces and along ceilings while leaving your hands free."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Trace of Undeath",
+					"entries": [
+						"You have {@variantrule Resistance|XPHB} to Necrotic damage."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Vampiric Bite",
+					"entries": [
+						"When you use your {@variantrule Unarmed Strike|XPHB} and deal damage, you can choose to bite with your fangs. You deal Piercing damage equal to {@damage 1d4} plus your Constitution modifier instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}.",
+						"In addition, when you deal this damage to a creature that isn't a Construct or an Undead, you can empower yourself in one of the following ways:",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "Drain",
+									"entries": [
+										"You regain {@variantrule Hit Points|XPHB} equal to the Piercing damage dealt."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Strengthen",
+									"entries": [
+										"You gain a bonus to the next ability check or attack roll you make within the next minute; the bonus is equal to the Piercing damage dealt."
+									]
+								}
+							]
+						},
+						"You can empower yourself with this trait a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Dhampir",
 			"source": "VRGR",
 			"page": 16,
+			"reprintedAs": [
+				"Dhampir|RHW"
+			],
 			"lineage": "VRGR",
 			"size": [
 				"S",
@@ -2433,7 +2478,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/dragonborn.mp3"
+				"path": "races/dragonborn.opus"
 			},
 			"entries": [
 				{
@@ -2527,7 +2572,7 @@
 					"name": "Breath Weapon",
 					"entries": [
 						"You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.",
-						"When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes {@dice 2d6} damage on a failed save, and half as much damage on a successful one. The damage increases to {@dice 3d6} at 6th level, {@dice 4d6} at 11th level, and {@dice 5d6} at 16th level.",
+						"When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes {@damage 2d6} damage on a failed save, and half as much damage on a successful one. The damage increases to {@damage 3d6} at 6th level, {@damage 4d6} at 11th level, and {@damage 5d6} at 16th level.",
 						"After you use your breath weapon, you can't use it again until you complete a short or long rest."
 					],
 					"type": "entries"
@@ -2554,6 +2599,8 @@
 			"name": "Dragonborn",
 			"source": "XPHB",
 			"page": 187,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -2563,6 +2610,23 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"resist": [
+				{
+					"choose": {
+						"from": [
+							"acid",
+							"lightning",
+							"fire",
+							"poison",
+							"cold"
+						]
+					}
+				}
+			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dragonborn.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -2636,7 +2700,7 @@
 					"type": "entries",
 					"name": "Breath Weapon",
 					"entries": [
-						"When you take the {@action Attack|XPHB} action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} or a 30-foot {@variantrule Line [Area of Effect]|XPHB|Line} that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, a creature takes {@damage 1d10} damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by {@dice 1d10} when you reach character levels 5 ({@dice 2d10}), 11 ({@dice 3d10}), and 17 ({@dice 4d10}).",
+						"When you take the {@action Attack|XPHB} action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} or a 30-foot {@variantrule Line [Area of Effect]|XPHB|Line} that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw ({@dc 8} plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, a creature takes {@damage 1d10} damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by {@damage 1d10} when you reach character levels 5 ({@damage 2d10}), 11 ({@damage 3d10}), and 17 ({@damage 4d10}).",
 						"You can use this Breath Weapon a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
 					]
 				},
@@ -2682,7 +2746,7 @@
 										"type": "entries",
 										"name": "Breath Weapon",
 										"entries": [
-											"When you take the {@action Attack|XPHB} action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} or a 30-foot {@variantrule Line [Area of Effect]|XPHB|Line} that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, a creature takes {@damage 1d10} {{damageType}} damage. On a successful save, a creature takes half as much damage. This damage increases by {@dice 1d10} when you reach character levels 5 ({@dice 2d10}), 11 ({@dice 3d10}), and 17 ({@dice 4d10}).",
+											"When you take the {@action Attack|XPHB} action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} or a 30-foot {@variantrule Line [Area of Effect]|XPHB|Line} that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw ({@dc 8} plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, a creature takes {@damage 1d10} {{damageType}} damage. On a successful save, a creature takes half as much damage. This damage increases by {@damage 1d10} when you reach character levels 5 ({@damage 2d10}), 11 ({@damage 3d10}), and 17 ({@damage 4d10}).",
 											"You can use this Breath Weapon a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
 										]
 									}
@@ -2821,6 +2885,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dragonborn.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -2867,7 +2935,7 @@
 					"type": "entries",
 					"name": "Breath Weapon",
 					"entries": [
-						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Chromatic Ancestry. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Chromatic Ancestry. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 						"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 					]
 				},
@@ -2906,7 +2974,7 @@
 										"type": "entries",
 										"name": "Breath Weapon",
 										"entries": [
-											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 30-foot line that is 5 feet wide. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 											"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 										]
 									}
@@ -2929,31 +2997,46 @@
 						{
 							"_variables": {
 								"color": "Black",
-								"damageType": "acid"
+								"damageType": "acid",
+								"resist": [
+									"acid"
+								]
 							}
 						},
 						{
 							"_variables": {
 								"color": "Blue",
-								"damageType": "lightning"
+								"damageType": "lightning",
+								"resist": [
+									"lightning"
+								]
 							}
 						},
 						{
 							"_variables": {
 								"color": "Green",
-								"damageType": "poison"
+								"damageType": "poison",
+								"resist": [
+									"poison"
+								]
 							}
 						},
 						{
 							"_variables": {
 								"color": "Red",
-								"damageType": "fire"
+								"damageType": "fire",
+								"resist": [
+									"fire"
+								]
 							}
 						},
 						{
 							"_variables": {
 								"color": "White",
-								"damageType": "cold"
+								"damageType": "cold",
+								"resist": [
+									"cold"
+								]
 							}
 						}
 					]
@@ -2982,6 +3065,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dragonborn.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -3028,7 +3115,7 @@
 					"type": "entries",
 					"name": "Breath Weapon",
 					"entries": [
-						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Gem Ancestry. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Gem Ancestry. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 						"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 					]
 				},
@@ -3074,7 +3161,7 @@
 										"type": "entries",
 										"name": "Breath Weapon",
 										"entries": [
-											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 											"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 										]
 									}
@@ -3167,6 +3254,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dragonborn.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -3213,7 +3304,7 @@
 					"type": "entries",
 					"name": "Breath Weapon",
 					"entries": [
-						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Metallic Ancestry. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+						"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} damage of the type associated with your Metallic Ancestry. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 						"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 					]
 				},
@@ -3273,7 +3364,7 @@
 										"type": "entries",
 										"name": "Breath Weapon",
 										"entries": [
-											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
+											"When you take the {@action Attack} action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes {@damage 1d10} {{damageType}} damage. On a successful save, it takes half as much damage. This damage increases by {@damage 1d10} when you reach 5th level ({@damage 2d10}), 11th level ({@damage 3d10}), and 17th level ({@damage 4d10}).",
 											"You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 										]
 									}
@@ -3364,6 +3455,10 @@
 			"resist": [
 				"poison"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/duergar.opus"
+			},
 			"additionalSpells": [
 				{
 					"innate": {
@@ -3485,7 +3580,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/dwarf.mp3"
+				"path": "races/dwarf.opus"
 			},
 			"entries": [
 				{
@@ -3533,7 +3628,7 @@
 				{
 					"name": "Tool Proficiency",
 					"entries": [
-						"You gain proficiency with the artisan's tools of your choice: {@item Smith's tools|phb}, {@item brewer's supplies|phb}, or {@item mason's tools|phb}."
+						"You gain proficiency with the {@item artisan's tools|PHB} of your choice: {@item Smith's tools|phb}, {@item brewer's supplies|phb}, or {@item mason's tools|phb}."
 					],
 					"type": "entries"
 				},
@@ -3559,7 +3654,8 @@
 			"name": "Dwarf",
 			"source": "XPHB",
 			"page": 188,
-			"freeRules2024": true,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -3572,6 +3668,10 @@
 			"resist": [
 				"poison"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dwarf.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -3646,6 +3746,10 @@
 			"resist": [
 				"poison"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/dwarf.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -3821,6 +3925,238 @@
 		},
 		{
 			"name": "Elf",
+			"source": "LFL",
+			"_copy": {
+				"name": "Elf",
+				"source": "XPHB",
+				"_mod": {
+					"entries": {
+						"mode": "replaceArr",
+						"replace": "Elven Lineage",
+						"items": {
+							"type": "entries",
+							"name": "Elven Lineage",
+							"entries": [
+								"You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage.",
+								"When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+								"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage).",
+								{
+									"type": "table",
+									"caption": "Elven Lineages",
+									"colLabels": [
+										"Lineage",
+										"Level 1",
+										"Level 3",
+										"Level 5"
+									],
+									"colStyles": [
+										"col-2",
+										"col-6",
+										"col-2",
+										"col-2"
+									],
+									"rows": [
+										[
+											"Lorwyn",
+											"You know the {@spell Thorn Whip|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different cantrip from the {@filter Druid spell list|spells|class=druid}.",
+											"{@spell Command|XPHB}",
+											"{@spell Silence|XPHB}"
+										],
+										[
+											"Shadowmoor",
+											"The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Starry Wisp|XPHB} cantrip.",
+											"{@spell Heroism|XPHB}",
+											"{@spell Gentle Repose|XPHB}"
+										]
+									]
+								}
+							]
+						}
+					}
+				}
+			},
+			"additionalSpells": [
+				{
+					"name": "Lorwyn",
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"command|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"silence|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": {
+							"_": [
+								{
+									"choose": "level=0|class=Druid"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Shadowmoor",
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"heroism|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"gentle repose|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"starry wisp|xphb#c"
+						]
+					}
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"name": "Elf; Lorwyn Lineage",
+					"source": "LFL",
+					"_mod": {
+						"entries": {
+							"mode": "replaceArr",
+							"replace": "Elven Lineage",
+							"items": {
+								"name": "Elven Lineage (Lorwyn)",
+								"type": "entries",
+								"entries": [
+									"You are part of a lineage that grants you supernatural abilities. You know the {@spell Thorn Whip|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different cantrip from the {@filter Druid spell list|spells|class=druid}.",
+									"When you reach character level 3, you learn the {@spell Command|XPHB} spell. When you reach character level 5, you also learn the {@spell Silence|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+									"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
+								]
+							}
+						}
+					},
+					"additionalSpells": [
+						{
+							"innate": {
+								"3": {
+									"daily": {
+										"1": [
+											"command|xphb"
+										]
+									}
+								},
+								"5": {
+									"daily": {
+										"1": [
+											"silence|xphb"
+										]
+									}
+								}
+							},
+							"ability": {
+								"choose": [
+									"int",
+									"wis",
+									"cha"
+								]
+							},
+							"known": {
+								"1": {
+									"_": [
+										{
+											"choose": "level=0|class=Druid"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Elf; Shadowmoor Lineage",
+					"source": "LFL",
+					"_mod": {
+						"entries": {
+							"mode": "replaceArr",
+							"replace": "Elven Lineage",
+							"items": {
+								"name": "Elven Lineage (Shadowmoor)",
+								"type": "entries",
+								"entries": [
+									"You are part of a lineage that grants you supernatural abilities. The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Starry Wisp|XPHB} cantrip.",
+									"When you reach character level 3, you learn the {@spell Heroism|XPHB} spell. When you reach character level 5, you also learn the {@spell Gentle Repose|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+									"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
+								]
+							}
+						}
+					},
+					"darkvision": 120,
+					"additionalSpells": [
+						{
+							"innate": {
+								"3": {
+									"daily": {
+										"1": [
+											"heroism|xphb"
+										]
+									}
+								},
+								"5": {
+									"daily": {
+										"1": [
+											"gentle repose|xphb"
+										]
+									}
+								}
+							},
+							"ability": {
+								"choose": [
+									"int",
+									"wis",
+									"cha"
+								]
+							},
+							"known": {
+								"1": [
+									"starry wisp|xphb#c"
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Elf",
 			"source": "PHB",
 			"page": 21,
 			"srd": true,
@@ -3858,7 +4194,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/elf.mp3"
+				"path": "races/elf.opus"
 			},
 			"entries": [
 				{
@@ -3919,7 +4255,8 @@
 			"name": "Elf",
 			"source": "XPHB",
 			"page": 189,
-			"freeRules2024": true,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -3929,6 +4266,9 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"traitTags": [
+				"Improved Resting"
+			],
 			"skillProficiencies": [
 				{
 					"choose": {
@@ -3936,6 +4276,109 @@
 							"insight",
 							"perception",
 							"survival"
+						]
+					}
+				}
+			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/elf.opus"
+			},
+			"additionalSpells": [
+				{
+					"name": "Drow",
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"faerie fire|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"darkness|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"dancing lights|xphb#c"
+						]
+					}
+				},
+				{
+					"name": "High Elf",
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"detect magic|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"misty step|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": {
+							"_": [
+								{
+									"choose": "level=0|class=Wizard"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Wood Elf",
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"longstrider|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"pass without trace|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"druidcraft|xphb#c"
 						]
 					}
 				}
@@ -3980,19 +4423,19 @@
 							"rows": [
 								[
 									"Drow",
-									"The range of your Darkvision increases to 120 feet. You also know the {@spell Dancing Lights|XPHB} cantrip.",
+									"The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Dancing Lights|XPHB} cantrip.",
 									"{@spell Faerie Fire|XPHB}",
 									"{@spell Darkness|XPHB}"
 								],
 								[
 									"High Elf",
-									"You know the {@spell Prestidigitation|XPHB} cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
+									"You know the {@spell Prestidigitation|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
 									"{@spell Detect Magic|XPHB}",
 									"{@spell Misty Step|XPHB}"
 								],
 								[
 									"Wood Elf",
-									"Your Speed increases to 35 feet. You also know the {@spell Druidcraft|XPHB} cantrip.",
+									"Your {@variantrule Speed|XPHB} increases to 35 feet. You also know the {@spell Druidcraft|XPHB} cantrip.",
 									"{@spell Longstrider|XPHB}",
 									"{@spell Pass without Trace|XPHB}"
 								]
@@ -4029,19 +4472,32 @@
 					"name": "Elf; Drow Lineage",
 					"source": "XPHB",
 					"_mod": {
-						"entries": {
-							"mode": "replaceArr",
-							"replace": "Elven Lineage",
-							"items": {
-								"name": "Elven Lineage (Drow)",
-								"type": "entries",
-								"entries": [
-									"You are part of a lineage that grants you supernatural abilities. The range of your Darkvision increases to 120 feet. You also know the {@spell Dancing Lights|XPHB} cantrip.",
-									"When you reach character level 3, you learn the {@spell Faerie Fire|XPHB} spell. When you reach character level 5, you also learn the {@spell Darkness|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
-									"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
-								]
+						"entries": [
+							{
+								"mode": "replaceArr",
+								"replace": "Elven Lineage",
+								"items": {
+									"name": "Elven Lineage (Drow)",
+									"type": "entries",
+									"entries": [
+										"You are part of a lineage that grants you supernatural abilities. The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Dancing Lights|XPHB} cantrip.",
+										"When you reach character level 3, you learn the {@spell Faerie Fire|XPHB} spell. When you reach character level 5, you also learn the {@spell Darkness|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+										"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
+									]
+								}
+							},
+							{
+								"mode": "replaceArr",
+								"replace": "Darkvision",
+								"items": {
+									"name": "Darkvision",
+									"type": "entries",
+									"entries": [
+										"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+									]
+								}
 							}
-						}
+						]
 					},
 					"darkvision": 120,
 					"additionalSpells": [
@@ -4088,7 +4544,7 @@
 								"name": "Elven Lineage (High Elf)",
 								"type": "entries",
 								"entries": [
-									"You are part of a lineage that grants you supernatural abilities. You know the {@spell Prestidigitation|XPHB} cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
+									"You are part of a lineage that grants you supernatural abilities. You know the {@spell Prestidigitation|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
 									"When you reach character level 3, you learn the {@spell Detect Magic|XPHB} spell. When you reach character level 5, you also learn the {@spell Misty Step|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
 									"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
 								]
@@ -4143,7 +4599,7 @@
 								"name": "Elven Lineage (Wood Elf)",
 								"type": "entries",
 								"entries": [
-									"You are part of a lineage that grants you supernatural abilities. Your Speed increases to 35 feet. You also know the {@spell Druidcraft|XPHB} cantrip.",
+									"You are part of a lineage that grants you supernatural abilities. Your {@variantrule Speed|XPHB} increases to 35 feet. You also know the {@spell Druidcraft|XPHB} cantrip.",
 									"When you reach character level 3, you learn the {@spell Longstrider|XPHB} spell. When you reach character level 5, you also learn the {@spell Pass without Trace|XPHB} spell. You always have these spells prepared, and you can cast each spell once without a spell slot. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
 									"Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
 								]
@@ -4227,6 +4683,10 @@
 					"longbow|phb": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/elf.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -4332,6 +4792,10 @@
 					"elvish": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/elf.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -4385,6 +4849,86 @@
 			],
 			"hasFluff": true,
 			"hasFluffImages": true
+		},
+		{
+			"name": "Faerie",
+			"source": "LFL",
+			"_copy": {
+				"name": "Fairy",
+				"source": "MPMM",
+				"_mod": {
+					"entries": {
+						"mode": "appendArr",
+						"items": {
+							"type": "entries",
+							"name": "Faerie Lineage",
+							"entries": [
+								"As a native of either Lorwyn and Shadowmoor, you may gain additional traits.",
+								{
+									"type": "list",
+									"style": "list-hang-notitle",
+									"items": [
+										{
+											"type": "item",
+											"name": "Lorwyn",
+											"entries": [
+												"You do not gain any additional traits."
+											]
+										},
+										{
+											"type": "item",
+											"name": "Shadowmoor",
+											"entries": [
+												"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+											]
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			},
+			"lineage": null,
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"name": "Faerie; Lorwyn",
+					"source": "LFL",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "removeArr",
+								"names": "Faerie Lineage"
+							}
+						]
+					}
+				},
+				{
+					"name": "Faerie; Shadowmoor",
+					"source": "LFL",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "prependArr",
+								"items": {
+									"type": "entries",
+									"name": "Darkvision",
+									"entries": [
+										"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+									]
+								}
+							},
+							{
+								"mode": "removeArr",
+								"names": "Faerie Lineage"
+							}
+						]
+					},
+					"darkvision": 120
+				}
+			]
 		},
 		{
 			"name": "Fairy",
@@ -4553,6 +5097,10 @@
 			"traitTags": [
 				"Powerful Build"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/firbolg.opus"
+			},
 			"additionalSpells": [
 				{
 					"ability": {
@@ -4649,7 +5197,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/firbolg.mp3"
+				"path": "races/firbolg.opus"
 			},
 			"additionalSpells": [
 				{
@@ -4721,105 +5269,68 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Gallus",
-			"source": "HWCS",
-			"page": 14,
-			"size": [
-				"M"
-			],
-			"speed": 30,
-			"ability": [
-				{
-					"wis": 2
-				}
-			],
-			"languageProficiencies": [
-				{
-					"other": true,
-					"auran": true
-				}
-			],
-			"toolProficiencies": [
-				{
-					"choose": {
-						"from": [
-							"brewer's supplies",
-							"carpenter's tools",
-							"smith's tools"
+			"name": "Flamekin",
+			"source": "LFL",
+			"_copy": {
+				"name": "Genasi",
+				"source": "MPMM",
+				"_mod": {
+					"entries": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"type": "entries",
+								"name": "Fire Resistance",
+								"entries": [
+									"You have resistance to fire damage."
+								]
+							},
+							{
+								"type": "entries",
+								"name": "Reach to the Blaze",
+								"entries": [
+									"You know the {@spell produce flame|XPHB} cantrip. Starting at 3rd level, you can cast the {@spell burning hands|XPHB} spell with this trait. Starting at 5th level, you can also cast the {@spell flame blade|XPHB} spell with this trait, without a material component. Once you cast {@spell burning hands|XPHB} or {@spell flame blade|XPHB} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+									"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+								]
+							}
 						]
 					}
 				}
+			},
+			"lineage": null,
+			"resist": [
+				"fire"
 			],
-			"entries": [
+			"additionalSpells": [
 				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"While ages fluctuate, gallus reach maturity around 18 and can live anywhere between 70 and 100 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Most gallus are lawful good. They are a salt-of-the-earth sort of folk who believe in justice, the value of hard work, and the importance of respecting others."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Gallus are the most varied of the birdfolk races, ranging from just under 4 feet to just over 5 feet tall, and showing many unique builds. The variety of shapes and sizes means they also encompass a variety of weights, but most average around 90 pounds. Your size is Medium."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 30 feet."
-					]
-				},
-				{
-					"name": "Glide",
-					"type": "entries",
-					"entries": [
-						"Using your feathered arms, you can slow your fall, and glide short distances. When falling you can use your reaction to spread your arms, stiffen your wing feathers, and slow your descent. While doing so, you continue to fall gently at a speed of 60 feet per round, taking no fall damage when you land. If you would fall at least 10 feet in this way, you may fly up to your movement speed in one direction you choose, although you cannot choose to move upwards, landing in the space you finish your movement. You cannot glide while carrying heavy weapons or wielding a shield (though you may drop any held items as part of your reaction to spread your arms). You cannot glide while wearing heavy armor, or if you are encumbered."
-					]
-				},
-				{
-					"name": "Wing Flap",
-					"type": "entries",
-					"entries": [
-						"As a bonus action, you can use your powerful feathered arms to propel yourself upward a distance equal to half your movement speed. You can use it in conjunction with a regular jump, but not while gliding."
-					]
-				},
-				{
-					"name": "Communal",
-					"type": "entries",
-					"entries": [
-						"Whenever you make an Intelligence ({@skill History}) check related to the history of your race, culture, or community, you are considered proficient in the {@skill History} skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
-					]
-				},
-				{
-					"name": "Militia Training",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in {@filter simple weapons|items|source=phb|category=basic|type=simple weapon;melee weapon=sand}."
-					]
-				},
-				{
-					"name": "Of the People",
-					"type": "entries",
-					"entries": [
-						"You gain proficiency with the {@filter artisan tools|items|source=phb|category=basic|type=artisan's tools} of your choice: {@item brewer's supplies|PHB}, {@item carpenter's tools|PHB}, or {@item smith's tools|PHB}."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk. You can also understand Auran, though you cannot speak it naturally."
-					]
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"burning hands|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"flame blade|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"produce flame|xphb#c"
+						]
+					}
 				}
 			],
 			"hasFluff": true,
@@ -4871,7 +5382,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/genasi.mp3"
+				"path": "races/genasi.opus"
 			},
 			"entries": [
 				{
@@ -4920,6 +5431,10 @@
 				"max": 120
 			},
 			"darkvision": 60,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/genasi.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -4959,6 +5474,10 @@
 					"firearms": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/giff.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -4972,7 +5491,7 @@
 					"type": "entries",
 					"name": "Firearms Mastery",
 					"entries": [
-						"You have a mystical connection to firearms that traces back to the gods of the giff, who delighted in such weapons. You have proficiency with all firearms and ignore the loading property of any firearm. In addition, attacking at long range with a firearm doesn't impose disadvantage on your attack roll."
+						"You have a mystical connection to firearms that traces back to the gods of the giff, who delighted in such weapons. You have proficiency with all firearms and ignore the {@itemProperty LD||loading} property of any firearm. In addition, attacking at long range with a firearm doesn't impose disadvantage on your attack roll."
 					]
 				},
 				{
@@ -5214,6 +5733,10 @@
 				"Natural Weapon",
 				"NPC Race"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/gnoll.opus"
+			},
 			"entries": [
 				{
 					"name": "Bite",
@@ -5276,7 +5799,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/gnome.mp3"
+				"path": "races/gnome.opus"
 			},
 			"entries": [
 				{
@@ -5322,6 +5845,8 @@
 			"name": "Gnome",
 			"source": "XPHB",
 			"page": 191,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -5331,6 +5856,10 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/gnome.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -5487,6 +6016,10 @@
 					"undercommon": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/gnome.opus"
+			},
 			"additionalSpells": [
 				{
 					"ability": "int",
@@ -5582,6 +6115,10 @@
 					"goblin": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"entries": [
 				{
 					"name": "Nimble Escape",
@@ -5646,6 +6183,10 @@
 				"S"
 			],
 			"traitTags": null,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"hasFluffImages": true
 		},
 		{
@@ -5696,6 +6237,10 @@
 				}
 			},
 			"traitTags": null,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"hasFluff": true
 		},
 		{
@@ -5714,6 +6259,10 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -5787,6 +6336,10 @@
 				"fire",
 				"psychic"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -5820,6 +6373,13 @@
 					"name": "Languages",
 					"entries": [
 						"You can speak, read, and write Common and Goblin."
+					],
+					"type": "entries"
+				},
+				{
+					"name": "Grit",
+					"entries": [
+						"You have resistance to fire damage and psychic damage. In addition, when you are wearing no armor, your AC is equal to 11 + your Dexterity modifier."
 					],
 					"type": "entries"
 				}
@@ -5869,6 +6429,10 @@
 					"goblin": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -5926,12 +6490,18 @@
 				"_mod": {
 					"entries": [
 						{
+							"mode": "replaceTxt",
+							"replace": "Goblins",
+							"with": "Dankwood goblins",
+							"flags": "i"
+						},
+						{
 							"mode": "appendArr",
 							"items": {
 								"name": "Alignment",
 								"type": "entries",
 								"entries": [
-									"Dankwood goblins are typically neutral or neutral good, though some mischievous dankwood goblins are chaotic neutral."
+									"Dankwood goblins are typically neutral or neutral good, though some mischievous Dankwood goblins are chaotic neutral."
 								]
 							}
 						},
@@ -5959,6 +6529,10 @@
 				}
 			],
 			"heightAndWeight": null,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goblin.opus"
+			},
 			"hasFluff": true
 		},
 		{
@@ -5984,6 +6558,10 @@
 			"resist": [
 				"cold"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goliath.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -6025,7 +6603,8 @@
 					"page": 175
 				},
 				{
-					"source": "IDRotF"
+					"source": "IDRotF",
+					"page": 291
 				}
 			],
 			"reprintedAs": [
@@ -6071,7 +6650,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/goliath.mp3"
+				"path": "races/goliath.opus"
 			},
 			"entries": [
 				{
@@ -6131,6 +6710,8 @@
 			"name": "Goliath",
 			"source": "XPHB",
 			"page": 192,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -6142,6 +6723,10 @@
 			"traitTags": [
 				"Powerful Build"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/goliath.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -6428,6 +7013,10 @@
 					"undercommon": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/grimlock.opus"
+			},
 			"entries": [
 				{
 					"name": "Blindsight",
@@ -6499,6 +7088,10 @@
 			"conditionImmune": [
 				"poisoned"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/grung.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -6546,8 +7139,8 @@
 					"type": "entries",
 					"name": "Poisonous Skin",
 					"entries": [
-						"Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a DC 12 Constitution saving throw or become {@condition poisoned} for 1 minute. A {@condition poisoned} creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-						"You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit the poison reacts differently. The target must succeed on a DC 12 Constitution saving throw or take {@dice 2d4} poison damage."
+						"Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a {@dc 12} Constitution saving throw or become {@condition poisoned} for 1 minute. A {@condition poisoned} creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+						"You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit the poison reacts differently. The target must succeed on a {@dc 12} Constitution saving throw or take {@damage 2d4} poison damage."
 					]
 				},
 				{
@@ -6571,7 +7164,8 @@
 						"You can speak, read, and write Grung."
 					]
 				}
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hadozee",
@@ -6625,6 +7219,9 @@
 			"source": "PHB",
 			"page": 38,
 			"srd": true,
+			"reprintedAs": [
+				"Khoravar|EFA"
+			],
 			"size": [
 				"M"
 			],
@@ -6672,7 +7269,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/half-elf.mp3"
+				"path": "races/half-elf.opus"
 			},
 			"entries": [
 				{
@@ -6763,7 +7360,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/half-orc.mp3"
+				"path": "races/half-orc.opus"
 			},
 			"entries": [
 				{
@@ -6854,7 +7451,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/halfling.mp3"
+				"path": "races/halfling.opus"
 			},
 			"entries": [
 				{
@@ -6907,7 +7504,8 @@
 			"name": "Halfling",
 			"source": "XPHB",
 			"page": 193,
-			"freeRules2024": true,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -6916,6 +7514,10 @@
 				"S"
 			],
 			"speed": 30,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/halfling.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -7070,100 +7672,88 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Hedge",
-			"source": "HWCS",
-			"page": 24,
+			"name": "Hexblood",
+			"source": "RHW",
+			"page": 29,
+			"edition": "one",
+			"creatureTypes": [
+				"fey"
+			],
 			"size": [
-				"S"
+				"S",
+				"M"
 			],
-			"speed": {
-				"walk": 25,
-				"burrow": 15
+			"speed": 30,
+			"darkvision": 60,
+			"additionalSpells": [
+				{
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"prepared": {
+						"_": {
+							"daily": {
+								"1e": [
+									"disguise self|xphb",
+									"hex|xphb"
+								]
+							}
+						}
+					}
+				}
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
 			},
-			"ability": [
-				{
-					"cha": 2,
-					"wis": 1
-				}
-			],
-			"traitTags": [
-				"Natural Armor"
-			],
-			"languageProficiencies": [
-				{
-					"other": true
-				}
-			],
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
+					"name": "Darkvision",
 					"entries": [
-						"Hedges take longer to mature than most other races, reaching adulthood around 20 years. They also live for a long time, with many reaching 120 years or more."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Hedges are compassionate, empathetic, and diplomatic, tending towards good alignments. They also favor neutral alignments, as hedges have a great respect for the balance of nature."
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Size",
+					"name": "Eerie Token",
 					"entries": [
-						"Hedges have short, rounded body shapes, standing between 3 and 4 feet in height, and weighing between 40 and 70 pounds. Your size is Small."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 25 feet."
-					]
-				},
-				{
-					"name": "Natural Burrowers",
-					"type": "entries",
-					"entries": [
-						"You have a burrowing speed of 15 feet. You are capable of burrowing through soil, but are unable to dig through anything more substantial with just your clawed hands."
-					]
-				},
-				{
-					"name": "Spiny Quills",
-					"type": "entries",
-					"entries": [
-						"The backs of hedges are covered with spiny quills, which makes it impossible for hedges to wear armor. These quills provide exceptional protection, therefore you have a base armor class of 14 + your Dexterity modifier. Even though you can't wear armor, you can still benefit from the armor class bonus provided by shields so long as you are proficient with them."
-					]
-				},
-				{
-					"name": "Curl Up",
-					"type": "entries",
-					"entries": [
-						"You can use your action to curl up, exposing attackers to a wall of your toughened quills. While curled up you cannot move, attack, or cast spells with somatic components, and your base armor class becomes 19. You cannot benefit from any Dexterity bonus to armor class while curled up, but you can still use shields.",
-						"Any creature that misses you with a melee attack while you are curled up takes {@dice 2d4} points of piercing damage from your sharp quills. If a creature hits you while you are curled up, you are knocked {@condition prone} in your space at the end of the turn. You may uncurl yourself at any point during your turn."
-					]
-				},
-				{
-					"name": "Forest Magic",
-					"type": "entries",
-					"entries": [
-						"You have a deep connection to the magic of the Wood. You know the {@spell druidcraft} cantrip. Additionally, you can cast {@spell animal messenger} as a 2nd level spell once with this trait, and regain the ability to do so after a short or long rest. Charisma is your spellcasting ability for these spells."
-					]
-				},
-				{
-					"name": "Speak With Bugs",
-					"type": "entries",
-					"entries": [
-						"Through sounds and gestures, you can communicate simple ideas with creatures of the beast subtype that represent insects, spiders, worms, and other creepy crawlies, regardless of their size."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk and Hedge."
+						"As a {@variantrule Bonus Action|XPHB}, you can create a magical token by harmlessly removing a lock of hair, detaching a nail, or using some other method. While the token exists, you gain the following benefits:",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "Distant Message",
+									"entries": [
+										"As a {@action Magic|XPHB} action, you can send a telepathic message of 25 words or fewer to a creature holding or carrying the token, as long as you are within 10 miles of it."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Remote Viewing",
+									"entries": [
+										"If you are within 10 miles of the token, you can take a {@action Magic|XPHB} action to extend your senses through the token for 1 minute, until you have the Incapacitated condition, or until you end this state (no action required). During this state, you can see and hear from the token as if you were located where it is. When this state ends, the token is harmlessly destroyed.",
+										"Unless the token is destroyed early, it lasts until you finish a {@variantrule Long Rest|XPHB}. Once you create a token using this feature, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Hex Magic",
+									"entries": [
+										"You always have the {@spell Disguise Self|XPHB} and {@spell Hex|XPHB} spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select this species)."
+									]
+								}
+							]
+						}
 					]
 				}
 			],
@@ -7174,6 +7764,9 @@
 			"name": "Hexblood",
 			"source": "VRGR",
 			"page": 18,
+			"reprintedAs": [
+				"Hexblood|RHW"
+			],
 			"lineage": "VRGR",
 			"creatureTypes": [
 				"fey"
@@ -7297,12 +7890,16 @@
 					"goblin": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/hobgoblin.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
 					"name": "Martial Advantage",
 					"entries": [
-						"Once per turn, you can deal an extra {@dice 2d6} damage to a creature you hit with a weapon attack if that creature is within 5 ft. of an ally of yours that isn't {@condition incapacitated}."
+						"Once per turn, you can deal an extra {@damage 2d6} damage to a creature you hit with a weapon attack if that creature is within 5 ft. of an ally of yours that isn't {@condition incapacitated}."
 					]
 				},
 				{
@@ -7357,6 +7954,10 @@
 					"reprintedAs": true
 				}
 			},
+			"soundClip": {
+				"type": "internal",
+				"path": "races/hobgoblin.opus"
+			},
 			"hasFluffImages": true
 		},
 		{
@@ -7375,6 +7976,10 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/hobgoblin.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -7493,6 +8098,10 @@
 					"light": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/hobgoblin.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -7571,7 +8180,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/human.mp3"
+				"path": "races/human.opus"
 			},
 			"entries": [
 				{
@@ -7603,7 +8212,8 @@
 			"name": "Human",
 			"source": "XPHB",
 			"page": 194,
-			"freeRules2024": true,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -7628,6 +8238,10 @@
 					"any": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/human.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -7662,96 +8276,6 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Human (Amonkhet)",
-			"source": "PSA",
-			"page": 14,
-			"size": [
-				"M"
-			],
-			"speed": 30,
-			"ability": [
-				{
-					"choose": {
-						"from": [
-							"str",
-							"dex",
-							"con",
-							"int",
-							"wis",
-							"cha"
-						],
-						"count": 2
-					}
-				}
-			],
-			"age": {
-				"mature": 20,
-				"max": 100
-			},
-			"feats": [
-				{
-					"any": 1
-				}
-			],
-			"skillProficiencies": [
-				{
-					"any": 1
-				}
-			],
-			"languageProficiencies": [
-				{
-					"common": true,
-					"anyStandard": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"Humans reach adulthood in their late teens. Most human initiates have completed the trials and found a glorious or inglorious death before they turn 30. Viziers can enjoy longer service to their gods, in theory living up to a century."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Humans tend toward no particular alignment. The best and the worst are found among them."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium"
-					]
-				},
-				{
-					"name": "Skills",
-					"entries": [
-						"You gain proficiency in one skill of your choice."
-					],
-					"type": "entries"
-				},
-				{
-					"name": "Feat",
-					"entries": [
-						"You gain one {@5etools feat|feats.html} of your choice."
-					],
-					"type": "entries"
-				},
-				{
-					"name": "Languages",
-					"entries": [
-						"You can speak, read, and write Common and one extra language of your choice."
-					],
-					"type": "entries"
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
 			"name": "Human (Innistrad)",
 			"source": "PSI",
 			"page": 8,
@@ -7769,6 +8293,10 @@
 					"anyStandard": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/human.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -7866,6 +8394,10 @@
 					"anyStandard": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/human.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -7922,6 +8454,10 @@
 					"cha": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/human.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -7956,90 +8492,65 @@
 					"cha": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/human.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
 		{
-			"name": "Jerbeen",
-			"source": "HWCS",
-			"page": 27,
+			"name": "Kalashtar",
+			"source": "EFA",
+			"page": 35,
+			"edition": "one",
+			"creatureTypes": [
+				"aberration"
+			],
 			"size": [
-				"S"
+				"M"
 			],
 			"speed": 30,
-			"ability": [
-				{
-					"dex": 2,
-					"cha": 1
-				}
+			"traitTags": [
+				"Skill Proficiency"
 			],
-			"languageProficiencies": [
-				{
-					"other": true
-				}
+			"resist": [
+				"psychic"
 			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 6\u20137 feet tall)"
+				]
+			},
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
+					"name": "Dual Mind",
 					"entries": [
-						"Jerbeens grow quickly, reaching maturity around 5 years. They are the shortest lived of all the humblefolk races, living just about 40 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Being small and facing many threats in the world, jerbeens are sensitive to the feelings of others, and tend towards good alignments. They also lean more towards lawful alignments due to their co-operative nature."
+						"You have {@variantrule Advantage|XPHB} on Wisdom and Charisma saving throws."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Size",
+					"name": "Mental Discipline",
 					"entries": [
-						"Jerbeens have incredibly small and light bodies, standing between 2 and 3 feet tall, and weighing between 20 and 40 pounds. Your size is Small."
+						"You have {@variantrule Resistance|XPHB} to Psychic damage."
 					]
 				},
 				{
-					"name": "Speed",
 					"type": "entries",
+					"name": "Mind Link",
 					"entries": [
-						"Your base walking speed is 30 feet."
+						"You have telepathy with a range in feet equal to 10 times your level. When you're using this trait to speak telepathically to a creature, you can take a {@action Magic|XPHB} action to give that creature the ability to speak telepathically with you for 1 hour or until you take another {@action Magic|XPHB} action to end this effect."
 					]
 				},
 				{
-					"name": "Standing Leap",
 					"type": "entries",
+					"name": "Severed from Dreams",
 					"entries": [
-						"Your base long jump is 30 feet, and your base high jump is 15 feet, with or without a running start."
-					]
-				},
-				{
-					"name": "Nimbleness",
-					"type": "entries",
-					"entries": [
-						"You can move through the space of any creature that is of a size larger than yours."
-					]
-				},
-				{
-					"name": "Take Heart",
-					"type": "entries",
-					"entries": [
-						"You have advantage on Strength saving throws and saving throws against being frightened as long as you are within 5 feet of an ally who isn't {@condition frightened} or {@condition incapacitated} that you can both see and hear."
-					]
-				},
-				{
-					"name": "Team Tactics",
-					"type": "entries",
-					"entries": [
-						"You can use the {@action Help} action as a bonus action."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk and Jerbeen."
+						"You can't be the target of the {@spell Dream|XPHB} spell. In addition, when you finish a {@variantrule Long Rest|XPHB}, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another {@variantrule Long Rest|XPHB}."
 					]
 				}
 			],
@@ -8050,6 +8561,9 @@
 			"name": "Kalashtar",
 			"source": "ERLW",
 			"page": 29,
+			"reprintedAs": [
+				"Kalashtar|EFA"
+			],
 			"size": [
 				"M"
 			],
@@ -8216,7 +8730,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/kenku.mp3"
+				"path": "races/kenku.opus"
 			},
 			"entries": [
 				{
@@ -8229,7 +8743,7 @@
 				{
 					"name": "Mimicry",
 					"entries": [
-						"You can mimic any sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom ({@skill Insight}) check."
+						"You can mimic any sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom ({@skill Insight}) check."
 					],
 					"type": "entries"
 				},
@@ -8257,6 +8771,10 @@
 					"any": 2
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/kenku.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -8345,7 +8863,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/kenku.mp3"
+				"path": "races/kenku.opus"
 			},
 			"entries": [
 				{
@@ -8473,6 +8991,174 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Khoravar",
+			"alias": [
+				"Half-Elf"
+			],
+			"source": "EFA",
+			"page": 36,
+			"edition": "one",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"size": [
+				"S",
+				"M"
+			],
+			"speed": 30,
+			"darkvision": 60,
+			"traitTags": [
+				"Skill Proficiency",
+				"Tool Proficiency"
+			],
+			"additionalSpells": [
+				{
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": {
+							"_": [
+								{
+									"choose": "level=0|class=Cleric;Druid;Wizard"
+								}
+							]
+						}
+					}
+				}
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-6 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Darkvision",
+					"entries": [
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Fey Ancestry",
+					"entries": [
+						"You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Charmed|XPHB} condition."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Fey Gift",
+					"entries": [
+						"You know the {@spell Friends|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different cantrip from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose the ability when you select this species)."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Lethargy Resilience",
+					"entries": [
+						"When you fail a saving throw to avoid or end the {@condition Unconscious|XPHB} condition, you can succeed instead. Once you use this trait, you can't do so again until you finish {@dice 1d4} {@variantrule Long Rest|XPHB|Long Rests}."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Skill Versatility",
+					"entries": [
+						"You gain proficiency in one skill or with one tool of your choice. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace it with another skill or tool proficiency."
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Kithkin",
+			"source": "LFL",
+			"_copy": {
+				"name": "Halfling",
+				"source": "XPHB",
+				"_mod": {
+					"entries": {
+						"mode": "appendArr",
+						"items": {
+							"type": "entries",
+							"name": "Kithkin Lineage",
+							"entries": [
+								"As a native of either Lorwyn and Shadowmoor, you may gain additional traits.",
+								{
+									"type": "list",
+									"style": "list-hang-notitle",
+									"items": [
+										{
+											"type": "item",
+											"name": "Lorwyn",
+											"entries": [
+												"You do not gain any additional traits."
+											]
+										},
+										{
+											"type": "item",
+											"name": "Shadowmoor",
+											"entries": [
+												"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+											]
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			},
+			"darkvision": 120,
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"name": "Kithkin; Lorwyn",
+					"source": "LFL",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "removeArr",
+								"names": "Kithkin Lineage"
+							}
+						]
+					}
+				},
+				{
+					"name": "Kithkin; Shadowmoor",
+					"source": "LFL",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "prependArr",
+								"items": {
+									"type": "entries",
+									"name": "Darkvision",
+									"entries": [
+										"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+									]
+								}
+							},
+							{
+								"mode": "removeArr",
+								"names": "Kithkin Lineage"
+							}
+						]
+					},
+					"darkvision": 120
+				}
+			]
+		},
+		{
 			"name": "Kobold",
 			"source": "DMG",
 			"page": 282,
@@ -8497,6 +9183,10 @@
 					"draconic": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/kobold.opus"
+			},
 			"entries": [
 				{
 					"name": "Pack Tactics",
@@ -8551,6 +9241,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/kobold.opus"
+			},
 			"additionalSpells": [
 				{
 					"ability": {
@@ -8710,6 +9404,10 @@
 					"draconic": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/kobold.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -8880,6 +9578,10 @@
 					"undercommon": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/kuo-toa.opus"
+			},
 			"entries": [
 				{
 					"name": "Amphibious",
@@ -9058,6 +9760,10 @@
 					"draconic": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/lizardfolk.opus"
+			},
 			"entries": [
 				{
 					"name": "Hold Breath",
@@ -9113,6 +9819,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/lizardfolk.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -9214,6 +9924,10 @@
 					"draconic": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/lizardfolk.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -9239,7 +9953,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -9388,6 +10102,68 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Lorwyn Changeling",
+			"source": "LFL",
+			"creatureTypes": [
+				"fey"
+			],
+			"size": [
+				"S",
+				"M"
+			],
+			"speed": 30,
+			"darkvision": 120,
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"performance"
+						]
+					}
+				}
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Shape Self",
+					"entries": [
+						"As an action, you can reshape your body to a two-legged Humanoid shape or to a four-legged Beast shape. While you have a Humanoid shape, you can wear clothing and armor made for a Humanoid of your size."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Darkvision",
+					"entries": [
+						"You have {@sense Darkvision|XPHB} with a range of 120 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Delightful Imitator",
+					"entries": [
+						"You have proficiency in the {@skill Deception|XPHB} or {@skill Performance|XPHB} skill."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Unpredictable Movement",
+					"entries": [
+						"When you roll {@variantrule Initiative|XPHB}, you can immediately move up to half your {@variantrule Speed|XPHB}, provided you don't have {@variantrule Disadvantage|XPHB} on the {@variantrule Initiative|XPHB} roll."
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Loxodon",
 			"source": "GGR",
 			"page": 17,
@@ -9498,194 +10274,68 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Luma",
-			"source": "HWCS",
-			"page": 16,
+			"name": "Lupin",
+			"source": "RHW",
+			"page": 30,
+			"edition": "one",
+			"creatureTypes": [
+				"humanoid"
+			],
 			"size": [
-				"S"
-			],
-			"speed": 25,
-			"ability": [
-				{
-					"cha": 2
-				}
-			],
-			"languageProficiencies": [
-				{
-					"other": true,
-					"auran": true
-				}
-			],
-			"entries": [
-				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"Lumas are short-lived reaching adulthood around 20 years. Few lumas live beyond 70 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Spurred by personal interests and flights of fancy, lumas lean towards chaotic alignments. While generally good natured, those that have been spurned by society find it hard to see the benefits of altruism, but even under such circumstances lumas are rarely evil."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Lumas are the shortest and lightest of the birdfolk, standing roughly 3 feet tall and weighing only around 30 pounds. Your size is Small."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 25 feet."
-					]
-				},
-				{
-					"name": "Glide",
-					"type": "entries",
-					"entries": [
-						"Using your feathered arms, you can slow your fall, and glide short distances. When falling you can use your reaction to spread your arms, stiffen your wing feathers, and slow your descent. While doing so, you continue to fall gently at a speed of 60 feet per round, taking no fall damage when you land. If you would fall at least 10 feet in this way, you may fly up to your movement speed in one direction you choose, although you cannot choose to move upwards, landing in the space you finish your movement. You cannot glide while carrying heavy weapons or wielding a shield (though you may drop any held items as part of your reaction to spread your arms). You cannot glide while wearing heavy armor, or if you are encumbered."
-					]
-				},
-				{
-					"name": "Wing Flap",
-					"type": "entries",
-					"entries": [
-						"As a bonus action, you can use your powerful feathered arms to propel yourself upward a distance equal to half your movement speed. You can use it in conjunction with a regular jump, but not while gliding."
-					]
-				},
-				{
-					"name": "Touched",
-					"type": "entries",
-					"entries": [
-						"You know one {@filter cantrip from the sorcerer spell list|spells|level=0|class=sorcerer}. Charisma is your spellcasting ability for this cantrip."
-					]
-				},
-				{
-					"name": "Fated",
-					"type": "entries",
-					"entries": [
-						"Whether by luck or a guiding presence, you always seem to find your way. You can choose to reroll any attack, skill check, or saving throw. You can decide to do this after your roll, but only before the outcome of the roll has been determined. You can't use this feature again until you have completed a long rest."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk. You can also understand Auran, though you cannot speak it naturally."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Mapach",
-			"source": "HWCS",
-			"page": 28,
-			"size": [
+				"S",
 				"M"
 			],
-			"speed": {
-				"walk": 30,
-				"climb": 20
-			},
-			"ability": [
-				{
-					"wis": 2,
-					"con": 1
-				}
-			],
+			"speed": 30,
 			"darkvision": 60,
-			"languageProficiencies": [
+			"traitTags": [
+				"Natural Weapon"
+			],
+			"skillProficiencies": [
 				{
-					"other": true
+					"choose": {
+						"from": [
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
 				}
 			],
-			"toolProficiencies": [
-				{
-					"tinker's tools": true
-				}
-			],
-			"resist": [
-				"poison"
-			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
-					"entries": [
-						"Mapachs mature quickly, reaching adulthood around 8 years. Despite this they have fairly average lifespans, the oldest among them living just past 60 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Mapachs don't favour good over evil, with most choosing to remain neutral. They also lean towards the freedom of chaotic alignments."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Mapachs stand between 4 and 5 feet tall, and encompass a variety of builds from svelt to wide, weighing between 90 and 160 pounds. Your size is Medium."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 30 feet."
-					]
-				},
-				{
 					"name": "Darkvision",
-					"type": "entries",
 					"entries": [
-						"You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Mapachs are most comfortable under the cloak of night."
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
 					]
 				},
 				{
-					"name": "Expert Climbers",
 					"type": "entries",
+					"name": "Feral Pounce",
 					"entries": [
-						"You have a climb speed of 20 feet."
+						"Your {@variantrule Unarmed Strike|XPHB|Unarmed Strikes} deal Slashing damage instead of Bludgeoning damage. In addition, when you hit a creature with an {@variantrule Unarmed Strike|XPHB} as part of the {@action Attack|XPHB} action on your turn, you can use both the {@variantrule Damage|XPHB} and the Shove options. You can use this benefit only once per turn."
 					]
 				},
 				{
-					"name": "Resilience",
 					"type": "entries",
+					"name": "Howl",
 					"entries": [
-						"You have advantage on saving throws against poison and resistance against poison damage."
+						"As a {@variantrule Bonus Action|XPHB}, you let out an unearthly howl. Each creature of your choice within 15 feet of you must succeed on a Wisdom saving throw (DC 8 plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have {@variantrule Disadvantage|XPHB} on attack rolls and saving throws until the start of your next turn.",
+						"You can use this trait a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
 					]
 				},
 				{
-					"name": "Scroungecraft",
 					"type": "entries",
+					"name": "Werewolf Instincts",
 					"entries": [
-						"You are proficient with {@item tinker's tools|PHB}. Additionally, you have the ability to construct crude but functional versions of common items using materials present in your surroundings. You may spend 10 minutes to craft these materials into any tool or piece of adventuring gear worth 30 gold pieces or less. The item will be completely functional, even capable of passing for a disguise (if you crafted an article of clothing). Tools, along with any other item that would logically break on its first use (caltrops, arrows), will become useless afterward. Scroungecrafted items will otherwise last 1 hour before falling apart.",
-						"Depending on the materials available, a Game Master (GM) may rule that you cannot craft an item in this way. For example, a vial of acid might be easy to make if you happen to be near a nest of acidic beetle larvae, or bark can be bound into a makeshift flask, but it would be difficult to create a passable facsimile of silken robes from a pile of leaves.",
-						"Should you have access to the proper materials, you can spend 8 hours converting an item you have scroungecrafted in this way into a permanent version, so long as you start this process before the item falls apart. Items crafted in such a way will function exactly as a normal version of the item, and if you have proficiency in the tools used to craft them, they can even look professionally-crafted. Otherwise, they retain a rather rough, cobbled-together appearance. You can also use scroungecraft to repair broken equipment, provided you have the materials on hand. Though, how long your repairs hold together is up to the GM."
-					]
-				},
-				{
-					"name": "Skulker",
-					"type": "entries",
-					"entries": [
-						"You have advantage on {@skill Stealth} checks made in dim light and darkness."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk and Mapach."
+						"You have proficiency in the {@skill Perception|XPHB}, {@skill Stealth|XPHB}, or {@skill Survival|XPHB} skill."
 					]
 				}
 			],
@@ -9713,6 +10363,10 @@
 					"aquan": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/merfolk.opus"
+			},
 			"entries": [
 				{
 					"name": "Amphibious",
@@ -9766,6 +10420,10 @@
 					"anyStandard": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/merfolk.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -9859,6 +10517,10 @@
 					"other": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/minotaur.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -9890,7 +10552,7 @@
 				{
 					"name": "Horns",
 					"entries": [
-						"Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -9963,6 +10625,10 @@
 					]
 				}
 			},
+			"soundClip": {
+				"type": "internal",
+				"path": "races/minotaur.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -9978,6 +10644,10 @@
 			"traitTags": [
 				"Natural Weapon"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/minotaur.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -10043,6 +10713,10 @@
 					"other": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/minotaur.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -10068,7 +10742,7 @@
 				{
 					"name": "Natural Weapon",
 					"entries": [
-						"You can use your horns as a natural weapon to make unarmed strikes. If you hit with your horns, you deal bludgeoning damage equal to {@dice 1d6} + your Strength modifier."
+						"You can use your horns as a natural weapon to make unarmed strikes. If you hit with your horns, you deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -10123,7 +10797,6 @@
 				"max": 100
 			},
 			"traitTags": [
-				"Language Proficiency",
 				"Natural Weapon"
 			],
 			"languageProficiencies": [
@@ -10176,8 +10849,8 @@
 					"name": "Natural Weapons",
 					"entries": [
 						"Your fanged maw and constricting serpentine body are natural weapons, which you can use to make unarmed strikes.",
-						"If you hit with your bite, you deal piercing damage equal to {@damage 1d4} + your Strength modifier, and your target must make a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier). On a failed save, the target takes {@damage 1d4} poison damage.",
-						"If you hit with your constrict attack, you deal bludgeoning damage equal to {@dice 1d6} + your Strength modifier, and the target is {@condition grappled} (escape DC 8 + your proficiency bonus + your Strength modifier). Until this grapple ends, the target is {@condition restrained}, and you can't constrict another target."
+						"If you hit with your bite, you deal piercing damage equal to {@damage 1d4} + your Strength modifier, and your target must make a Constitution saving throw ({@dc 8} + your proficiency bonus + your Constitution modifier). On a failed save, the target takes {@damage 1d4} poison damage.",
+						"If you hit with your constrict attack, you deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier, and the target is {@condition grappled} (escape {@dc 8} + your proficiency bonus + your Strength modifier). Until this grapple ends, the target is {@condition restrained}, and you can't constrict another target."
 					],
 					"type": "entries"
 				},
@@ -10233,6 +10906,10 @@
 					"orc": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"entries": [
 				{
 					"name": "Aggressive",
@@ -10334,7 +11011,11 @@
 						"count": 2
 					}
 				}
-			]
+			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			}
 		},
 		{
 			"name": "Orc",
@@ -10390,6 +11071,10 @@
 					"orc": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -10465,6 +11150,10 @@
 			"traitTags": [
 				"Powerful Build"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -10554,6 +11243,10 @@
 					"orc": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -10612,6 +11305,8 @@
 			"name": "Orc",
 			"source": "XPHB",
 			"page": 195,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -10621,6 +11316,10 @@
 			],
 			"speed": 30,
 			"darkvision": 120,
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"sizeEntry": {
 				"type": "item",
 				"name": "Size:",
@@ -10685,6 +11384,10 @@
 					"orc": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/orc.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -10872,93 +11575,69 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Raptor",
-			"source": "HWCS",
-			"page": 18,
+			"name": "Reborn",
+			"source": "RHW",
+			"page": 31,
+			"edition": "one",
+			"creatureTypes": [
+				"humanoid"
+			],
 			"size": [
-				"S"
+				"S",
+				"M"
 			],
-			"speed": 25,
-			"ability": [
+			"speed": 30,
+			"skillProficiencies": [
 				{
-					"dex": 2
+					"any": 1
 				}
 			],
-			"languageProficiencies": [
+			"resist": [
 				{
-					"other": true,
-					"auran": true
+					"choose": {
+						"from": [
+							"cold",
+							"necrotic",
+							"poison"
+						]
+					}
 				}
 			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
+					"name": "Escaped Death",
 					"entries": [
-						"Raptors reach maturity around 20 years. They can live longer than any other birdfolk race, over 100 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Raptors tend towards neutral alignments. Preferring the path of naturalists and hunters, raptors rarely see value in order for the sake of order, and are often more pragmatic than idealistic."
+						"You have {@variantrule Advantage|XPHB} on {@variantrule Death Saving Throw|XPHB|Death Saving Throws}."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Size",
+					"name": "Everlasting",
 					"entries": [
-						"Raptors are lean, muscular hunters, but they stand less than 4 feet tall. Their light builds usually lend themselves to bodies that weigh far less than one would expect for their height, averaging around only 35 pounds. Your size is Small."
+						"You don't gain {@condition Exhaustion|XPHB} levels from dehydration, malnutrition, or suffocation. You don't need to sleep, and magic can't put you to sleep. You can finish a {@variantrule Long Rest|XPHB} in 4 hours if you spend those hours in an inactive, motionless state, during which you retain consciousness."
 					]
 				},
 				{
-					"name": "Speed",
 					"type": "entries",
+					"name": "Knowledge from a Past Life",
 					"entries": [
-						"Your base walking speed is 25 feet."
+						"You gain proficiency in one skill of your choice.",
+						"In addition, you can temporarily peer into the past to aid you in the present. When you fail an ability check, you can roll {@dice 1d6} and add the number rolled to the {@dice d20}, potentially turning the failure into a success. You can do this a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
 					]
 				},
 				{
-					"name": "Glide",
 					"type": "entries",
+					"name": "Strange Endurance",
 					"entries": [
-						"Using your feathered arms, you can slow your fall, and glide short distances. When falling you can use your reaction to spread your arms, stiffen your wing feathers, and slow your descent. While doing so, you continue to fall gently at a speed of 60 feet per round, taking no fall damage when you land. If you would fall at least 10 feet in this way, you may fly up to your movement speed in one direction you choose, although you cannot choose to move upwards, landing in the space you finish your movement. You cannot glide while carrying heavy weapons or wielding a shield (though you may drop any held items as part of your reaction to spread your arms). You cannot glide while wearing heavy armor, or if you are encumbered."
-					]
-				},
-				{
-					"name": "Talons",
-					"type": "entries",
-					"entries": [
-						"Your sharp claws aid you in unarmed combat and while climbing. Your damage for an unarmed strike is {@damage 1d4} piercing damage. Additionally, you have advantage on Strength ({@skill Athletics}) checks made to climb any surface your talons could reasonably grip."
-					]
-				},
-				{
-					"name": "Keen Senses",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Perception} skill."
-					]
-				},
-				{
-					"name": "Woodland Hunter",
-					"type": "entries",
-					"entries": [
-						"Your accuracy allows you to treat {@quickref Cover||3||three-quarters cover} as {@quickref Cover||3||half cover} and {@quickref Cover||3||half cover} as no cover."
-					]
-				},
-				{
-					"name": "Hunter's Training",
-					"type": "entries",
-					"entries": [
-						"You have proficiency with the {@item longbow|PHB}, {@item shortbow|PHB}, and {@item spear|PHB}. Additionally, your familiarity with the longbow means that it is not considered a heavy weapon for you."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk. You can also understand Auran, though you cannot speak it naturally."
+						"You have {@variantrule Resistance|XPHB} to one of the following damage types of your choice: Cold, Necrotic, or Poison."
 					]
 				}
 			],
@@ -10969,6 +11648,9 @@
 			"name": "Reborn",
 			"source": "VRGR",
 			"page": 20,
+			"reprintedAs": [
+				"Reborn|RHW"
+			],
 			"lineage": "VRGR",
 			"size": [
 				"S",
@@ -11018,6 +11700,87 @@
 					"name": "Knowledge from a Past Life",
 					"entries": [
 						"You temporarily remember glimpses of the past, perhaps faded memories from ages ago or a previous life. When you make an ability check that uses a skill, you can roll a {@dice d6} immediately after seeing the number on the {@dice d20} and add the number on the {@dice d6} to the check. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Rimekin",
+			"source": "LFL",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"size": [
+				"S",
+				"M"
+			],
+			"speed": 30,
+			"darkvision": 60,
+			"resist": [
+				"cold"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"ray of frost|xphb#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"ice knife|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"flame blade|xphb"
+								]
+							}
+						}
+					},
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					}
+				}
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Cold Fire Magic",
+					"entries": [
+						"You know the {@spell Ray of Frost|XPHB} cantrip. When you reach character levels 3 and 5, you learn the {@spell Ice Knife|XPHB} spell and the {@spell Flame Blade|XPHB} spell, respectively. You always have those spells prepared. You can cast each once without a spell slot, and you regain the ability to cast these spells in this way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spells using any spell slots you have of the appropriate level. When you cast {@spell Flame Blade|XPHB} using this trait, the spell deals Cold damage instead of Fire damage.",
+						"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose the ability when you select this species)."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Cold Resistance",
+					"entries": [
+						"You have {@variantrule Resistance|XPHB} to Cold damage."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Darkvision",
+					"entries": [
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
 					]
 				}
 			],
@@ -11075,6 +11838,10 @@
 					"anyMusicalInstrument": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/satyr.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -11170,6 +11937,10 @@
 					"anyMusicalInstrument": 1
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/satyr.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -11398,10 +12169,187 @@
 		},
 		{
 			"name": "Shifter",
+			"source": "EFA",
+			"page": 37,
+			"edition": "one",
+			"creatureTypes": [
+				"humanoid"
+			],
+			"size": [
+				"S",
+				"M"
+			],
+			"speed": 30,
+			"darkvision": 60,
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"acrobatics",
+							"athletics",
+							"intimidation",
+							"survival"
+						]
+					}
+				}
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 4-7 feet tall) or Small (about 2-4 feet tall), chosen when you select this species"
+				]
+			},
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Bestial Instincts",
+					"entries": [
+						"Channeling the beast within, you gain proficiency in one of the following skills of your choice: {@skill Acrobatics|XPHB}, {@skill Athletics|XPHB}, {@skill Intimidation|XPHB}, or {@skill Survival|XPHB}."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Darkvision",
+					"entries": [
+						"You have {@sense Darkvision|XPHB} with a range of 60 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Shifting",
+					"entries": [
+						"As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+						"Whenever you shift, you gain the benefit of one of the following options (choose when you select this species)",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"type": "item",
+									"name": "Beasthide",
+									"entries": [
+										"You gain {@dice 1d6} additional {@variantrule Temporary Hit Points|XPHB}. While shifted, you have a +1 bonus to your {@variantrule Armor Class|XPHB}."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Longtooth",
+									"entries": [
+										"When you shift and as a {@variantrule Bonus Action|XPHB} on your other turns while shifted, you can use your elongated fangs to make an {@variantrule Unarmed Strike|XPHB}. If you hit with this {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Piercing damage equal to {@dice 1d6} plus your Strength modifier, instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Swiftstride",
+									"entries": [
+										"While you are shifted, your {@variantrule Speed|XPHB} increases by 10 feet. Additionally, you can move up to 10 feet as a {@variantrule Reaction|XPHB} when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks}."
+									]
+								},
+								{
+									"type": "item",
+									"name": "Wildhunt",
+									"entries": [
+										"While shifted, you have {@variantrule Advantage|XPHB} on Wisdom checks. Additionally, no creature within 30 feet of you can have {@variantrule Advantage|XPHB} on an attack roll against you unless you have the {@condition Incapacitated|XPHB} condition."
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"name": "Shifter; Beasthide",
+					"source": "EFA",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "replaceArr",
+								"replace": "Shifting",
+								"items": {
+									"name": "Shifting (Beasthide)",
+									"type": "entries",
+									"entries": [
+										"As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+										"Whenever you shift, you gain {@dice 1d6} additional {@variantrule Temporary Hit Points|XPHB}. While shifted, you have a +1 bonus to your {@variantrule Armor Class|XPHB}."
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"name": "Shifter; Longtooth",
+					"source": "EFA",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "replaceArr",
+								"replace": "Shifting",
+								"items": {
+									"name": "Shifting (Longtooth)",
+									"type": "entries",
+									"entries": [
+										"As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+										"When you shift and as a {@variantrule Bonus Action|XPHB} on your other turns while shifted, you can use your elongated fangs to make an {@variantrule Unarmed Strike|XPHB}. If you hit with this {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Piercing damage equal to {@dice 1d6} plus your Strength modifier, instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}."
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"name": "Shifter; Swiftstride",
+					"source": "EFA",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "replaceArr",
+								"replace": "Shifting",
+								"items": {
+									"name": "Shifting (Swiftstride)",
+									"type": "entries",
+									"entries": [
+										"As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+										"While you are shifted, your {@variantrule Speed|XPHB} increases by 10 feet. Additionally, you can move up to 10 feet as a {@variantrule Reaction|XPHB} when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks}."
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"name": "Shifter; Wildhunt",
+					"source": "EFA",
+					"_mod": {
+						"entries": [
+							{
+								"mode": "replaceArr",
+								"replace": "Shifting",
+								"items": {
+									"name": "Shifting (Wildhunt)",
+									"type": "entries",
+									"entries": [
+										"As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+										"While shifted, you have {@variantrule Advantage|XPHB} on Wisdom checks. Additionally, no creature within 30 feet of you can have {@variantrule Advantage|XPHB} on an attack roll against you unless you have the {@condition Incapacitated|XPHB} condition."
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Shifter",
 			"source": "ERLW",
 			"page": 33,
 			"reprintedAs": [
-				"Shifter|MPMM"
+				"Shifter|MPMM",
+				"Shifter|EFA"
 			],
 			"size": [
 				"M"
@@ -11482,6 +12430,9 @@
 			"name": "Shifter",
 			"source": "MPMM",
 			"page": 32,
+			"reprintedAs": [
+				"Shifter|EFA"
+			],
 			"lineage": "VRGR",
 			"size": [
 				"M"
@@ -11532,7 +12483,7 @@
 								{
 									"type": "item",
 									"name": "Longtooth",
-									"entry": "When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+									"entry": "When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 								},
 								{
 									"type": "item",
@@ -11741,7 +12692,7 @@
 								{
 									"type": "item",
 									"name": "Grappling Appendage",
-									"entry": "You have two special appendages growing alongside your arms. Choose whether they're both claws or tentacles. As an action, you can use one of them to try to grapple a creature. Each one is also a natural weapon, which you can use to make an unarmed strike. If you hit with it, the target takes bludgeoning damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Immediately after hitting, you can try to grapple the target as a bonus action. These appendages can't precisely manipulate anything and can't wield weapons, magic items, or other specialized equipment."
+									"entry": "You have two special appendages growing alongside your arms. Choose whether they're both claws or tentacles. As an action, you can use one of them to try to grapple a creature. Each one is also a natural weapon, which you can use to make an unarmed strike. If you hit with it, the target takes bludgeoning damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Immediately after hitting, you can try to grapple the target as a bonus action. These appendages can't precisely manipulate anything and can't wield weapons, magic items, or other specialized equipment."
 								},
 								{
 									"type": "item",
@@ -11751,7 +12702,7 @@
 								{
 									"type": "item",
 									"name": "Acid Spit",
-									"entry": "As an action, you can spray acid from glands in your mouth, targeting one creature or object you can see within 30 feet of you. The target takes {@dice 2d10} acid damage unless it succeeds on a Dexterity saving throw against a DC equal to 8 + your Constitution modifier + your proficiency bonus. This damage increases by {@dice 1d10} when you reach 11th level ({@dice 3d10}) and 17th level ({@dice 4d10}). You can use this trait a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses of it when you finish a long rest."
+									"entry": "As an action, you can spray acid from glands in your mouth, targeting one creature or object you can see within 30 feet of you. The target takes {@damage 2d10} acid damage unless it succeeds on a Dexterity saving throw against a DC equal to 8 + your Constitution modifier + your proficiency bonus. This damage increases by {@damage 1d10} when you reach 11th level ({@damage 3d10}) and 17th level ({@damage 4d10}). You can use this trait a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses of it when you finish a long rest."
 								}
 							]
 						}
@@ -11865,6 +12816,10 @@
 				"exhaustion",
 				"poisoned"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/skeleton.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -11904,94 +12859,6 @@
 			]
 		},
 		{
-			"name": "Strig",
-			"source": "HWCS",
-			"page": 20,
-			"size": [
-				"M"
-			],
-			"speed": 30,
-			"ability": [
-				{
-					"str": 2
-				}
-			],
-			"darkvision": 60,
-			"languageProficiencies": [
-				{
-					"other": true,
-					"auran": true
-				}
-			],
-			"entries": [
-				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"Strigs reach maturity faster than most birdfolk races, around 15 years. They can reach a respectable old age by birdfolk standards, living around 80 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Strigs are normally good aligned, having a strong sense of fair play as well as a tendency to see the best in others. They also favor chaotic alignments, as strigs are a freedom-loving people who will usually put their personal morals above any imposed system of governance."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Strigs are muscular, imposing folk ranging from 4 to over 5 feet tall and weighing around 110 pounds. Your size is Medium."
-					]
-				},
-				{
-					"name": "Speed",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed is 30 feet."
-					]
-				},
-				{
-					"name": "Glide",
-					"type": "entries",
-					"entries": [
-						"Using your feathered arms, you can slow your fall, and glide short distances. When falling you can use your reaction to spread your arms, stiffen your wing feathers, and slow your descent. While doing so, you continue to fall gently at a speed of 60 feet per round, taking no fall damage when you land. If you would fall at least 10 feet in this way, you may fly up to your movement speed in one direction you choose, although you cannot choose to move upwards, landing in the space you finish your movement. You cannot glide while carrying heavy weapons or wielding a shield (though you may drop any held items as part of your reaction to spread your arms). You cannot glide while wearing heavy armor, or if you are encumbered."
-					]
-				},
-				{
-					"name": "Talons",
-					"type": "entries",
-					"entries": [
-						"Your sharp claws aid you in unarmed combat and while climbing. Your damage for an unarmed strike is {@damage 1d4} piercing damage. Additionally, you have advantage on Strength ({@skill Athletics}) checks made to climb any surface your talons could reasonably grip."
-					]
-				},
-				{
-					"name": "Darkvision",
-					"type": "entries",
-					"entries": [
-						"You are adept at hunting under the cover of night. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-					]
-				},
-				{
-					"name": "Patterned Feathers",
-					"type": "entries",
-					"entries": [
-						"You have advantage on Dexterity ({@skill Stealth}) checks when you attempt to hide in a forest."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk. You can also understand Auran, though you cannot speak it naturally."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
 			"name": "Tabaxi",
 			"source": "MPMM",
 			"page": 33,
@@ -12014,6 +12881,10 @@
 					"stealth": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/tabaxi.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -12115,7 +12986,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/tabaxi.mp3"
+				"path": "races/tabaxi.opus"
 			},
 			"entries": [
 				{
@@ -12189,6 +13060,10 @@
 				"Improved Resting",
 				"Natural Armor"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/thri-kreen.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -12223,7 +13098,7 @@
 					"type": "entries",
 					"name": "Secondary Arms",
 					"entries": [
-						"You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an object, open or close a door or container, pick up or set down a Tiny object, or wield a weapon that has the light property."
+						"You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an object, open or close a door or container, pick up or set down a Tiny object, or wield a weapon that has the {@itemProperty L||light} property."
 					]
 				},
 				{
@@ -12287,7 +13162,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/tiefling.mp3"
+				"path": "races/tiefling.opus"
 			},
 			"additionalSpells": [
 				{
@@ -12366,6 +13241,8 @@
 			"name": "Tiefling",
 			"source": "XPHB",
 			"page": 197,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
 				"humanoid"
@@ -12376,8 +13253,24 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"resist": [
+				{
+					"choose": {
+						"from": [
+							"poison",
+							"necrotic",
+							"fire"
+						]
+					}
+				}
+			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/tiefling.opus"
+			},
 			"additionalSpells": [
 				{
+					"name": "Abyssal",
 					"ability": {
 						"choose": [
 							"int",
@@ -12387,8 +13280,89 @@
 					},
 					"known": {
 						"1": [
-							"thaumaturgy|xphb#c"
+							"thaumaturgy|xphb#c",
+							"poison spray|xphb#c"
 						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"ray of sickness|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"hold person|xphb"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Chthonic",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"thaumaturgy|xphb#c",
+							"chill touch|xphb#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"false life|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"ray of enfeeblement|xphb"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Infernal",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"thaumaturgy|xphb#c",
+							"fire bolt|xphb#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"hellish rebuke|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"darkness|xphb"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -12431,19 +13405,19 @@
 							"rows": [
 								[
 									"Abyssal",
-									"You have Resistance to Poison damage. You also know the {@spell Poison Spray|XPHB} cantrip.",
+									"You have {@variantrule Resistance|XPHB} to Poison damage. You also know the {@spell Poison Spray|XPHB} cantrip.",
 									"{@spell Ray of Sickness|XPHB}",
 									"{@spell Hold Person|XPHB}"
 								],
 								[
 									"Chthonic",
-									"You have Resistance to Necrotic damage. You also know the {@spell Chill Touch|XPHB} cantrip.",
+									"You have {@variantrule Resistance|XPHB} to Necrotic damage. You also know the {@spell Chill Touch|XPHB} cantrip.",
 									"{@spell False Life|XPHB}",
 									"{@spell Ray of Enfeeblement|XPHB}"
 								],
 								[
 									"Infernal",
-									"You have Resistance to Fire damage. You also know the {@spell Fire Bolt|XPHB} cantrip.",
+									"You have {@variantrule Resistance|XPHB} to Fire damage. You also know the {@spell Fire Bolt|XPHB} cantrip.",
 									"{@spell Hellish Rebuke|XPHB}",
 									"{@spell Darkness|XPHB}"
 								]
@@ -12658,6 +13632,10 @@
 					}
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/tortle.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -12747,6 +13725,10 @@
 					"common": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/tortle.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -12846,6 +13828,10 @@
 					"reprintedAs": true
 				}
 			},
+			"soundClip": {
+				"type": "internal",
+				"path": "races/triton.opus"
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -12868,6 +13854,10 @@
 			"resist": [
 				"cold"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/triton.opus"
+			},
 			"additionalSpells": [
 				{
 					"innate": {
@@ -12996,7 +13986,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/triton.mp3"
+				"path": "races/triton.opus"
 			},
 			"additionalSpells": [
 				{
@@ -13121,6 +14111,10 @@
 					"other": true
 				}
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/troglodyte.opus"
+			},
 			"entries": [
 				{
 					"name": "Chameleon Skin",
@@ -13133,7 +14127,7 @@
 					"name": "Stench",
 					"type": "entries",
 					"entries": [
-						"Any creature other than a troglodyte that starts its turn within 5 ft. of you must succeed on a DC 12 Constitution saving throw or be {@condition poisoned} until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour."
+						"Any creature other than a troglodyte that starts its turn within 5 ft. of you must succeed on a {@dc 12} Constitution saving throw or be {@condition poisoned} until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour."
 					]
 				},
 				{
@@ -13195,6 +14189,10 @@
 			"resist": [
 				"necrotic"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/vampire.opus"
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -13220,7 +14218,7 @@
 				{
 					"name": "Blood Thirst",
 					"entries": [
-						"You can drain blood and life energy from a willing creature, or one that is {@condition grappled} by you, {@condition incapacitated}, or {@condition restrained}. Make a melee attack against the target. If you hit, you deal 1 piercing damage and {@dice 1d6} necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and you regain hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+						"You can drain blood and life energy from a willing creature, or one that is {@condition grappled} by you, {@condition incapacitated}, or {@condition restrained}. Make a melee attack against the target. If you hit, you deal 1 piercing damage and {@damage 1d6} necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and you regain hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
 					],
 					"type": "entries"
 				},
@@ -13521,111 +14519,76 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Vulpin",
-			"source": "HWCS",
-			"page": 30,
+			"name": "Warforged",
+			"source": "EFA",
+			"page": 38,
+			"edition": "one",
+			"creatureTypes": [
+				"construct"
+			],
 			"size": [
+				"S",
 				"M"
 			],
 			"speed": 30,
-			"ability": [
-				{
-					"int": 2,
-					"cha": 1
-				}
-			],
-			"darkvision": 60,
 			"traitTags": [
-				"Natural Weapon"
+				"Improved Resting",
+				"Natural Armor"
 			],
-			"languageProficiencies": [
+			"skillProficiencies": [
 				{
-					"other": true
+					"any": 1
 				}
 			],
-			"additionalSpells": [
+			"toolProficiencies": [
 				{
-					"ability": "int",
-					"innate": {
-						"3": {
-							"daily": {
-								"1": [
-									"ambush prey|HWCS"
-								]
-							}
-						},
-						"5": {
-							"daily": {
-								"1": [
-									"fear"
-								]
-							}
-						}
-					}
+					"any": 1
 				}
 			],
+			"resist": [
+				"poison"
+			],
+			"sizeEntry": {
+				"type": "item",
+				"name": "Size:",
+				"entries": [
+					"Medium (about 6-8 feet tall) or Small (about 3-4 feet tall), chosen when you select this species"
+				]
+			},
 			"entries": [
 				{
-					"name": "Age",
 					"type": "entries",
+					"name": "Construct Resilience",
 					"entries": [
-						"Vulpins mature at an average pace, and can be comparatively long-lived. They reach adulthood at 15 years, and live well past 90 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Vulpins aren't innately evil, but their difficulty empathizing with others means they are only rarely good aligned. Most vulpins find strict authority distasteful, preferring chaotic alignments over lawful ones."
+						"You have {@variantrule Resistance|XPHB} to Poison damage. You also have {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Poisoned|XPHB} condition."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Size",
+					"name": "Integrated Protection",
 					"entries": [
-						"Vulpins cut dashing figures and are usually lean and muscular. They stand between 4 and a half and 5 and a half feet tall, but are relatively lightweight, weighing between 90 and 140 pounds. Your size is Medium."
+						"You gain a +1 bonus to your {@variantrule Armor Class|XPHB}. In addition, armor you have donned can't be removed against your will while you're alive."
 					]
 				},
 				{
-					"name": "Speed",
 					"type": "entries",
+					"name": "Sentry's Rest",
 					"entries": [
-						"Your base walking speed is 30 feet."
+						"You don't need to sleep, and magic can't put you to sleep. You can finish a {@variantrule Long Rest|XPHB} in 6 hours if you spend those hours in an inactive, motionless state. During this time, you appear inert but remain conscious."
 					]
 				},
 				{
-					"name": "Darkvision",
 					"type": "entries",
+					"name": "Specialized Design",
 					"entries": [
-						"You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Mapachs are most comfortable under the cloak of night."
+						"You gain one skill proficiency and one tool proficiency of your choice."
 					]
 				},
 				{
-					"name": "Bite",
 					"type": "entries",
+					"name": "Tireless",
 					"entries": [
-						"You have sharp fangs that enable you to make natural bite attacks. You can choose to bite as an unarmed strike that deals {@damage 1d6} points of piercing damage, which can be calculated using either your Strength or Dexterity modifier for both the attack roll and damage bonus."
-					]
-				},
-				{
-					"name": "Evasive",
-					"type": "entries",
-					"entries": [
-						"You add your Intelligence modifier as a bonus on all Dexterity saving throws."
-					]
-				},
-				{
-					"name": "Bewitching Guile",
-					"type": "entries",
-					"entries": [
-						"You can cast {@spell charm person} as a 1st level spell with this trait, and regain the ability to do so when you finish a long rest. When you reach 3rd level, you can cast {@spell ambush prey|HWCS} as a 2nd level spell with this trait, and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast {@spell fear} with this trait, and regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells."
-					]
-				},
-				{
-					"name": "Languages",
-					"type": "entries",
-					"entries": [
-						"You can speak, read, and write Birdfolk and Vulpin."
+						"You don't gain {@condition Exhaustion|XPHB} levels from dehydration, malnutrition, or suffocation."
 					]
 				}
 			],
@@ -13636,6 +14599,9 @@
 			"name": "Warforged",
 			"source": "ERLW",
 			"page": 35,
+			"reprintedAs": [
+				"Warforged|EFA"
+			],
 			"size": [
 				"M"
 			],
@@ -13900,6 +14866,10 @@
 			"conditionImmune": [
 				"poisoned"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/yuan-ti-pureblood.opus"
+			},
 			"additionalSpells": [
 				{
 					"innate": {
@@ -14007,6 +14977,10 @@
 			"conditionImmune": [
 				"poisoned"
 			],
+			"soundClip": {
+				"type": "internal",
+				"path": "races/zombie.opus"
+			},
 			"entries": [
 				{
 					"type": "entries",
@@ -14048,6 +15022,55 @@
 	],
 	"subrace": [
 		{
+			"name": "Amonkhet",
+			"source": "PSA",
+			"page": 14,
+			"_copy": {
+				"name": "Variant",
+				"source": "PHB",
+				"raceName": "Human",
+				"raceSource": "PHB",
+				"_mod": {
+					"entries": [
+						{
+							"mode": "appendArr",
+							"items": [
+								{
+									"name": "Age",
+									"type": "entries",
+									"entries": [
+										"Humans reach adulthood in their late teens. Most human initiates have completed the trials and found a glorious or inglorious death before they turn 30. Viziers can enjoy longer service to their gods, in theory living up to a century."
+									],
+									"data": {
+										"overwrite": "Age"
+									}
+								},
+								{
+									"name": "Languages",
+									"entries": [
+										"You can speak, read, and write Common and one extra language of your choice."
+									],
+									"type": "entries",
+									"data": {
+										"overwrite": "Languages"
+									}
+								},
+								{
+									"name": "Alignment",
+									"type": "entries",
+									"entries": [
+										"Humans tend toward no particular alignment. The best and the worst are found among them."
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Fallen",
 			"source": "VGM",
 			"raceName": "Aasimar",
@@ -14066,7 +15089,7 @@
 				{
 					"name": "Necrotic Shroud",
 					"entries": [
-						"Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn.",
+						"Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must succeed on a Charisma saving throw ({@dc 8} + your proficiency bonus + your Charisma modifier) or become {@condition frightened} of you until the end of your next turn.",
 						"Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.",
 						"Once you use this trait, you can't use it again until you finish a long rest."
 					],
@@ -14180,150 +15203,6 @@
 						"You can add half your proficiency bonus, rounded down, to any Intelligence check you make that doesn't already include your proficiency bonus."
 					],
 					"type": "entries"
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Grove",
-			"source": "HWCS",
-			"raceName": "Cervan",
-			"raceSource": "HWCS",
-			"page": 22,
-			"speed": 35,
-			"ability": [
-				{
-					"dex": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "Swift",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed increases to 35 feet."
-					]
-				},
-				{
-					"name": "Standing Leap",
-					"type": "entries",
-					"entries": [
-						"Your base long jump is 30 feet, and your base high jump is 15 feet, with or without a running start."
-					]
-				},
-				{
-					"name": "Nimble Step",
-					"type": "entries",
-					"entries": [
-						"Opportunity attacks made against you are rolled with disadvantage."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Pronghorn",
-			"source": "HWCS",
-			"raceName": "Cervan",
-			"raceSource": "HWCS",
-			"page": 22,
-			"ability": [
-				{
-					"str": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon",
-				"Powerful Build"
-			],
-			"entries": [
-				{
-					"name": "Robust Build",
-					"type": "entries",
-					"entries": [
-						"Your carrying capacity is doubled, as is the weight you can push, drag, or lift."
-					]
-				},
-				{
-					"name": "Antlers",
-					"type": "entries",
-					"entries": [
-						"You have a set of large, strong antlers that can be used to make devastating charge attacks. You can use your unarmed strike to gore opponents, dealing {@damage 1d6} + your Strength Modifier piercing damage on a hit.",
-						"Additionally, if you move at least 20 feet in a straight line towards an opponent, you can spend a bonus action to charge them, dealing an extra 1d6 points of piercing damage. If the target of your charge is Large or smaller, they must make a Strength saving throw against a DC of your Proficiency Bonus + 8 + your Strength Modifier. On failure, the target is pushed 10 feet away from you into a space of your choice."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Dusk",
-			"source": "HWCS",
-			"raceName": "Corvum",
-			"raceSource": "HWCS",
-			"page": 12,
-			"ability": [
-				{
-					"dex": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"entries": [
-				{
-					"name": "Skulker",
-					"type": "entries",
-					"entries": [
-						"You have advantage on Dexterity ({@skill Stealth}) checks made in dim light or darkness."
-					]
-				},
-				{
-					"name": "Street Smarts",
-					"type": "entries",
-					"entries": [
-						"You gain proficiency in the {@skill Insight} skill."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Kindled",
-			"source": "HWCS",
-			"raceName": "Corvum",
-			"raceSource": "HWCS",
-			"page": 12,
-			"ability": [
-				{
-					"cha": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"toolProficiencies": [
-				{
-					"any": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "Convincing",
-					"type": "entries",
-					"entries": [
-						"Kindled corvums have a way with words, and are accomplished at saying what someone wants or needs to hear. You have proficiency in either the {@skill Deception} or {@skill Persuasion} skill. Additionally, you have advantage on all Charisma checks made to convince someone of your exceptional knowledge on any topic related to the skill you selected with your learned trait ({@skill Arcana}, {@skill History}, {@skill Nature}, or {@skill Religion})."
-					]
-				},
-				{
-					"name": "Sharp Mind",
-					"type": "entries",
-					"entries": [
-						"You learn one additional language of your choice, gain proficiency in a {@book tool|PHB|5|Tools} of your choice, and are able to accurately recall with perfect clarity anything you have seen or heard within the past month."
-					]
 				}
 			],
 			"hasFluff": true,
@@ -15091,6 +15970,12 @@
 			"raceName": "Dwarf",
 			"raceSource": "PHB",
 			"page": 51,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Warding|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"int": 1
@@ -15522,6 +16407,12 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 49,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Shadow|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"cha": 1
@@ -16106,66 +16997,6 @@
 						"You have proficiency with any combination of two other skills or {@book tools|phb|5|tools} of your choice."
 					],
 					"type": "entries"
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Bright",
-			"source": "HWCS",
-			"raceName": "Gallus",
-			"raceSource": "HWCS",
-			"page": 14,
-			"ability": [
-				{
-					"cha": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "Inspiring",
-					"type": "entries",
-					"entries": [
-						"By spending an action and giving words of advice or encouragement, you can inspire an ally who is able to see and hear you. The ally can roll a {@dice d4} and add the number rolled to their next ability check, attack roll, or saving throw."
-					]
-				},
-				{
-					"name": "Understanding",
-					"type": "entries",
-					"entries": [
-						"You gain proficiency in the {@skill Insight} skill."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Huden",
-			"source": "HWCS",
-			"raceName": "Gallus",
-			"raceSource": "HWCS",
-			"page": 14,
-			"ability": [
-				{
-					"dex": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "One With the Wood",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Nature} skill."
-					]
-				},
-				{
-					"name": "Seedspeech",
-					"type": "entries",
-					"entries": [
-						"Your connection to the Great Rhythm is such that you can speak with the greenery of the forest itself. Through speech and touch you can communicate simple ideas to living plants. You are able to interpret their responses in simple language. Plants in the Wood do not experience the world in terms of sight, but most can feel differences in temperature, describe things that have touched them, as well as hear vibrations that happened around them (including speech)."
-					]
 				}
 			],
 			"hasFluff": true,
@@ -17073,6 +17904,12 @@
 			"raceName": "Gnome",
 			"raceSource": "PHB",
 			"page": 47,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Scribing|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"cha": 1
@@ -17219,7 +18056,7 @@
 				{
 					"name": "Tinker",
 					"entries": [
-						"You have proficiency with artisan's tools ({@item tinker's tools|phb}). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.",
+						"You have proficiency with {@item artisan's tools|PHB} ({@item tinker's tools|phb}). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.",
 						"When you create a device, choose one of the following options:",
 						{
 							"type": "entries",
@@ -17261,6 +18098,7 @@
 					"dex": 2
 				}
 			],
+			"resist": null,
 			"entries": [
 				{
 					"name": "Alignment",
@@ -17312,13 +18150,6 @@
 			],
 			"entries": [
 				{
-					"name": "Grit",
-					"entries": [
-						"You have resistance to fire damage and psychic damage. In addition, when you are wearing no armor, your AC is equal to 11 + your Dexterity modifier."
-					],
-					"type": "entries"
-				},
-				{
 					"name": "Grotag Tamer",
 					"entries": [
 						"You have proficiency in the {@skill Animal Handling} skill."
@@ -17342,13 +18173,6 @@
 				}
 			],
 			"entries": [
-				{
-					"name": "Grit",
-					"entries": [
-						"You have resistance to fire damage and psychic damage. In addition, when you are wearing no armor, your AC is equal to 11 + your Dexterity modifier."
-					],
-					"type": "entries"
-				},
 				{
 					"name": "Lavastep Grit",
 					"entries": [
@@ -17379,13 +18203,6 @@
 			],
 			"entries": [
 				{
-					"name": "Grit",
-					"entries": [
-						"You have resistance to fire damage and psychic damage. In addition, when you are wearing no armor, your AC is equal to 11 + your Dexterity modifier."
-					],
-					"type": "entries"
-				},
-				{
 					"name": "Tuktuk Cunning",
 					"entries": [
 						"You have proficiency with {@item thieves' tools|phb}."
@@ -17402,6 +18219,9 @@
 			"raceSource": "PHB",
 			"page": 38,
 			"srd": true,
+			"reprintedAs": [
+				"Khoravar|EFA"
+			],
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -17597,6 +18417,12 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 40,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Detection|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"wis": 2,
@@ -17726,6 +18552,12 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 50,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Storm|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"cha": 2,
@@ -18125,10 +18957,17 @@
 			"raceName": "Half-Orc",
 			"raceSource": "PHB",
 			"page": 41,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Finding|EFA",
+					"tag": "feat"
+				}
+			],
 			"traitTags": [
 				"Dragonmark",
 				"Skill Bonus Dice"
 			],
+			"skillProficiencies": null,
 			"languageProficiencies": [
 				{
 					"common": true,
@@ -18137,7 +18976,7 @@
 			],
 			"soundClip": {
 				"type": "internal",
-				"path": "races/half-orc.mp3"
+				"path": "races/half-orc.opus"
 			},
 			"additionalSpells": [
 				{
@@ -18377,6 +19216,12 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 43,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Healing|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"wis": 1
@@ -18489,6 +19334,12 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 44,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Hospitality|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"cha": 1
@@ -18745,6 +19596,12 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 42,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Handling|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"wis": 2,
@@ -18871,6 +19728,12 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 45,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Making|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"int": 2,
@@ -18940,7 +19803,7 @@
 					"type": "entries",
 					"name": "Maker's Gift",
 					"entries": [
-						"You gain proficiency with one type of artisan's tools of your choice."
+						"You gain proficiency with one type of {@item artisan's tools|PHB} of your choice."
 					]
 				},
 				{
@@ -18999,6 +19862,12 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 46,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Passage|EFA",
+					"tag": "feat"
+				}
+			],
 			"speed": 35,
 			"ability": [
 				{
@@ -19120,6 +19989,12 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 48,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Sentinel|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"con": 2,
@@ -19284,6 +20159,12 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 41,
+			"reprintedAs": [
+				{
+					"uid": "Mark of Finding|EFA",
+					"tag": "feat"
+				}
+			],
 			"ability": [
 				{
 					"con": 1,
@@ -19560,69 +20441,6 @@
 						"Your hit point maximum increases by 2, and it increases by 2 every time you gain a level."
 					],
 					"type": "entries"
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Sable",
-			"source": "HWCS",
-			"raceName": "Luma",
-			"raceSource": "HWCS",
-			"page": 16,
-			"ability": [
-				{
-					"con": 1
-				}
-			],
-			"resist": [
-				"poison"
-			],
-			"entries": [
-				{
-					"name": "Hard to Read",
-					"type": "entries",
-					"entries": [
-						"Your innate eccentricities make it hard for other folk to figure you out. When someone performs a Wisdom ({@skill Insight}) check against you, they have disadvantage on their roll. Additionally, you gain advantage on Charisma ({@skill Deception}) checks made against creatures that are not lumas."
-					]
-				},
-				{
-					"name": "Resilience",
-					"type": "entries",
-					"entries": [
-						"You have advantage on saving throws against poison and resistance against poison damage."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Sera",
-			"source": "HWCS",
-			"raceName": "Luma",
-			"raceSource": "HWCS",
-			"page": 16,
-			"ability": [
-				{
-					"wis": 1
-				}
-			],
-			"entries": [
-				{
-					"name": "Center of Attention",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Performance} skill."
-					]
-				},
-				{
-					"name": "Songbird",
-					"type": "entries",
-					"entries": [
-						"When you perform, you can demonstrate the innate and mystical power of your Charisma. You may cast the {@spell charm person} spell once per long rest. This spell does not require any somatic components to cast. Charisma is your spellcasting ability for this spell."
-					]
 				}
 			],
 			"hasFluff": true,
@@ -19917,81 +20735,15 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Maran",
-			"source": "HWCS",
-			"raceName": "Raptor",
-			"raceSource": "HWCS",
-			"page": 18,
-			"speed": {
-				"walk": 25,
-				"swim": 25
-			},
-			"ability": [
-				{
-					"int": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"entries": [
-				{
-					"name": "Swimmer",
-					"type": "entries",
-					"entries": [
-						"You have a swimming speed of 25 feet."
-					]
-				},
-				{
-					"name": "Patient",
-					"type": "entries",
-					"entries": [
-						"When you react with a readied action, you have advantage on the first attack roll, skill check, or ability check you make as a part of that action."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Mistral",
-			"source": "HWCS",
-			"raceName": "Raptor",
-			"raceSource": "HWCS",
-			"page": 18,
-			"ability": [
-				{
-					"wis": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"entries": [
-				{
-					"name": "Agile",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Acrobatics} skill."
-					]
-				},
-				{
-					"name": "Aerial Defense",
-					"type": "entries",
-					"entries": [
-						"Creatures that attack you while you are falling, gliding, or jumping have disadvantage on their attack roll."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
 			"name": "Beasthide",
 			"source": "ERLW",
 			"raceName": "Shifter",
 			"raceSource": "ERLW",
 			"page": 34,
+			"reprintedAs": [
+				"Shifter|MPMM",
+				"Shifter|EFA"
+			],
 			"ability": [
 				{
 					"con": 2,
@@ -20031,6 +20783,10 @@
 			"raceName": "Shifter",
 			"raceSource": "ERLW",
 			"page": 34,
+			"reprintedAs": [
+				"Shifter|MPMM",
+				"Shifter|EFA"
+			],
 			"ability": [
 				{
 					"str": 2,
@@ -20057,7 +20813,7 @@
 					"type": "entries",
 					"name": "Shifting Feature",
 					"entries": [
-						"While shifted, you can use your elongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"While shifted, you can use your elongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					]
 				}
 			],
@@ -20070,6 +20826,10 @@
 			"raceName": "Shifter",
 			"raceSource": "ERLW",
 			"page": 34,
+			"reprintedAs": [
+				"Shifter|MPMM",
+				"Shifter|EFA"
+			],
 			"ability": [
 				{
 					"dex": 2,
@@ -20106,6 +20866,10 @@
 			"raceName": "Shifter",
 			"raceSource": "ERLW",
 			"page": 34,
+			"reprintedAs": [
+				"Shifter|MPMM",
+				"Shifter|EFA"
+			],
 			"ability": [
 				{
 					"wis": 2,
@@ -20130,73 +20894,6 @@
 					"name": "Shifting Feature",
 					"entries": [
 						"While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you're {@condition incapacitated}."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Stout",
-			"source": "HWCS",
-			"raceName": "Strig",
-			"raceSource": "HWCS",
-			"page": 20,
-			"ability": [
-				{
-					"con": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"entries": [
-				{
-					"name": "Imposing",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Intimidation} skill."
-					]
-				},
-				{
-					"name": "Brawler",
-					"type": "entries",
-					"entries": [
-						"When you successfully attack a target with your talons, you can choose to grapple that target as a bonus action."
-					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Swift",
-			"source": "HWCS",
-			"raceName": "Strig",
-			"raceSource": "HWCS",
-			"page": 20,
-			"speed": 35,
-			"ability": [
-				{
-					"dex": 1
-				}
-			],
-			"traitTags": [
-				"Natural Weapon"
-			],
-			"entries": [
-				{
-					"name": "Swift",
-					"type": "entries",
-					"entries": [
-						"Your base walking speed increases to 35 feet."
-					]
-				},
-				{
-					"name": "Survivor",
-					"type": "entries",
-					"entries": [
-						"You have proficiency in the {@skill Survival} skill."
 					]
 				}
 			],

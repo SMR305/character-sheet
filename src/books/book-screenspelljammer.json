@@ -115,8 +115,8 @@
 					"type": "entries",
 					"name": "Suffocating",
 					"entries": [
-						"You can hold your breath for a number ofminutes equal to 1 + your Constitution modifier (minimum of 30 seconds).",
-						"Ifyou run out of breath or you're choking, you can survive for a number ofrounds equal to your Constitution modifier (minimum of 1 round). At the start ofyour next turn, you drop to 0 hit points and are dying, and you can't regain hit points or be stabilized until you can breathe again."
+						"You can hold your breath for a number of minutes equal to 1 + your Constitution modifier (minimum of 30 seconds).",
+						"If you run out of breath or you're choking, you can survive for a number of rounds equal to your Constitution modifier (minimum of 1 round). At the start of your next turn, you drop to 0 hit points and are dying, and you can't regain hit points or be stabilized until you can breathe again."
 					],
 					"id": "001"
 				},
@@ -140,7 +140,7 @@
 									"type": "entries",
 									"name": "Movement",
 									"entries": [
-										"A creature can use an action to push off something heavier than itselfand move up to its walking, flying, or swimming speed in a straight line. The creature continues along this course, moving in a straight line at its speed on each ofits turns until something stops it or changes its trajectory."
+										"A creature can use an action to push off something heavier than itself and move up to its walking, flying, or swimming speed in a straight line. The creature continues along this course, moving in a straight line at its speed on each of its turns until something stops it or changes its trajectory."
 									],
 									"id": "005"
 								}
@@ -344,7 +344,9 @@
 										]
 									],
 									"data": {
-										"tableIgnore": true
+										"genTables": {
+											"tableIgnore": true
+										}
 									}
 								},
 								{
@@ -488,7 +490,9 @@
 										]
 									],
 									"data": {
-										"tableIgnore": true
+										"genTables": {
+											"tableIgnore": true
+										}
 									}
 								},
 								{
@@ -592,7 +596,9 @@
 										]
 									],
 									"data": {
-										"tableIgnore": true
+										"genTables": {
+											"tableIgnore": true
+										}
 									}
 								}
 							]
@@ -660,7 +666,7 @@
 										]
 									]
 								},
-								"If the ship runs into something that doesn't have hit points (such as a planet or a moon), apply the damage only to the ship. The ship stops after crashing into a Gargantuan or immovable creature or object; otherwise, the ship can continue moving ifit has any movement left, and whatever it struck moves to the nearest unoccupied space that isn't in the ship's path."
+								"If the ship runs into something that doesn't have hit points (such as a planet or a moon), apply the damage only to the ship. The ship stops after crashing into a Gargantuan or immovable creature or object; otherwise, the ship can continue moving if it has any movement left, and whatever it struck moves to the nearest unoccupied space that isn't in the ship's path."
 							],
 							"id": "007"
 						}
@@ -803,7 +809,7 @@
 					"name": "Ship Cargo",
 					"entries": [
 						"To randomly determine what's in the cargo hold of a spelljamming ship, roll {@dice 1d6} times on the Cheap Cargo table and {@dice 1d4-1} times on the Expensive Cargo table. A duplicate result indicates that the ship has more of the same cargo.",
-						"If a cargo container is locked, at least one crew member (typically the captain) has the key to it. A character can try to unlock a container using thieves' tools, doing so with a successful DC 20 Dexterity check.",
+						"If a cargo container is locked, at least one crew member (typically the captain) has the key to it. A character can try to unlock a container using thieves' tools, doing so with a successful {@dc 20} Dexterity check.",
 						{
 							"type": "table",
 							"caption": "Cheap Cargo",

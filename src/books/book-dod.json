@@ -318,7 +318,7 @@
 										],
 										[
 											"6",
-											"Overly cautious {@creature treant sapling|wbtw} (see chapter 1 of The Wild Beyond the Witchlight for its stat block)"
+											"Overly cautious {@creature treant sapling|WBtW} (see chapter 1 of The Wild Beyond the Witchlight for its stat block)"
 										],
 										[
 											"7",
@@ -882,7 +882,7 @@
 										],
 										[
 											"6",
-											"You must bury an executioner's hood (a blackcapped mushroom found in the Feywild) in the earth and pour goat's milk over it while whistling."
+											"You must bury an executioner's hood (a black-capped mushroom found in the Feywild) in the earth and pour goat's milk over it while whistling."
 										],
 										[
 											"7",
@@ -1767,7 +1767,7 @@
 								],
 								[
 									"2",
-									"Flowers not only are abundant in the region but also have faces and limited sentience, allowing them to communicate with creatures in the Elvish and Sylvan tongues. They know what has transpired in the region within the past day and happilyshare this information."
+									"Flowers not only are abundant in the region but also have faces and limited sentience, allowing them to communicate with creatures in the Elvish and Sylvan tongues. They know what has transpired in the region within the past day and happily share this information."
 								],
 								[
 									"3",
@@ -1779,7 +1779,7 @@
 								],
 								[
 									"5",
-									"Harmless fireflies gather and flit around one character in the region, sharing that character's space for 1 hour. The fireflies generate bright light out to a range of 10 feet and dim light for an additional 10 feet. While surrounded by the fireflies, the character feels a profound sense of purpose and gains the benefit of the {@spell bless} spell."
+									"Harmless fireflies gather and flit around one character in the region, sharing that character's space for 1 hour. The fireflies generate {@quickref Vision and Light||2||bright light} out to a range of 10 feet and {@quickref Vision and Light||2||dim light} for an additional 10 feet. While surrounded by the fireflies, the character feels a profound sense of purpose and gains the benefit of the {@spell bless} spell."
 								],
 								[
 									"6",
@@ -2001,7 +2001,8 @@
 						"{@note See the {@deck Roleplaying Cards|WBtW} deck entry for individual cards, or {@adventure Appendix D of Wild Beyond the Witchlight|WBtW|9} for printable assets.}",
 						"{@note See the {@table Stagefright's Lines|WBtW} table to roll, or {@adventure Appendix E of Wild Beyond the Witchlight|WBtW|10} for printable assets.}",
 						"{@note See the {@adventure Story Tracker Appendix of Wild Beyond the Witchlight|WBtW|11} for printable story tracker assets.}"
-					]
+					],
+					"columns": 3
 				}
 			],
 			"id": "038"

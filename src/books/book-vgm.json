@@ -1085,10 +1085,9 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"offsetX": 5,
-										"offsetY": -15,
-										"scale": 2,
-										"distance": 10
+										"offsetX": 10,
+										"offsetY": -30,
+										"scale": 4
 									},
 									"width": 800,
 									"height": 1100,
@@ -1106,9 +1105,12 @@
 									"height": 4500,
 									"grid": {
 										"type": "square",
-										"distance": 10
+										"scale": 2
 									},
-									"imageType": "mapPlayer"
+									"imageType": "mapPlayer",
+									"mapParent": {
+										"id": "199"
+									}
 								},
 								"Common rooms found in a beholder's lair are described in the sections that follow.",
 								{
@@ -2322,7 +2324,7 @@
 										"Among stone giants, mastery of an art ranks as the greatest virtue, and among all the arts, stone carving is held in highest regard. Most stone giants spend their lives in unending pursuit of the perfect artistic creation. Young stone giants practice tirelessly, hoping to prove themselves worthy of assisting the tribe's best carvers. A stone giant master carver might devote years to finding the best stone before beginning a great work. The best carvers are honored as the leaders and shamans of the tribe, and their hands are seen as holy-literally becoming the hands of Skoraeus Stonebones as they work.",
 										"Of course, not all stone giants have the hands of a god. Those who show little skill in carving are considered pathetic and viewed with a combination of pity and contempt. To determine the ordning beneath the highest levels of artistry, stone giants compete in games of boulder hurling and catching. Their rock-throwing skills suit stone giants well when they have cause to defend their homes or attack enemies. But even where boulder tossing is concerned, artistry is fundamental to the effort. A stone giant hurling a boulder isn't only performing a feat of strength but is also striving to display consummate athleticism and grace.",
 										"Those who can't infuse artistry into every aspect of their lives fall to the lowest rungs of the ordning and are often pushed literally to the perimeter of stone giant society, to serve as guards on the tribe's most distant borders or as hunters that wander beyond those borders. As such, the stone giants that are first encountered by outsiders are almost always the least successful members of stone giant society and the poorest examples of the ideals stone giants aspire to. They are the brutes and boors cast out by a society of artists and philosophers.",
-										"For a people that spend their lives mostly in darkness, stone giants have a nuanced appreciation of the effects of shadow and light. They design carvings to produce shadows in specific ways when a light source is placed in the proper location. Without both the light and the shadow, the carving is incomplete and can't be viewed in its true form. For example, a tale carving made with these special techniques tells one story when it's viewed in flat, dim light, but it reveals a second, much deeper tale with the addition of proper illumination.",
+										"For a people that spend their lives mostly in darkness, stone giants have a nuanced appreciation of the effects of shadow and light. They design carvings to produce shadows in specific ways when a light source is placed in the proper location. Without both the light and the shadow, the carving is incomplete and can't be viewed in its true form. For example, a tale carving made with these special techniques tells one story when it's viewed in flat, {@quickref Vision and Light||2||dim light}, but it reveals a second, much deeper tale with the addition of proper illumination.",
 										{
 											"type": "inset",
 											"name": "Skoraeus Stonebones, the Great Creator",
@@ -3571,7 +3573,7 @@
 												],
 												[
 													"7",
-													"Fragile helmets made from axebeak eggs"
+													"Fragile helmets made from axe beak eggs"
 												],
 												[
 													"8",
@@ -4102,7 +4104,7 @@
 											"entries": [
 												"A goblinoid host that is prepared for war doesn't wait for the enemy to approach its doorstep. In pursuit of ever greater glory for Maglubiyet, the host's leaders keep the army on the move, occasionally breaking off small garrisons (often of one type of goblinoid) to guard territory that needs to be held.",
 												"A host usually marches at night, with outriders, who carry messenger ravens, traveling ahead, behind, and on both sides of the main group. The ravens can distinguish between individuals from a great height and navigate over long distances. Thus, a raven can fly back to the main body when it is released by someone remote from the group, and it can be sent out again to look for the individual that released it in order to deliver a response.",
-												"Most of the army travels on foot, and wolf-riding goblins and worg-riding hobgoblins also make up a significant portion of the force. Hobgoblins might ride horses or other mounts they could obtain, such as hippogriffs, axe beaks, or giant vultures. Bugbears don 't ride mounts, but they aren't above hitching a ride in the howdah of an enormous battle beast such as an elephant or a hydra.",
+												"Most of the army travels on foot, and wolf-riding goblins and worg-riding hobgoblins also make up a significant portion of the force. Hobgoblins might ride horses or other mounts they could obtain, such as hippogriffs, axe beaks, or giant vultures. Bugbears don't ride mounts, but they aren't above hitching a ride in the howdah of an enormous battle beast such as an elephant or a hydra.",
 												"If the host has slaves, they pull wagons or sledges in the center of the army, dragging along the equipment of war while surrounded by its users. If slaves have yet to be acquired, goblins and beasts of burden perform this function."
 											],
 											"id": "0c2"
@@ -4227,7 +4229,10 @@
 									"grid": {
 										"type": "square"
 									},
-									"imageType": "mapPlayer"
+									"imageType": "mapPlayer",
+									"mapParent": {
+										"id": "1a7"
+									}
 								},
 								"Inside the surrounding bulwark, the goblinoids all have their separate quarters, organized according to their wonts. Typical of any camp are the wide paths that crisscross it, running from each gate through the center of the camp and out the other side. This configuration enables all the goblinoids to swiftly rally and exit the camp en masse to meet an approaching threat.",
 								{
@@ -4901,10 +4906,9 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"offsetX": 19,
-										"offsetY": 15,
-										"scale": 1.87,
-										"distance": 10
+										"offsetX": 38,
+										"offsetY": 30,
+										"scale": 3.74
 									},
 									"imageType": "map",
 									"id": "1a8"
@@ -4920,9 +4924,12 @@
 									"height": 2900,
 									"grid": {
 										"type": "square",
-										"distance": 10
+										"scale": 2
 									},
-									"imageType": "mapPlayer"
+									"imageType": "mapPlayer",
+									"mapParent": {
+										"id": "1a8"
+									}
 								},
 								"Whether naturally or by manufactured means, the lair is well defended from intrusion. It might be reachable only by a steep mountain path, or it might be surrounded by a fence the hag builds out of posts capped with magically warded skulls. Often, a lair reflects the outlook of its primary inhabitant-a murderous hag's home might be crafted to look like a coffin or a mausoleum, and that of a gluttonous one might look like a tavern or a gingerbread house. Because such places are convenient for them, sea hags often establish their lairs inside the hulls of wrecked or abandoned ships.",
 								{
@@ -4973,14 +4980,14 @@
 											"type": "list",
 											"items": [
 												"Until initiative count 20 on the next round, the hag can pass through solid walls, doors, ceilings, and floors as if the surfaces weren't there.",
-												"The hag targets any number of doors and windows that she can see, causing each one to either open or close as she wishes. Closed doors can be magically locked (requiring a successful DC 20 Strength check to force open) until she chooses to make them unlocked, or until she uses this lair action again to open them."
+												"The hag targets any number of doors and windows that she can see, causing each one to either open or close as she wishes. Closed doors can be magically locked (requiring a successful {@dc 20} Strength check to force open) until she chooses to make them unlocked, or until she uses this lair action again to open them."
 											]
 										},
 										"A powerful {@b annis hag} might have the following additional lair action:",
 										{
 											"type": "list",
 											"items": [
-												"The hag creates a thick cloud of caustic black smoke that fills a 20-foot-radius sphere centered on a point she can see within 120 feet her. The cloud lasts until initiative count 20 on the next round. Creatures and objects in or behind the smoke are heavily obscured. A creature that enters the cloud for the first time on a turn or starts its turn there takes 10 ({@dice 3d6}) acid damage."
+												"The hag creates a thick cloud of caustic black smoke that fills a 20-foot-radius sphere centered on a point she can see within 120 feet her. The cloud lasts until initiative count 20 on the next round. Creatures and objects in or behind the smoke are {@quickref Vision and Light||2||heavily obscured}. A creature that enters the cloud for the first time on a turn or starts its turn there takes 10 ({@dice 3d6}) acid damage."
 											]
 										},
 										"A powerful {@b bheur hag} might have the following additional lair action:",
@@ -5001,15 +5008,15 @@
 										{
 											"type": "list",
 											"items": [
-												"One creature the hag can see within 120 feet of her must succeed on a DC 15 Charisma saving throw or be banished to a prison demiplane. To escape, the creature must use its action to make a Charisma check contested by the hag's. If the creature wins, it escapes the demiplane. Otherwise, the effect ends on initiative count 20 on the next round. When the effect ends, the creature reappears in the space it left or in the nearest unoccupied space if that one is occupied.",
-												"The hag targets up to three creatures that she can see within 60 feet of her. Each target must succeed on a DC 15 Constitution saving throw or be flung up to 30 feet through the air. A creature that strikes a solid object or is released in midair takes {@dice 1d6} bludgeoning damage for every 10 feet moved or fallen."
+												"One creature the hag can see within 120 feet of her must succeed on a {@dc 15} Charisma saving throw or be banished to a prison demiplane. To escape, the creature must use its action to make a Charisma check contested by the hag's. If the creature wins, it escapes the demiplane. Otherwise, the effect ends on initiative count 20 on the next round. When the effect ends, the creature reappears in the space it left or in the nearest unoccupied space if that one is occupied.",
+												"The hag targets up to three creatures that she can see within 60 feet of her. Each target must succeed on a {@dc 15} Constitution saving throw or be flung up to 30 feet through the air. A creature that strikes a solid object or is released in midair takes {@dice 1d6} bludgeoning damage for every 10 feet moved or fallen."
 											]
 										},
 										"A powerful {@b sea hag} might have the following additional lair actions:",
 										{
 											"type": "list",
 											"items": [
-												"The hag fills up to four 10-foot cubes of water with ink. The inky areas are heavily obscured for 1 minute, although a steady, strong underwater current disperses the ink on initiative count 10. The hag ignores the obscuring effect of the ink.",
+												"The hag fills up to four 10-foot cubes of water with ink. The inky areas are {@quickref Vision and Light||2||heavily obscured} for 1 minute, although a steady, strong underwater current disperses the ink on initiative count 10. The hag ignores the obscuring effect of the ink.",
 												"The hag chooses one humanoid within the lair and instantly creates a simulacrum of that creature (as if created with the simulacrum spell). This hideous simulacrum is formed out of seaweed, slime, half-eaten fish, and other garbage, but still generally resembles the creature it is imitating. This simulacrum obeys the hag's commands and is destroyed on initiative count 20 on the next round."
 											]
 										}
@@ -5745,7 +5752,10 @@
 										"offsetY": 25,
 										"scale": 2
 									},
-									"imageType": "mapPlayer"
+									"imageType": "mapPlayer",
+									"mapParent": {
+										"id": "1a9"
+									}
 								},
 								"Creatures larger than a kobold have to squat or crawl in order to fit through the tunnels of a kobold warren, which by itself is enough to deter most hostile humanoids (such as orcs or hobgoblins) from trying to invade the kobolds' territory. Adventurers trying to eradicate a kobold infestation often find themselves stuck in low passages too narrow to turn around in, forcing them to move in single file and putting the burden of combat on the first and last people in line.",
 								"The layout of a kobold tribe's lair changes over time. The inhabitants regularly collapse or seal off tunnels and caves as they carve new ones. As such, any information that might be gleaned about the layout or location of areas within the lair becomes increasingly inaccurate as the kobolds \"migrate\" through the rock to meet the needs and ensure the safety of the community.",
@@ -5881,7 +5891,7 @@
 								"Despite all their unique and overwhelming abilities, the mind flayers are a race on the edge of extinction.",
 								"Thousands of years ago, the illithids were the dominant power of the Inner Planes. From their astral domains, they launched flying vessels called nautiloids, able to cross between planes, so that they could harvest intelligent humanoids from hundreds of worlds.",
 								"The mind flayers relied on a slave race, the gith, to provide physical labor and sustenance when other sources of food grew thin. Eventually, the gith revolted. Whether the mind flayers became decadent or the gith discovered a weakness, none can say. What is known is that after centuries of domination, the mind flayer empire collapsed in less than a year. The gith rose up, slaughtered their masters, and destroyed almost all traces of the illithids' astral domains.",
-								"Only the mind flayers that had infiltrated the worlds of the Material Plane survived, and their safety was shortlived. Both the githzerai and the githyanki, two factions that arose from the victorious gith, sent hunting parties to root out and slaughter the remaining mind flayers.",
+								"Only the mind flayers that had infiltrated the worlds of the Material Plane survived, and their safety was short-lived. Both the githzerai and the githyanki, two factions that arose from the victorious gith, sent hunting parties to root out and slaughter the remaining mind flayers.",
 								"To this day, isolated clutches of mind flayers remain in hiding, seeking ways to recapture their former glory but hampered by their paranoia of being discovered and destroyed by their enemies.",
 								{
 									"type": "entries",
@@ -6243,7 +6253,7 @@
 							"page": 75,
 							"entries": [
 								"Among mind flayers, thoughts aren't communicated in language per se, but are instead transmitted telepathically as concepts and associations, which other humanoids interpret in their own language.",
-								"Telepathic communication with a mind flayer is frequently  accompanied by a mental static that \"sounds\" to the receiver like an underlying sussuration peppered with guttural clicks. The intensity of this static increases when a mind flayer refers to itself, because with the saying of its name, the illithid is communicating far more information about itself than other humanoids can comprehend. The syllables that make up mind flayer names as expressed in other languages are thus weak approximations of the sound that others hear in their minds when illithids refer to themselves.",
+								"Telepathic communication with a mind flayer is frequently  accompanied by a mental static that \"sounds\" to the receiver like an underlying susurration peppered with guttural clicks. The intensity of this static increases when a mind flayer refers to itself, because with the saying of its name, the illithid is communicating far more information about itself than other humanoids can comprehend. The syllables that make up mind flayer names as expressed in other languages are thus weak approximations of the sound that others hear in their minds when illithids refer to themselves.",
 								"An illithid might adopt a name that is easier for minions and allies to speak or that makes it seem more fearsome to enemies, but each begins its life with a thought-name such as the examples in the Mind Flayer Names table, which are suitable for any campaign.",
 								{
 									"type": "table",
@@ -6689,7 +6699,7 @@
 									"page": 81,
 									"entries": [
 										"{@i Weapon (whip), rare (requires attunement by a mind flayer)}",
-										"In the hands of a creature other than a mind flayer, a mind lash functions as a normal whip. In the hands of an illithid, this magic weapon strips away a creature's will to survive as it also strips away flesh, dealing an extra {@dice 2d4} psychic damage to any target it hits. Any creature that takes psychic damage from the mind lash must also succeed on a DC 15 Wisdom saving throw or have disadvantage on Intelligence, Wisdom, and Charisma saving throws for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+										"In the hands of a creature other than a mind flayer, a mind lash functions as a normal whip. In the hands of an illithid, this magic weapon strips away a creature's will to survive as it also strips away flesh, dealing an extra {@dice 2d4} psychic damage to any target it hits. Any creature that takes psychic damage from the mind lash must also succeed on a {@dc 15} Wisdom saving throw or have disadvantage on Intelligence, Wisdom, and Charisma saving throws for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 									],
 									"id": "148"
 								},
@@ -6786,7 +6796,50 @@
 										"{@deity Luthic|Orc|VGM|Luthic, \"the Cave Mother\"}",
 										"{@deity Yurtrus|Orc|VGM|Yurtrus, \"the White Hand\"}",
 										"{@deity Shargaas|Orc|VGM|Shargaas, \"the Night Lord\"}"
-									]
+									],
+									"columns": 3
+								},
+								{
+									"type": "statblock",
+									"name": "Gruumsh",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
+								},
+								{
+									"type": "statblock",
+									"name": "Ilneval",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
+								},
+								{
+									"type": "statblock",
+									"name": "Bahgtru",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
+								},
+								{
+									"type": "statblock",
+									"name": "Luthic",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
+								},
+								{
+									"type": "statblock",
+									"name": "Yurtrus",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
+								},
+								{
+									"type": "statblock",
+									"name": "Shargaas",
+									"tag": "deity",
+									"source": "VGM",
+									"pantheon": "Orc"
 								}
 							],
 							"id": "14f"
@@ -7391,9 +7444,12 @@
 									"height": 7500,
 									"grid": {
 										"type": "square",
-										"distance": 10
+										"scale": 2
 									},
-									"imageType": "mapPlayer"
+									"imageType": "mapPlayer",
+									"mapParent": {
+										"id": "1ab"
+									}
 								},
 								"Every encampment is divided along lines of worship. Those who revere Gruumsh, Ilneval, Bahgtru, and Luthic are given the best parts of the lair, while the followers of Yurtrus and Shargaas are relegated to the deep, dark recesses of the site, away from the rest of the tribe.",
 								"At the center of the camp is the tribe's war hearth. Once a war hearth is lit, the priests of Gruumsh keep it continually burning, for it represents the rage within Gruumsh's unblinking eye. The orcs converge on the hearth to celebrate victory and to feast after a kill. If a tribe moves its camp, coals from the hearth are kept glowing within shells and pots so they can be used to start the war hearth at the new encampment.",
@@ -8313,34 +8369,34 @@
 											"name": "Bite (Pureblood Only)",
 											"page": 98,
 											"entries": [
-												"Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 3 ({@dice 1d4}) piercing damage plus 3 ({@dice 1d6}) poison damage. If the pureblood uses Multiattack, it can make two melee attacks, but can use its bite only once."
+												"Melee Weapon Attack: {@hit 3} to hit, reach 5 ft., one creature. Hit: 3 ({@dice 1d4}) piercing damage plus 3 ({@dice 1d6}) poison damage. If the pureblood uses Multiattack, it can make two melee attacks, but can use its bite only once."
 											],
 											"id": "192"
 										},
 										{
 											"type": "entries",
-											"name": "Polymorph into Snake (Abomination or Malison Only;",
+											"name": "Polymorph into Snake (Abomination or Malison Only; Recharge 6)",
 											"page": 98,
 											"entries": [
-												"Recharge 6). The yuan-ti targets a creature it can see within 60 feet of it. The target must succeed on a Wisdom saving throw or be transformed into a Tiny {@b poisonous snake,} as if affected by the polymorph spell. The save DC is the same as that of the yuan-ti's Innate Spellcasting ability."
+												"The yuan-ti targets a creature it can see within 60 feet of it. The target must succeed on a Wisdom saving throw or be transformed into a Tiny {@b poisonous snake,} as if affected by the polymorph spell. The save DC is the same as that of the yuan-ti's Innate Spellcasting ability."
 											],
 											"id": "193"
 										},
 										{
 											"type": "entries",
-											"name": "Snake Antipathy (Abomination or Malison Only;",
+											"name": "Snake Antipathy (Abomination or Malison Only; Recharge 6)",
 											"page": 98,
 											"entries": [
-												"Recharge 6). The yuan-ti targets a creature it can see within 60 feet of it. The target must succeed on a Wisdom saving throw or feel an intense urge to avoid snakes and snakelike creatures (including yuan-ti), as if affected by the antipathy effect of an antipathy/sympathy spell. The save DC is the same as that of the yuan-ti's Innate Spellcasting ability."
+												"The yuan-ti targets a creature it can see within 60 feet of it. The target must succeed on a Wisdom saving throw or feel an intense urge to avoid snakes and snakelike creatures (including yuan-ti), as if affected by the antipathy effect of an antipathy/sympathy spell. The save DC is the same as that of the yuan-ti's Innate Spellcasting ability."
 											],
 											"id": "194"
 										},
 										{
 											"type": "entries",
-											"name": "Sticks to Snakes (Abomination or Malison Only;",
+											"name": "Sticks to Snakes (Abomination or Malison Only; Recharge 6)",
 											"page": 98,
 											"entries": [
-												"Recharge 6). The yuan-ti transforms a pile of sticks, arrows, or similar-sized pieces of wood into a {@creature swarm of poisonous snakes}. The swarm acts as an ally of the yuan-ti and obeys its spoken commands. The swarm remains for 1 minute, after which it turns back into the original materials."
+												"The yuan-ti transforms a pile of sticks, arrows, or similar-sized pieces of wood into a {@creature swarm of poisonous snakes}. The swarm acts as an ally of the yuan-ti and obeys its spoken commands. The swarm remains for 1 minute, after which it turns back into the original materials."
 											],
 											"id": "195"
 										}
@@ -8665,10 +8721,9 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"offsetX": 24,
-										"offsetY": 38,
-										"scale": 2.32,
-										"distance": 10
+										"offsetX": 48,
+										"offsetY": 76,
+										"scale": 4.64
 									},
 									"imageType": "map",
 									"id": "1ac"
@@ -8685,7 +8740,7 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"distance": 10
+										"scale": 2
 									},
 									"imageType": "mapPlayer"
 								},
@@ -8701,7 +8756,7 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"distance": 10
+										"scale": 2
 									},
 									"imageType": "mapPlayer"
 								},
@@ -8717,7 +8772,7 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"distance": 10
+										"scale": 2
 									},
 									"imageType": "mapPlayer"
 								},
@@ -8733,7 +8788,7 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"distance": 10
+										"scale": 2
 									},
 									"imageType": "mapPlayer"
 								},
@@ -8749,7 +8804,7 @@
 									"grid": {
 										"type": "square",
 										"size": 50,
-										"distance": 10
+										"scale": 2
 									},
 									"imageType": "mapPlayer"
 								},
@@ -9010,6 +9065,96 @@
 					]
 				},
 				{
+					"type": "statblock",
+					"name": "Aasimar (Fallen)",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Aasimar (Protector)",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Aasimar (Scourge)",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Bugbear",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Firbolg",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Goblin",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Goliath",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Hobgoblin",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Kenku",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Kobold",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Lizardfolk",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Orc",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Tabaxi",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Triton",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
+					"type": "statblock",
+					"name": "Yuan-ti Pureblood",
+					"tag": "race",
+					"source": "VGM"
+				},
+				{
 					"type": "section",
 					"name": "Height and Weight",
 					"page": 120,
@@ -9246,6 +9391,1677 @@
 						"{@creature Yuan-ti Nightmare Speaker|VGM}",
 						"{@creature Yuan-ti Pit Master|VGM}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Banderhobb",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Banderhobb",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Banderhobb",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ae"
+				},
+				{
+					"type": "section",
+					"name": "Barghest",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Barghest",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Barghest",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1af"
+				},
+				{
+					"type": "section",
+					"name": "Beholders",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Beholders",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Death Kiss",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gauth",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gazer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b0"
+				},
+				{
+					"type": "section",
+					"name": "Bodak",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bodak",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bodak",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b1"
+				},
+				{
+					"type": "section",
+					"name": "Boggle",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Boggle",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Boggle",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b2"
+				},
+				{
+					"type": "section",
+					"name": "Catoblepas",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Catoblepas",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Catoblepas",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b3"
+				},
+				{
+					"type": "section",
+					"name": "Cave Fisher",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cave Fisher",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cave Fisher",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b4"
+				},
+				{
+					"type": "section",
+					"name": "Chitines",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Chitine",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Chitine",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Choldrith",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b5"
+				},
+				{
+					"type": "section",
+					"name": "Cranium Rats",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cranium Rat",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cranium Rat",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Cranium Rats",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b6"
+				},
+				{
+					"type": "section",
+					"name": "Darklings",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Darklings",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Darkling",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Darkling Elder",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b7"
+				},
+				{
+					"type": "section",
+					"name": "Deep Scion",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Deep Scion",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Deep Scion",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b8"
+				},
+				{
+					"type": "section",
+					"name": "Demons",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Demons",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Babau",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Maw Demon",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Shoosuva",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1b9"
+				},
+				{
+					"type": "section",
+					"name": "Devourer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Devourer",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Devourer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ba"
+				},
+				{
+					"type": "section",
+					"name": "Dinosaurs",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Dinosaurs",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Brontosaurus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Deinonychus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Dimetrodon",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Hadrosaurus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Quetzalcoatlus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Stegosaurus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Velociraptor",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1bb"
+				},
+				{
+					"type": "section",
+					"name": "Draegloth",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Draegloth",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Draegloth",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1bc"
+				},
+				{
+					"type": "section",
+					"name": "Elder Brain",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Elder Brain",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Elder Brain",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ulitharid",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1bd"
+				},
+				{
+					"type": "section",
+					"name": "Firenewts",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Firenewts",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Firenewt Warrior",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Strider",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Firenewt Warlock of Imix",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1be"
+				},
+				{
+					"type": "section",
+					"name": "Flail Snail",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flail Snail",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flail Snail",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1bf"
+				},
+				{
+					"type": "section",
+					"name": "Froghemoth",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Froghemoth",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Froghemoth",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c0"
+				},
+				{
+					"type": "section",
+					"name": "Giants",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giants",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cloud Giant Smiling One",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Fire Giant Dreadnought",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Frost Giant Everlasting One",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mouth of Grolantor",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Stone Giant Dreamwalker",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Storm Giant Quintessent",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c1"
+				},
+				{
+					"type": "section",
+					"name": "Girallon",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Girallon",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Girallon",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c2"
+				},
+				{
+					"type": "section",
+					"name": "Gnolls",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gnolls",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flind",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gnoll Flesh Gnawer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gnoll Hunter",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gnoll Witherling",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c3"
+				},
+				{
+					"type": "section",
+					"name": "Grungs",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Grungs",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Grung",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Grung Elite Warrior",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Grung Wildling",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c4"
+				},
+				{
+					"type": "section",
+					"name": "Guard Drake",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Guard Drake",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Black Guard Drake",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Blue Guard Drake",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Green Guard Drake",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Red Guard Drake",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "White Guard Drake",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c5"
+				},
+				{
+					"type": "section",
+					"name": "Hags",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hags",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Annis Hag",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Bheur Hag",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c6"
+				},
+				{
+					"type": "section",
+					"name": "Hobgoblins",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hobgoblins",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hobgoblin Devastator",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Hobgoblin Iron Shadow",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c7"
+				},
+				{
+					"type": "section",
+					"name": "Ki-rin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ki-rin",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ki-rin",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c8"
+				},
+				{
+					"type": "section",
+					"name": "Kobolds",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Kobolds",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Kobold Dragonshield",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Kobold Inventor",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Kobold Scale Sorcerer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1c9"
+				},
+				{
+					"type": "section",
+					"name": "Korred",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Korred",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Korred",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ca"
+				},
+				{
+					"type": "section",
+					"name": "Leucrotta",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Leucrotta",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Leucrotta",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1cb"
+				},
+				{
+					"type": "section",
+					"name": "Meenlock",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Meenlock",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Meenlock",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1cc"
+				},
+				{
+					"type": "section",
+					"name": "Mind Flayers",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mind Flayers",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mind Flayer Psion",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Alhoon",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Illithilich",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1cd"
+				},
+				{
+					"type": "section",
+					"name": "Mindwitness",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mindwitness",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mindwitness",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ce"
+				},
+				{
+					"type": "section",
+					"name": "Morkoth",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Morkoth",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Morkoth",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1cf"
+				},
+				{
+					"type": "section",
+					"name": "Neogi",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Neogi",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Neogi",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Neogi Hatchling",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Neogi Master",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d0"
+				},
+				{
+					"type": "section",
+					"name": "Neothelid",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Neothelid",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Neothelid",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d1"
+				},
+				{
+					"type": "section",
+					"name": "Nilbog",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Nilbog",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Nilbog",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d2"
+				},
+				{
+					"type": "section",
+					"name": "Orcs",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Orcs",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Orc Blade of Ilneval",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Orc Claw of Luthic",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Orc Hand of Yurtrus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Orc Nurtured One of Yurtrus",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Orc Red Fang of Shargaas",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Tanarukk",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d3"
+				},
+				{
+					"type": "section",
+					"name": "Quickling",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Quickling",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Quickling",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d4"
+				},
+				{
+					"type": "section",
+					"name": "Redcap",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Redcap",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Redcap",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d5"
+				},
+				{
+					"type": "section",
+					"name": "Sea Spawn",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sea Spawn",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sea Spawn",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d6"
+				},
+				{
+					"type": "section",
+					"name": "Shadow Mastiff",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Shadow Mastiff",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Shadow Mastiff",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d7"
+				},
+				{
+					"type": "section",
+					"name": "Slithering Tracker",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Slithering Tracker",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Slithering Tracker",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d8"
+				},
+				{
+					"type": "section",
+					"name": "Spawn of Kyuss",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Spawn of Kyuss",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Spawn of Kyuss",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1d9"
+				},
+				{
+					"type": "section",
+					"name": "Tlincalli",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Tlincalli",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Tlincalli",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1da"
+				},
+				{
+					"type": "section",
+					"name": "Trapper",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Trapper",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Trapper",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1db"
+				},
+				{
+					"type": "section",
+					"name": "Vargouille",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Vargouille",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vargouille",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1dc"
+				},
+				{
+					"type": "section",
+					"name": "Vegepygmies",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Vegepygmy",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vegepygmy",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Thorny",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Vegepygmy Chief",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1dd"
+				},
+				{
+					"type": "section",
+					"name": "Wood Woad",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Wood Woad",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Wood Woad",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1de"
+				},
+				{
+					"type": "section",
+					"name": "Xvarts",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Xvart",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Xvart",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Xvart Speaker",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Xvart Warlock of Raxivort",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1df"
+				},
+				{
+					"type": "section",
+					"name": "Yeth Hound",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Yeth Hound",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Yeth Hound",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e0"
+				},
+				{
+					"type": "section",
+					"name": "Yuan-ti",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Yuan-ti",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Anathema",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Broodguard",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Malison (Type 4)",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Malison (Type 5)",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Mind Whisperer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Nightmare Speaker",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Pit Master",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e1"
 				}
 			],
 			"id": "1a4"
@@ -9268,6 +11084,134 @@
 						"{@creature Stench Kow|VGM}",
 						"{@creature Swarm of Rot Grubs|VGM}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Aurochs",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Aurochs",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Aurochs",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e2"
+				},
+				{
+					"type": "section",
+					"name": "Cattle",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Rothé",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cow",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ox",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Rothé",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Deep Rothé",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Stench Kow",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e3"
+				},
+				{
+					"type": "section",
+					"name": "Dolphin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Dolphin",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dolphin",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e4"
+				},
+				{
+					"type": "section",
+					"name": "Swarm of Rot Grubs",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Swarm of Rot Grubs",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Rot Grubs",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e5"
 				}
 			],
 			"id": "1a5"
@@ -9305,6 +11249,581 @@
 						"{@creature Warlock of the Great Old One|VGM}",
 						"{@creature Warlord|VGM}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Abjurer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Abjurer",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Abjurer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e6"
+				},
+				{
+					"type": "section",
+					"name": "Apprentice Wizard",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Apprentice Wizard",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Apprentice Wizard",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e7"
+				},
+				{
+					"type": "section",
+					"name": "Archdruid",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Archdruid",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Archdruid",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e8"
+				},
+				{
+					"type": "section",
+					"name": "Archer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Archer",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Archer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1e9"
+				},
+				{
+					"type": "section",
+					"name": "Bard",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bard",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bard",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ea"
+				},
+				{
+					"type": "section",
+					"name": "Blackguard",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Blackguard",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Blackguard",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1eb"
+				},
+				{
+					"type": "section",
+					"name": "Champion",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Champion",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Champion",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ec"
+				},
+				{
+					"type": "section",
+					"name": "Conjurer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Conjurer",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Conjurer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ed"
+				},
+				{
+					"type": "section",
+					"name": "Diviner",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Diviner",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Diviner",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ee"
+				},
+				{
+					"type": "section",
+					"name": "Enchanter",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Enchanter",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Enchanter",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1ef"
+				},
+				{
+					"type": "section",
+					"name": "Evoker",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Evoker",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Evoker",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f0"
+				},
+				{
+					"type": "section",
+					"name": "Illusionist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Illusionist",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Illusionist",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f1"
+				},
+				{
+					"type": "section",
+					"name": "Kraken Priest",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Kraken Priest",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Kraken Priest",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f2"
+				},
+				{
+					"type": "section",
+					"name": "Martial Arts Adept",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Martial Arts Adept",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Martial Arts Adept",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f3"
+				},
+				{
+					"type": "section",
+					"name": "Master Thief",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Master Thief",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Master Thief",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f4"
+				},
+				{
+					"type": "section",
+					"name": "Necromancer",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Necromancer",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Necromancer",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f5"
+				},
+				{
+					"type": "section",
+					"name": "Swashbuckler",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Swashbuckler",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Swashbuckler",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f6"
+				},
+				{
+					"type": "section",
+					"name": "Transmuter",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Transmuter",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Transmuter",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f7"
+				},
+				{
+					"type": "section",
+					"name": "War Priest",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "War Priest",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "War Priest",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f8"
+				},
+				{
+					"type": "section",
+					"name": "Warlock of the Archfey",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Warlock of the Archfey",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Warlock of the Archfey",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1f9"
+				},
+				{
+					"type": "section",
+					"name": "Warlock of the Fiend",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Warlock of the Fiend",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Warlock of the Fiend",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1fa"
+				},
+				{
+					"type": "section",
+					"name": "Warlock of the Great Old One",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Warlock of the Great Old One",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Warlock of the Great Old One",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1fb"
+				},
+				{
+					"type": "section",
+					"name": "Warlord",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Warlord",
+							"prop": "monsterFluff",
+							"source": "VGM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Warlord",
+							"tag": "creature",
+							"source": "VGM",
+							"style": "narrow"
+						}
+					],
+					"id": "1fc"
 				}
 			],
 			"id": "1a6"
@@ -9436,6 +11955,13 @@
 						}
 					],
 					"id": "100"
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: Wizards of the Coast does not vouch for, guarantee, or provide any promise regarding the validity of the information provided in this volume by Volothamp Geddarm. Do not trust Volo. Do not go on quests offered by Volo. Do not listen to Volo. Avoid being seen with him for risk of guilt by association. If Volo appears in your campaign, your DM is undoubtedly trying to kill your character in a manner that can be blamed on your own actions. The DM is probably trying to do that anyway, but with Volo's appearance, you know for sure. We're not convinced that Elminster's commentary is all that trustworthy either, but he turned us into flumphs the last time we mentioned him in one of these disclaimers.}"
+					],
+					"id": "1ad"
 				}
 			],
 			"id": "057"
