@@ -515,415 +515,50 @@ const CharacterCreator = () => {
         setCapacity({capacity: 0, switch: 0});
     };
 
-    const listPages = ["Description", "Classes", "Abilities and Skills", "Inventory"];
+    const listPages = ["Description", "Classes", "Inventory"];
 
     // ###
     // Begining of actually returned page
     // ###
 
     return (
-        <div className={`container ${theme}`}>
-            <h1>D&D 5e Character Sheet</h1>
-            <div style={{textAlign:"right"}}>
-                    <span onClick={handleSettings} style={{ textDecoration: "underline", cursor: "pointer" }}>{`${settingsText}`}</span>
-                    {showSettings ?
-                        (<>
-                            <div className={`menu ${theme}`}>
-                                {allSources.map((item) => (
-                                    <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
-                                        <div key={item}>
-                                            <input
-                                                type="checkbox"
-                                                checked={checkedItems[item]}
-                                                onChange={() => handleCheckboxChange(item)}
-                                            />
-                                            {bookList.find(book => book.id === item.toLowerCase()) ? bookList.find(book => book.id === item.toLowerCase()).title : item}
-                                        </div>
-                                    </label>
-                                ))}
+        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+            <div className={`container ${theme}`} style={{ maxWidth: '30%', margin: '2%' }}>
+                <h2 style={{ textAlign: 'center' }}>Ability Scores</h2>
+                <div className={`ability-scores ${theme}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {Object.keys(abilityScores).map((ability) => (
+                        <div key={ability} className={`form-group ${theme}`}>
+                            <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                            <input
+                                type="number"
+                                name={ability}
+                                value={abilityScores[ability]}
+                                onChange={handleAbilityScoreChange}
+                                className={`input ${theme}`}
+                            />
+                            <div className={`modifiers  ${theme}`}>
+                                {isNaN(calculateModifier(abilityScores[ability], 0))
+                                    ? `+0`
+                                    : calculateModifier(abilityScores[ability], 0) >= 0
+                                        ? `+${calculateModifier(abilityScores[ability], 0)}` 
+                                        : calculateModifier(abilityScores[ability], 0)}
                             </div>
-                            <button className="blue-button" onClick={() => setSources(true)}> Set All Sources </button>
-                            <button className="blue-button" onClick={() => setSources(false)}> Reset Sources </button>
-                        </>)
-                        : null
-                    }
-            </div>
-
-            <button className={`button`} style={showAll ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setShow(!showAll)}>{showAll ? "Show Shortened Page" : "Show Full Page"}</button>
-            <hr />
-            <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                        </div>
+                    ))}
+                </div>
                 <div>
-                    <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
-                    <input
-                        type="number"
-                        name="cur"
-                        value={health_info.cur}
-                        onChange={handleHealthChange}
-                        style={{ maxWidth: '50px' }}
-                        className={`input ${theme}`}
-                    />
-                    <span><b> / </b></span>
-                    <input
-                        type="number"
-                        name="max"
-                        value={health_info.max}
-                        onChange={handleHealthChange}
-                        style={{ maxWidth: '50px' }}
-                        className={`input ${theme}`}
-                    />
-                    <br />
-                    <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
-                    <input
-                        type="number"
-                        name="temp"
-                        value={health_info.temp}
-                        onChange={handleHealthChange}
-                        style={{ maxWidth: '50px' }}
-                        className={`input ${theme}`}
-                    />
-                    <br />
-                    <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                    <div style={{ display: 'inline-block' }}>
-                        <b>AC:</b>
-                        <input
-                            type="number"
-                            name="AC"
-                            value={ac}
-                            onChange={(e) => setAC(e.target.value)}
-                            style={{ maxWidth: '50px' }}
-                            className={`input ${theme}`}
-                        />
-                    </div>
-                    <br />
-                    <div style={{ display: 'inline-block' }}>
-                        <b>Speed:</b>
-                        <input
-                            type="number"
-                            name="Speed"
-                            value={speed}
-                            onChange={(e) => setSpeed(e.target.value)}
-                            style={{ maxWidth: '50px' }}
-                            className={`input ${theme}`}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {!showAll ? 
-                listPages.map((item, index) => {
-                    return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
-                })
-                 : <></>
-            }
-
-            <br />
-            <hr />
-
-            {/* Character Description */}
-            {pageNum === 0 || showAll
-                ? <>
-                    <h2>Description</h2>
-                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 100%', margin: '5px'}}>
-                            <label>Character Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Character Name..."
-                                value={character.name}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                                style={{ width: '97%' }}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Race</label>
-                            <Autocomplete
-                                filler="Select Race..."
-                                onChange={handleRaceChange}
-                                display={character.race}
-                                newSuggestions={listRaces}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Background</label>
-                            <Autocomplete
-                                filler="Select Background..."
-                                onChange={handleBackgroundChange}
-                                display={character.background}
-                                newSuggestions={listBackgrounds}
-                            />
-                            {
-                                <span>
-                                    {bg && listBackgrounds.find(item => item === character.background) ?
-                                        <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
-                                            {(showBackground && bg.entries) ?
-                                                (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
-                                                (null)}
-                                        </>
-                                    : null}
-                                </span>
-                            }
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Alignment</label>
-                            <Autocomplete
-                                _c={true}
-                                filler="Alignment..."
-                                onChange={handleAlignmentChange}
-                                display={character.alignment}
-                                newSuggestions={["None", "Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"]}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Gender</label>
-                            <input
-                                type="text"
-                                name="gender"
-                                placeholder="Gender..."
-                                value={character.gender}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Eyes</label>
-                            <input
-                                type="text"
-                                name="eyes"
-                                placeholder="Eyes..."
-                                value={character.eyes}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Size</label>
-                            <input
-                                type="text"
-                                name="size"
-                                placeholder="Size..."
-                                value={character.size}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Height</label>
-                            <input
-                                type="text"
-                                name="height"
-                                placeholder="Height..."
-                                value={character.height}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Faith</label>
-                            <input
-                                type="text"
-                                name="faith"
-                                placeholder="Faith..."
-                                value={character.faith}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Hair</label>
-                            <input
-                                type="text"
-                                name="hair"
-                                placeholder="Hair..."
-                                value={character.hair}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Skin</label>
-                            <input
-                                type="text"
-                                name="skin"
-                                placeholder="Skin..."
-                                value={character.skin}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Age</label>
-                            <input
-                                type="text"
-                                name="age"
-                                placeholder="Age..."
-                                value={character.age}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <label>Weight</label>
-                            <input
-                                type="text"
-                                name="weight"
-                                placeholder="Weight..."
-                                value={character.weight}
-                                onChange={handleCharacterChange}
-                                className={`input ${theme}`}
-                            />
-                        </div>
-                    </div>
-                </> : null}
-
-                {/* Class */}
-                {pageNum === 1 || showAll
-                    ? <>
-                        <h2>Level: {totalLevel}</h2>
-                        <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
-                            <Autocomplete
-                                filler="Class..."
-                                onChange={setClass}
-                                newSuggestions={listClasses}
-                                display={charClass}
-                            />
-                        </div>
-                        {levels.map((level, index) => (
-                            <div key={index} className={`modifier-display ${theme}`}>
-                                <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginRight: '10%' }}>
-                                    {`${level.className}`}
-                                </span>
-                                <select
-                                    name={level.className}
-                                    value={level.level}
-                                    onChange={handleLevelChange}
-                                    className={`input ${theme}`}
-                                >
-                                    <option value={1}>1</option>
-                                    <option value={2}>2</option>
-                                    <option value={3}>3</option>
-                                    <option value={4}>4</option>
-                                    <option value={5}>5</option>
-                                    <option value={6}>6</option>
-                                    <option value={7}>7</option>
-                                    <option value={8}>8</option>
-                                    <option value={9}>9</option>
-                                    <option value={10}>10</option>
-                                    <option value={11}>11</option>
-                                    <option value={12}>12</option>
-                                    <option value={13}>13</option>
-                                    <option value={14}>14</option>
-                                    <option value={15}>15</option>
-                                    <option value={16}>16</option>
-                                    <option value={17}>17</option>
-                                    <option value={18}>18</option>
-                                    <option value={19}>19</option>
-                                    <option value={20}>20</option>
-                                </select>
-                                <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)} style={{ marginLeft: '2%' }}>
-                                    Delete
-                                </button>
-                            </div>
-                        ))}
-                        <button className={`blue-button ${theme}`} onClick={addLevel}>
-                            Add Levels
-                        </button>
-                    </> : null}
-
-                {/* Abilities and Skills */}
-                {pageNum === 2 || showAll
-                ? <>
-                    <h2 style={{ textAlign: 'center' }}>Ability Scores</h2>
-                    <div className={`ability-scores ${theme}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
-                        {Object.keys(abilityScores).map((ability) => (
-                            <div key={ability} className={`form-group ${theme}`}>
-                                <label>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
-                                <input
-                                    type="number"
-                                    name={ability}
-                                    value={abilityScores[ability]}
-                                    onChange={handleAbilityScoreChange}
-                                    className={`input ${theme}`}
-                                />
-                                <div className={`modifiers  ${theme}`}>
-                                    {isNaN(calculateModifier(abilityScores[ability], 0))
-                                        ? `+0`
-                                        : calculateModifier(abilityScores[ability], 0) >= 0
-                                            ? `+${calculateModifier(abilityScores[ability], 0)}` 
-                                            : calculateModifier(abilityScores[ability], 0)}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
+                    <span>* - profieient, # - expert, ~ - custom</span> <br />
                     <div>
-                        <span style={{fontWeight: "bold", fontSize: "15px"}}>Saving Throws: </span> <br />
-                        <span>* - profieient, # - expert, ~ - custom</span> <br />
-                        <div>
-                            {savingThrows.map((save, index) => (
-                                <div key={index} className={`modifier-display ${theme}`} style={{ paddingBottom: '5px'}}>
-                                    <select
-                                        value={save.prof}
-                                        onChange={(e) => {
-                                            let updatedSaves = [...savingThrows];
-                                            updatedSaves[index].prof = Number(e.target.value);
-                                            setSavingThrows(updatedSaves);
-                                        }}
-                                        className={`input ${theme}`}
-                                    >
-                                        <option value={0}></option>
-                                        <option value={1}>*</option>
-                                        <option value={2}>#</option>
-                                        <option value={3}>~</option>
-                                    </select>
-                                    <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-                                        {`${save.name.charAt(0).toUpperCase() + save.name.slice(1)}:`}
-                                    </span>
-                                    <span style={{whiteSpace: "pre-wrap"}}>
-                                        {save.prof < 3
-                                            ? (calculateModifier(abilityScores[save.name] || 10, save.prof) >= 0
-                                                ? `+${calculateModifier(abilityScores[save.name] || 10, save.prof)}`
-                                                : `${calculateModifier(abilityScores[save.name] || 10, save.prof)}`)
-                                            : <span>
-                                                {save.mod >= 0 ? '+': ' '}
-                                                <input
-                                                    type="number"
-                                                    value={save.mod}
-                                                    name={save.name}
-                                                    onChange={handleSaveingThrowChange}
-                                                    style={{ maxWidth: '50px' }}
-                                                    className={`input ${theme}`}
-                                                />
-                                            </span>
-                                        }
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <h2>Skills</h2>
-                    <span>* - profieient, # - expert, ~ - custom</span>
-                    {skills.map((skill, index) => (
-                        <div key={index} className={`modifier-display ${theme}`} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '5px' }}>
-                            <div>
+                        {savingThrows.map((save, index) => (
+                            <div key={index} className={`modifier-display ${theme}`} style={{ paddingBottom: '5px'}}>
                                 <select
-                                    value={skill.ability}
-                                    onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
-                                    className={`input ${theme}`}
-                                >
-                                    <option value="">Select Ability</option>
-                                    <option value="strength">STR</option>
-                                    <option value="dexterity">DEX</option>
-                                    <option value="constitution">CON</option>
-                                    <option value="intelligence">INT</option>
-                                    <option value="wisdom">WIS</option>
-                                    <option value="charisma">CHA</option>
-                                </select>
-                                <select
-                                    value={skill.prof}
-                                    onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
+                                    value={save.prof}
+                                    onChange={(e) => {
+                                        let updatedSaves = [...savingThrows];
+                                        updatedSaves[index].prof = Number(e.target.value);
+                                        setSavingThrows(updatedSaves);
+                                    }}
                                     className={`input ${theme}`}
                                 >
                                     <option value={0}></option>
@@ -931,77 +566,443 @@ const CharacterCreator = () => {
                                     <option value={2}>#</option>
                                     <option value={3}>~</option>
                                 </select>
-                                <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                    {`${skill.name}:`}
+                                <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                                    {`${save.name.charAt(0).toUpperCase() + save.name.slice(1)}:`}
+                                </span>
+                                <span style={{whiteSpace: "pre-wrap"}}>
+                                    {save.prof < 3
+                                        ? (calculateModifier(abilityScores[save.name] || 10, save.prof) >= 0
+                                            ? `+${calculateModifier(abilityScores[save.name] || 10, save.prof)}`
+                                            : `${calculateModifier(abilityScores[save.name] || 10, save.prof)}`)
+                                        : <span>
+                                            {save.mod >= 0 ? '+': ' '}
+                                            <input
+                                                type="number"
+                                                value={save.mod}
+                                                name={save.name}
+                                                onChange={handleSaveingThrowChange}
+                                                style={{ maxWidth: '50px' }}
+                                                className={`input ${theme}`}
+                                            />
+                                        </span>
+                                    }
                                 </span>
                             </div>
-                            <div>
-                                {skill.prof < 3
-                                    ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
-                                        ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `
-                                        : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `)
-                                    : <span style={{whiteSpace: "pre-wrap"}}>
-                                        {skill.mod >= 0 ? '+': ' '}
-                                        <input
-                                            type="number"
-                                            value={skill.mod}
-                                            name={skill.name}
-                                            onChange={handleSkillMod}
-                                            style={{ textAlign: 'right', width: '3rem', fontFamily: 'monospace' }}
-                                            className={`input ${theme}`}
-                                        />
-                                    </span>
-                                }
-                                <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
-                                    Delete
-                                </button>
-                            </div>
+                        ))}
+                    </div>
+                </div>
+                <h2>Skills</h2>
+                <span>* - profieient, # - expert, ~ - custom</span>
+                {skills.map((skill, index) => (
+                    <div key={index} className={`modifier-display ${theme}`} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '5px' }}>
+                        <div>
+                            <select
+                                value={skill.ability}
+                                onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
+                                className={`input ${theme}`}
+                            >
+                                <option value="">Select Ability</option>
+                                <option value="strength">STR</option>
+                                <option value="dexterity">DEX</option>
+                                <option value="constitution">CON</option>
+                                <option value="intelligence">INT</option>
+                                <option value="wisdom">WIS</option>
+                                <option value="charisma">CHA</option>
+                            </select>
+                            <select
+                                value={skill.prof}
+                                onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
+                                className={`input ${theme}`}
+                            >
+                                <option value={0}></option>
+                                <option value={1}>*</option>
+                                <option value={2}>#</option>
+                                <option value={3}>~</option>
+                            </select>
+                            <span style={{ display: 'inline-flex', width: '150px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                {`${skill.name}:`}
+                            </span>
                         </div>
-                    ))}
-                    <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button>
-                </> : null}
-                            
-                {/* Inventory */}
-                {pageNum === 3 || showAll
-                ? <>
-                    <h2>Inventory</h2>
-                    <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
-                    {/* <hr />
+                        <div>
+                            {skill.prof < 3
+                                ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
+                                    ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `
+                                    : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `)
+                                : <span style={{whiteSpace: "pre-wrap"}}>
+                                    {skill.mod >= 0 ? '+': ' '}
+                                    <input
+                                        type="number"
+                                        value={skill.mod}
+                                        name={skill.name}
+                                        onChange={handleSkillMod}
+                                        style={{ textAlign: 'right', width: '3rem', fontFamily: 'monospace' }}
+                                        className={`input ${theme}`}
+                                    />
+                                </span>
+                            }
+                            <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                ))}
+                <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button>
+            </div>
 
-                    <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
-                    <br />
-                    {Data[0] === undefined
-                        ? (<span> Waiting </span>)
-                        : (<span>{Data[0].name} {Data[0].entries}</span>)
-                    } */}
-                </> : null}
-                <br />
-                <hr />
-
-                <div style={{ padding: '2%' }}>
-                    <h2>Notes</h2>
-                    <textarea
-                        className={`notes-box ${theme}`}
-                        value={notes}
-                        onInput={saveNotes}
-                    />
+            {/* Main Section */}
+            <div className={`container ${theme}`} style={{ maxWidth: '70%', width: '70%', margin: '2%' }}>
+                <h1>D&D 5e Character Sheet</h1>
+                <div style={{textAlign:"right"}}>
+                        <span onClick={handleSettings} style={{ textDecoration: "underline", cursor: "pointer" }}>{`${settingsText}`}</span>
+                        {showSettings ?
+                            (<>
+                                <div className={`menu ${theme}`}>
+                                    {allSources.map((item) => (
+                                        <label key={item + " label"} style={{padding:"10px", fontWeight:"bold"}}>
+                                            <div key={item}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={checkedItems[item]}
+                                                    onChange={() => handleCheckboxChange(item)}
+                                                />
+                                                {bookList.find(book => book.id === item.toLowerCase()) ? bookList.find(book => book.id === item.toLowerCase()).title : item}
+                                            </div>
+                                        </label>
+                                    ))}
+                                </div>
+                                <button className="blue-button" onClick={() => setSources(true)}> Set All Sources </button>
+                                <button className="blue-button" onClick={() => setSources(false)}> Reset Sources </button>
+                            </>)
+                            : null
+                        }
                 </div>
 
-                <br />
+                <button className={`button`} style={showAll ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setShow(!showAll)}>{showAll ? "Show Shortened Page" : "Show Full Page"}</button>
                 <hr />
+                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                    <div>
+                        <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
+                        <input
+                            type="number"
+                            name="cur"
+                            value={health_info.cur}
+                            onChange={handleHealthChange}
+                            style={{ maxWidth: '50px' }}
+                            className={`input ${theme}`}
+                        />
+                        <span><b> / </b></span>
+                        <input
+                            type="number"
+                            name="max"
+                            value={health_info.max}
+                            onChange={handleHealthChange}
+                            style={{ maxWidth: '50px' }}
+                            className={`input ${theme}`}
+                        />
+                        <br />
+                        <span style={{whiteSpace: "pre-wrap"}}>Temp Hp:  </span>
+                        <input
+                            type="number"
+                            name="temp"
+                            value={health_info.temp}
+                            onChange={handleHealthChange}
+                            style={{ maxWidth: '50px' }}
+                            className={`input ${theme}`}
+                        />
+                        <br />
+                        <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                        <div style={{ display: 'inline-block' }}>
+                            <b>AC:</b>
+                            <input
+                                type="number"
+                                name="AC"
+                                value={ac}
+                                onChange={(e) => setAC(e.target.value)}
+                                style={{ maxWidth: '50px' }}
+                                className={`input ${theme}`}
+                            />
+                        </div>
+                        <br />
+                        <div style={{ display: 'inline-block' }}>
+                            <b>Speed:</b>
+                            <input
+                                type="number"
+                                name="Speed"
+                                value={speed}
+                                onChange={(e) => setSpeed(e.target.value)}
+                                style={{ maxWidth: '50px' }}
+                                className={`input ${theme}`}
+                            />
+                        </div>
+                    </div>
+                </div>
 
                 {!showAll ? 
-                    <>{listPages.map((item, index) => {
+                    listPages.map((item, index) => {
                         return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
-                    })} <hr /></>
+                    })
                     : <></>
                 }
 
-                <h2>Character Upload</h2>
-                <button className={`button ${theme}`} onClick={handleSave}>Save Character</button> <br /> <br />
-                <FileUploader onSubmit={handleUpload}/>
+                <br />
                 <hr />
-                <button className={`red-button ${theme}`} onClick={resetCharacter}>Reset Sheet</button>
+
+                {/* Character Description */}
+                {pageNum === 0 || showAll
+                    ? <>
+                        <h2>Description</h2>
+                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 100%', margin: '5px'}}>
+                                <label>Character Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Character Name..."
+                                    value={character.name}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                    style={{ width: '97%' }}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Race</label>
+                                <Autocomplete
+                                    filler="Select Race..."
+                                    onChange={handleRaceChange}
+                                    display={character.race}
+                                    newSuggestions={listRaces}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Background</label>
+                                <Autocomplete
+                                    filler="Select Background..."
+                                    onChange={handleBackgroundChange}
+                                    display={character.background}
+                                    newSuggestions={listBackgrounds}
+                                />
+                                {
+                                    <span>
+                                        {bg && listBackgrounds.find(item => item === character.background) ?
+                                            <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
+                                                {(showBackground && bg.entries) ?
+                                                    (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
+                                                    (null)}
+                                            </>
+                                        : null}
+                                    </span>
+                                }
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Alignment</label>
+                                <Autocomplete
+                                    _c={true}
+                                    filler="Alignment..."
+                                    onChange={handleAlignmentChange}
+                                    display={character.alignment}
+                                    newSuggestions={["None", "Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"]}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Gender</label>
+                                <input
+                                    type="text"
+                                    name="gender"
+                                    placeholder="Gender..."
+                                    value={character.gender}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Eyes</label>
+                                <input
+                                    type="text"
+                                    name="eyes"
+                                    placeholder="Eyes..."
+                                    value={character.eyes}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Size</label>
+                                <input
+                                    type="text"
+                                    name="size"
+                                    placeholder="Size..."
+                                    value={character.size}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Height</label>
+                                <input
+                                    type="text"
+                                    name="height"
+                                    placeholder="Height..."
+                                    value={character.height}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Faith</label>
+                                <input
+                                    type="text"
+                                    name="faith"
+                                    placeholder="Faith..."
+                                    value={character.faith}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Hair</label>
+                                <input
+                                    type="text"
+                                    name="hair"
+                                    placeholder="Hair..."
+                                    value={character.hair}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Skin</label>
+                                <input
+                                    type="text"
+                                    name="skin"
+                                    placeholder="Skin..."
+                                    value={character.skin}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Age</label>
+                                <input
+                                    type="text"
+                                    name="age"
+                                    placeholder="Age..."
+                                    value={character.age}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 40%', margin: '5px', paddingRight: '3%' }}>
+                                <label>Weight</label>
+                                <input
+                                    type="text"
+                                    name="weight"
+                                    placeholder="Weight..."
+                                    value={character.weight}
+                                    onChange={handleCharacterChange}
+                                    className={`input ${theme}`}
+                                />
+                            </div>
+                        </div>
+                    </> : null}
+
+                    {/* Class */}
+                    {pageNum === 1 || showAll
+                        ? <>
+                            <h2>Level: {totalLevel}</h2>
+                            <div className={`form-group  ${theme}`} style={{ flex: '1 1 100%', margin: '5px', paddingRight: '3%' }}>
+                                <Autocomplete
+                                    filler="Class..."
+                                    onChange={setClass}
+                                    newSuggestions={listClasses}
+                                    display={charClass}
+                                />
+                            </div>
+                            {levels.map((level, index) => (
+                                <div key={index} className={`modifier-display ${theme}`}>
+                                    <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginRight: '10%' }}>
+                                        {`${level.className}`}
+                                    </span>
+                                    <select
+                                        name={level.className}
+                                        value={level.level}
+                                        onChange={handleLevelChange}
+                                        className={`input ${theme}`}
+                                    >
+                                        <option value={1}>1</option>
+                                        <option value={2}>2</option>
+                                        <option value={3}>3</option>
+                                        <option value={4}>4</option>
+                                        <option value={5}>5</option>
+                                        <option value={6}>6</option>
+                                        <option value={7}>7</option>
+                                        <option value={8}>8</option>
+                                        <option value={9}>9</option>
+                                        <option value={10}>10</option>
+                                        <option value={11}>11</option>
+                                        <option value={12}>12</option>
+                                        <option value={13}>13</option>
+                                        <option value={14}>14</option>
+                                        <option value={15}>15</option>
+                                        <option value={16}>16</option>
+                                        <option value={17}>17</option>
+                                        <option value={18}>18</option>
+                                        <option value={19}>19</option>
+                                        <option value={20}>20</option>
+                                    </select>
+                                    <button className={`red-button  ${theme}`} onClick={() => removeLevel(index)} style={{ marginLeft: '2%' }}>
+                                        Delete
+                                    </button>
+                                </div>
+                            ))}
+                            <button className={`blue-button ${theme}`} onClick={addLevel}>
+                                Add Levels
+                            </button>
+                        </> : null}
+                                
+                    {/* Inventory */}
+                    {pageNum === 2 || showAll
+                    ? <>
+                        <h2>Inventory</h2>
+                        <Inventory stuff={items} addStuff={addItem} removeStuff={removeItem} changeNumber={handleNumberChange} cap={capacity} changeCapacity={handleCapacityChange} />
+                        {/* <hr />
+
+                        <button className={`button ${theme}`} onClick={loadJson}>Test Loading</button>
+                        <br />
+                        {Data[0] === undefined
+                            ? (<span> Waiting </span>)
+                            : (<span>{Data[0].name} {Data[0].entries}</span>)
+                        } */}
+                    </> : null}
+                    <br />
+                    <hr />
+
+                    <div style={{ padding: '2%' }}>
+                        <h2>Notes</h2>
+                        <textarea
+                            className={`notes-box ${theme}`}
+                            value={notes}
+                            onInput={saveNotes}
+                        />
+                    </div>
+
+                    <br />
+                    <hr />
+
+                    {!showAll ? 
+                        <>{listPages.map((item, index) => {
+                            return <button key={index} className={`button`} style={pageNum === index ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setPageNum(index)}>{item}</button>
+                        })} <hr /></>
+                        : <></>
+                    }
+
+                    <h2>Character Upload</h2>
+                    <button className={`button ${theme}`} onClick={handleSave}>Save Character</button> <br /> <br />
+                    <FileUploader onSubmit={handleUpload}/>
+                    <hr />
+                    <button className={`red-button ${theme}`} onClick={resetCharacter}>Reset Sheet</button>
+            </div>
         </div>
     );
 }

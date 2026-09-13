@@ -10,13 +10,18 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
         setItem({...item, [e.target.name] : `${e.target.value}`})
     };
 
-    const toggleExpand = (index) => {
+    const toggleExpand = (index, del=false) => {
         if (expanded.includes(index)) {
             setExpanded(expanded.filter((item) => item !== index));
         }
-        else {
+        else if (!del) {
             setExpanded([...expanded, index]);
         }
+    };
+
+    const handleDelete = (index) => {
+        toggleExpand(index, true);
+        removeStuff(index);
     };
 
     const [theme, setTheme] = useState("light");
@@ -131,7 +136,7 @@ const Inventory = ({ stuff, addStuff, removeStuff, changeNumber, cap, changeCapa
                                             placeholder='number...'
                                             className={`input ${theme}`}
                                         />
-                                        <button onClick={() => removeStuff(index)} className='red-button'> Delete </button>
+                                        <button onClick={() => handleDelete(index)} className='red-button'> Delete </button>
                                     </div>
                                 : null
                             }
