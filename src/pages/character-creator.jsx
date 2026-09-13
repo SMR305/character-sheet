@@ -444,7 +444,7 @@ const CharacterCreator = () => {
                 }
     
                 try {
-                    const module = await import("../autoCompletes/backgrounds.js"); // Adjust path if necessary
+                    const module = await import("../autoCompletes/backgrounds.js");
                     if (module["bg_" + list[i]]) {
                         final_bg.push(...module["bg_" + list[i]]);
                     }
@@ -600,6 +600,7 @@ const CharacterCreator = () => {
                                 value={skill.ability}
                                 onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
                                 className={`input ${theme}`}
+                                style={{ width: '5rem' }}
                             >
                                 <option value="">Select Ability</option>
                                 <option value="strength">STR</option>
@@ -619,7 +620,7 @@ const CharacterCreator = () => {
                                 <option value={2}>#</option>
                                 <option value={3}>~</option>
                             </select>
-                            <span style={{ display: 'inline-flex', width: '150px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                 {`${skill.name}:`}
                             </span>
                         </div>
@@ -787,8 +788,10 @@ const CharacterCreator = () => {
                                     <span>
                                         {bg && listBackgrounds.find(item => item === character.background) ?
                                             <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
-                                                {(showBackground && bg.entries) ?
-                                                    (bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))) :
+                                                    {(showBackground && bg.entries) ?
+                                                    (<div style={{position: 'absolute', zIndex: '10' }} className={`discover ${theme}`}>
+                                                    {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))} :
+                                                    </div>) :
                                                     (null)}
                                             </>
                                         : null}
