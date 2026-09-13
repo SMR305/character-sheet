@@ -104,6 +104,7 @@ const CharacterCreator = () => {
     );
     const [health_info, setHealth] = useState(loadFromLocalStorage("health_info", { cur: 0, max: 0, temp: 0 }));
     const [ac, setAC] = useState(loadFromLocalStorage("ac", 10))
+    const [speed, setSpeed] = useState(loadFromLocalStorage("speed", 30))
     const [savingThrows, setSavingThrows] = useState(
         loadFromLocalStorage("savingThrows", defaultSavingThrows)
     );
@@ -154,6 +155,7 @@ const CharacterCreator = () => {
         localStorage.setItem("abilityScores", JSON.stringify(abilityScores));
         localStorage.setItem("health_info", JSON.stringify(health_info));
         localStorage.setItem("ac", JSON.stringify(ac));
+        localStorage.setItem("speed", JSON.stringify(speed));
         localStorage.setItem("savingThrows", JSON.stringify(savingThrows));
         localStorage.setItem("skills", JSON.stringify(skills));
         localStorage.setItem("totalLevel", JSON.stringify(totalLevel));
@@ -162,7 +164,7 @@ const CharacterCreator = () => {
         localStorage.setItem("items", JSON.stringify(items));
         localStorage.setItem("notes", JSON.stringify(notes));
         localStorage.setItem("character-checkedItems", JSON.stringify(checkedItems));
-    }, [showAll, character, levels, abilityScores, health_info, ac, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
+    }, [showAll, character, levels, abilityScores, health_info, ac, speed, savingThrows, skills, totalLevel, bg, capacity, items, notes, checkedItems]);
 
     // const loadJson = async () => {
     //     let input = "spells-phb";
@@ -348,6 +350,7 @@ const CharacterCreator = () => {
         setAbilityScores(input.abilityScores);
         setHealth(input.health_info);
         setAC(input.ac);
+        setSpeed(input.speed);
         setSkills(input.skills);
         setNotes(input.notes);
         setSavingThrows(input.savingThrows);
@@ -357,8 +360,8 @@ const CharacterCreator = () => {
     };
 
     const handleSave = () => {
-        console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, ac, savingThrows, skills, capacity, items, notes, bg } );
-        handleDownload({ checkedItems, character, levels, abilityScores, health_info, ac, savingThrows, skills, capacity, items, notes, bg });
+        console.log("Character Data:", { checkedItems, character, levels, abilityScores, health_info, ac, speed, savingThrows, skills, capacity, items, notes, bg } );
+        handleDownload({ checkedItems, character, levels, abilityScores, health_info, ac, speed, savingThrows, skills, capacity, items, notes, bg });
     };
 
     const handleSettings = () => {
@@ -547,7 +550,7 @@ const CharacterCreator = () => {
             </div>
 
             <button className={`button`} style={showAll ? {background: '#0056b3', margin: '1px'} : {margin: '1px'}} onClick={() => setShow(!showAll)}>{showAll ? "Show Shortened Page" : "Show Full Page"}</button>
-            <br />
+            <hr />
             <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                 <div>
                     <span style={{whiteSpace: "pre-wrap"}}>Hp:       </span>
@@ -581,16 +584,30 @@ const CharacterCreator = () => {
                     <br />
                     <span style={{fontWeight: "bold"}}>Proficiency Bonus: {calculateProfBonus() <= 1 ? null : calculateProfBonus()}</span> <br /> <br />
                 </div>
-                <div>
-                    <b>AC:</b>
-                    <input
-                        type="number"
-                        name="AC"
-                        value={ac}
-                        onChange={(e) => setAC(e.target.value)}
-                        style={{ maxWidth: '50px' }}
-                        className={`input ${theme}`}
-                    />
+                <div style={{ textAlign: 'right' }}>
+                    <div style={{ display: 'inline-block' }}>
+                        <b>AC:</b>
+                        <input
+                            type="number"
+                            name="AC"
+                            value={ac}
+                            onChange={(e) => setAC(e.target.value)}
+                            style={{ maxWidth: '50px' }}
+                            className={`input ${theme}`}
+                        />
+                    </div>
+                    <br />
+                    <div style={{ display: 'inline-block' }}>
+                        <b>Speed:</b>
+                        <input
+                            type="number"
+                            name="Speed"
+                            value={speed}
+                            onChange={(e) => setSpeed(e.target.value)}
+                            style={{ maxWidth: '50px' }}
+                            className={`input ${theme}`}
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -889,37 +906,40 @@ const CharacterCreator = () => {
                     <h2>Skills</h2>
                     <span>* - profieient, # - expert, ~ - custom</span>
                     {skills.map((skill, index) => (
-                        <div key={index} className={`modifier-display ${theme}`} style={{paddingBottom: "5px"}}>
-                            <select
-                                value={skill.ability}
-                                onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
-                                className={`input ${theme}`}
-                            >
-                                <option value="">Select Ability</option>
-                                <option value="strength">STR</option>
-                                <option value="dexterity">DEX</option>
-                                <option value="constitution">CON</option>
-                                <option value="intelligence">INT</option>
-                                <option value="wisdom">WIS</option>
-                                <option value="charisma">CHA</option>
-                            </select>
-                            <select
-                                value={skill.prof}
-                                onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
-                                className={`input ${theme}`}
-                            >
-                                <option value={0}></option>
-                                <option value={1}>*</option>
-                                <option value={2}>#</option>
-                                <option value={3}>~</option>
-                            </select>
-                            <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginRight: '10%' }}>
-                                {`${skill.name}:`}
-                            </span>
+                        <div key={index} className={`modifier-display ${theme}`} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '5px' }}>
+                            <div>
+                                <select
+                                    value={skill.ability}
+                                    onChange={(e) => handleSkillChange(index, "ability", e.target.value)}
+                                    className={`input ${theme}`}
+                                >
+                                    <option value="">Select Ability</option>
+                                    <option value="strength">STR</option>
+                                    <option value="dexterity">DEX</option>
+                                    <option value="constitution">CON</option>
+                                    <option value="intelligence">INT</option>
+                                    <option value="wisdom">WIS</option>
+                                    <option value="charisma">CHA</option>
+                                </select>
+                                <select
+                                    value={skill.prof}
+                                    onChange={(e) => handleSkillChange(index, "prof", e.target.value)}
+                                    className={`input ${theme}`}
+                                >
+                                    <option value={0}></option>
+                                    <option value={1}>*</option>
+                                    <option value={2}>#</option>
+                                    <option value={3}>~</option>
+                                </select>
+                                <span style={{ display: 'inline-flex', width: '160px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                    {`${skill.name}:`}
+                                </span>
+                            </div>
+                            <div>
                                 {skill.prof < 3
                                     ? (calculateModifier(abilityScores[skill.ability] || 10, skill.prof) >= 0
-                                        ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13)
-                                        : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)}`.padEnd(13))
+                                        ? `+${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `
+                                        : `${calculateModifier(abilityScores[skill.ability] || 10, skill.prof)} `)
                                     : <span style={{whiteSpace: "pre-wrap"}}>
                                         {skill.mod >= 0 ? '+': ' '}
                                         <input
@@ -927,14 +947,15 @@ const CharacterCreator = () => {
                                             value={skill.mod}
                                             name={skill.name}
                                             onChange={handleSkillMod}
-                                            style={{ maxWidth: '13ch', fontFamily: 'monospace' }}
+                                            style={{ textAlign: 'right', width: '3rem', fontFamily: 'monospace' }}
                                             className={`input ${theme}`}
                                         />
                                     </span>
                                 }
-                            <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
-                                Delete
-                            </button>
+                                <button className={`red-button ${theme}`} onClick={() => removeSkill(index)}>
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     ))}
                     <button className={`button ${theme}`} onClick={addSkill}>Add Skill</button>
