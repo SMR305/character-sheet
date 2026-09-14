@@ -790,7 +790,7 @@ const CharacterCreator = () => {
                                             <> <span onClick={() => setShowBackground(!showBackground)} style={{ textDecoration: "underline", cursor: "pointer" }} >{bg.name} : {bg.source}</span>
                                                     {(showBackground && bg.entries) ?
                                                     (<div style={{position: 'absolute', zIndex: '10' }} className={`discover ${theme}`}>
-                                                    {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))} :
+                                                    {bg.entries.map((item, index) => (<Entry key={index} entry={item}/>))}
                                                     </div>) :
                                                     (null)}
                                             </>

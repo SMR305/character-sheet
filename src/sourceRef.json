@@ -1,592 +1,264 @@
 {
     "data": [
         {
-            "title": "Astral Adventurer's Guide",
-            "id": "aag"
+            "id": "phb",
+            "title": "Player's Handbook (2014)"
         },
         {
-            "title": "Adventure Atlas: The Mortuary",
-            "id": "aatm"
+            "id": "mm",
+            "title": "Monster Manual (2014)"
         },
         {
-            "title": "Acquisitions Incorporated",
-            "id": "ai"
+            "id": "dmg",
+            "title": "Dungeon Master's Guide (2014)"
         },
         {
-            "title": "Adventurers League",
-            "id": "al"
+            "id": "screen",
+            "title": "Dungeon Master's Screen"
         },
         {
-            "title": "Boo's Astral Menagerie",
-            "id": "bam"
+            "id": "scag",
+            "title": "Sword Coast Adventurer's Guide"
         },
         {
-            "title": "Bigby Presents: Glory of the Giants",
-            "id": "bgg"
+            "id": "ps-z",
+            "title": "Plane Shift: Zendikar"
         },
         {
-            "title": "The Book of Many Things",
-            "id": "bmt"
+            "id": "ps-i",
+            "title": "Plane Shift: Innistrad"
         },
         {
-            "title": "Dungeon Master's Guide (2014)",
-            "id": "dmg"
+            "id": "al",
+            "title": "Adventurers League"
         },
         {
-            "title": "The Deck of Many Things: Card Reference Guide",
-            "id": "dmtcrg"
+            "id": "vgm",
+            "title": "Volo's Guide to Monsters"
         },
         {
-            "title": "Domains of Delight",
-            "id": "dod"
+            "id": "ps-k",
+            "title": "Plane Shift: Kaladesh"
         },
         {
-            "title": "Explorer's Guide to Wildemount",
-            "id": "egw"
+            "id": "ps-a",
+            "title": "Plane Shift: Amonkhet"
         },
         {
-            "title": "Eberron: Rising from the Last War",
-            "id": "erlw"
+            "id": "oga",
+            "title": "One Grung Above"
         },
         {
-            "title": "Fizban's Treasury of Dragons",
-            "id": "ftd"
+            "id": "xge",
+            "title": "Xanathar's Guide to Everything"
         },
         {
-            "title": "Guildmasters' Guide to Ravnica",
-            "id": "ggr"
+            "id": "ps-x",
+            "title": "Plane Shift: Ixalan"
         },
         {
-            "title": "Thieves' Gallery",
-            "id": "hat-tg"
+            "id": "mtf",
+            "title": "Mordenkainen's Tome of Foes"
         },
         {
-            "title": "Heroes' Feast",
-            "id": "hf"
+            "id": "ps-d",
+            "title": "Plane Shift: Dominaria"
         },
         {
-            "title": "Heroes' Feast Flavors of the Multiverse",
-            "id": "hffotm"
+            "id": "ggr",
+            "title": "Guildmasters' Guide to Ravnica"
         },
         {
-            "title": "Humblewood Campaign Setting",
-            "id": "hwcs"
+            "id": "sac",
+            "title": "Sage Advice Compendium (2014)"
         },
         {
-            "title": "Minsc and Boo's Journal of Villainy",
-            "id": "mabjov"
+            "id": "ai",
+            "title": "Acquisitions Incorporated"
         },
         {
-            "title": "Monstrous Compendium Volume 4: Eldraine Creatures",
-            "id": "mcv4ec"
+            "id": "awm",
+            "title": "Adventure with Muk"
         },
         {
-            "title": "Monster Manual (2014)",
-            "id": "mm"
+            "id": "rmr",
+            "title": "Dungeons & Dragons vs. Rick and Morty: Basic Rules"
         },
         {
-            "title": "Mythic Odysseys of Theros",
-            "id": "mot"
+            "id": "erlw",
+            "title": "Eberron: Rising from the Last War"
         },
         {
-            "title": "Mordenkainen Presents: Monsters of the Multiverse",
-            "id": "mpmm"
+            "id": "egw",
+            "title": "Explorer's Guide to Wildemount"
         },
         {
-            "title": "Morte's Planar Parade",
-            "id": "mpp"
+            "id": "mot",
+            "title": "Mythic Odysseys of Theros"
         },
         {
-            "title": "Mordenkainen's Tome of Foes",
-            "id": "mtf"
+            "id": "screendungeonkit",
+            "title": "Dungeon Master's Screen: Dungeon Kit"
         },
         {
-            "title": "One Grung Above",
-            "id": "oga"
+            "id": "hf",
+            "title": "Heroes' Feast"
         },
         {
-            "title": "Puncheons and Flagons",
-            "id": "paf"
+            "id": "screenwildernesskit",
+            "title": "Dungeon Master's Screen: Wilderness Kit"
         },
         {
-            "title": "Player's Handbook (2014)",
-            "id": "phb"
+            "id": "tce",
+            "title": "Tasha's Cauldron of Everything"
         },
         {
-            "title": "Plane Shift: Amonkhet",
-            "id": "ps-a"
+            "id": "mgelft",
+            "title": "Muk's Guide to Everything He Learned From Tasha"
         },
         {
-            "title": "Plane Shift: Dominaria",
-            "id": "ps-d"
+            "id": "vrgr",
+            "title": "Van Richten's Guide to Ravenloft"
         },
         {
-            "title": "Plane Shift: Innistrad",
-            "id": "ps-i"
+            "id": "dod",
+            "title": "Domains of Delight"
         },
         {
-            "title": "Plane Shift: Kaladesh",
-            "id": "ps-k"
+            "id": "mabjov",
+            "title": "Minsc and Boo's Journal of Villainy"
         },
         {
-            "title": "Plane Shift: Ixalan",
-            "id": "ps-x"
+            "id": "ftd",
+            "title": "Fizban's Treasury of Dragons"
         },
         {
-            "title": "Plane Shift: Zendikar",
-            "id": "ps-z"
+            "id": "scc",
+            "title": "Strixhaven: A Curriculum of Chaos"
         },
         {
-            "title": "Plane Shift: Amonkhet",
-            "id": "psa"
+            "id": "mpmm",
+            "title": "Mordenkainen Presents: Monsters of the Multiverse"
         },
         {
-            "title": "Plane Shift: Dominaria",
-            "id": "psd"
+            "id": "mcv1sc",
+            "title": "Monstrous Compendium Volume 1: Spelljammer Creatures"
         },
         {
-            "title": "Plane Shift: Innistrad",
-            "id": "psi"
+            "id": "td",
+            "title": "Tarot Deck"
         },
         {
-            "title": "Plane Shift: Kaladesh",
-            "id": "psk"
+            "id": "screenspelljammer",
+            "title": "Dungeon Master's Screen: Spelljammer"
         },
         {
-            "title": "Plane Shift: Ixalan",
-            "id": "psx"
+            "id": "aag",
+            "title": "Astral Adventurer's Guide"
         },
         {
-            "title": "Plane Shift: Zendikar",
-            "id": "psz"
+            "id": "bam",
+            "title": "Boo's Astral Menagerie"
         },
         {
-            "title": "Dungeons & Dragons vs. Rick and Morty: Basic Rules",
-            "id": "rmr"
+            "id": "hat-tg",
+            "title": "Thieves' Gallery"
         },
         {
-            "title": "Sage Advice Compendium",
-            "id": "sac"
+            "id": "bgg",
+            "title": "Bigby Presents: Glory of the Giants"
         },
         {
-            "title": "Planescape: Adventures in the Multiverse",
-            "id": "sato"
+            "id": "mcv4ec",
+            "title": "Monstrous Compendium Volume 4: Eldraine Creatures"
         },
         {
-            "title": "Sword Coast Adventurer's Guide",
-            "id": "scag"
+            "id": "mpp",
+            "title": "Morte's Planar Parade"
         },
         {
-            "title": "Strixhaven: A Curriculum of Chaos",
-            "id": "scc"
+            "id": "sato",
+            "title": "Sigil and the Outlands"
         },
         {
-            "title": "Dungeon Master's Screen",
-            "id": "screen"
+            "id": "aatm",
+            "title": "Adventure Atlas: The Mortuary"
         },
         {
-            "title": "Dungeon Master's Screen: Dungeon Kit",
-            "id": "screendungeonkit"
+            "id": "hffotm",
+            "title": "Heroes' Feast Flavors of the Multiverse"
         },
         {
-            "title": "Dungeon Master's Screen: Spelljammer",
-            "id": "screenspelljammer"
+            "id": "bmt",
+            "title": "The Book of Many Things"
         },
         {
-            "title": "Dungeon Master's Screen: Wilderness Kit",
-            "id": "screenwildernesskit"
+            "id": "dmtcrg",
+            "title": "The Deck of Many Things: Card Reference Guide"
         },
         {
-            "title": "Tasha's Cauldron of Everything",
-            "id": "tce"
+            "id": "paf",
+            "title": "Puncheons and Flagons"
         },
         {
-            "title": "Tarot Deck",
-            "id": "td"
+            "id": "xphb",
+            "title": "Player's Handbook (2024)"
         },
         {
-            "title": "Tal'Dorei Campaign Setting Reborn",
-            "id": "tdcsr"
+            "id": "xdmg",
+            "title": "Dungeon Master's Guide (2024)"
         },
         {
-            "title": "Tome of Beasts 1 (2023 Edition)",
-            "id": "tob1-2023"
+            "id": "xscreen",
+            "title": "Dungeon Master's Screen (2024)"
         },
         {
-            "title": "Volo's Guide to Monsters",
-            "id": "vgm"
+            "id": "xmm",
+            "title": "Monster Manual (2025)"
         },
         {
-            "title": "Van Richten's Guide to Ravenloft",
-            "id": "vrgr"
+            "id": "xsac",
+            "title": "Sage Advice Compendium (2025)"
         },
         {
-            "title": "Dungeon Master's Guide (2024)",
-            "id": "xdmg"
+            "id": "abh",
+            "title": "Astarion's Book of Hungers"
         },
         {
-            "title": "Xanathar's Guide to Everything",
-            "id": "xge"
+            "id": "fraif",
+            "title": "Forgotten Realms: Adventures in Faer\u00fbn"
         },
         {
-            "title": "Monster Manual (2025)",
-            "id": "xmm"
+            "id": "frhof",
+            "title": "Forgotten Realms: Heroes of Faer\u00fbn"
         },
         {
-            "title": "Player's Handbook (2024)",
-            "id": "xphb"
+            "id": "nf",
+            "title": "Netheril's Fall"
         },
         {
-            "title": "Dungeon Master's Screen (2024)",
-            "id": "xscreen"
+            "id": "lfl",
+            "title": "Lorwyn: First Light"
         },
         {
-            "title": "Lost Mine of Phandelver",
-            "id": "lmop"
+            "id": "efa",
+            "title": "Eberron: Forge of the Artificer"
         },
         {
-            "title": "Hoard of the Dragon Queen",
-            "id": "hotdq"
+            "id": "cabomp",
+            "title": "Crochet: A Book of Many Patterns"
         },
         {
-            "title": "Rise of Tiamat",
-            "id": "rot"
+            "id": "xscreenrhw",
+            "title": "Dungeon Master's Screen; Ravenloft: The Horrors Within"
         },
         {
-            "title": "Princes of the Apocalypse",
-            "id": "pota"
+            "id": "rhw",
+            "title": "Ravenloft: The Horrors Within"
         },
         {
-            "title": "Out of the Abyss",
-            "id": "oota"
-        },
-        {
-            "title": "Curse of Strahd",
-            "id": "cos"
-        },
-        {
-            "title": "Storm King's Thunder",
-            "id": "skt"
-        },
-        {
-            "title": "Tales from the Yawning Portal: The Sunless Citadel",
-            "id": "tftyp-tsc"
-        },
-        {
-            "title": "Tales from the Yawning Portal: The Forge of Fury",
-            "id": "tftyp-tfof"
-        },
-        {
-            "title": "Tales from the Yawning Portal: The Hidden Shrine of Tamoachan",
-            "id": "tftyp-thsot"
-        },
-        {
-            "title": "Tales from the Yawning Portal: White Plume Mountain",
-            "id": "tftyp-wpm"
-        },
-        {
-            "title": "Tales from the Yawning Portal: Dead in Thay",
-            "id": "tftyp-dit"
-        },
-        {
-            "title": "Tales from the Yawning Portal: Against the Giants",
-            "id": "tftyp-atg"
-        },
-        {
-            "title": "Tales from the Yawning Portal: Tomb of Horrors",
-            "id": "tftyp-toh"
-        },
-        {
-            "title": "Tomb of Annihilation",
-            "id": "toa"
-        },
-        {
-            "title": "The Tortle Package",
-            "id": "ttp"
-        },
-        {
-            "title": "The Lost Kenku",
-            "id": "tlk"
-        },
-        {
-            "title": "X Marks the Spot",
-            "id": "xmts"
-        },
-        {
-            "title": "Waterdeep: Dragon Heist",
-            "id": "wdh"
-        },
-        {
-            "title": "Lost Laboratory of Kwalish",
-            "id": "llk"
-        },
-        {
-            "title": "Waterdeep: Dungeon of the Mad Mage",
-            "id": "wdmm"
-        },
-        {
-            "title": "Krenko's Way",
-            "id": "kkw"
-        },
-        {
-            "title": "A Zib for Your Thoughts",
-            "id": "azfyt"
-        },
-        {
-            "title": "Ghosts of Saltmarsh",
-            "id": "gos"
-        },
-        {
-            "title": "Hunt for the Thessalhydra",
-            "id": "hftt"
-        },
-        {
-            "title": "Humblewood: Adventure in the Wood",
-            "id": "hwaitw"
-        },
-        {
-            "title": "The Orrery of the Wanderer",
-            "id": "oow"
-        },
-        {
-            "title": "Essentials Kit: Dragon of Icespire Peak",
-            "id": "dip"
-        },
-        {
-            "title": "Essentials Kit: Storm Lord's Wrath",
-            "id": "slw"
-        },
-        {
-            "title": "Essentials Kit: Sleeping Dragon's Wake",
-            "id": "sdw"
-        },
-        {
-            "title": "Essentials Kit: Divine Contention",
-            "id": "dc"
-        },
-        {
-            "title": "Baldur's Gate: Descent Into Avernus",
-            "id": "bgdia"
-        },
-        {
-            "title": "Locathah Rising",
-            "id": "lr"
-        },
-        {
-            "title": "Infernal Machine Rebuild",
-            "id": "imr"
-        },
-        {
-            "title": "Eberron: Forgotten Relics",
-            "id": "efr"
-        },
-        {
-            "title": "The Lost Dungeon of Rickedness: Big Rick Energy",
-            "id": "rmbre"
-        },
-        {
-            "title": "Wildemount: Tide of Retribution",
-            "id": "tor"
-        },
-        {
-            "title": "Wildemount: Dangerous Designs",
-            "id": "dd"
-        },
-        {
-            "title": "Wildemount: Frozen Sick",
-            "id": "fs"
-        },
-        {
-            "title": "Wildemount: Unwelcome Spirits",
-            "id": "us"
-        },
-        {
-            "title": "Theros: No Silent Secret",
-            "id": "mot-nss"
-        },
-        {
-            "title": "Icewind Dale: Rime of the Frostmaiden",
-            "id": "idrotf"
-        },
-        {
-            "title": "Candlekeep Mysteries",
-            "id": "cm"
-        },
-        {
-            "title": "Ravenloft: The House of Lament",
-            "id": "hol"
-        },
-        {
-            "title": "Return to the Glory",
-            "id": "rtg"
-        },
-        {
-            "title": "Adventures in the Forgotten Realms: In Scarlet Flames",
-            "id": "aitfr-isf"
-        },
-        {
-            "title": "Adventures in the Forgotten Realms: The Hidden Page",
-            "id": "aitfr-thp"
-        },
-        {
-            "title": "Adventures in the Forgotten Realms: A Verdant Tomb",
-            "id": "aitfr-avt"
-        },
-        {
-            "title": "Adventures in the Forgotten Realms: Deepest Night",
-            "id": "aitfr-dn"
-        },
-        {
-            "title": "Adventures in the Forgotten Realms: From Cyan Depths",
-            "id": "aitfr-fcd"
-        },
-        {
-            "title": "NERDS Restoring Harmony: The Candy Mountain Caper",
-            "id": "nrh-tcmc"
-        },
-        {
-            "title": "NERDS Restoring Harmony: A Voice in the Wilderness",
-            "id": "nrh-avitw"
-        },
-        {
-            "title": "NERDS Restoring Harmony: A Sticky Situation",
-            "id": "nrh-ass"
-        },
-        {
-            "title": "NERDS Restoring Harmony: Circus of Illusion",
-            "id": "nrh-coi"
-        },
-        {
-            "title": "NERDS Restoring Harmony: The Lost Tomb",
-            "id": "nrh-tlt"
-        },
-        {
-            "title": "NERDS Restoring Harmony: A Web of Lies",
-            "id": "nrh-awol"
-        },
-        {
-            "title": "NERDS Restoring Harmony: Adventure Together",
-            "id": "nrh-at"
-        },
-        {
-            "title": "The Wild Beyond the Witchlight",
-            "id": "wbtw"
-        },
-        {
-            "title": "Strixhaven: Campus Kerfuffle",
-            "id": "scc-ck"
-        },
-        {
-            "title": "Strixhaven: Hunt for Mage Tower",
-            "id": "scc-hfmt"
-        },
-        {
-            "title": "Strixhaven: The Magister's Masquerade",
-            "id": "scc-tmm"
-        },
-        {
-            "title": "Strixhaven: A Reckoning in Ruins",
-            "id": "scc-arir"
-        },
-        {
-            "title": "Critical Role: Call of the Netherdeep",
-            "id": "crcotn"
-        },
-        {
-            "title": "Journeys through the Radiant Citadel",
-            "id": "jttrc"
-        },
-        {
-            "title": "Dragons of Stormwreck Isle",
-            "id": "dosi"
-        },
-        {
-            "title": "Spelljammer Academy",
-            "id": "sja"
-        },
-        {
-            "title": "Light of Xaryxis",
-            "id": "lox"
-        },
-        {
-            "title": "Dragonlance: Shadow of the Dragon Queen",
-            "id": "dsotdq"
-        },
-        {
-            "title": "Keys from the Golden Vault",
-            "id": "kftgv"
-        },
-        {
-            "title": "Giants of the Star Forge",
-            "id": "gotsf"
-        },
-        {
-            "title": "Phandelver and Below: The Shattered Obelisk",
-            "id": "pabtso"
-        },
-        {
-            "title": "Lightning Keep",
-            "id": "lk"
-        },
-        {
-            "title": "Turn of Fortune's Wheel",
-            "id": "tofw"
-        },
-        {
-            "title": "Chains of Asmodeus",
-            "id": "coa"
-        },
-        {
-            "title": "Peril in Pinebrook",
-            "id": "pip"
-        },
-        {
-            "title": "Heroes' Feast: Saving the Childrens Menu",
-            "id": "hfstcm"
-        },
-        {
-            "title": "Grim Hollow: Lairs of Etharis",
-            "id": "ghloe"
-        },
-        {
-            "title": "Dungeons of Drakkenheim",
-            "id": "dodk"
-        },
-        {
-            "title": "Descent into the Lost Caverns of Tsojcanth",
-            "id": "ditlcot"
-        },
-        {
-            "title": "Red Dragon's Tale: A LEGO Adventure",
-            "id": "lrdt"
-        },
-        {
-            "title": "Vecna: Nest of the Eldritch Eye",
-            "id": "vnotee"
-        },
-        {
-            "title": "Vecna: Eve of Ruin",
-            "id": "veor"
-        },
-        {
-            "title": "Quests from the Infinite Staircase",
-            "id": "qftis"
-        },
-        {
-            "title": "Uni and the Hunt for the Lost Horn",
-            "id": "uthftlh"
-        },
-        {
-            "title": "Scions of Elemental Evil",
-            "id": "scoee"
-        },
-        {
-            "title": "Elemental Evil's Player Companions",
-            "id": "eepc"
-        },
-        {
-            "title": "Adventure With Muk",
-            "id": "awm"
+            "id": "au",
+            "title": "Arcana Unleashed"
         }
     ]
 }
